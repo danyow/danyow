@@ -4,8 +4,8 @@
   <ShortName>My Site</ShortName>
   <Description>Search My Site</Description>
   <InputEncoding>UTF-8</InputEncoding>
-  <Image width="16" height="16" type="image/x-icon">https://danyow.cn/img/favicon.ico</Image>
-  <Url type="text/html" method="get" template="https://danyow.cn//search?q={searchTerms}"/>
-  <Url type="application/opensearchdescription+xml" rel="self" template="https://danyow.cn//opensearch.xml" />
-  <moz:SearchForm>https://danyow.cn//</moz:SearchForm>
+  <Image width="16" height="16" type="image/x-icon">https://danyow.netlify.app/img/favicon.ico</Image>
+  <Url type="text/html" method="get" template="https://danyow.netlify.app/search?q={searchTerms}"/>
+  <Url type="application/opensearchdescription+xml" rel="self" template="https://danyow.netlify.app/opensearch.xml" />
+  <moz:SearchForm>https://danyow.netlify.app/</moz:SearchForm>
 </OpenSearchDescription>
