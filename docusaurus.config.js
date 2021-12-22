@@ -25,7 +25,7 @@ function getNextBetaVersionName() {
 const config = {
   title: 'My Site',
   tagline: 'Dinosaurs are cool',
-  url: 'https://danyow.cn/',
+  url: 'https://danyow.netlify.app',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',

@@ -1,0 +1,56 @@
+#
+# Your Crowdin credentials
+#
+project_id: '490937'
+api_token: '3a7a81686867b3ff6adbf19e89b2a46edacdd35a3d841cebf8a19b6c82698161b5b2fd803ae6ee6d'
+
+#
+# Choose file structure in Crowdin
+# e.g. true or false
+#
+preserve_hierarchy: true
+
+# We generally want to use the "two-letters-code" of a locale (ie the language)
+# But not for all locales!
+# "pt-BR" may be better to remain as "pt-BR" instead of being transformed to "pt"
+# Note: &/* is Yaml anchor syntax: https://support.atlassian.com/bitbucket-cloud/docs/yaml-anchors/
+languages_mapping: &languages_mapping
+  two_letters_code:
+    'pt-BR': 'pt-BR'
+
+#
+# Files configuration
+#
+files: [
+  {
+    source: '/i18n/en/**/*',
+    translation: '/i18n/%two_letters_code%/**/%original_file_name%',
+    languages_mapping: *languages_mapping,
+  },
+  {
+    source: '/docs/**/*',
+    translation: '/i18n/%two_letters_code%/docusaurus-plugin-content-docs/current/**/%original_file_name%',
+    languages_mapping: *languages_mapping,
+  },
+  {
+    source: '/tutorial/**/*',
+    translation: '/i18n/%two_letters_code%/docusaurus-plugin-content-docs-tutorial/current/**/%original_file_name%',
+    languages_mapping: *languages_mapping,
+  },
+  {
+    source: '/tutorial_versioned_docs/**/*',
+    translation: '/i18n/%two_letters_code%/docusaurus-plugin-content-docs-tutorial/**/%original_file_name%',
+    languages_mapping: *languages_mapping,
+  },
+  {
+    source: '/blog/**/*',
+    translation: '/i18n/%two_letters_code%/docusaurus-plugin-content-blog/**/%original_file_name%',
+    languages_mapping: *languages_mapping,
+  },
+  {
+    source: '/src/pages/**/*',
+    translation: '/i18n/%two_letters_code%/docusaurus-plugin-content-pages/**/%original_file_name%',
+    ignore: [ '/**/*.js', '/**/*.jsx', '/**/*.ts', '/**/*.tsx', '/**/*.css' ],
+    languages_mapping: *languages_mapping,
+  },
+]

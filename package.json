@@ -10,7 +10,8 @@
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
     "serve": "docusaurus serve",
-    "crowdin": "crowdin",
+    "crowdin-uploade": "crowdin uploade",
+    "crowdin-download": "crowdin download",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids"
   },
