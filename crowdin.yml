@@ -1,29 +1,28 @@
 #
-# Your Crowdin credentials
+# 您的 Crowdin 凭据
 #
 project_id: '490937'
-api_token: '3a7a81686867b3ff6adbf19e89b2a46edacdd35a3d841cebf8a19b6c82698161b5b2fd803ae6ee6d'
+api_token_env: 'CROWDIN_PERSONAL_TOKEN'
 
 #
-# Choose file structure in Crowdin
-# e.g. true or false
+# 在 Crowdin 中选择文件结构
 #
 preserve_hierarchy: true
 
-# We generally want to use the "two-letters-code" of a locale (ie the language)
-# But not for all locales!
-# "pt-BR" may be better to remain as "pt-BR" instead of being transformed to "pt"
+# 我们通常希望使用语言环境（即语言）的“双字母代码”
+# 但并非适用于所有地区！
+# "pt-BR" 最好保留为 "pt-BR" 而不是转换为 "pt"
 # Note: &/* is Yaml anchor syntax: https://support.atlassian.com/bitbucket-cloud/docs/yaml-anchors/
 languages_mapping: &languages_mapping
   two_letters_code:
     'pt-BR': 'pt-BR'
 
 #
-# Files configuration
+# 文件配置
 #
 files: [
   {
-    source: '/i18n/en/**/*',
+    source: '/i18n/zh/**/*',
     translation: '/i18n/%two_letters_code%/**/%original_file_name%',
     languages_mapping: *languages_mapping,
   },

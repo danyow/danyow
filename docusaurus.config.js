@@ -1,5 +1,5 @@
 // @ts-check
-// Note: type annotations allow type checking and IDEs autocompletion
+// Note: 类型注释允许类型检查和 IDE 自动完成
 
 const versions = require('./tutorial_versions.json');
 
@@ -7,7 +7,7 @@ const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 
-// This probably only makes sense for the beta phase, temporary
+// 这可能只对 beta 阶段有意义，暂时
 function getNextBetaVersionName() {
   const expectedPrefix = 'v';
 
@@ -23,15 +23,15 @@ function getNextBetaVersionName() {
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
+  title: '4🌀4',
+  tagline: '你做三四月的事，在八九月自由答案。',
   url: 'https://danyow.cn',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
-  organizationName: 'danyow', // Usually your GitHub org/user name.
-  projectName: 'danyow', // Usually your repo name.
+  organizationName: 'danyow', // 通常是您的 gitHub.com/<组织用户名>。
+  projectName: 'danyow', // 通常是您的仓库名称。
 
   presets: [
     [
@@ -40,14 +40,14 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          // Please change this to your repo.
-          editUrl: 'https://github.com/facebook/docusaurus/edit/main/website/',
+          // 请将其更改为您的仓库。
+          editUrl: 'https://github.com/danyow/danyow/edit/main/',
         },
         blog: {
           showReadingTime: true,
-          // Please change this to your repo.
+          // 请将其更改为您的仓库。
           editUrl:
-            'https://github.com/facebook/docusaurus/edit/main/website/blog/',
+            'https://github.com/danyow/danyow/edit/main/blog',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -77,17 +77,17 @@ const config = {
   ],
 
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en', 'zh'],
+    defaultLocale: 'zh',
+    locales: ['zh', 'en'],
   },
 
   themeConfig:
   /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: 'My Site',
+        title: '4🌀4',
         logo: {
-          alt: 'My Site Logo',
+          alt: '4🌀4 logo',
           src: 'img/logo.svg',
         },
         items: [
@@ -95,13 +95,13 @@ const config = {
             type: 'doc',
             docId: 'greeting',
             position: 'left',
-            label: 'Note',
+            label: '笔记',
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
+          {to: '/blog', label: '博客', position: 'left'},
           {
             type: 'docsVersionDropdown',
             docsPluginId: 'tutorial',
-            label: 'Tutorial',
+            label: '教程',
           },
           {
             type: 'localeDropdown',
@@ -115,63 +115,22 @@ const config = {
         ],
       },
       algolia: {
-        // If Algolia did not provide you any appId, use 'BH4D9OD16A'
+        // 如果 Algolia 没有为您提供任何 appId，请使用“BH4D9OD16A”
         appId: 'S3KRFC060Q',
-        // Public API key: it is safe to commit it
+        // 公共 API 密钥：提交它是安全的
         apiKey: '06d01f9fee4e5ca81a5c2a3d789de5f8',
         indexName: 'danyow',
-        // Optional: see doc section below
+        // 可选：请参阅下面的文档部分
         contextualSearch: true,
-        // Optional: Specify domains where the navigation should occur through window.location instead on history.push. Useful when our Algolia config crawls multiple documentation sites and we want to navigate with window.location.href to them.
+        // 可选：指定应通过 window.location 而不是 history.push 进行导航的域。当我们的 Algolia 配置抓取多个文档站点并且我们想要使用 window.location.href 导航到它们时很有用。
         externalUrlRegex: 'external\\.com|domain\\.com',
-        // Optional: Algolia search parameters
+        // 可选：Algolia 搜索参数
         searchParameters: {},
-        //... other Algolia params
+        //... 其他 Algolia 参数
       },
       footer: {
         style: 'dark',
-        links: [
-          {
-            title: 'Docs',
-            items: [
-              {
-                label: 'Tutorial',
-                to: '/docs/greeting',
-              },
-            ],
-          },
-          {
-            title: 'Community',
-            items: [
-              {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-              },
-              {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
-              },
-              {
-                label: 'Twitter',
-                href: 'https://twitter.com/docusaurus',
-              },
-            ],
-          },
-          {
-            title: 'More',
-            items: [
-              {
-                label: 'Blog',
-                to: '/blog',
-              },
-              {
-                label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
-              },
-            ],
-          },
-        ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `版权 © ${new Date().getFullYear()} danyow, Inc. 使用 Docusaurus 构建。`,
       },
       prism: {
         theme: lightCodeTheme,

@@ -1,6 +1,5 @@
 /**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
+  带有 .module.css 后缀的 CSS 文件将被视为 CSS 模块并在本地限定范围。
  */
 
 .heroBanner {
