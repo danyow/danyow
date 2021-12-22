@@ -25,8 +25,8 @@ function getNextBetaVersionName() {
 const config = {
   title: 'My Site',
   tagline: 'Dinosaurs are cool',
-  url: 'https://danyow.github.io/danyow/',
-  baseUrl: '/danyow/',
+  url: 'https://danyow.cn/',
+  baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
