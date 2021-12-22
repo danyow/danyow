@@ -2,7 +2,7 @@
 # 您的 Crowdin 凭据
 #
 project_id: '490937'
-api_token_env: 'CROWDIN_PERSONAL_TOKEN'
+api_token: 'CROWDIN_PERSONAL_TOKEN'
 
 #
 # 在 Crowdin 中选择文件结构
