@@ -1162,6 +1162,13 @@
     "@babel/helper-validator-identifier" "^7.15.7"
     to-fast-properties "^2.0.0"
 
+"@crowdin/cli@3":
+  version "3.7.4"
+  resolved "https://registry.npmjs.org/@crowdin/cli/-/cli-3.7.4.tgz#5600d8c90d4416325a166fe0cbe339340cebd3af"
+  integrity sha512-gxoJvxq282PWdCQvNRH03wWqBwEXJYlM2aBng5ZbffHLQXVQw7idIeghYJ/7TTwzyXkibq06YPkgAaaJJaoLiw==
+  dependencies:
+    shelljs "^0.8.4"
+
 "@docsearch/css@3.0.0-alpha.42":
   version "3.0.0-alpha.42"
   resolved "https://registry.npmmirror.com/@docsearch/css/download/@docsearch/css-3.0.0-alpha.42.tgz#deb6049e999d6ca9451eba4793cb5b6da28c8773"
@@ -6025,7 +6032,7 @@ react-textarea-autosize@^8.3.2:
     use-composed-ref "^1.0.0"
     use-latest "^1.0.0"
 
-react@^17.0.1:
+react@^17.0.2:
   version "17.0.2"
   resolved "https://registry.npmmirror.com/react/download/react-17.0.2.tgz#d0b5cc516d29eb3eee383f75b62864cfb6800037"
   integrity sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA==

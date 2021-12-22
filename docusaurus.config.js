@@ -1,8 +1,25 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
+const versions = require('./tutorial_versions.json');
+
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+
+
+// This probably only makes sense for the beta phase, temporary
+function getNextBetaVersionName() {
+  const expectedPrefix = 'v';
+
+  const lastReleasedVersion = versions[0];
+  if (!lastReleasedVersion.includes(expectedPrefix)) {
+    throw new Error(
+      'this code is only meant to be used during the 2.0 beta phase.',
+    );
+  }
+  const version = parseInt(lastReleasedVersion.replace(expectedPrefix, ''), 10);
+  return `${expectedPrefix}${version + 1}`;
+}
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -39,8 +56,33 @@ const config = {
     ],
   ],
 
+  plugins: [
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'tutorial',
+        path: 'tutorial',
+        routeBasePath: 'tutorial',
+        sidebarPath: require.resolve('./sidebarsTutorial.js'),
+        editUrl: 'https://github.com/facebook/docusaurus/edit/main/website/',
+        showLastUpdateAuthor: true,
+        showLastUpdateTime: true,
+        versions: {
+          current: {
+            label: `${getNextBetaVersionName()} 🚧`,
+          },
+        },
+      },
+    ],
+  ],
+
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en', 'zh'],
+  },
+
   themeConfig:
-    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
+  /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
         title: 'My Site',
@@ -51,17 +93,40 @@ const config = {
         items: [
           {
             type: 'doc',
-            docId: 'intro',
+            docId: 'greeting',
             position: 'left',
-            label: 'Tutorial',
+            label: 'Note',
           },
           {to: '/blog', label: 'Blog', position: 'left'},
+          {
+            type: 'docsVersionDropdown',
+            docsPluginId: 'tutorial',
+            label: 'Tutorial',
+          },
+          {
+            type: 'localeDropdown',
+            position: 'right',
+          },
           {
             href: 'https://github.com/facebook/docusaurus',
             label: 'GitHub',
             position: 'right',
           },
         ],
+      },
+      algolia: {
+        // If Algolia did not provide you any appId, use 'BH4D9OD16A'
+        appId: 'YOUR_APP_ID',
+        // Public API key: it is safe to commit it
+        apiKey: 'YOUR_SEARCH_API_KEY',
+        indexName: 'YOUR_INDEX_NAME',
+        // Optional: see doc section below
+        contextualSearch: true,
+        // Optional: Specify domains where the navigation should occur through window.location instead on history.push. Useful when our Algolia config crawls multiple documentation sites and we want to navigate with window.location.href to them.
+        externalUrlRegex: 'external\\.com|domain\\.com',
+        // Optional: Algolia search parameters
+        searchParameters: {},
+        //... other Algolia params
       },
       footer: {
         style: 'dark',
@@ -71,7 +136,7 @@ const config = {
             items: [
               {
                 label: 'Tutorial',
-                to: '/docs/intro',
+                to: '/docs/tutorial/intro',
               },
             ],
           },
