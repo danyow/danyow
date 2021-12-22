@@ -12,6 +12,7 @@
     "serve": "docusaurus serve",
     "crowdin-uploade": "crowdin upload",
     "crowdin-download": "crowdin download",
+    "crowdin-build": "yarn write-translations && yarn crowdin-uploade && yarn crowdin-download && yarn build",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids"
   },
