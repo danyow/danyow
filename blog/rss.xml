@@ -4,42 +4,5170 @@
         <title>4🌀4 Blog</title>
         <link>https://danyow.cn/blog</link>
         <description>4🌀4 Blog</description>
-        <lastBuildDate>Thu, 26 Aug 2021 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 15 Jun 2020 01:42:42 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <item>
-            <title><![CDATA[欢迎]]></title>
-            <link>https://danyow.cn/blog/welcome</link>
-            <guid>welcome</guid>
-            <pubDate>Thu, 26 Aug 2021 00:00:00 GMT</pubDate>
-            <description><![CDATA[Docusaurus blogging features are powered by the blog plugin.]]></description>
-            <content:encoded><![CDATA[<p><a href="https://docusaurus.io/docs/blog">Docusaurus blogging features</a> are powered by the <a href="https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-content-blog">blog plugin</a>.</p><p>Simply add Markdown files (or folders) to the <code>blog</code> directory.</p><p>Regular blog authors can be added to <code>authors.yml</code>.</p><p>The blog post date can be extracted from filenames, such as:</p><ul><li><code>2019-05-30-welcome.md</code></li><li><code>2019-05-30-welcome/index.md</code></li></ul><p>A blog post folder can be convenient to co-locate blog post images:</p><p><img src="./img/docusaurus-plushie-banner.png" alt="Docusaurus Plushie"/></p><p>The blog supports tags as well!</p><p><strong>And if you don&#x27;t want a blog</strong>: just delete this directory, and use <code>blog: false</code> in your Docusaurus config.</p>]]></content:encoded>
+            <title><![CDATA[Clash的使用]]></title>
+            <link>https://danyow.cn/blog/2020/clash</link>
+            <guid>/2020/clash</guid>
+            <pubDate>Mon, 15 Jun 2020 01:42:42 GMT</pubDate>
+            <description><![CDATA[Title: 这是一个翻墙工具，支持v2ray协议，这点就很重要。]]></description>
+            <content:encoded><![CDATA[<p>Title: 这是一个翻墙工具，支持<code>v2ray</code>协议，这点就很重要。</p><p>配置：</p><pre><code class="language-yml">
+###############################################################
+
+# 本范例来源为网络
+
+# YouTube 搜索 波仔分享
+
+# 原文发布地址 https://www.v2rayssr.com/clashxx.html
+
+###############################################################
+
+port: 7890
+
+socks-port: 7891
+
+redir-port: 7892
+
+allow-lan: false
+
+mode: Rule
+
+log-level: info
+
+external-controller: 127.0.0.1:9090
+
+secret: &#x27;&#x27;
+
+
+
+dns:
+
+  enable: true
+
+  nameserver:
+
+    - 1.2.4.8
+
+    - 114.114.114.114
+
+    - 223.5.5.5
+
+    - tls://dns.rubyfish.cn:853
+
+  fallback:
+
+    - tls://1.0.0.1:853
+
+    - tls://dns.google:853
+
+
+
+cfw-bypass:
+
+    - qq.com
+
+    - taobao.com
+
+    - music.163.com
+
+    - &#x27;*.music.126.net&#x27;
+
+    - localhost
+
+    - 127.*
+
+    - 10.*
+
+    - 172.16.*
+
+    - 172.17.*
+
+    - 172.18.*
+
+    - 172.19.*
+
+    - 172.20.*
+
+    - 172.21.*
+
+    - 172.22.*
+
+    - 172.23.*
+
+    - 172.24.*
+
+    - 172.25.*
+
+    - 172.26.*
+
+    - 172.27.*
+
+    - 172.28.*
+
+    - 172.29.*
+
+    - 172.30.*
+
+    - 172.31.*
+
+    - 192.168.*
+
+cfw-latency-timeout: 5000
+
+
+
+# 代理节点
+
+Proxy:
+
+###############################################################配置分割线
+
+# Shadowsocks 支持的加密方式:
+
+#   aes-128-gcm aes-192-gcm aes-256-gcm
+
+#   aes-128-cfb aes-192-cfb aes-256-cfb
+
+#   aes-128-ctr aes-192-ctr aes-256-ctr
+
+#   rc4-md5 chacha20-ietf xchacha20
+
+#   chacha20-ietf-poly1305 xchacha20-ietf-poly1305
+
+# Shadowsocks 配置范本
+
+# 第一种配置
+
+#- name: &quot;你的SS节点1&quot;               # 软件显示的节点名字
+
+#  type: ss                                  # 代理类型
+
+#  server: 1.2.4.8                          # 服务器 IP
+
+#  port: 443                                 #  端口号
+
+#  cipher: chacha20-ietf-poly1305   # 加密方法
+
+#  password: &quot;password&quot;                # SS 密码
+
+#  # udp: true                                #默认不开启
+
+  
+
+#第二种配置
+
+# Shadowsocks + simple-obfs   配置范本
+
+#- name: &quot;你的SS节点2&quot;
+
+#  type: ss
+
+#  server: 1.2.4.8
+
+#  port: 443
+
+#  cipher: chacha20-ietf-poly1305
+
+#  password: &quot;password&quot;
+
+#  plugin: obfs
+
+#  plugin-opts:
+
+#    mode: tls # or http               #  大部分选择 HTTP
+
+#    # host: bing.com                  #  伪装
+
+# VMess 的配置
+
+#- name: &quot;你的V2RAY节点1&quot; # 软件显示的节点名字
+
+#  type: vmess # 代理类型
+
+#  server: v2rayssr.com # 服务器 IP
+
+#  port: 443 #  端口号
+
+#  uuid: a3482e88-686a-4a58-8126-99c9df64b7bf
+
+#  alterId: 64  #额外的 ID
+
+#  cipher: auto
+
+#  #上面几行为必选参数
+
+#  #下面几行为可选参数  根据你的配置情况来
+
+#  # udp: true    #默认不开启
+
+#  # tls: true      #TLS 开启
+
+#  # skip-cert-verify: true     #默认不开启
+
+#  # network: ws    # 网路类型 WS HTTP 等
+
+#  # ws-path: /path  # 路径
+
+#  # ws-headers:     #默认不开启
+
+#  #  Host: v2ray.com    # HOST
+
+# Trojan 的配置
+
+#- name: &quot;trojan&quot;
+
+#  type: trojan
+
+#  server: server
+
+#  port: 443
+
+#  password: yourpsk
+
+#  # udp: true
+
+#  # sni: example.com # aka server name
+
+#  # alpn:
+
+#  #   - h2
+
+#  #   - http/1.1
+
+#  # skip-cert-verify: true
+
+# 配置开始
+
+- name: &quot;V2ray节点的主机测试&quot;
+
+  type: vmess
+
+  server: xxxx.com
+
+  port: 443
+
+  uuid: 8e8ed232-4422-1k23-askd-f4524b823f36
+
+  alterId: 0
+
+  cipher: chacha20-poly1305
+
+  tls: true
+
+  network: ws
+
+  ws-path: /paths
+
+  Host: xxxx.com
+
+
+###############################################################配置分割线
+
+
+
+# 代理组策略
+
+Proxy Group:
+
+
+
+# url-test 通过指定的 URL 测试并选择延迟最低的节点
+
+- name: &quot;自动节点选择&quot;
+
+  type: url-test
+
+  proxies:
+
+    - &quot;V2ray节点的主机测试&quot;
+
+  url: &#x27;http://www.gstatic.com/generate_204&#x27;
+
+  interval: 300
+
+
+
+# 代理节点选择
+
+- name: &quot;PROXY&quot;
+
+  type: select
+
+  proxies:
+
+    - &quot;自动节点选择&quot;
+
+    - &quot;V2ray节点的主机测试&quot;
+
+# 白名单模式 PROXY，黑名单模式 DIRECT
+
+- name: &quot;Final&quot;
+
+  type: select
+
+  proxies:
+
+    - &quot;PROXY&quot;
+
+    - &quot;DIRECT&quot;
+
+# Apple 服务代理
+
+- name: &quot;Apple&quot;
+
+  type: select
+
+  proxies:
+
+    - &quot;DIRECT&quot;
+
+    - &quot;PROXY&quot;
+
+# 国际流媒体服务
+
+- name: &quot;GlobalMedia&quot;
+
+  type: select
+
+  proxies:
+
+    - &quot;PROXY&quot;
+
+    - &quot;V2ray节点的主机测试&quot;
+
+# 大陆流媒体面向港澳台限定服务
+
+- name: &quot;HKMTMedia&quot;
+
+  type: select
+
+  proxies:
+
+    - &quot;DIRECT&quot;
+
+    - &quot;V2ray节点的主机测试&quot;
+
+# 运营商及声名狼藉网站劫持
+
+- name: &quot;Hijacking&quot;
+
+  type: select
+
+  proxies:
+
+    - &quot;REJECT&quot;
+
+    - &quot;DIRECT&quot;
+
+
+
+# 规则
+
+Rule:
+
+# Unbreak
+
+# &gt; Google
+
+- DOMAIN-SUFFIX,googletraveladservices.com,DIRECT
+
+- DOMAIN,dl.google.com,DIRECT
+
+- DOMAIN,mtalk.google.com,DIRECT
+
+
+
+# Internet Service Providers Hijacking 运营商劫持
+
+- DOMAIN-SUFFIX,17gouwuba.com,Hijacking
+
+- DOMAIN-SUFFIX,186078.com,Hijacking
+
+- DOMAIN-SUFFIX,189zj.cn,Hijacking
+
+- DOMAIN-SUFFIX,285680.com,Hijacking
+
+- DOMAIN-SUFFIX,3721zh.com,Hijacking
+
+- DOMAIN-SUFFIX,4336wang.cn,Hijacking
+
+- DOMAIN-SUFFIX,51chumoping.com,Hijacking
+
+- DOMAIN-SUFFIX,51mld.cn,Hijacking
+
+- DOMAIN-SUFFIX,51mypc.cn,Hijacking
+
+- DOMAIN-SUFFIX,58mingri.cn,Hijacking
+
+- DOMAIN-SUFFIX,58mingtian.cn,Hijacking
+
+- DOMAIN-SUFFIX,5vl58stm.com,Hijacking
+
+- DOMAIN-SUFFIX,6d63d3.com,Hijacking
+
+- DOMAIN-SUFFIX,7gg.cc,Hijacking
+
+- DOMAIN-SUFFIX,91veg.com,Hijacking
+
+- DOMAIN-SUFFIX,9s6q.cn,Hijacking
+
+- DOMAIN-SUFFIX,adsame.com,Hijacking
+
+- DOMAIN-SUFFIX,aiclk.com,Hijacking
+
+- DOMAIN-SUFFIX,akuai.top,Hijacking
+
+- DOMAIN-SUFFIX,atplay.cn,Hijacking
+
+- DOMAIN-SUFFIX,baiwanchuangyi.com,Hijacking
+
+- DOMAIN-SUFFIX,beerto.cn,Hijacking
+
+- DOMAIN-SUFFIX,beilamusi.com,Hijacking
+
+- DOMAIN-SUFFIX,benshiw.net,Hijacking
+
+- DOMAIN-SUFFIX,bianxianmao.com,Hijacking
+
+- DOMAIN-SUFFIX,bryonypie.com,Hijacking
+
+- DOMAIN-SUFFIX,cishantao.com,Hijacking
+
+- DOMAIN-SUFFIX,cszlks.com,Hijacking
+
+- DOMAIN-SUFFIX,cudaojia.com,Hijacking
+
+- DOMAIN-SUFFIX,dafapromo.com,Hijacking
+
+- DOMAIN-SUFFIX,daitdai.com,Hijacking
+
+- DOMAIN-SUFFIX,dsaeerf.com,Hijacking
+
+- DOMAIN-SUFFIX,dugesheying.com,Hijacking
+
+- DOMAIN-SUFFIX,dv8c1t.cn,Hijacking
+
+- DOMAIN-SUFFIX,echatu.com,Hijacking
+
+- DOMAIN-SUFFIX,erdoscs.com,Hijacking
+
+- DOMAIN-SUFFIX,fan-yong.com,Hijacking
+
+- DOMAIN-SUFFIX,feih.com.cn,Hijacking
+
+- DOMAIN-SUFFIX,fjlqqc.com,Hijacking
+
+- DOMAIN-SUFFIX,fkku194.com,Hijacking
+
+- DOMAIN-SUFFIX,freedrive.cn,Hijacking
+
+- DOMAIN-SUFFIX,gclick.cn,Hijacking
+
+- DOMAIN-SUFFIX,goufanli100.com,Hijacking
+
+- DOMAIN-SUFFIX,goupaoerdai.com,Hijacking
+
+- DOMAIN-SUFFIX,gouwubang.com,Hijacking
+
+- DOMAIN-SUFFIX,gzxnlk.com,Hijacking
+
+- DOMAIN-SUFFIX,haoshengtoys.com,Hijacking
+
+- DOMAIN-SUFFIX,hyunke.com,Hijacking
+
+- DOMAIN-SUFFIX,ichaosheng.com,Hijacking
+
+- DOMAIN-SUFFIX,ishop789.com,Hijacking
+
+- DOMAIN-SUFFIX,jdkic.com,Hijacking
+
+- DOMAIN-SUFFIX,jiubuhua.com,Hijacking
+
+- DOMAIN-SUFFIX,jsncke.com,Hijacking
+
+- DOMAIN-SUFFIX,junkucm.com,Hijacking
+
+- DOMAIN-SUFFIX,jwg365.cn,Hijacking
+
+- DOMAIN-SUFFIX,kawo77.com,Hijacking
+
+- DOMAIN-SUFFIX,kualianyingxiao.cn,Hijacking
+
+- DOMAIN-SUFFIX,kumihua.com,Hijacking
+
+- DOMAIN-SUFFIX,ltheanine.cn,Hijacking
+
+- DOMAIN-SUFFIX,maipinshangmao.com,Hijacking
+
+- DOMAIN-SUFFIX,minisplat.cn,Hijacking
+
+- DOMAIN-SUFFIX,mkitgfs.com,Hijacking
+
+- DOMAIN-SUFFIX,mlnbike.com,Hijacking
+
+- DOMAIN-SUFFIX,mobjump.com,Hijacking
+
+- DOMAIN-SUFFIX,nbkbgd.cn,Hijacking
+
+- DOMAIN-SUFFIX,newapi.com,Hijacking
+
+- DOMAIN-SUFFIX,pinzhitmall.com,Hijacking
+
+- DOMAIN-SUFFIX,poppyta.com,Hijacking
+
+- DOMAIN-SUFFIX,qianchuanghr.com,Hijacking
+
+- DOMAIN-SUFFIX,qichexin.com,Hijacking
+
+- DOMAIN-SUFFIX,qinchugudao.com,Hijacking
+
+- DOMAIN-SUFFIX,quanliyouxi.cn,Hijacking
+
+- DOMAIN-SUFFIX,qutaobi.com,Hijacking
+
+- DOMAIN-SUFFIX,ry51w.cn,Hijacking
+
+- DOMAIN-SUFFIX,sg536.cn,Hijacking
+
+- DOMAIN-SUFFIX,sifubo.cn,Hijacking
+
+- DOMAIN-SUFFIX,sifuce.cn,Hijacking
+
+- DOMAIN-SUFFIX,sifuda.cn,Hijacking
+
+- DOMAIN-SUFFIX,sifufu.cn,Hijacking
+
+- DOMAIN-SUFFIX,sifuge.cn,Hijacking
+
+- DOMAIN-SUFFIX,sifugu.cn,Hijacking
+
+- DOMAIN-SUFFIX,sifuhe.cn,Hijacking
+
+- DOMAIN-SUFFIX,sifuhu.cn,Hijacking
+
+- DOMAIN-SUFFIX,sifuji.cn,Hijacking
+
+- DOMAIN-SUFFIX,sifuka.cn,Hijacking
+
+- DOMAIN-SUFFIX,smgru.net,Hijacking
+
+- DOMAIN-SUFFIX,taoggou.com,Hijacking
+
+- DOMAIN-SUFFIX,tcxshop.com,Hijacking
+
+- DOMAIN-SUFFIX,tjqonline.cn,Hijacking
+
+- DOMAIN-SUFFIX,topitme.com,Hijacking
+
+- DOMAIN-SUFFIX,tt3sm4.cn,Hijacking
+
+- DOMAIN-SUFFIX,tuia.cn,Hijacking
+
+- DOMAIN-SUFFIX,tuipenguin.com,Hijacking
+
+- DOMAIN-SUFFIX,tuitiger.com,Hijacking
+
+- DOMAIN-SUFFIX,websd8.com,Hijacking
+
+- DOMAIN-SUFFIX,wsgblw.com,Hijacking
+
+- DOMAIN-SUFFIX,wx16999.com,Hijacking
+
+- DOMAIN-SUFFIX,xchmai.com,Hijacking
+
+- DOMAIN-SUFFIX,xiaohuau.xyz,Hijacking
+
+- DOMAIN-SUFFIX,ygyzx.cn,Hijacking
+
+- DOMAIN-SUFFIX,yinmong.com,Hijacking
+
+- DOMAIN-SUFFIX,yitaopt.com,Hijacking
+
+- DOMAIN-SUFFIX,yjqiqi.com,Hijacking
+
+- DOMAIN-SUFFIX,yukhj.com,Hijacking
+
+- DOMAIN-SUFFIX,zhaozecheng.cn,Hijacking
+
+- DOMAIN-SUFFIX,zhenxinet.com,Hijacking
+
+- DOMAIN-SUFFIX,zlne800.com,Hijacking
+
+- DOMAIN-SUFFIX,zunmi.cn,Hijacking
+
+- DOMAIN-SUFFIX,zzd6.com,Hijacking
+
+- IP-CIDR,39.107.15.115/32,Hijacking,no-resolve
+
+- IP-CIDR,47.89.59.182/32,Hijacking,no-resolve
+
+- IP-CIDR,103.49.209.27/32,Hijacking,no-resolve
+
+- IP-CIDR,123.56.152.96/32,Hijacking,no-resolve
+
+# &gt; ChinaTelecom
+
+- IP-CIDR,61.160.200.223/32,Hijacking,no-resolve
+
+- IP-CIDR,61.160.200.242/32,Hijacking,no-resolve
+
+- IP-CIDR,61.160.200.252/32,Hijacking,no-resolve
+
+- IP-CIDR,61.174.50.214/32,Hijacking,no-resolve
+
+- IP-CIDR,111.175.220.163/32,Hijacking,no-resolve
+
+- IP-CIDR,111.175.220.164/32,Hijacking,no-resolve
+
+- IP-CIDR,122.229.8.47/32,Hijacking,no-resolve
+
+- IP-CIDR,122.229.29.89/32,Hijacking,no-resolve
+
+- IP-CIDR,124.232.160.178/32,Hijacking,no-resolve
+
+- IP-CIDR,175.6.223.15/32,Hijacking,no-resolve
+
+- IP-CIDR,183.59.53.237/32,Hijacking,no-resolve
+
+- IP-CIDR,218.93.127.37/32,Hijacking,no-resolve
+
+- IP-CIDR,221.228.17.152/32,Hijacking,no-resolve
+
+- IP-CIDR,221.231.6.79/32,Hijacking,no-resolve
+
+- IP-CIDR,222.186.61.91/32,Hijacking,no-resolve
+
+- IP-CIDR,222.186.61.95/32,Hijacking,no-resolve
+
+- IP-CIDR,222.186.61.96/32,Hijacking,no-resolve
+
+- IP-CIDR,222.186.61.97/32,Hijacking,no-resolve
+
+# &gt; ChinaUnicom
+
+- IP-CIDR,106.75.231.48/32,Hijacking,no-resolve
+
+- IP-CIDR,119.4.249.166/32,Hijacking,no-resolve
+
+- IP-CIDR,220.196.52.141/32,Hijacking,no-resolve
+
+- IP-CIDR,221.6.4.148/32,Hijacking,no-resolve
+
+# &gt; ChinaMobile
+
+- IP-CIDR,114.247.28.96/32,Hijacking,no-resolve
+
+- IP-CIDR,221.179.131.72/32,Hijacking,no-resolve
+
+- IP-CIDR,221.179.140.145/32,Hijacking,no-resolve
+
+# &gt; Dr.Peng
+
+# - IP-CIDR,10.72.25.0/24,Hijacking,no-resolve
+
+- IP-CIDR,115.182.16.79/32,Hijacking,no-resolve
+
+- IP-CIDR,118.144.88.126/32,Hijacking,no-resolve
+
+- IP-CIDR,118.144.88.215/32,Hijacking,no-resolve
+
+- IP-CIDR,118.144.88.216/32,Hijacking,no-resolve
+
+- IP-CIDR,120.76.189.132/32,Hijacking,no-resolve
+
+- IP-CIDR,124.14.21.147/32,Hijacking,no-resolve
+
+- IP-CIDR,124.14.21.151/32,Hijacking,no-resolve
+
+- IP-CIDR,180.166.52.24/32,Hijacking,no-resolve
+
+- IP-CIDR,211.161.101.106/32,Hijacking,no-resolve
+
+- IP-CIDR,220.115.251.25/32,Hijacking,no-resolve
+
+- IP-CIDR,222.73.156.235/32,Hijacking,no-resolve
+
+
+
+# Malware 恶意网站
+
+# &gt; 快压
+
+# https://zhuanlan.zhihu.com/p/39534279
+
+- DOMAIN-SUFFIX,kuaizip.com,Hijacking
+
+# &gt; MacKeeper
+
+# https://www.lizhi.io/blog/40002904
+
+- DOMAIN-SUFFIX,mackeeper.com,Hijacking
+
+- DOMAIN-SUFFIX,zryydi.com,Hijacking
+
+# &gt; Adobe Flash China Special Edition
+
+# https://www.zhihu.com/question/281163698/answer/441388130
+
+- DOMAIN-SUFFIX,flash.cn,Hijacking
+
+- DOMAIN,geo2.adobe.com,Hijacking
+
+# &gt; C&amp;J Marketing 思杰马克丁软件
+
+# https://www.zhihu.com/question/46746200
+
+- DOMAIN-SUFFIX,4009997658.com,Hijacking
+
+- DOMAIN-SUFFIX,abbyychina.com,Hijacking
+
+- DOMAIN-SUFFIX,bartender.cc,Hijacking
+
+- DOMAIN-SUFFIX,betterzip.net,Hijacking
+
+- DOMAIN-SUFFIX,betterzipcn.com,Hijacking
+
+- DOMAIN-SUFFIX,beyondcompare.cc,Hijacking
+
+- DOMAIN-SUFFIX,bingdianhuanyuan.cn,Hijacking
+
+- DOMAIN-SUFFIX,chemdraw.com.cn,Hijacking
+
+- DOMAIN-SUFFIX,cjmakeding.com,Hijacking
+
+- DOMAIN-SUFFIX,cjmkt.com,Hijacking
+
+- DOMAIN-SUFFIX,codesoftchina.com,Hijacking
+
+- DOMAIN-SUFFIX,coreldrawchina.com,Hijacking
+
+- DOMAIN-SUFFIX,crossoverchina.com,Hijacking
+
+- DOMAIN-SUFFIX,dongmansoft.com,Hijacking
+
+- DOMAIN-SUFFIX,earmasterchina.cn,Hijacking
+
+- DOMAIN-SUFFIX,easyrecoverychina.com,Hijacking
+
+- DOMAIN-SUFFIX,ediuschina.com,Hijacking
+
+- DOMAIN-SUFFIX,flstudiochina.com,Hijacking
+
+- DOMAIN-SUFFIX,formysql.com,Hijacking
+
+- DOMAIN-SUFFIX,guitarpro.cc,Hijacking
+
+- DOMAIN-SUFFIX,huishenghuiying.com.cn,Hijacking
+
+- DOMAIN-SUFFIX,hypersnap.net,Hijacking
+
+- DOMAIN-SUFFIX,iconworkshop.cn,Hijacking
+
+- DOMAIN-SUFFIX,imindmap.cc,Hijacking
+
+- DOMAIN-SUFFIX,jihehuaban.com.cn,Hijacking
+
+- DOMAIN-SUFFIX,keyshot.cc,Hijacking
+
+- DOMAIN-SUFFIX,kingdeecn.cn,Hijacking
+
+- DOMAIN-SUFFIX,logoshejishi.com,Hijacking
+
+- DOMAIN-SUFFIX,luping.net.cn,Hijacking
+
+- DOMAIN-SUFFIX,mairuan.cn,Hijacking
+
+- DOMAIN-SUFFIX,mairuan.com,Hijacking
+
+- DOMAIN-SUFFIX,mairuan.com.cn,Hijacking
+
+- DOMAIN-SUFFIX,mairuan.net,Hijacking
+
+- DOMAIN-SUFFIX,mairuanwang.com,Hijacking
+
+- DOMAIN-SUFFIX,makeding.com,Hijacking
+
+- DOMAIN-SUFFIX,mathtype.cn,Hijacking
+
+- DOMAIN-SUFFIX,mindmanager.cc,Hijacking
+
+- DOMAIN-SUFFIX,mindmanager.cn,Hijacking
+
+- DOMAIN-SUFFIX,mindmapper.cc,Hijacking
+
+- DOMAIN-SUFFIX,mycleanmymac.com,Hijacking
+
+- DOMAIN-SUFFIX,nicelabel.cc,Hijacking
+
+- DOMAIN-SUFFIX,ntfsformac.cc,Hijacking
+
+- DOMAIN-SUFFIX,ntfsformac.cn,Hijacking
+
+- DOMAIN-SUFFIX,overturechina.com,Hijacking
+
+- DOMAIN-SUFFIX,passwordrecovery.cn,Hijacking
+
+- DOMAIN-SUFFIX,pdfexpert.cc,Hijacking
+
+- DOMAIN-SUFFIX,photozoomchina.com,Hijacking
+
+- DOMAIN-SUFFIX,shankejingling.com,Hijacking
+
+- DOMAIN-SUFFIX,ultraiso.net,Hijacking
+
+- DOMAIN-SUFFIX,vegaschina.cn,Hijacking
+
+- DOMAIN-SUFFIX,xmindchina.net,Hijacking
+
+- DOMAIN-SUFFIX,xshellcn.com,Hijacking
+
+- DOMAIN-SUFFIX,yihuifu.cn,Hijacking
+
+- DOMAIN-SUFFIX,yuanchengxiezuo.com,Hijacking
+
+- DOMAIN-SUFFIX,zbrushcn.com,Hijacking
+
+- DOMAIN-SUFFIX,zhzzx.com,Hijacking
+
+
+
+# Global Area Network
+
+# (GlobalMedia)
+
+# (Music)
+
+# &gt; Deezer
+
+# USER-AGENT,Deezer*,GlobalMedia
+
+- DOMAIN-SUFFIX,deezer.com,GlobalMedia
+
+- DOMAIN-SUFFIX,dzcdn.net,GlobalMedia
+
+# &gt; KKBOX
+
+- DOMAIN-SUFFIX,kkbox.com,GlobalMedia
+
+- DOMAIN-SUFFIX,kkbox.com.tw,GlobalMedia
+
+- DOMAIN-SUFFIX,kfs.io,GlobalMedia
+
+# &gt; JOOX
+
+# USER-AGENT,WeMusic*,GlobalMedia
+
+# USER-AGENT,JOOX*,GlobalMedia
+
+- DOMAIN-SUFFIX,joox.com,GlobalMedia
+
+# &gt; Pandora
+
+# USER-AGENT,Pandora*,GlobalMedia
+
+- DOMAIN-SUFFIX,pandora.com,GlobalMedia
+
+# &gt; SoundCloud
+
+# USER-AGENT,SoundCloud*,GlobalMedia
+
+- DOMAIN-SUFFIX,p-cdn.us,GlobalMedia
+
+- DOMAIN-SUFFIX,sndcdn.com,GlobalMedia
+
+- DOMAIN-SUFFIX,soundcloud.com,GlobalMedia
+
+# &gt; Spotify
+
+# USER-AGENT,Spotify*,GlobalMedia
+
+- DOMAIN-SUFFIX,pscdn.co,GlobalMedia
+
+- DOMAIN-SUFFIX,scdn.co,GlobalMedia
+
+- DOMAIN-SUFFIX,spotify.com,GlobalMedia
+
+- DOMAIN-SUFFIX,spoti.fi,GlobalMedia
+
+- DOMAIN-KEYWORD,spotify.com,GlobalMedia
+
+- DOMAIN-KEYWORD,-spotify-com,GlobalMedia
+
+# &gt; TIDAL
+
+# USER-AGENT,TIDAL*,GlobalMedia
+
+- DOMAIN-SUFFIX,tidal.com,GlobalMedia
+
+# &gt; YouTubeMusic
+
+# USER-AGENT,com.google.ios.youtubemusic*,GlobalMedia
+
+# USER-AGENT,YouTubeMusic*,GlobalMedia
+
+# (Video)
+
+# &gt; All4
+
+# USER-AGENT,All4*,GlobalMedia
+
+- DOMAIN-SUFFIX,c4assets.com,GlobalMedia
+
+- DOMAIN-SUFFIX,channel4.com,GlobalMedia
+
+# &gt; AbemaTV
+
+# USER-AGENT,AbemaTV*,GlobalMedia
+
+- DOMAIN-SUFFIX,abema.io,GlobalMedia
+
+- DOMAIN-SUFFIX,ameba.jp,GlobalMedia
+
+- DOMAIN-SUFFIX,abema.tv,GlobalMedia
+
+- DOMAIN-SUFFIX,hayabusa.io,GlobalMedia
+
+- DOMAIN,abematv.akamaized.net,GlobalMedia
+
+- DOMAIN,ds-linear-abematv.akamaized.net,GlobalMedia
+
+- DOMAIN,ds-vod-abematv.akamaized.net,GlobalMedia
+
+- DOMAIN,linear-abematv.akamaized.net,GlobalMedia
+
+# &gt; Amazon Prime Video
+
+# USER-AGENT,InstantVideo.US*,GlobalMedia
+
+# USER-AGENT,Prime%20Video*,GlobalMedia
+
+- DOMAIN-SUFFIX,aiv-cdn.net,GlobalMedia
+
+- DOMAIN-SUFFIX,aiv-delivery.net,GlobalMedia
+
+- DOMAIN-SUFFIX,amazonvideo.com,GlobalMedia
+
+- DOMAIN-SUFFIX,primevideo.com,GlobalMedia
+
+- DOMAIN,avodmp4s3ww-a.akamaihd.net,GlobalMedia
+
+- DOMAIN,d25xi40x97liuc.cloudfront.net,GlobalMedia
+
+- DOMAIN,dmqdd6hw24ucf.cloudfront.net,GlobalMedia
+
+- DOMAIN,d22qjgkvxw22r6.cloudfront.net,GlobalMedia
+
+- DOMAIN,d1v5ir2lpwr8os.cloudfront.net,GlobalMedia
+
+- DOMAIN-KEYWORD,avoddashs,GlobalMedia
+
+# &gt; Bahamut
+
+# USER-AGENT,Anime*,GlobalMedia
+
+- DOMAIN-SUFFIX,bahamut.com.tw,GlobalMedia
+
+- DOMAIN-SUFFIX,gamer.com.tw,GlobalMedia
+
+- DOMAIN,gamer-cds.cdn.hinet.net,GlobalMedia
+
+- DOMAIN,gamer2-cds.cdn.hinet.net,GlobalMedia
+
+# &gt; BBC iPlayer
+
+# USER-AGENT,BBCiPlayer*,GlobalMedia
+
+- DOMAIN-SUFFIX,bbc.co.uk,GlobalMedia
+
+- DOMAIN-SUFFIX,bbci.co.uk,GlobalMedia
+
+- DOMAIN-KEYWORD,bbcfmt,GlobalMedia
+
+- DOMAIN-KEYWORD,uk-live,GlobalMedia
+
+# &gt; DAZN
+
+# USER-AGENT,DAZN*,GlobalMedia
+
+- DOMAIN-SUFFIX,dazn.com,GlobalMedia
+
+- DOMAIN-SUFFIX,dazn-api.com,GlobalMedia
+
+- DOMAIN,d151l6v8er5bdm.cloudfront.net,GlobalMedia
+
+- DOMAIN-KEYWORD,voddazn,GlobalMedia
+
+# &gt; Disney+
+
+# USER-AGENT,Disney+*,GlobalMedia
+
+- DOMAIN-SUFFIX,bamgrid.com,GlobalMedia
+
+- DOMAIN-SUFFIX,disney-plus.net,GlobalMedia
+
+- DOMAIN-SUFFIX,disneyplus.com,GlobalMedia
+
+- DOMAIN-SUFFIX,dssott.com,GlobalMedia
+
+- DOMAIN,cdn.registerdisney.go.com,GlobalMedia
+
+# &gt; encoreTVB
+
+# USER-AGENT,encoreTVB*,GlobalMedia
+
+- DOMAIN-SUFFIX,encoretvb.com,GlobalMedia
+
+- DOMAIN,edge.api.brightcove.com,GlobalMedia
+
+- DOMAIN,bcbolt446c5271-a.akamaihd.net,GlobalMedia
+
+# &gt; FOX NOW
+
+# USER-AGENT,FOX%20NOW*,GlobalMedia
+
+- DOMAIN-SUFFIX,fox.com,GlobalMedia
+
+- DOMAIN-SUFFIX,foxdcg.com,GlobalMedia
+
+- DOMAIN-SUFFIX,theplatform.com,GlobalMedia
+
+- DOMAIN-SUFFIX,uplynk.com,GlobalMedia
+
+# &gt; HBO NOW
+
+# USER-AGENT,HBO%20NOW*,GlobalMedia
+
+- DOMAIN-SUFFIX,hbo.com,GlobalMedia
+
+- DOMAIN-SUFFIX,hbogo.com,GlobalMedia
+
+- DOMAIN-SUFFIX,hbonow.com,GlobalMedia
+
+# &gt; HBO GO HKG
+
+# USER-AGENT,HBO%20GO%20PROD%20HKG*,GlobalMedia
+
+- DOMAIN-SUFFIX,hbogoasia.com,GlobalMedia
+
+- DOMAIN-SUFFIX,hbogoasia.hk,GlobalMedia
+
+- DOMAIN,bcbolthboa-a.akamaihd.net,GlobalMedia
+
+- DOMAIN,players.brightcove.net,GlobalMedia
+
+- DOMAIN,s3-ap-southeast-1.amazonaws.com,GlobalMedia
+
+- DOMAIN,dai3fd1oh325y.cloudfront.net,GlobalMedia
+
+- DOMAIN,44wilhpljf.execute-api.ap-southeast-1.amazonaws.com,GlobalMedia
+
+- DOMAIN,hboasia1-i.akamaihd.net,GlobalMedia
+
+- DOMAIN,hboasia2-i.akamaihd.net,GlobalMedia
+
+- DOMAIN,hboasia3-i.akamaihd.net,GlobalMedia
+
+- DOMAIN,hboasia4-i.akamaihd.net,GlobalMedia
+
+- DOMAIN,hboasia5-i.akamaihd.net,GlobalMedia
+
+- DOMAIN,cf-images.ap-southeast-1.prod.boltdns.net,GlobalMedia
+
+# &gt; 华文电视
+
+# USER-AGENT,HWTVMobile*,GlobalMedia
+
+- DOMAIN-SUFFIX,5itv.tv,GlobalMedia
+
+- DOMAIN-SUFFIX,ocnttv.com,GlobalMedia
+
+# &gt; Hulu
+
+- DOMAIN-SUFFIX,hulu.com,GlobalMedia
+
+- DOMAIN-SUFFIX,huluim.com,GlobalMedia
+
+- DOMAIN-SUFFIX,hulustream.com,GlobalMedia
+
+# &gt; Hulu(フールー)
+
+- DOMAIN-SUFFIX,happyon.jp,GlobalMedia
+
+- DOMAIN-SUFFIX,hulu.jp,GlobalMedia
+
+# &gt; ITV
+
+# USER-AGENT,ITV_Player*,GlobalMedia
+
+- DOMAIN-SUFFIX,itv.com,GlobalMedia
+
+- DOMAIN-SUFFIX,itvstatic.com,GlobalMedia
+
+- DOMAIN,itvpnpmobile-a.akamaihd.net,GlobalMedia
+
+# &gt; KKTV
+
+# USER-AGENT,KKTV*,GlobalMedia
+
+# USER-AGENT,com.kktv.ios.kktv*,GlobalMedia
+
+- DOMAIN-SUFFIX,kktv.com.tw,GlobalMedia
+
+- DOMAIN-SUFFIX,kktv.me,GlobalMedia
+
+- DOMAIN,kktv-theater.kk.stream,GlobalMedia
+
+# &gt; Line TV
+
+# USER-AGENT,LINE%20TV*,GlobalMedia
+
+- DOMAIN-SUFFIX,linetv.tw,GlobalMedia
+
+- DOMAIN,d3c7rimkq79yfu.cloudfront.net,GlobalMedia
+
+# &gt; LiTV
+
+- DOMAIN-SUFFIX,litv.tv,GlobalMedia
+
+- DOMAIN,litvfreemobile-hichannel.cdn.hinet.net,GlobalMedia
+
+# &gt; My5
+
+# USER-AGENT,My5*,GlobalMedia
+
+- DOMAIN-SUFFIX,channel5.com,GlobalMedia
+
+- DOMAIN-SUFFIX,my5.tv,GlobalMedia
+
+- DOMAIN,d349g9zuie06uo.cloudfront.net,GlobalMedia
+
+# &gt; myTV SUPER
+
+# USER-AGENT,mytv*,GlobalMedia
+
+- DOMAIN-SUFFIX,mytvsuper.com,GlobalMedia
+
+- DOMAIN-SUFFIX,tvb.com,GlobalMedia
+
+# &gt; Netflix
+
+# USER-AGENT,Argo*,GlobalMedia
+
+- DOMAIN-SUFFIX,netflix.com,GlobalMedia
+
+- DOMAIN-SUFFIX,netflix.net,GlobalMedia
+
+- DOMAIN-SUFFIX,nflxext.com,GlobalMedia
+
+- DOMAIN-SUFFIX,nflximg.com,GlobalMedia
+
+- DOMAIN-SUFFIX,nflximg.net,GlobalMedia
+
+- DOMAIN-SUFFIX,nflxso.net,GlobalMedia
+
+- DOMAIN-SUFFIX,nflxvideo.net,GlobalMedia
+
+- DOMAIN-SUFFIX,netflixdnstest0.com,GlobalMedia
+
+- DOMAIN-SUFFIX,netflixdnstest1.com,GlobalMedia
+
+- DOMAIN-SUFFIX,netflixdnstest2.com,GlobalMedia
+
+- DOMAIN-SUFFIX,netflixdnstest3.com,GlobalMedia
+
+- DOMAIN-SUFFIX,netflixdnstest4.com,GlobalMedia
+
+- DOMAIN-SUFFIX,netflixdnstest5.com,GlobalMedia
+
+- DOMAIN-SUFFIX,netflixdnstest6.com,GlobalMedia
+
+- DOMAIN-SUFFIX,netflixdnstest7.com,GlobalMedia
+
+- DOMAIN-SUFFIX,netflixdnstest8.com,GlobalMedia
+
+- DOMAIN-SUFFIX,netflixdnstest9.com,GlobalMedia
+
+- IP-CIDR,23.246.0.0/18,GlobalMedia,no-resolve
+
+- IP-CIDR,37.77.184.0/21,GlobalMedia,no-resolve
+
+- IP-CIDR,45.57.0.0/17,GlobalMedia,no-resolve
+
+- IP-CIDR,64.120.128.0/17,GlobalMedia,no-resolve
+
+- IP-CIDR,66.197.128.0/17,GlobalMedia,no-resolve
+
+- IP-CIDR,108.175.32.0/20,GlobalMedia,no-resolve
+
+- IP-CIDR,192.173.64.0/18,GlobalMedia,no-resolve
+
+- IP-CIDR,198.38.96.0/19,GlobalMedia,no-resolve
+
+- IP-CIDR,198.45.48.0/20,GlobalMedia,no-resolve
+
+# &gt; niconico
+
+# USER-AGENT,Niconico*,GlobalMedia
+
+- DOMAIN-SUFFIX,dmc.nico,GlobalMedia
+
+- DOMAIN-SUFFIX,nicovideo.jp,GlobalMedia
+
+- DOMAIN-SUFFIX,nimg.jp,GlobalMedia
+
+- DOMAIN-SUFFIX,socdm.com,GlobalMedia
+
+# &gt; PBS
+
+# USER-AGENT,PBS*,GlobalMedia
+
+- DOMAIN-SUFFIX,pbs.org,GlobalMedia
+
+# &gt; Pornhub
+
+- DOMAIN-SUFFIX,phncdn.com,GlobalMedia
+
+- DOMAIN-SUFFIX,pornhub.com,GlobalMedia
+
+- DOMAIN-SUFFIX,pornhubpremium.com,GlobalMedia
+
+# &gt; 台湾好
+
+# USER-AGENT,TaiwanGood*,GlobalMedia
+
+- DOMAIN-SUFFIX,skyking.com.tw,GlobalMedia
+
+- DOMAIN,hamifans.emome.net,GlobalMedia
+
+# &gt; Twitch
+
+- DOMAIN-SUFFIX,twitch.tv,GlobalMedia
+
+- DOMAIN-SUFFIX,twitchcdn.net,GlobalMedia
+
+- DOMAIN-SUFFIX,ttvnw.net,GlobalMedia
+
+- DOMAIN-SUFFIX,jtvnw.net,GlobalMedia
+
+# &gt; ViuTV
+
+# USER-AGENT,Viu*,GlobalMedia
+
+# USER-AGENT,ViuTV*,GlobalMedia
+
+- DOMAIN-SUFFIX,viu.com,GlobalMedia
+
+- DOMAIN-SUFFIX,viu.tv,GlobalMedia
+
+- DOMAIN,api.viu.now.com,GlobalMedia
+
+- DOMAIN,d1k2us671qcoau.cloudfront.net,GlobalMedia
+
+- DOMAIN,d2anahhhmp1ffz.cloudfront.net,GlobalMedia
+
+- DOMAIN,dfp6rglgjqszk.cloudfront.net,GlobalMedia
+
+# &gt; YouTube
+
+# USER-AGENT,com.google.ios.youtube*,GlobalMedia
+
+# USER-AGENT,YouTube*,GlobalMedia
+
+- DOMAIN-SUFFIX,googlevideo.com,GlobalMedia
+
+- DOMAIN-SUFFIX,youtube.com,GlobalMedia
+
+- DOMAIN,youtubei.googleapis.com,GlobalMedia
+
+
+
+# (HKMTMedia)
+
+# &gt; 愛奇藝台灣站
+
+- DOMAIN-SUFFIX,iqiyi.com,HKMTMedia
+
+- DOMAIN-SUFFIX,71.am,HKMTMedia
+
+# &gt; bilibili
+
+- DOMAIN-SUFFIX,bilibili.com,HKMTMedia
+
+- DOMAIN,upos-hz-mirrorakam.akamaized.net,HKMTMedia
+
+
+
+# (DNS Cache Pollution Protection)
+
+# &gt; Google
+
+- DOMAIN-SUFFIX,ampproject.org,PROXY
+
+- DOMAIN-SUFFIX,appspot.com,PROXY
+
+- DOMAIN-SUFFIX,blogger.com,PROXY
+
+- DOMAIN-SUFFIX,getoutline.org,PROXY
+
+- DOMAIN-SUFFIX,gvt0.com,PROXY
+
+- DOMAIN-SUFFIX,gvt1.com,PROXY
+
+- DOMAIN-SUFFIX,gvt3.com,PROXY
+
+- DOMAIN-SUFFIX,xn--ngstr-lra8j.com,PROXY
+
+- DOMAIN-KEYWORD,google,PROXY
+
+- DOMAIN-KEYWORD,blogspot,PROXY
+
+# &gt; Microsoft
+
+- DOMAIN-SUFFIX,onedrive.live.com,PROXY
+
+- DOMAIN-SUFFIX,xboxlive.com,PROXY
+
+# &gt; Facebook
+
+- DOMAIN-SUFFIX,cdninstagram.com,PROXY
+
+- DOMAIN-SUFFIX,fb.com,PROXY
+
+- DOMAIN-SUFFIX,fb.me,PROXY
+
+- DOMAIN-SUFFIX,fbaddins.com,PROXY
+
+- DOMAIN-SUFFIX,fbcdn.net,PROXY
+
+- DOMAIN-SUFFIX,fbsbx.com,PROXY
+
+- DOMAIN-SUFFIX,fbworkmail.com,PROXY
+
+- DOMAIN-SUFFIX,instagram.com,PROXY
+
+- DOMAIN-SUFFIX,m.me,PROXY
+
+- DOMAIN-SUFFIX,messenger.com,PROXY
+
+- DOMAIN-SUFFIX,oculus.com,PROXY
+
+- DOMAIN-SUFFIX,oculuscdn.com,PROXY
+
+- DOMAIN-SUFFIX,rocksdb.org,PROXY
+
+- DOMAIN-SUFFIX,whatsapp.com,PROXY
+
+- DOMAIN-SUFFIX,whatsapp.net,PROXY
+
+- DOMAIN-KEYWORD,facebook,PROXY
+
+- IP-CIDR,3.123.36.126/32,PROXY,no-resolve
+
+- IP-CIDR,35.157.215.84/32,PROXY,no-resolve
+
+- IP-CIDR,35.157.217.255/32,PROXY,no-resolve
+
+- IP-CIDR,52.58.209.134/32,PROXY,no-resolve
+
+- IP-CIDR,54.93.124.31/32,PROXY,no-resolve
+
+- IP-CIDR,54.162.243.80/32,PROXY,no-resolve
+
+- IP-CIDR,54.173.34.141/32,PROXY,no-resolve
+
+- IP-CIDR,54.235.23.242/32,PROXY,no-resolve
+
+- IP-CIDR,169.45.248.118/32,PROXY,no-resolve
+
+# &gt; Twitter
+
+- DOMAIN-SUFFIX,pscp.tv,PROXY
+
+- DOMAIN-SUFFIX,periscope.tv,PROXY
+
+- DOMAIN-SUFFIX,t.co,PROXY
+
+- DOMAIN-SUFFIX,twimg.co,PROXY
+
+- DOMAIN-SUFFIX,twimg.com,PROXY
+
+- DOMAIN-SUFFIX,twitpic.com,PROXY
+
+- DOMAIN-SUFFIX,vine.co,PROXY
+
+- DOMAIN-KEYWORD,twitter,PROXY
+
+# &gt; Telegram
+
+- DOMAIN-SUFFIX,t.me,PROXY
+
+- DOMAIN-SUFFIX,tdesktop.com,PROXY
+
+- DOMAIN-SUFFIX,telegra.ph,PROXY
+
+- DOMAIN-SUFFIX,telegram.me,PROXY
+
+- DOMAIN-SUFFIX,telegram.org,PROXY
+
+- IP-CIDR,91.108.4.0/22,PROXY,no-resolve
+
+- IP-CIDR,91.108.8.0/22,PROXY,no-resolve
+
+- IP-CIDR,91.108.12.0/22,PROXY,no-resolve
+
+- IP-CIDR,91.108.16.0/22,PROXY,no-resolve
+
+- IP-CIDR,91.108.56.0/22,PROXY,no-resolve
+
+- IP-CIDR,149.154.160.0/20,PROXY,no-resolve
+
+# &gt; Line
+
+- DOMAIN-SUFFIX,line.me,PROXY
+
+- DOMAIN-SUFFIX,line-apps.com,PROXY
+
+- DOMAIN-SUFFIX,line-scdn.net,PROXY
+
+- DOMAIN-SUFFIX,naver.jp,PROXY
+
+- IP-CIDR,103.2.30.0/23,PROXY,no-resolve
+
+- IP-CIDR,125.209.208.0/20,PROXY,no-resolve
+
+- IP-CIDR,147.92.128.0/17,PROXY,no-resolve
+
+- IP-CIDR,203.104.144.0/21,PROXY,no-resolve
+
+# &gt; Other
+
+- DOMAIN-SUFFIX,4shared.com,PROXY
+
+- DOMAIN-SUFFIX,520cc.cc,PROXY
+
+- DOMAIN-SUFFIX,881903.com,PROXY
+
+- DOMAIN-SUFFIX,9cache.com,PROXY
+
+- DOMAIN-SUFFIX,9gag.com,PROXY
+
+- DOMAIN-SUFFIX,abc.com,PROXY
+
+- DOMAIN-SUFFIX,abc.net.au,PROXY
+
+- DOMAIN-SUFFIX,abebooks.com,PROXY
+
+- DOMAIN-SUFFIX,amazon.co.jp,PROXY
+
+- DOMAIN-SUFFIX,apigee.com,PROXY
+
+- DOMAIN-SUFFIX,apk-dl.com,PROXY
+
+- DOMAIN-SUFFIX,apkfind.com,PROXY
+
+- DOMAIN-SUFFIX,apkmirror.com,PROXY
+
+- DOMAIN-SUFFIX,apkmonk.com,PROXY
+
+- DOMAIN-SUFFIX,apkpure.com,PROXY
+
+- DOMAIN-SUFFIX,aptoide.com,PROXY
+
+- DOMAIN-SUFFIX,archive.is,PROXY
+
+- DOMAIN-SUFFIX,archive.org,PROXY
+
+- DOMAIN-SUFFIX,arte.tv,PROXY
+
+- DOMAIN-SUFFIX,artstation.com,PROXY
+
+- DOMAIN-SUFFIX,arukas.io,PROXY
+
+- DOMAIN-SUFFIX,ask.com,PROXY
+
+- DOMAIN-SUFFIX,avg.com,PROXY
+
+- DOMAIN-SUFFIX,avgle.com,PROXY
+
+- DOMAIN-SUFFIX,badoo.com,PROXY
+
+- DOMAIN-SUFFIX,bandwagonhost.com,PROXY
+
+- DOMAIN-SUFFIX,bbc.com,PROXY
+
+- DOMAIN-SUFFIX,behance.net,PROXY
+
+- DOMAIN-SUFFIX,bibox.com,PROXY
+
+- DOMAIN-SUFFIX,biggo.com.tw,PROXY
+
+- DOMAIN-SUFFIX,binance.com,PROXY
+
+- DOMAIN-SUFFIX,bitcointalk.org,PROXY
+
+- DOMAIN-SUFFIX,bitfinex.com,PROXY
+
+- DOMAIN-SUFFIX,bitmex.com,PROXY
+
+- DOMAIN-SUFFIX,bit-z.com,PROXY
+
+- DOMAIN-SUFFIX,bloglovin.com,PROXY
+
+- DOMAIN-SUFFIX,bloomberg.cn,PROXY
+
+- DOMAIN-SUFFIX,bloomberg.com,PROXY
+
+- DOMAIN-SUFFIX,blubrry.com,PROXY
+
+- DOMAIN-SUFFIX,book.com.tw,PROXY
+
+- DOMAIN-SUFFIX,booklive.jp,PROXY
+
+- DOMAIN-SUFFIX,books.com.tw,PROXY
+
+- DOMAIN-SUFFIX,boslife.net,PROXY
+
+- DOMAIN-SUFFIX,box.com,PROXY
+
+- DOMAIN-SUFFIX,businessinsider.com,PROXY
+
+- DOMAIN-SUFFIX,bwh1.net,PROXY
+
+- DOMAIN-SUFFIX,castbox.fm,PROXY
+
+- DOMAIN-SUFFIX,cbc.ca,PROXY
+
+- DOMAIN-SUFFIX,cdw.com,PROXY
+
+- DOMAIN-SUFFIX,change.org,PROXY
+
+- DOMAIN-SUFFIX,channelnewsasia.com,PROXY
+
+- DOMAIN-SUFFIX,ck101.com,PROXY
+
+- DOMAIN-SUFFIX,clarionproject.org,PROXY
+
+- DOMAIN-SUFFIX,clyp.it,PROXY
+
+- DOMAIN-SUFFIX,cna.com.tw,PROXY
+
+- DOMAIN-SUFFIX,comparitech.com,PROXY
+
+- DOMAIN-SUFFIX,conoha.jp,PROXY
+
+- DOMAIN-SUFFIX,crucial.com,PROXY
+
+- DOMAIN-SUFFIX,cts.com.tw,PROXY
+
+- DOMAIN-SUFFIX,cw.com.tw,PROXY
+
+- DOMAIN-SUFFIX,cyberctm.com,PROXY
+
+- DOMAIN-SUFFIX,dailymotion.com,PROXY
+
+- DOMAIN-SUFFIX,dailyview.tw,PROXY
+
+- DOMAIN-SUFFIX,daum.net,PROXY
+
+- DOMAIN-SUFFIX,daumcdn.net,PROXY
+
+- DOMAIN-SUFFIX,dcard.tw,PROXY
+
+- DOMAIN-SUFFIX,deepdiscount.com,PROXY
+
+- DOMAIN-SUFFIX,depositphotos.com,PROXY
+
+- DOMAIN-SUFFIX,deviantart.com,PROXY
+
+- DOMAIN-SUFFIX,disconnect.me,PROXY
+
+- DOMAIN-SUFFIX,discordapp.com,PROXY
+
+- DOMAIN-SUFFIX,discordapp.net,PROXY
+
+- DOMAIN-SUFFIX,disqus.com,PROXY
+
+- DOMAIN-SUFFIX,dlercloud.com,PROXY
+
+- DOMAIN-SUFFIX,dns2go.com,PROXY
+
+- DOMAIN-SUFFIX,dowjones.com,PROXY
+
+- DOMAIN-SUFFIX,dropbox.com,PROXY
+
+- DOMAIN-SUFFIX,dropboxusercontent.com,PROXY
+
+- DOMAIN-SUFFIX,duckduckgo.com,PROXY
+
+- DOMAIN-SUFFIX,dw.com,PROXY
+
+- DOMAIN-SUFFIX,dynu.com,PROXY
+
+- DOMAIN-SUFFIX,earthcam.com,PROXY
+
+- DOMAIN-SUFFIX,ebookservice.tw,PROXY
+
+- DOMAIN-SUFFIX,economist.com,PROXY
+
+- DOMAIN-SUFFIX,edgecastcdn.net,PROXY
+
+- DOMAIN-SUFFIX,edu,PROXY
+
+- DOMAIN-SUFFIX,elpais.com,PROXY
+
+- DOMAIN-SUFFIX,enanyang.my,PROXY
+
+- DOMAIN-SUFFIX,encyclopedia.com,PROXY
+
+- DOMAIN-SUFFIX,esoir.be,PROXY
+
+- DOMAIN-SUFFIX,etherscan.io,PROXY
+
+- DOMAIN-SUFFIX,euronews.com,PROXY
+
+- DOMAIN-SUFFIX,evozi.com,PROXY
+
+- DOMAIN-SUFFIX,feedly.com,PROXY
+
+- DOMAIN-SUFFIX,firech.at,PROXY
+
+- DOMAIN-SUFFIX,flickr.com,PROXY
+
+- DOMAIN-SUFFIX,flitto.com,PROXY
+
+- DOMAIN-SUFFIX,foreignpolicy.com,PROXY
+
+- DOMAIN-SUFFIX,freebrowser.org,PROXY
+
+- DOMAIN-SUFFIX,freewechat.com,PROXY
+
+- DOMAIN-SUFFIX,freeweibo.com,PROXY
+
+- DOMAIN-SUFFIX,friday.tw,PROXY
+
+- DOMAIN-SUFFIX,ftchinese.com,PROXY
+
+- DOMAIN-SUFFIX,ftimg.net,PROXY
+
+- DOMAIN-SUFFIX,gate.io,PROXY
+
+- DOMAIN-SUFFIX,getlantern.org,PROXY
+
+- DOMAIN-SUFFIX,getsync.com,PROXY
+
+- DOMAIN-SUFFIX,globalvoices.org,PROXY
+
+- DOMAIN-SUFFIX,goo.ne.jp,PROXY
+
+- DOMAIN-SUFFIX,goodreads.com,PROXY
+
+- DOMAIN-SUFFIX,gov,PROXY
+
+- DOMAIN-SUFFIX,gov.tw,PROXY
+
+- DOMAIN-SUFFIX,greatfire.org,PROXY
+
+- DOMAIN-SUFFIX,gumroad.com,PROXY
+
+- DOMAIN-SUFFIX,hbg.com,PROXY
+
+- DOMAIN-SUFFIX,heroku.com,PROXY
+
+- DOMAIN-SUFFIX,hightail.com,PROXY
+
+- DOMAIN-SUFFIX,hk01.com,PROXY
+
+- DOMAIN-SUFFIX,hkbf.org,PROXY
+
+- DOMAIN-SUFFIX,hkbookcity.com,PROXY
+
+- DOMAIN-SUFFIX,hkej.com,PROXY
+
+- DOMAIN-SUFFIX,hket.com,PROXY
+
+- DOMAIN-SUFFIX,hkgolden.com,PROXY
+
+- DOMAIN-SUFFIX,hootsuite.com,PROXY
+
+- DOMAIN-SUFFIX,hudson.org,PROXY
+
+- DOMAIN-SUFFIX,hyread.com.tw,PROXY
+
+- DOMAIN-SUFFIX,ibtimes.com,PROXY
+
+- DOMAIN-SUFFIX,i-cable.com,PROXY
+
+- DOMAIN-SUFFIX,icij.org,PROXY
+
+- DOMAIN-SUFFIX,icoco.com,PROXY
+
+- DOMAIN-SUFFIX,imgur.com,PROXY
+
+- DOMAIN-SUFFIX,initiummall.com,PROXY
+
+- DOMAIN-SUFFIX,insecam.org,PROXY
+
+- DOMAIN-SUFFIX,ipfs.io,PROXY
+
+- DOMAIN-SUFFIX,issuu.com,PROXY
+
+- DOMAIN-SUFFIX,istockphoto.com,PROXY
+
+- DOMAIN-SUFFIX,japantimes.co.jp,PROXY
+
+- DOMAIN-SUFFIX,jiji.com,PROXY
+
+- DOMAIN-SUFFIX,jinx.com,PROXY
+
+- DOMAIN-SUFFIX,jkforum.net,PROXY
+
+- DOMAIN-SUFFIX,joinmastodon.org,PROXY
+
+- DOMAIN-SUFFIX,justmysocks.net,PROXY
+
+- DOMAIN-SUFFIX,justpaste.it,PROXY
+
+- DOMAIN-SUFFIX,kakao.com,PROXY
+
+- DOMAIN-SUFFIX,kakaocorp.com,PROXY
+
+- DOMAIN-SUFFIX,kik.com,PROXY
+
+- DOMAIN-SUFFIX,kobo.com,PROXY
+
+- DOMAIN-SUFFIX,kobobooks.com,PROXY
+
+- DOMAIN-SUFFIX,kodingen.com,PROXY
+
+- DOMAIN-SUFFIX,lemonde.fr,PROXY
+
+- DOMAIN-SUFFIX,lepoint.fr,PROXY
+
+- DOMAIN-SUFFIX,lihkg.com,PROXY
+
+- DOMAIN-SUFFIX,listennotes.com,PROXY
+
+- DOMAIN-SUFFIX,livestream.com,PROXY
+
+- DOMAIN-SUFFIX,logmein.com,PROXY
+
+- DOMAIN-SUFFIX,mail.ru,PROXY
+
+- DOMAIN-SUFFIX,mailchimp.com,PROXY
+
+- DOMAIN-SUFFIX,marc.info,PROXY
+
+- DOMAIN-SUFFIX,matters.news,PROXY
+
+- DOMAIN-SUFFIX,maying.co,PROXY
+
+- DOMAIN-SUFFIX,medium.com,PROXY
+
+- DOMAIN-SUFFIX,mega.nz,PROXY
+
+- DOMAIN-SUFFIX,mil,PROXY
+
+- DOMAIN-SUFFIX,mingpao.com,PROXY
+
+- DOMAIN-SUFFIX,mobile01.com,PROXY
+
+- DOMAIN-SUFFIX,myspace.com,PROXY
+
+- DOMAIN-SUFFIX,myspacecdn.com,PROXY
+
+- DOMAIN-SUFFIX,nanyang.com,PROXY
+
+- DOMAIN-SUFFIX,naver.com,PROXY
+
+- DOMAIN-SUFFIX,neowin.net,PROXY
+
+- DOMAIN-SUFFIX,newstapa.org,PROXY
+
+- DOMAIN-SUFFIX,nexitally.com,PROXY
+
+- DOMAIN-SUFFIX,nhk.or.jp,PROXY
+
+- DOMAIN-SUFFIX,nicovideo.jp,PROXY
+
+- DOMAIN-SUFFIX,nii.ac.jp,PROXY
+
+- DOMAIN-SUFFIX,nikkei.com,PROXY
+
+- DOMAIN-SUFFIX,nofile.io,PROXY
+
+- DOMAIN-SUFFIX,now.com,PROXY
+
+- DOMAIN-SUFFIX,nrk.no,PROXY
+
+- DOMAIN-SUFFIX,nyt.com,PROXY
+
+- DOMAIN-SUFFIX,nytchina.com,PROXY
+
+- DOMAIN-SUFFIX,nytcn.me,PROXY
+
+- DOMAIN-SUFFIX,nytco.com,PROXY
+
+- DOMAIN-SUFFIX,nytimes.com,PROXY
+
+- DOMAIN-SUFFIX,nytimg.com,PROXY
+
+- DOMAIN-SUFFIX,nytlog.com,PROXY
+
+- DOMAIN-SUFFIX,nytstyle.com,PROXY
+
+- DOMAIN-SUFFIX,ok.ru,PROXY
+
+- DOMAIN-SUFFIX,okex.com,PROXY
+
+- DOMAIN-SUFFIX,on.cc,PROXY
+
+- DOMAIN-SUFFIX,orientaldaily.com.my,PROXY
+
+- DOMAIN-SUFFIX,overcast.fm,PROXY
+
+- DOMAIN-SUFFIX,paltalk.com,PROXY
+
+- DOMAIN-SUFFIX,pao-pao.net,PROXY
+
+- DOMAIN-SUFFIX,parsevideo.com,PROXY
+
+- DOMAIN-SUFFIX,pbxes.com,PROXY
+
+- DOMAIN-SUFFIX,pcdvd.com.tw,PROXY
+
+- DOMAIN-SUFFIX,pchome.com.tw,PROXY
+
+- DOMAIN-SUFFIX,pcloud.com,PROXY
+
+- DOMAIN-SUFFIX,picacomic.com,PROXY
+
+- DOMAIN-SUFFIX,pinimg.com,PROXY
+
+- DOMAIN-SUFFIX,pixiv.net,PROXY
+
+- DOMAIN-SUFFIX,player.fm,PROXY
+
+- DOMAIN-SUFFIX,plurk.com,PROXY
+
+- DOMAIN-SUFFIX,po18.tw,PROXY
+
+- DOMAIN-SUFFIX,potato.im,PROXY
+
+- DOMAIN-SUFFIX,potatso.com,PROXY
+
+- DOMAIN-SUFFIX,prism-break.org,PROXY
+
+- DOMAIN-SUFFIX,proxifier.com,PROXY
+
+- DOMAIN-SUFFIX,pt.im,PROXY
+
+- DOMAIN-SUFFIX,pts.org.tw,PROXY
+
+- DOMAIN-SUFFIX,pubu.com.tw,PROXY
+
+- DOMAIN-SUFFIX,pubu.tw,PROXY
+
+- DOMAIN-SUFFIX,pureapk.com,PROXY
+
+- DOMAIN-SUFFIX,quora.com,PROXY
+
+- DOMAIN-SUFFIX,quoracdn.net,PROXY
+
+- DOMAIN-SUFFIX,rakuten.co.jp,PROXY
+
+- DOMAIN-SUFFIX,readingtimes.com.tw,PROXY
+
+- DOMAIN-SUFFIX,readmoo.com,PROXY
+
+- DOMAIN-SUFFIX,redbubble.com,PROXY
+
+- DOMAIN-SUFFIX,reddit.com,PROXY
+
+- DOMAIN-SUFFIX,redditmedia.com,PROXY
+
+- DOMAIN-SUFFIX,resilio.com,PROXY
+
+- DOMAIN-SUFFIX,reuters.com,PROXY
+
+- DOMAIN-SUFFIX,reutersmedia.net,PROXY
+
+- DOMAIN-SUFFIX,rfi.fr,PROXY
+
+- DOMAIN-SUFFIX,rixcloud.com,PROXY
+
+- DOMAIN-SUFFIX,roadshow.hk,PROXY
+
+- DOMAIN-SUFFIX,scmp.com,PROXY
+
+- DOMAIN-SUFFIX,scribd.com,PROXY
+
+- DOMAIN-SUFFIX,seatguru.com,PROXY
+
+- DOMAIN-SUFFIX,shadowsocks.org,PROXY
+
+- DOMAIN-SUFFIX,shopee.tw,PROXY
+
+- DOMAIN-SUFFIX,slideshare.net,PROXY
+
+- DOMAIN-SUFFIX,softfamous.com,PROXY
+
+- DOMAIN-SUFFIX,soundcloud.com,PROXY
+
+- DOMAIN-SUFFIX,ssrcloud.org,PROXY
+
+- DOMAIN-SUFFIX,startpage.com,PROXY
+
+- DOMAIN-SUFFIX,steamcommunity.com,PROXY
+
+- DOMAIN-SUFFIX,steemit.com,PROXY
+
+- DOMAIN-SUFFIX,steemitwallet.com,PROXY
+
+- DOMAIN-SUFFIX,t66y.com,PROXY
+
+- DOMAIN-SUFFIX,tapatalk.com,PROXY
+
+- DOMAIN-SUFFIX,teco-hk.org,PROXY
+
+- DOMAIN-SUFFIX,teco-mo.org,PROXY
+
+- DOMAIN-SUFFIX,teddysun.com,PROXY
+
+- DOMAIN-SUFFIX,textnow.me,PROXY
+
+- DOMAIN-SUFFIX,theguardian.com,PROXY
+
+- DOMAIN-SUFFIX,theinitium.com,PROXY
+
+- DOMAIN-SUFFIX,thetvdb.com,PROXY
+
+- DOMAIN-SUFFIX,tineye.com,PROXY
+
+- DOMAIN-SUFFIX,torproject.org,PROXY
+
+- DOMAIN-SUFFIX,tumblr.com,PROXY
+
+- DOMAIN-SUFFIX,turbobit.net,PROXY
+
+- DOMAIN-SUFFIX,tutanota.com,PROXY
+
+- DOMAIN-SUFFIX,tvboxnow.com,PROXY
+
+- DOMAIN-SUFFIX,udn.com,PROXY
+
+- DOMAIN-SUFFIX,unseen.is,PROXY
+
+- DOMAIN-SUFFIX,upmedia.mg,PROXY
+
+- DOMAIN-SUFFIX,uptodown.com,PROXY
+
+- DOMAIN-SUFFIX,urbandictionary.com,PROXY
+
+- DOMAIN-SUFFIX,ustream.tv,PROXY
+
+- DOMAIN-SUFFIX,uwants.com,PROXY
+
+- DOMAIN-SUFFIX,v2ray.com,PROXY
+
+- DOMAIN-SUFFIX,viber.com,PROXY
+
+- DOMAIN-SUFFIX,videopress.com,PROXY
+
+- DOMAIN-SUFFIX,vimeo.com,PROXY
+
+- DOMAIN-SUFFIX,voachinese.com,PROXY
+
+- DOMAIN-SUFFIX,voanews.com,PROXY
+
+- DOMAIN-SUFFIX,voxer.com,PROXY
+
+- DOMAIN-SUFFIX,vzw.com,PROXY
+
+- DOMAIN-SUFFIX,w3schools.com,PROXY
+
+- DOMAIN-SUFFIX,washingtonpost.com,PROXY
+
+- DOMAIN-SUFFIX,wattpad.com,PROXY
+
+- DOMAIN-SUFFIX,whoer.net,PROXY
+
+- DOMAIN-SUFFIX,wikimapia.org,PROXY
+
+- DOMAIN-SUFFIX,wikipedia.org,PROXY
+
+- DOMAIN-SUFFIX,wikiquote.org,PROXY
+
+- DOMAIN-SUFFIX,wikiwand.com,PROXY
+
+- DOMAIN-SUFFIX,winudf.com,PROXY
+
+- DOMAIN-SUFFIX,wire.com,PROXY
+
+- DOMAIN-SUFFIX,wordpress.com,PROXY
+
+- DOMAIN-SUFFIX,workflow.is,PROXY
+
+- DOMAIN-SUFFIX,worldcat.org,PROXY
+
+- DOMAIN-SUFFIX,wsj.com,PROXY
+
+- DOMAIN-SUFFIX,wsj.net,PROXY
+
+- DOMAIN-SUFFIX,xhamster.com,PROXY
+
+- DOMAIN-SUFFIX,xn--90wwvt03e.com,PROXY
+
+- DOMAIN-SUFFIX,xn--i2ru8q2qg.com,PROXY
+
+- DOMAIN-SUFFIX,xnxx.com,PROXY
+
+- DOMAIN-SUFFIX,xvideos.com,PROXY
+
+- DOMAIN-SUFFIX,yahoo.com,PROXY
+
+- DOMAIN-SUFFIX,yandex.ru,PROXY
+
+- DOMAIN-SUFFIX,ycombinator.com,PROXY
+
+- DOMAIN-SUFFIX,yesasia.com,PROXY
+
+- DOMAIN-SUFFIX,yes-news.com,PROXY
+
+- DOMAIN-SUFFIX,yomiuri.co.jp,PROXY
+
+- DOMAIN-SUFFIX,you-get.org,PROXY
+
+- DOMAIN-SUFFIX,zaobao.com,PROXY
+
+- DOMAIN-SUFFIX,zb.com,PROXY
+
+- DOMAIN-SUFFIX,zello.com,PROXY
+
+- DOMAIN-SUFFIX,zeronet.io,PROXY
+
+- DOMAIN-SUFFIX,zoom.us,PROXY
+
+- DOMAIN-KEYWORD,github,PROXY
+
+- DOMAIN-KEYWORD,jav,PROXY
+
+- DOMAIN-KEYWORD,pinterest,PROXY
+
+- DOMAIN-KEYWORD,porn,PROXY
+
+- DOMAIN-KEYWORD,wikileaks,PROXY
+
+
+
+# (Region-Restricted Access Denied)
+
+- DOMAIN-SUFFIX,apartmentratings.com,PROXY
+
+- DOMAIN-SUFFIX,apartments.com,PROXY
+
+- DOMAIN-SUFFIX,bankmobilevibe.com,PROXY
+
+- DOMAIN-SUFFIX,bing.com,PROXY
+
+- DOMAIN-SUFFIX,booktopia.com.au,PROXY
+
+- DOMAIN-SUFFIX,cccat.io,PROXY
+
+- DOMAIN-SUFFIX,centauro.com.br,PROXY
+
+- DOMAIN-SUFFIX,clearsurance.com,PROXY
+
+- DOMAIN-SUFFIX,costco.com,PROXY
+
+- DOMAIN-SUFFIX,crackle.com,PROXY
+
+- DOMAIN-SUFFIX,depositphotos.cn,PROXY
+
+- DOMAIN-SUFFIX,dish.com,PROXY
+
+- DOMAIN-SUFFIX,dmm.co.jp,PROXY
+
+- DOMAIN-SUFFIX,dmm.com,PROXY
+
+- DOMAIN-SUFFIX,dnvod.tv,PROXY
+
+- DOMAIN-SUFFIX,esurance.com,PROXY
+
+- DOMAIN-SUFFIX,extmatrix.com,PROXY
+
+- DOMAIN-SUFFIX,fastpic.ru,PROXY
+
+- DOMAIN-SUFFIX,flipboard.com,PROXY
+
+- DOMAIN-SUFFIX,fnac.be,PROXY
+
+- DOMAIN-SUFFIX,fnac.com,PROXY
+
+- DOMAIN-SUFFIX,funkyimg.com,PROXY
+
+- DOMAIN-SUFFIX,fxnetworks.com,PROXY
+
+- DOMAIN-SUFFIX,gettyimages.com,PROXY
+
+- DOMAIN-SUFFIX,go.com,PROXY
+
+- DOMAIN-SUFFIX,here.com,PROXY
+
+- DOMAIN-SUFFIX,jcpenney.com,PROXY
+
+- DOMAIN-SUFFIX,jiehua.tv,PROXY
+
+- DOMAIN-SUFFIX,mailfence.com,PROXY
+
+- DOMAIN-SUFFIX,nationwide.com,PROXY
+
+- DOMAIN-SUFFIX,nbc.com,PROXY
+
+- DOMAIN-SUFFIX,nexon.com,PROXY
+
+- DOMAIN-SUFFIX,nordstrom.com,PROXY
+
+- DOMAIN-SUFFIX,nordstromimage.com,PROXY
+
+- DOMAIN-SUFFIX,nordstromrack.com,PROXY
+
+- DOMAIN-SUFFIX,superpages.com,PROXY
+
+- DOMAIN-SUFFIX,target.com,PROXY
+
+- DOMAIN-SUFFIX,thinkgeek.com,PROXY
+
+- DOMAIN-SUFFIX,tracfone.com,PROXY
+
+- DOMAIN-SUFFIX,unity3d.com,PROXY
+
+- DOMAIN-SUFFIX,uploader.jp,PROXY
+
+- DOMAIN-SUFFIX,vevo.com,PROXY
+
+- DOMAIN-SUFFIX,viu.tv,PROXY
+
+- DOMAIN-SUFFIX,vk.com,PROXY
+
+- DOMAIN-SUFFIX,vsco.co,PROXY
+
+- DOMAIN-SUFFIX,xfinity.com,PROXY
+
+- DOMAIN-SUFFIX,zattoo.com,PROXY
+
+# USER-AGENT,Roam*,PROXY
+
+
+
+# (The Most Popular Sites)
+
+# &gt; Apple
+
+# &gt;&gt; TestFlight
+
+- DOMAIN,testflight.apple.com,PROXY
+
+# &gt;&gt; Apple URL Shortener
+
+- DOMAIN-SUFFIX,appsto.re,PROXY
+
+# &gt;&gt; iBooks Store download
+
+- DOMAIN,books.itunes.apple.com,PROXY
+
+# &gt;&gt; iTunes Store Moveis Trailers
+
+- DOMAIN,hls.itunes.apple.com,PROXY
+
+# &gt;&gt; App Store Preview
+
+- DOMAIN,apps.apple.com,PROXY
+
+- DOMAIN,itunes.apple.com,PROXY
+
+# &gt;&gt; Spotlight
+
+- DOMAIN,api-glb-sea.smoot.apple.com,PROXY
+
+# &gt;&gt; Dictionary
+
+- DOMAIN,lookup-api.apple.com,PROXY
+
+# &gt; Google
+
+- DOMAIN-SUFFIX,abc.xyz,PROXY
+
+- DOMAIN-SUFFIX,android.com,PROXY
+
+- DOMAIN-SUFFIX,androidify.com,PROXY
+
+- DOMAIN-SUFFIX,dialogflow.com,PROXY
+
+- DOMAIN-SUFFIX,autodraw.com,PROXY
+
+- DOMAIN-SUFFIX,capitalg.com,PROXY
+
+- DOMAIN-SUFFIX,certificate-transparency.org,PROXY
+
+- DOMAIN-SUFFIX,chrome.com,PROXY
+
+- DOMAIN-SUFFIX,chromeexperiments.com,PROXY
+
+- DOMAIN-SUFFIX,chromestatus.com,PROXY
+
+- DOMAIN-SUFFIX,chromium.org,PROXY
+
+- DOMAIN-SUFFIX,creativelab5.com,PROXY
+
+- DOMAIN-SUFFIX,debug.com,PROXY
+
+- DOMAIN-SUFFIX,deepmind.com,PROXY
+
+- DOMAIN-SUFFIX,firebaseio.com,PROXY
+
+- DOMAIN-SUFFIX,getmdl.io,PROXY
+
+- DOMAIN-SUFFIX,ggpht.com,PROXY
+
+- DOMAIN-SUFFIX,gmail.com,PROXY
+
+- DOMAIN-SUFFIX,gmodules.com,PROXY
+
+- DOMAIN-SUFFIX,godoc.org,PROXY
+
+- DOMAIN-SUFFIX,golang.org,PROXY
+
+- DOMAIN-SUFFIX,gstatic.com,PROXY
+
+- DOMAIN-SUFFIX,gv.com,PROXY
+
+- DOMAIN-SUFFIX,gwtproject.org,PROXY
+
+- DOMAIN-SUFFIX,itasoftware.com,PROXY
+
+- DOMAIN-SUFFIX,madewithcode.com,PROXY
+
+- DOMAIN-SUFFIX,material.io,PROXY
+
+- DOMAIN-SUFFIX,polymer-project.org,PROXY
+
+- DOMAIN-SUFFIX,admin.recaptcha.net,PROXY
+
+- DOMAIN-SUFFIX,recaptcha.net,PROXY
+
+- DOMAIN-SUFFIX,shattered.io,PROXY
+
+- DOMAIN-SUFFIX,synergyse.com,PROXY
+
+- DOMAIN-SUFFIX,tensorflow.org,PROXY
+
+- DOMAIN-SUFFIX,tfhub.dev,PROXY
+
+- DOMAIN-SUFFIX,tiltbrush.com,PROXY
+
+- DOMAIN-SUFFIX,waveprotocol.org,PROXY
+
+- DOMAIN-SUFFIX,waymo.com,PROXY
+
+- DOMAIN-SUFFIX,webmproject.org,PROXY
+
+- DOMAIN-SUFFIX,webrtc.org,PROXY
+
+- DOMAIN-SUFFIX,whatbrowser.org,PROXY
+
+- DOMAIN-SUFFIX,widevine.com,PROXY
+
+- DOMAIN-SUFFIX,x.company,PROXY
+
+- DOMAIN-SUFFIX,youtu.be,PROXY
+
+- DOMAIN-SUFFIX,yt.be,PROXY
+
+- DOMAIN-SUFFIX,ytimg.com,PROXY
+
+# &gt; Microsoft
+
+# &gt;&gt; Microsoft OneDrive
+
+- DOMAIN-SUFFIX,1drv.com,PROXY
+
+- DOMAIN-SUFFIX,1drv.ms,PROXY
+
+- DOMAIN-SUFFIX,blob.core.windows.net,PROXY
+
+- DOMAIN-SUFFIX,livefilestore.com,PROXY
+
+- DOMAIN-SUFFIX,onedrive.com,PROXY
+
+- DOMAIN-SUFFIX,storage.live.com,PROXY
+
+- DOMAIN-SUFFIX,storage.msn.com,PROXY
+
+- DOMAIN,oneclient.sfx.ms,PROXY
+
+# &gt; Other
+
+- DOMAIN-SUFFIX,0rz.tw,PROXY
+
+- DOMAIN-SUFFIX,4bluestones.biz,PROXY
+
+- DOMAIN-SUFFIX,9bis.net,PROXY
+
+- DOMAIN-SUFFIX,allconnected.co,PROXY
+
+- DOMAIN-SUFFIX,aol.com,PROXY
+
+- DOMAIN-SUFFIX,bcc.com.tw,PROXY
+
+- DOMAIN-SUFFIX,bit.ly,PROXY
+
+- DOMAIN-SUFFIX,bitshare.com,PROXY
+
+- DOMAIN-SUFFIX,blog.jp,PROXY
+
+- DOMAIN-SUFFIX,blogimg.jp,PROXY
+
+- DOMAIN-SUFFIX,blogtd.org,PROXY
+
+- DOMAIN-SUFFIX,broadcast.co.nz,PROXY
+
+- DOMAIN-SUFFIX,camfrog.com,PROXY
+
+- DOMAIN-SUFFIX,cfos.de,PROXY
+
+- DOMAIN-SUFFIX,citypopulation.de,PROXY
+
+- DOMAIN-SUFFIX,cloudfront.net,PROXY
+
+- DOMAIN-SUFFIX,ctitv.com.tw,PROXY
+
+- DOMAIN-SUFFIX,cuhk.edu.hk,PROXY
+
+- DOMAIN-SUFFIX,cusu.hk,PROXY
+
+- DOMAIN-SUFFIX,discord.gg,PROXY
+
+- DOMAIN-SUFFIX,discuss.com.hk,PROXY
+
+- DOMAIN-SUFFIX,dropboxapi.com,PROXY
+
+- DOMAIN-SUFFIX,duolingo.cn,PROXY
+
+- DOMAIN-SUFFIX,edditstatic.com,PROXY
+
+- DOMAIN-SUFFIX,flickriver.com,PROXY
+
+- DOMAIN-SUFFIX,focustaiwan.tw,PROXY
+
+- DOMAIN-SUFFIX,free.fr,PROXY
+
+- DOMAIN-SUFFIX,gigacircle.com,PROXY
+
+- DOMAIN-SUFFIX,hk-pub.com,PROXY
+
+- DOMAIN-SUFFIX,hosting.co.uk,PROXY
+
+- DOMAIN-SUFFIX,hwcdn.net,PROXY
+
+- DOMAIN-SUFFIX,ifixit.com,PROXY
+
+- DOMAIN-SUFFIX,iphone4hongkong.com,PROXY
+
+- DOMAIN-SUFFIX,iphonetaiwan.org,PROXY
+
+- DOMAIN-SUFFIX,iptvbin.com,PROXY
+
+- DOMAIN-SUFFIX,linksalpha.com,PROXY
+
+- DOMAIN-SUFFIX,manyvids.com,PROXY
+
+- DOMAIN-SUFFIX,myactimes.com,PROXY
+
+- DOMAIN-SUFFIX,newsblur.com,PROXY
+
+- DOMAIN-SUFFIX,now.im,PROXY
+
+- DOMAIN-SUFFIX,nowe.com,PROXY
+
+- DOMAIN-SUFFIX,redditlist.com,PROXY
+
+- DOMAIN-SUFFIX,s3.amazonaws.com,PROXY
+
+- DOMAIN-SUFFIX,signal.org,PROXY
+
+- DOMAIN-SUFFIX,smartmailcloud.com,PROXY
+
+- DOMAIN-SUFFIX,sparknotes.com,PROXY
+
+- DOMAIN-SUFFIX,streetvoice.com,PROXY
+
+- DOMAIN-SUFFIX,supertop.co,PROXY
+
+- DOMAIN-SUFFIX,tv.com,PROXY
+
+- DOMAIN-SUFFIX,typepad.com,PROXY
+
+- DOMAIN-SUFFIX,udnbkk.com,PROXY
+
+- DOMAIN-SUFFIX,urbanairship.com,PROXY
+
+- DOMAIN-SUFFIX,whispersystems.org,PROXY
+
+- DOMAIN-SUFFIX,wikia.com,PROXY
+
+- DOMAIN-SUFFIX,wn.com,PROXY
+
+- DOMAIN-SUFFIX,wolframalpha.com,PROXY
+
+- DOMAIN-SUFFIX,x-art.com,PROXY
+
+- DOMAIN-SUFFIX,yimg.com,PROXY
+
+- DOMAIN,api.steampowered.com,PROXY
+
+- DOMAIN,store.steampowered.com,PROXY
+
+
+
+# China Area Network
+
+# &gt; 360
+
+- DOMAIN-SUFFIX,qhres.com,DIRECT
+
+- DOMAIN-SUFFIX,qhimg.com,DIRECT
+
+# &gt; Akamai
+
+- DOMAIN-SUFFIX,akadns.net,DIRECT
+
+# - DOMAIN-SUFFIX,akamai.net,DIRECT
+
+# - DOMAIN-SUFFIX,akamaiedge.net,DIRECT
+
+# - DOMAIN-SUFFIX,akamaihd.net,DIRECT
+
+# - DOMAIN-SUFFIX,akamaistream.net,DIRECT
+
+# - DOMAIN-SUFFIX,akamaized.net,DIRECT
+
+# &gt; Alibaba
+
+# USER-AGENT,%E4%BC%98%E9%85%B7*,DIRECT
+
+- DOMAIN-SUFFIX,alibaba.com,DIRECT
+
+- DOMAIN-SUFFIX,alicdn.com,DIRECT
+
+- DOMAIN-SUFFIX,alikunlun.com,DIRECT
+
+- DOMAIN-SUFFIX,alipay.com,DIRECT
+
+- DOMAIN-SUFFIX,amap.com,DIRECT
+
+- DOMAIN-SUFFIX,autonavi.com,DIRECT
+
+- DOMAIN-SUFFIX,dingtalk.com,DIRECT
+
+- DOMAIN-SUFFIX,mxhichina.com,DIRECT
+
+- DOMAIN-SUFFIX,soku.com,DIRECT
+
+- DOMAIN-SUFFIX,taobao.com,DIRECT
+
+- DOMAIN-SUFFIX,tmall.com,DIRECT
+
+- DOMAIN-SUFFIX,tmall.hk,DIRECT
+
+- DOMAIN-SUFFIX,ykimg.com,DIRECT
+
+- DOMAIN-SUFFIX,youku.com,DIRECT
+
+- DOMAIN-SUFFIX,xiami.com,DIRECT
+
+- DOMAIN-SUFFIX,xiami.net,DIRECT
+
+# &gt; Baidu
+
+- DOMAIN-SUFFIX,baidu.com,DIRECT
+
+- DOMAIN-SUFFIX,baidubcr.com,DIRECT
+
+- DOMAIN-SUFFIX,bdstatic.com,DIRECT
+
+- DOMAIN-SUFFIX,yunjiasu-cdn.net,DIRECT
+
+# &gt; bilibili
+
+- DOMAIN-SUFFIX,acgvideo.com,DIRECT
+
+- DOMAIN-SUFFIX,biliapi.com,DIRECT
+
+- DOMAIN-SUFFIX,biliapi.net,DIRECT
+
+- DOMAIN-SUFFIX,bilibili.com,DIRECT
+
+- DOMAIN-SUFFIX,bilibili.tv,DIRECT
+
+- DOMAIN-SUFFIX,hdslb.com,DIRECT
+
+# &gt; Blizzard
+
+- DOMAIN-SUFFIX,blizzard.com,DIRECT
+
+- DOMAIN-SUFFIX,battle.net,DIRECT
+
+- DOMAIN,blzddist1-a.akamaihd.net,DIRECT
+
+# &gt; ByteDance
+
+- DOMAIN-SUFFIX,feiliao.com,DIRECT
+
+- DOMAIN-SUFFIX,pstatp.com,DIRECT
+
+- DOMAIN-SUFFIX,snssdk.com,DIRECT
+
+- DOMAIN-SUFFIX,iesdouyin.com,DIRECT
+
+- DOMAIN-SUFFIX,toutiao.com,DIRECT
+
+# &gt; CCTV
+
+- DOMAIN-SUFFIX,cctv.com,DIRECT
+
+- DOMAIN-SUFFIX,cctvpic.com,DIRECT
+
+- DOMAIN-SUFFIX,livechina.com,DIRECT
+
+# &gt; DiDi
+
+- DOMAIN-SUFFIX,didialift.com,DIRECT
+
+- DOMAIN-SUFFIX,didiglobal.com,DIRECT
+
+- DOMAIN-SUFFIX,udache.com,DIRECT
+
+# &gt; 蛋蛋赞
+
+- DOMAIN-SUFFIX,343480.com,DIRECT
+
+- DOMAIN-SUFFIX,baduziyuan.com,DIRECT
+
+- DOMAIN-SUFFIX,com-hs-hkdy.com,DIRECT
+
+- DOMAIN-SUFFIX,czybjz.com,DIRECT
+
+- DOMAIN-SUFFIX,dandanzan.com,DIRECT
+
+- DOMAIN-SUFFIX,fjhps.com,DIRECT
+
+- DOMAIN-SUFFIX,kuyunbo.club,DIRECT
+
+# &gt; ChinaNet
+
+- DOMAIN-SUFFIX,21cn.com,DIRECT
+
+# &gt; HunanTV
+
+- DOMAIN-SUFFIX,hitv.com,DIRECT
+
+- DOMAIN-SUFFIX,mgtv.com,DIRECT
+
+# &gt; iQiyi
+
+- DOMAIN-SUFFIX,iqiyi.com,DIRECT
+
+- DOMAIN-SUFFIX,iqiyipic.com,DIRECT
+
+- DOMAIN-SUFFIX,71.am.com,DIRECT
+
+# &gt; JD
+
+- DOMAIN-SUFFIX,jd.com,DIRECT
+
+- DOMAIN-SUFFIX,jd.hk,DIRECT
+
+- DOMAIN-SUFFIX,jdpay.com,DIRECT
+
+- DOMAIN-SUFFIX,360buyimg.com,DIRECT
+
+# &gt; Kingsoft
+
+- DOMAIN-SUFFIX,iciba.com,DIRECT
+
+- DOMAIN-SUFFIX,ksosoft.com,DIRECT
+
+# &gt; Meitu
+
+- DOMAIN-SUFFIX,meitu.com,DIRECT
+
+- DOMAIN-SUFFIX,meitudata.com,DIRECT
+
+- DOMAIN-SUFFIX,meitustat.com,DIRECT
+
+- DOMAIN-SUFFIX,meipai.com,DIRECT
+
+# &gt; MI
+
+- DOMAIN-SUFFIX,duokan.com,DIRECT
+
+- DOMAIN-SUFFIX,mi-img.com,DIRECT
+
+- DOMAIN-SUFFIX,miui.com,DIRECT
+
+- DOMAIN-SUFFIX,miwifi.com,DIRECT
+
+- DOMAIN-SUFFIX,xiaomi.com,DIRECT
+
+# &gt; Microsoft
+
+- DOMAIN-SUFFIX,microsoft.com,DIRECT
+
+- DOMAIN-SUFFIX,msecnd.net,DIRECT
+
+- DOMAIN-SUFFIX,office365.com,DIRECT
+
+- DOMAIN-SUFFIX,outlook.com,DIRECT
+
+- DOMAIN-SUFFIX,s-microsoft.com,DIRECT
+
+- DOMAIN-SUFFIX,visualstudio.com,DIRECT
+
+- DOMAIN-SUFFIX,windows.com,DIRECT
+
+- DOMAIN-SUFFIX,windowsupdate.com,DIRECT
+
+- DOMAIN,officecdn-microsoft-com.akamaized.net,DIRECT
+
+# &gt; NetEase
+
+# USER-AGENT,NeteaseMusic*,DIRECT
+
+# USER-AGENT,%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90*,DIRECT
+
+- DOMAIN-SUFFIX,163.com,DIRECT
+
+- DOMAIN-SUFFIX,126.net,DIRECT
+
+- DOMAIN-SUFFIX,127.net,DIRECT
+
+- DOMAIN-SUFFIX,163yun.com,DIRECT
+
+- DOMAIN-SUFFIX,lofter.com,DIRECT
+
+- DOMAIN-SUFFIX,netease.com,DIRECT
+
+- DOMAIN-SUFFIX,ydstatic.com,DIRECT
+
+# &gt; Sina
+
+- DOMAIN-SUFFIX,sina.com,DIRECT
+
+- DOMAIN-SUFFIX,weibo.com,DIRECT
+
+- DOMAIN-SUFFIX,weibocdn.com,DIRECT
+
+# &gt; Sohu
+
+- DOMAIN-SUFFIX,sohu.com,DIRECT
+
+- DOMAIN-SUFFIX,sohucs.com,DIRECT
+
+- DOMAIN-SUFFIX,sohu-inc.com,DIRECT
+
+- DOMAIN-SUFFIX,v-56.com,DIRECT
+
+# &gt; Sogo
+
+- DOMAIN-SUFFIX,sogo.com,DIRECT
+
+- DOMAIN-SUFFIX,sogou.com,DIRECT
+
+- DOMAIN-SUFFIX,sogoucdn.com,DIRECT
+
+# &gt; Steam
+
+- DOMAIN-SUFFIX,steampowered.com,DIRECT
+
+- DOMAIN-SUFFIX,steam-chat.com,DIRECT
+
+- DOMAIN-SUFFIX,steamgames.com,DIRECT
+
+- DOMAIN-SUFFIX,steamusercontent.com,DIRECT
+
+- DOMAIN-SUFFIX,steamcontent.com,DIRECT
+
+- DOMAIN-SUFFIX,steamstatic.com,DIRECT
+
+- DOMAIN-SUFFIX,steamcdn-a.akamaihd.net,DIRECT
+
+- DOMAIN-SUFFIX,steamstat.us,DIRECT
+
+# &gt; Tencent
+
+# USER-AGENT,MicroMessenger%20Client,DIRECT
+
+# USER-AGENT,WeChat*,DIRECT
+
+- DOMAIN-SUFFIX,gtimg.com,DIRECT
+
+- DOMAIN-SUFFIX,idqqimg.com,DIRECT
+
+- DOMAIN-SUFFIX,igamecj.com,DIRECT
+
+- DOMAIN-SUFFIX,myapp.com,DIRECT
+
+- DOMAIN-SUFFIX,myqcloud.com,DIRECT
+
+- DOMAIN-SUFFIX,qq.com,DIRECT
+
+- DOMAIN-SUFFIX,tencent.com,DIRECT
+
+- DOMAIN-SUFFIX,tencent-cloud.net,DIRECT
+
+# &gt; YYeTs
+
+# USER-AGENT,YYeTs*,DIRECT
+
+- DOMAIN-SUFFIX,jstucdn.com,DIRECT
+
+- DOMAIN-SUFFIX,zimuzu.io,DIRECT
+
+- DOMAIN-SUFFIX,zimuzu.tv,DIRECT
+
+- DOMAIN-SUFFIX,zmz2019.com,DIRECT
+
+- DOMAIN-SUFFIX,zmzapi.com,DIRECT
+
+- DOMAIN-SUFFIX,zmzapi.net,DIRECT
+
+- DOMAIN-SUFFIX,zmzfile.com,DIRECT
+
+# &gt; Content Delivery Network
+
+- DOMAIN-SUFFIX,ccgslb.com,DIRECT
+
+- DOMAIN-SUFFIX,ccgslb.net,DIRECT
+
+- DOMAIN-SUFFIX,chinanetcenter.com,DIRECT
+
+- DOMAIN-SUFFIX,meixincdn.com,DIRECT
+
+- DOMAIN-SUFFIX,ourdvs.com,DIRECT
+
+- DOMAIN-SUFFIX,staticdn.net,DIRECT
+
+- DOMAIN-SUFFIX,wangsu.com,DIRECT
+
+# &gt; IP Query
+
+- DOMAIN-SUFFIX,ipip.net,DIRECT
+
+- DOMAIN-SUFFIX,ip.la,DIRECT
+
+- DOMAIN-SUFFIX,ip-cdn.com,DIRECT
+
+- DOMAIN-SUFFIX,ipv6-test.com,DIRECT
+
+- DOMAIN-SUFFIX,test-ipv6.com,DIRECT
+
+- DOMAIN-SUFFIX,whatismyip.com,DIRECT
+
+# &gt; Speed Test
+
+# - DOMAIN-SUFFIX,speedtest.net,DIRECT
+
+- DOMAIN-SUFFIX,netspeedtestmaster.com,DIRECT
+
+- DOMAIN,speedtest.macpaw.com,DIRECT
+
+# &gt; Private Tracker
+
+- DOMAIN-SUFFIX,awesome-hd.me,DIRECT
+
+- DOMAIN-SUFFIX,broadcasthe.net,DIRECT
+
+- DOMAIN-SUFFIX,chdbits.co,DIRECT
+
+- DOMAIN-SUFFIX,classix-unlimited.co.uk,DIRECT
+
+- DOMAIN-SUFFIX,empornium.me,DIRECT
+
+- DOMAIN-SUFFIX,gazellegames.net,DIRECT
+
+- DOMAIN-SUFFIX,hdchina.org,DIRECT
+
+- DOMAIN-SUFFIX,hdsky.me,DIRECT
+
+- DOMAIN-SUFFIX,icetorrent.org,DIRECT
+
+- DOMAIN-SUFFIX,jpopsuki.eu,DIRECT
+
+- DOMAIN-SUFFIX,keepfrds.com,DIRECT
+
+- DOMAIN-SUFFIX,madsrevolution.net,DIRECT
+
+- DOMAIN-SUFFIX,m-team.cc,DIRECT
+
+- DOMAIN-SUFFIX,nanyangpt.com,DIRECT
+
+- DOMAIN-SUFFIX,ncore.cc,DIRECT
+
+- DOMAIN-SUFFIX,open.cd,DIRECT
+
+- DOMAIN-SUFFIX,ourbits.club,DIRECT
+
+- DOMAIN-SUFFIX,passthepopcorn.me,DIRECT
+
+- DOMAIN-SUFFIX,privatehd.to,DIRECT
+
+- DOMAIN-SUFFIX,redacted.ch,DIRECT
+
+- DOMAIN-SUFFIX,springsunday.net,DIRECT
+
+- DOMAIN-SUFFIX,tjupt.org,DIRECT
+
+- DOMAIN-SUFFIX,totheglory.im,DIRECT
+
+# &gt; Scholar
+
+- DOMAIN-SUFFIX,acm.org,DIRECT
+
+- DOMAIN-SUFFIX,acs.org,DIRECT
+
+- DOMAIN-SUFFIX,aip.org,DIRECT
+
+- DOMAIN-SUFFIX,ams.org,DIRECT
+
+- DOMAIN-SUFFIX,annualreviews.org,DIRECT
+
+- DOMAIN-SUFFIX,aps.org,DIRECT
+
+- DOMAIN-SUFFIX,ascelibrary.org,DIRECT
+
+- DOMAIN-SUFFIX,asm.org,DIRECT
+
+- DOMAIN-SUFFIX,asme.org,DIRECT
+
+- DOMAIN-SUFFIX,astm.org,DIRECT
+
+- DOMAIN-SUFFIX,bmj.com,DIRECT
+
+- DOMAIN-SUFFIX,cambridge.org,DIRECT
+
+- DOMAIN-SUFFIX,cas.org,DIRECT
+
+- DOMAIN-SUFFIX,clarivate.com,DIRECT
+
+- DOMAIN-SUFFIX,ebscohost.com,DIRECT
+
+- DOMAIN-SUFFIX,emerald.com,DIRECT
+
+- DOMAIN-SUFFIX,engineeringvillage.com,DIRECT
+
+- DOMAIN-SUFFIX,icevirtuallibrary.com,DIRECT
+
+- DOMAIN-SUFFIX,ieee.org,DIRECT
+
+- DOMAIN-SUFFIX,imf.org,DIRECT
+
+- DOMAIN-SUFFIX,iop.org,DIRECT
+
+- DOMAIN-SUFFIX,jamanetwork.com,DIRECT
+
+- DOMAIN-SUFFIX,jhu.edu,DIRECT
+
+- DOMAIN-SUFFIX,jstor.org,DIRECT
+
+- DOMAIN-SUFFIX,karger.com,DIRECT
+
+- DOMAIN-SUFFIX,libguides.com,DIRECT
+
+- DOMAIN-SUFFIX,madsrevolution.net,DIRECT
+
+- DOMAIN-SUFFIX,mpg.de,DIRECT
+
+- DOMAIN-SUFFIX,myilibrary.com,DIRECT
+
+- DOMAIN-SUFFIX,nature.com,DIRECT
+
+- DOMAIN-SUFFIX,oecd-ilibrary.org,DIRECT
+
+- DOMAIN-SUFFIX,osapublishing.org,DIRECT
+
+- DOMAIN-SUFFIX,oup.com,DIRECT
+
+- DOMAIN-SUFFIX,ovid.com,DIRECT
+
+- DOMAIN-SUFFIX,oxfordartonline.com,DIRECT
+
+- DOMAIN-SUFFIX,oxfordbibliographies.com,DIRECT
+
+- DOMAIN-SUFFIX,oxfordmusiconline.com,DIRECT
+
+- DOMAIN-SUFFIX,pnas.org,DIRECT
+
+- DOMAIN-SUFFIX,proquest.com,DIRECT
+
+- DOMAIN-SUFFIX,rsc.org,DIRECT
+
+- DOMAIN-SUFFIX,sagepub.com,DIRECT
+
+- DOMAIN-SUFFIX,sciencedirect.com,DIRECT
+
+- DOMAIN-SUFFIX,sciencemag.org,DIRECT
+
+- DOMAIN-SUFFIX,scopus.com,DIRECT
+
+- DOMAIN-SUFFIX,siam.org,DIRECT
+
+- DOMAIN-SUFFIX,spiedigitallibrary.org,DIRECT
+
+- DOMAIN-SUFFIX,springer.com,DIRECT
+
+- DOMAIN-SUFFIX,springerlink.com,DIRECT
+
+- DOMAIN-SUFFIX,tandfonline.com,DIRECT
+
+- DOMAIN-SUFFIX,un.org,DIRECT
+
+- DOMAIN-SUFFIX,uni-bielefeld.de,DIRECT
+
+- DOMAIN-SUFFIX,webofknowledge.com,DIRECT
+
+- DOMAIN-SUFFIX,westlaw.com,DIRECT
+
+- DOMAIN-SUFFIX,wiley.com,DIRECT
+
+- DOMAIN-SUFFIX,worldbank.org,DIRECT
+
+- DOMAIN-SUFFIX,worldscientific.com,DIRECT
+
+# &gt; Other
+
+- DOMAIN-SUFFIX,cn,DIRECT
+
+- DOMAIN-SUFFIX,360in.com,DIRECT
+
+- DOMAIN-SUFFIX,51ym.me,DIRECT
+
+- DOMAIN-SUFFIX,8686c.com,DIRECT
+
+- DOMAIN-SUFFIX,abchina.com,DIRECT
+
+- DOMAIN-SUFFIX,accuweather.com,DIRECT
+
+- DOMAIN-SUFFIX,aicoinstorge.com,DIRECT
+
+- DOMAIN-SUFFIX,air-matters.com,DIRECT
+
+- DOMAIN-SUFFIX,air-matters.io,DIRECT
+
+- DOMAIN-SUFFIX,aixifan.com,DIRECT
+
+- DOMAIN-SUFFIX,amd.com,DIRECT
+
+- DOMAIN-SUFFIX,b612.net,DIRECT
+
+- DOMAIN-SUFFIX,bdatu.com,DIRECT
+
+- DOMAIN-SUFFIX,beitaichufang.com,DIRECT
+
+- DOMAIN-SUFFIX,bjango.com,DIRECT
+
+- DOMAIN-SUFFIX,booking.com,DIRECT
+
+- DOMAIN-SUFFIX,bstatic.com,DIRECT
+
+- DOMAIN-SUFFIX,cailianpress.com,DIRECT
+
+- DOMAIN-SUFFIX,camera360.com,DIRECT
+
+- DOMAIN-SUFFIX,chinaso.com,DIRECT
+
+- DOMAIN-SUFFIX,chua.pro,DIRECT
+
+- DOMAIN-SUFFIX,chuimg.com,DIRECT
+
+- DOMAIN-SUFFIX,chunyu.mobi,DIRECT
+
+- DOMAIN-SUFFIX,chushou.tv,DIRECT
+
+- DOMAIN-SUFFIX,cmbchina.com,DIRECT
+
+- DOMAIN-SUFFIX,cmbimg.com,DIRECT
+
+- DOMAIN-SUFFIX,ctrip.com,DIRECT
+
+- DOMAIN-SUFFIX,dfcfw.com,DIRECT
+
+- DOMAIN-SUFFIX,docschina.org,DIRECT
+
+- DOMAIN-SUFFIX,douban.com,DIRECT
+
+- DOMAIN-SUFFIX,doubanio.com,DIRECT
+
+- DOMAIN-SUFFIX,douyu.com,DIRECT
+
+- DOMAIN-SUFFIX,dxycdn.com,DIRECT
+
+- DOMAIN-SUFFIX,dytt8.net,DIRECT
+
+- DOMAIN-SUFFIX,eastmoney.com,DIRECT
+
+- DOMAIN-SUFFIX,eudic.net,DIRECT
+
+- DOMAIN-SUFFIX,feng.com,DIRECT
+
+- DOMAIN-SUFFIX,fengkongcloud.com,DIRECT
+
+- DOMAIN-SUFFIX,frdic.com,DIRECT
+
+- DOMAIN-SUFFIX,futu5.com,DIRECT
+
+- DOMAIN-SUFFIX,futunn.com,DIRECT
+
+- DOMAIN-SUFFIX,gandi.net,DIRECT
+
+- DOMAIN-SUFFIX,geilicdn.com,DIRECT
+
+- DOMAIN-SUFFIX,getpricetag.com,DIRECT
+
+- DOMAIN-SUFFIX,gifshow.com,DIRECT
+
+- DOMAIN-SUFFIX,godic.net,DIRECT
+
+- DOMAIN-SUFFIX,hicloud.com,DIRECT
+
+- DOMAIN-SUFFIX,hongxiu.com,DIRECT
+
+- DOMAIN-SUFFIX,hostbuf.com,DIRECT
+
+- DOMAIN-SUFFIX,huxiucdn.com,DIRECT
+
+- DOMAIN-SUFFIX,huya.com,DIRECT
+
+- DOMAIN-SUFFIX,infinitynewtab.com,DIRECT
+
+- DOMAIN-SUFFIX,ithome.com,DIRECT
+
+- DOMAIN-SUFFIX,java.com,DIRECT
+
+- DOMAIN-SUFFIX,jidian.im,DIRECT
+
+- DOMAIN-SUFFIX,kaiyanapp.com,DIRECT
+
+- DOMAIN-SUFFIX,kaspersky-labs.com,DIRECT
+
+- DOMAIN-SUFFIX,keepcdn.com,DIRECT
+
+- DOMAIN-SUFFIX,kkmh.com,DIRECT
+
+- DOMAIN-SUFFIX,licdn.com,DIRECT
+
+- DOMAIN-SUFFIX,linkedin.com,DIRECT
+
+- DOMAIN-SUFFIX,loli.net,DIRECT
+
+- DOMAIN-SUFFIX,luojilab.com,DIRECT
+
+- DOMAIN-SUFFIX,maoyan.com,DIRECT
+
+- DOMAIN-SUFFIX,maoyun.tv,DIRECT
+
+- DOMAIN-SUFFIX,meituan.com,DIRECT
+
+- DOMAIN-SUFFIX,meituan.net,DIRECT
+
+- DOMAIN-SUFFIX,mobike.com,DIRECT
+
+- DOMAIN-SUFFIX,moke.com,DIRECT
+
+- DOMAIN-SUFFIX,mubu.com,DIRECT
+
+- DOMAIN-SUFFIX,myzaker.com,DIRECT
+
+- DOMAIN-SUFFIX,nim-lang-cn.org,DIRECT
+
+- DOMAIN-SUFFIX,nvidia.com,DIRECT
+
+- DOMAIN-SUFFIX,oracle.com,DIRECT
+
+- DOMAIN-SUFFIX,paypal.com,DIRECT
+
+- DOMAIN-SUFFIX,paypalobjects.com,DIRECT
+
+- DOMAIN-SUFFIX,qdaily.com,DIRECT
+
+- DOMAIN-SUFFIX,qidian.com,DIRECT
+
+- DOMAIN-SUFFIX,qyer.com,DIRECT
+
+- DOMAIN-SUFFIX,qyerstatic.com,DIRECT
+
+- DOMAIN-SUFFIX,raychase.net,DIRECT
+
+- DOMAIN-SUFFIX,ronghub.com,DIRECT
+
+- DOMAIN-SUFFIX,ruguoapp.com,DIRECT
+
+- DOMAIN-SUFFIX,s-reader.com,DIRECT
+
+- DOMAIN-SUFFIX,sankuai.com,DIRECT
+
+- DOMAIN-SUFFIX,scomper.me,DIRECT
+
+- DOMAIN-SUFFIX,seafile.com,DIRECT
+
+- DOMAIN-SUFFIX,sm.ms,DIRECT
+
+- DOMAIN-SUFFIX,smzdm.com,DIRECT
+
+- DOMAIN-SUFFIX,snapdrop.net,DIRECT
+
+- DOMAIN-SUFFIX,snwx.com,DIRECT
+
+- DOMAIN-SUFFIX,sspai.com,DIRECT
+
+- DOMAIN-SUFFIX,takungpao.com,DIRECT
+
+- DOMAIN-SUFFIX,teamviewer.com,DIRECT
+
+- DOMAIN-SUFFIX,tianyancha.com,DIRECT
+
+- DOMAIN-SUFFIX,udacity.com,DIRECT
+
+- DOMAIN-SUFFIX,uning.com,DIRECT
+
+- DOMAIN-SUFFIX,vmware.com,DIRECT
+
+- DOMAIN-SUFFIX,weather.com,DIRECT
+
+- DOMAIN-SUFFIX,weico.cc,DIRECT
+
+- DOMAIN-SUFFIX,weidian.com,DIRECT
+
+- DOMAIN-SUFFIX,xiachufang.com,DIRECT
+
+- DOMAIN-SUFFIX,ximalaya.com,DIRECT
+
+- DOMAIN-SUFFIX,xinhuanet.com,DIRECT
+
+- DOMAIN-SUFFIX,xmcdn.com,DIRECT
+
+- DOMAIN-SUFFIX,yangkeduo.com,DIRECT
+
+- DOMAIN-SUFFIX,zhangzishi.cc,DIRECT
+
+- DOMAIN-SUFFIX,zhihu.com,DIRECT
+
+- DOMAIN-SUFFIX,zhimg.com,DIRECT
+
+- DOMAIN-SUFFIX,zhuihd.com,DIRECT
+
+- DOMAIN,download.jetbrains.com,DIRECT
+
+- DOMAIN,images-cn.ssl-images-amazon.com,DIRECT
+
+
+
+# &gt; Apple
+
+- DOMAIN-SUFFIX,aaplimg.com,Apple
+
+- DOMAIN-SUFFIX,apple.co,Apple
+
+- DOMAIN-SUFFIX,apple.com,Apple
+
+- DOMAIN-SUFFIX,apple-cloudkit.com,Apple
+
+- DOMAIN-SUFFIX,appstore.com,Apple
+
+- DOMAIN-SUFFIX,cdn-apple.com,Apple
+
+- DOMAIN-SUFFIX,crashlytics.com,Apple
+
+- DOMAIN-SUFFIX,icloud.com,Apple
+
+- DOMAIN-SUFFIX,icloud-content.com,Apple
+
+- DOMAIN-SUFFIX,me.com,Apple
+
+- DOMAIN-SUFFIX,mzstatic.com,Apple
+
+- DOMAIN,www-cdn.icloud.com.akadns.net,Apple
+
+- IP-CIDR,17.0.0.0/8,Apple,no-resolve
+
+
+
+# Local Area Network
+
+- IP-CIDR,192.168.0.0/16,DIRECT
+
+- IP-CIDR,10.0.0.0/8,DIRECT
+
+- IP-CIDR,172.16.0.0/12,DIRECT
+
+- IP-CIDR,127.0.0.0/8,DIRECT
+
+- IP-CIDR,100.64.0.0/10,DIRECT
+
+
+
+# DNSPod Public DNS+
+
+- IP-CIDR,119.28.28.28/32,DIRECT,no-resolve
+
+# GeoIP China
+
+- GEOIP,CN,DIRECT
+
+
+
+- MATCH,Final
+</code></pre>]]></content:encoded>
         </item>
         <item>
-            <title><![CDATA[MDX 博客文章]]></title>
-            <link>https://danyow.cn/blog/mdx-blog-post</link>
-            <guid>mdx-blog-post</guid>
-            <pubDate>Sun, 01 Aug 2021 00:00:00 GMT</pubDate>
-            <description><![CDATA[Blog posts support Docusaurus Markdown features, such as MDX.]]></description>
-            <content:encoded><![CDATA[<p>Blog posts support <a href="https://docusaurus.io/docs/markdown-features">Docusaurus Markdown features</a>, such as <a href="https://mdxjs.com/">MDX</a>.</p><p>:::tip</p><p>使用React的力量创建交互式博客文章。</p><pre><code class="language-js">&lt;button onClick={() =&gt; alert(&#x27;button clicked!&#x27;)}&gt;Click me!&lt;/button&gt;
-</code></pre><pre><code class="language-mdx-code-block">&lt;button onClick={() =&gt; alert(&#x27;button clicked!&#x27;)}&gt;Click me!&lt;/button&gt;
-</code></pre><p>:::</p>]]></content:encoded>
+            <title><![CDATA[Scoop的安装]]></title>
+            <link>https://danyow.cn/blog/2019/scoop</link>
+            <guid>/2019/scoop</guid>
+            <pubDate>Sun, 14 Jun 2020 06:55:00 GMT</pubDate>
+            <description><![CDATA[Title: 目前暂不推荐, 因为自带的软件较少, 而且更多的需要使用到别人的 *Bucket* .]]></description>
+            <content:encoded><![CDATA[<p>Title: <del>目前暂不推荐, 因为自带的软件较少, 而且更多的需要使用到别人的 <em>Bucket</em> .</del></p><p>反省一下，比起之前的 <em>Chocolatey</em> 来说，还是推荐的，因为它更加适合程序员和具有高度强迫症的患者。</p><blockquote><p>优点：</p></blockquote><ol><li>环境和后续安装的软件都可以不放在<strong>C</strong>盘</li><li>扩展包也比较丰富</li></ol><blockquote><p>缺点：</p></blockquote><ol><li>如果网速慢的情况下（因为使用到了 <em>github</em> ）安装某个包的时候，可能会出现半天安装不上的情况，这时候取消的话会使得 <em>scoop</em> 误以为安装完成，这时需要卸载。</li><li>后续依据使用情况补充</li></ol><h2>Scoop的安装</h2><ol><li><p><em>PowerShell</em> 下运行下述内容，确保 <em>PowerShell</em> 允许可以执行本地脚本。</p><p><code>Set-ExecutionPolicy RemoteSigned -scope CurrentUser</code></p></li><li><p>然后安装 <em>Scoop</em> ，看网速来的。</p><p><code>Invoke-Expression (New-Object System.Net.WebClient).DownloadString(&#x27;https://get.scoop.sh&#x27;)</code></p><p>or 更短的</p><p><code>iwr -useb get.scoop.sh | iex</code></p></li><li><p>进入桶子环境准备阶段。即添加 <em>Bucket</em> 库。但由于 <em>Bucket</em> 是依托于 <em>Github</em> ，所以要先安装 <em>git</em> 环境</p><p><code>scoop install git</code></p></li></ol><p>如果你没有 7zip 的话，会顺手给你安装git的依赖。</p><pre><code class="language-txt">  7zip 21.06 [main]
+  adb 31.0.3 [main]
+  adopt8-hotspot 8u292-b10 [java]
+  android-sdk 4333796 [extras]
+  ant 1.10.12 [main]
+  archwsl 21.8.28.0 [extras]
+  beyondcompare-zh-cn 4.4.0.25886 [dorado]
+  brotli 1.0.9_6 [main]
+  cacert 2021-10-26 [main]
+  ccleaner 5.87.9306 [extras]
+  clash-for-windows 0.19.1 [dorado]
+  cmake 3.22.1 [main]
+  codeblocks-mingw 20.03 [extras]
+  curl 7.80.0 [main]
+  dark 3.11.2 [main]
+  dingtalk 6.3.5.10278702 [dorado]
+  DirectX 9.29.1974.1-June2010 [Scoop-Ash258]
+  diskgenius 5.4.2.1239 [extras]
+  docker-machine 0.16.2 [silver886]
+  docker-nightly nightly-20211121 [main]
+  dotnet-sdk 6.0.100 [main]
+  EpicGamesLauncher 13.0.0 [dorado]
+  gcc 11.2.0-9.0.0-r3 [main]
+  git 2.34.1.windows.1 [main]
+  github 2.9.5 [extras]
+  gradle-bin 7.3.1 [main]
+  innounp 0.50 [main]
+  ipfs-desktop 0.17.0 [extras]
+  jetbrains-toolbox 1.22.10774 [extras]
+  k2pdfopt 2.53 [seu]
+  lcow v4.14.35-v0.3.9 [main]
+  lessmsi 1.10.0 [main]
+  meshlab 2021.10 [extras]
+  microsoftedge  *failed*
+  mls-software-openssh 8.8p1-1 [main]
+  mongodb 5.2.0-rc0 [main]
+  motrix 1.6.11 [extras]
+  msys2 2021-11-30 [main]
+  nginx 1.21.4 [main]
+  nodejs-lts 16.13.1 [main]
+  nuget 6.0.0 [main]
+  nuwen-mingw-gcc 11.2.0-18.0 [dorado]
+  nvidia-display-driver-dch-np 7 *failed*
+  obs-studio 27.1.3 [extras]
+  office-tool-plus 8.1.5.15 [Master-Hash]
+  openjdk 17.0.1-12 [java]
+  openssl 3.0.0 [main]
+  oraclejdk8 8u291 [iszy]
+  oraclejre8 8u311 [java]
+  poedit 3.0.6387 [extras]
+  potplayer 211118 [extras]
+  powertoys-np 0.51.1 [nonportable]
+  premake 5.0.0-beta1 [main]
+  protobuf 3.19.1 [extras]
+  pxcook 3.9.960.202101211055 [dorado]
+  python 3.10.1 [main]
+  python27 2.7.18 [versions]
+  RevokeMsgPatcher 1.1 [Darkatse]
+  rime-weasel-np 0.14.3.0 [scoop-jingyu9575]
+  ruby 3.0.3-1 [main]
+  rufus 3.17 [extras]
+  Sejda-pdf 7.3.7 [extras]
+  SogouPinyin-Portable 0.3 [scoop-zapps]
+  sourcetree 3.4.7 [extras]
+  steam nightly-20200928 [extras]
+  sudo 0.2020.01.26 [main]
+  telnet msys-inetutils-1.7-1 [main]
+  todesk 4.1.0 [dorado]
+  TranslucentTb 2020.2 [dorado]
+  VcXsrv 1.20.9.0 [extras]
+  virtualbox-np 6.1.30 [nonportable]
+  vscode 1.63.0 [extras]
+  wechat nightly-20200613 [dorado]
+  wget 1.21.2 [main]
+  winscp 5.19.5 [extras]
+  Writage 2.7.2 [cvp]
+  yarn 1.22.15 [main]
+</code></pre>]]></content:encoded>
         </item>
         <item>
-            <title><![CDATA[编辑博客文章]]></title>
-            <link>https://danyow.cn/blog/long-blog-post</link>
-            <guid>long-blog-post</guid>
-            <pubDate>Wed, 29 May 2019 00:00:00 GMT</pubDate>
-            <description><![CDATA[这是一个很长的博客文章的摘要。]]></description>
-            <content:encoded><![CDATA[<p>这是一个很长的博客文章的摘要。</p><p>Use a <code>&lt;!--</code> <code>truncate</code> <code>--&gt;</code> comment to limit blog post size in the list view.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p>]]></content:encoded>
+            <title><![CDATA[部署新安装的centos服务器]]></title>
+            <link>https://danyow.cn/blog/2020/server</link>
+            <guid>/2020/server</guid>
+            <pubDate>Tue, 28 Jan 2020 01:42:42 GMT</pubDate>
+            <description><![CDATA[服务器链接超时解决]]></description>
+            <content:encoded><![CDATA[<h2>服务器链接超时解决</h2><p><code>vim /etc/ssh/sshd_config</code> 修改里面的两个参数</p><pre><code class="language-config">ClientAliveInterval 60
+ClientAliveCountMax 60
+</code></pre><p>然后重启<code>ssh</code></p><p><code>systemctl restart ssh</code></p><h2>出现报错</h2><p>内容<code>Failed to set locale, defaulting to C.UTF-8</code></p><p>执行<code>echo &quot;export LC_ALL=en_US.UTF-8&quot;  &gt;&gt;  /etc/profile</code></p><h2>安装<code>docker</code></h2><ol><li><p>卸载旧的版本</p><pre><code class="language-shell">sudo yum remove docker \
+                docker-client \
+                docker-client-latest \
+                docker-common \
+                docker-latest \
+                docker-latest-logrotate \
+                docker-logrotate \
+                docker-engine
+</code></pre></li><li><p>安装依赖</p><p><code>sudo yum install -y yum-utils  device-mapper-persistent-data  lvm2</code>
+<code>sudo yum-config-manager  --add-repo   https://download.docker.com/linux/centos/docker-ce.repo</code>
+<code>sudo yum install docker-ce docker-ce-cli containerd.io</code></p></li><li><p>更新containerd.io</p><p><code>dnf install https://download.docker.com/linux/centos/7/x86_64/stable/Packages/containerd.io-1.2.6-3.3.el7.x86_64.rpm</code></p></li><li><p>安装</p><p><code>sudo yum install docker-ce docker-ce-cli containerd.io</code></p></li><li><p>启动docker</p><p><code>sudo systemctl start docker</code></p></li></ol><h2>创建 <code>Dockerfile</code></h2><ol><li><p>创建 <code>docker/Dockerfile</code></p><p><code>mkdir docker &amp;&amp; cd docker &amp;&amp; vim Dockerfile</code></p></li><li><p>加入下面内容</p><pre><code class="language-docker">FROM jenkins/jenkins:lts
+USER root
+WORKDIR /dotnet
+RUN wget -O dotnet.tar.gz https://download.visualstudio.microsoft.com/download/pr/c4b503d6-2f41-4908-b634-270a0a1dcfca/c5a20e42868a48a2cd1ae27cf038044c/dotnet-sdk-3.1.101-linux-x64.tar.gz
+RUN tar zxf dotnet.tar.gz -C ./
+RUN rm -rf dotnet.tar.gz
+ENV PATH=&quot;${PATH}:/dotnet:/var/jenkins_home/.dotnet/tools&quot;
+ENV DOTNET_ROOT=&quot;/dotnet&quot;
+RUN apt update -y
+RUN apt install icu-devtools vim zip unzip -y
+RUN usermod -a -G root jenkins
+USER jenkins
+</code></pre><ol><li>这个Docker镜像基于jenkins</li><li>设置当前用户为root，因为后面安装需要使用root</li><li>设置当前工作目录为dotnet</li><li>下载dotnet SDK包，保存为dotnet.tar.gz。这里要注意下载正确版本的SDK，可前往微软官方网站获取下载链接：<a href="https://dotnet.microsoft.com/download">https://dotnet.microsoft.com/download</a></li><li>解压dotnet SDK到当前目录，即/dotnet目录</li><li>删除dotnet SDK包</li><li>把dotnet目录和dotnet tools目录添加到环境变量PATH，这样就可以使用dotnet命令了</li><li>设置DOTNET_ROOT变量</li><li>更新源</li><li>安装一些必需的，常用的工具包，其中icu-devtools是运行dotnet需要的</li><li>修改jenkins用户到root附加组</li><li>设置当前用户为jenkins</li></ol></li><li><p>生成镜像</p><p><code>docker build -t jenkins:dotnet .</code></p></li><li><p>查看所有镜像</p><p><code>docker image</code></p></li><li><p>运行<code>docker</code>实例</p><p><code>docker run -p 8080:8080 -p 50000:50000 --name jenkins jenkins:dotnet</code></p></li><li><p>获取密码和访问链接</p><ol><li>自定义安装</li><li>补充安装<code>GitHub</code>和<code>Publish Over SSH</code></li></ol></li><li><p>添加编译执行脚本</p><p><code>dotnet publish</code></p></li><li><p>构建</p></li><li><p>添加 <code>github webhook</code></p></li></ol><h2>直接部署项目</h2><ol><li><p>安装<code>git</code></p><p><code>yum install git</code></p></li><li><p>克隆</p></li><li><p><code>docker build -t dotnet .</code></p></li><li><p><code>docker run -d -p 8080:80 dotnet</code></p></li></ol>]]></content:encoded>
         </item>
         <item>
-            <title><![CDATA[首个博客]]></title>
-            <link>https://danyow.cn/blog/first-blog-post</link>
-            <guid>first-blog-post</guid>
-            <pubDate>Tue, 28 May 2019 00:00:00 GMT</pubDate>
-            <description><![CDATA[Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet]]></description>
-            <content:encoded><![CDATA[<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p>]]></content:encoded>
+            <title><![CDATA[Rust]]></title>
+            <link>https://danyow.cn/blog/2019/rust</link>
+            <guid>/2019/rust</guid>
+            <pubDate>Wed, 04 Dec 2019 14:39:06 GMT</pubDate>
+            <description><![CDATA[Title: Mac 下学习使用 Rust]]></description>
+            <content:encoded><![CDATA[<p>Title: Mac 下学习使用 <em>Rust</em></p><h2>安装</h2><h3>brew 安装</h3><p>测试之后, 环境有很多内容有没安装上, 估计也是没有配置环境的原因</p><h3>官网方法</h3><ol><li><p><code>curl --proto &#x27;=https&#x27; --tlsv1.2 -sSf https://sh.rustup.rs | sh</code></p></li><li><p>导入环境参数 <code>export PATH=&quot;$PATH:$HOME/.cargo/bin&quot;</code></p></li><li><p><code>rustc --version</code></p></li></ol><h2>入门</h2><h3>rustc 编译</h3><p>随便写一个 <code>main.rs</code> 文件, 然后键入下述内容.</p><pre><code class="language-rust">fn main() {
+    println!(&quot;Hello, world!&quot;);
+}
+</code></pre><p>然后执行<code>rustc main.rs</code>得到编译后的可执行文件<code>./main</code>即可看到打印</p><h3>Cargo</h3><p>如果安装的时候用的是官网的方法的话, 是会让你选择第几个安装方式, 我们通常选择第一个采用默认的方式, 这样就会把Cargo所需要的也就一起下载安装下来了. 在到我们配置环境输入的<code>PATH</code>也是一样</p><ol><li><p>新建项目
+<code>cargo new hello_cargo</code></p></li><li><p>编译项目
+<code>cargo build</code> or <code>cargo build --release</code></p></li><li><p>运行项目
+<code>cargo run</code></p></li></ol><h3>编写猜谜游戏</h3><ol><li><p>直接编写</p><pre><code class="language-rust">use std::io;    // 使用标准库的io
+
+fn main() {
+    println!(&quot;Guess the number!&quot;);
+
+    println!(&quot;Please input your guess.&quot;);
+
+    let mut guess = String::new(); // 定义一个可变的变量
+
+    io::stdin().read_line(&amp;mut guess)   // 换行的原因只是因为过长了
+        .expect(&quot;Failed to read line&quot;); // 处理可能的报错
+
+    println!(&quot;You guessed: {}&quot;, guess);
+}
+</code></pre></li><li><p>加入<code>rand</code>库</p><p>在<code>Cargo.toml</code>文件中加入</p><pre><code class="language-toml">[dependencies]
+
+rand = &quot;0.3.14&quot;
+</code></pre><p>然后编译<code>cargo build</code>或者是<code>cargo run</code>可能会遇到
+<code>Blocking waiting for file lock on package cache</code>
+如果执行得是<code>cargo update</code>就不会遇到<code>Cargo.lock</code>文件了</p><p>这里指定了<code>0.3.14</code>版本并不是真的就只使用该版本, 而是会使用兼容该版本的更高版本</p><pre><code class="language-rust">use std::io;
+use rand::Rng;  // 导入 随机库
+
+fn main() {
+    println!(&quot;Guess the number!&quot;);
+
+    let secret_number = rand::thread_rng().gen_range(1, 101);   // 生成一个 0 ~ 100 的随机数
+
+    println!(&quot;The secret number is: {}&quot;, secret_number);    // 测试打印
+
+    println!(&quot;Please input your guess.&quot;);
+
+    let mut guess = String::new();
+
+    io::stdin().read_line(&amp;mut guess)
+        .expect(&quot;Failed to read line&quot;);
+
+    // trim 的是就是删除某些东西 由于 键入的时候最后面会敲击回车 导致\n会加入进来
+    let guess: u32 = guess.trim().parse()   // 用 同一个变量名 去覆盖 guess 并转成 u32类型
+        .expect(&quot;Please type a number!&quot;);   // 转换类型也是有可能报错的
+
+    println!(&quot;You guessed: {}&quot;, guess);
+
+    match guess.cmp(&amp;secret_number) {
+        Ordering::Less =&gt; println!(&quot;Too small!&quot;),
+        Ordering::Greater =&gt; println!(&quot;Too big!&quot;),
+        Ordering::Equal =&gt; println!(&quot;You win!&quot;),
+    }
+}
+</code></pre></li><li><p>加入循环</p><pre><code class="language-rust">// --snip--
+
+    println!(&quot;The secret number is: {}&quot;, secret_number);
+
+    loop {  // 加入循环
+        println!(&quot;Please input your guess.&quot;);
+
+        // --snip--
+
+        match guess.cmp(&amp;secret_number) {
+            Ordering::Less =&gt; println!(&quot;Too small!&quot;),
+            Ordering::Greater =&gt; println!(&quot;Too big!&quot;),
+            Ordering::Equal =&gt; {
+                println!(&quot;You win!&quot;);
+                break;  // 在这里退出循环
+            },
+        }
+    }
+}
+</code></pre></li><li><p>处理非数字的输入</p><pre><code class="language-rust">// --snip--
+
+io::stdin().read_line(&amp;mut guess)
+    .expect(&quot;Failed to read line&quot;);
+
+// 加入match来对报错的 continue来处理非数字的输入
+let guess: u32 = match guess.trim().parse() {
+    Ok(num) =&gt; num,
+    Err(_) =&gt; continue,
+};
+
+println!(&quot;You guessed: {}&quot;, guess);
+
+// --snip--
+</code></pre></li></ol><h3>通用编程概念</h3><h4>变量和可变性</h4><ol><li>这里的变量不是指能变的量, 而是一个定义, 但只要赋予了 <code>mut</code> 才是真的可以变</li><li>常量的命名规则 单词全大写 下划线分隔 就连int <code>100,000</code> 都可以表示为 <code>100_000</code></li><li>变量可以被重复声明并覆盖原值 但不能改变原有数据类型 也就是不能 string =&gt; int</li></ol><h4>资料类型</h4><ol><li><p>编译时需要帮忙确定类型</p><pre><code class="language-rust">let guess: u32 = &quot;42&quot;.parse().expect(&quot;Not a number!&quot;);
+</code></pre></li><li><p>整型的表示形式有</p><pre><code class="language-rust">/*
+    小数        98_222
+    十六        0xff
+    八进        0o77
+    二元        0b1111_0000
+    字节（u8仅） b&#x27;A&#x27;
+*/
+</code></pre></li><li><p>bool类型就只有真假 不会默认帮忙转换</p></li><li><p>元组</p><pre><code class="language-rust">fn main() {
+    let x: (i32, f64, u8) = (500, 6.4, 1);
+    let five_hundred = x.0;
+    let six_point_four = x.1;
+    let one = x.2;
+}
+</code></pre></li><li><p>数组</p><pre><code class="language-rust">fn main() {
+    let c: [i32; 5] = [1, 2, 3, 4, 5];
+    let b = [3; 5];
+    let a = [1, 2, 3, 4, 5];
+    let first = a[0];
+    let second = a[1];
+}
+</code></pre></li></ol><h4>函数</h4><ol><li><p>不带;表示返回值</p></li><li><p>指定返回值</p><pre><code class="language-rust">fn plus_one(x: i32) -&gt; i32 {
+    x + 1
+}
+</code></pre></li></ol><h4>注释</h4><p>讲解Crates.io的时候才说</p><h4>控制流</h4><ol><li><p>使用<code>if</code>的<code>let</code>语句</p><pre><code class="language-rust"> fn main() {
+     let condition = true;
+     let number = if condition {
+         5
+     } else {
+         6
+     };
+
+     println!(&quot;The value of number is: {}&quot;, number);
+ }
+</code></pre></li><li><p>从循环里面返回值出来</p><pre><code class="language-rust">fn main() {
+    let mut counter = 0;
+
+    let result = loop {
+        counter += 1;
+
+        if counter == 10 {
+            break counter * 2;// 我在想 这里没有; 为什么也能有值返回出去呢?
+        }
+    };
+
+    println!(&quot;The result is {}&quot;, result);
+}
+</code></pre></li><li><p>遍历</p><pre><code class="language-rust">fn main() {
+    let a = [10, 20, 30, 40, 50];
+
+    // 方法1
+    for element in a.iter() {
+        println!(&quot;the value is: {}&quot;, element);
+    }
+    // 方法2
+    for number in (1..4).rev() {
+        println!(&quot;{}!&quot;, number);
+    }
+    // 方法3
+    while index &lt; 5 {
+        println!(&quot;the value is: {}&quot;, a[index]);
+        index += 1;
+    }
+}
+</code></pre></li></ol><h3>所有权</h3><h4>什么是所有权</h4><ol><li><p>每个内存只能被所有一次, 一旦被接管了就没了.</p><pre><code class="language-rust">// 下述代码就会报错
+let s1 = String::from(&quot;hello&quot;);
+let s2 = s1;
+
+println!(&quot;{}, world!&quot;, s1);
+
+/*
+    error[E0382]: use of moved value: `s1`
+    --&gt; src/main.rs:5:28
+    |
+    3 |     let s2 = s1;
+    |         -- value moved here
+    4 |
+    5 |     println!(&quot;{}, world!&quot;, s1);
+    |                            ^^ value used here after move
+    |
+    = note: move occurs because `s1` has type `std::string::String`, which does
+    not implement the `Copy` trait
+*/
+</code></pre></li><li><p>如果想要拿到一样的内容的话 使用 <code>clone</code></p></li><li><p>对基础数据类型操作的是 会自动调用 <code>copy</code>, 由于都是在栈区, 不会产生新的内存空间</p></li><li><p>如果直接把某个变量交付给某个函数, 而该函数没有移交所有权出来的话, 他将不能再被使用了</p></li></ol><h3>引用和借阅</h3><ol><li><p><code>&amp;</code> 表示引用该参数, 但不能进行变更, 如果要变更的话 需要 <code>&amp;mut</code></p><pre><code class="language-rust">fn main() {
+    let mut s = String::from(&quot;hello&quot;);
+
+    change(&amp;mut s);
+}
+
+fn change(some_string: &amp;mut String) {
+    some_string.push_str(&quot;, world&quot;);
+}
+</code></pre></li><li><p>不能有两次可变引用, 因为不知道依据谁的改变</p></li><li><p>同上, 如果还存在多个后续依旧会使用的不可变引用时候, 不能创建可变引用, 因为不可变的引用是不知道可变引用的存在的, 但如果在使用后并且后续不再使用了之后, 就允许创建可变引用了</p><pre><code class="language-rust">let mut s = String::from(&quot;hello&quot;);
+
+let r1 = &amp;s; // no problem
+let r2 = &amp;s; // no problem
+println!(&quot;{} and {}&quot;, r1, r2);  // 这里使用之后 后续就不再使用了 说明是可以的
+// r1 and r2 are no longer used after this point
+
+let r3 = &amp;mut s; // no problem
+println!(&quot;{}&quot;, r3);
+</code></pre></li><li><p>悬空, 什么意思呢, 可以理解为僵尸指针</p><pre><code class="language-rust"> fn main() {
+    let reference_to_nothing = dangle();
+}
+
+fn dangle() -&gt; &amp;String {    // 这里将返回一个带有引用的数据类型
+    let s = String::from(&quot;hello&quot;);  // 生成一个新的数据类型, 开辟可以一个新的内存空间
+
+    &amp;s  // 移交引用出去 代表是 我只是借你拿去用的意思
+}   // 但这里就已经被释放了 产生 僵尸指针
+
+fn no_dangle() -&gt; String {
+    let s = String::from(&quot;hello&quot;);
+
+    s   // 这里是把所有权给出去了 代表是 我开辟的空间 我不要了 你拿去用吧
+}   // 这样给出去的内存就不会被释放了
+</code></pre></li></ol><h4>切片类型</h4><ol><li><p>先看一个获取第一个单词的函数</p><pre><code class="language-rust">// 借阅一个字符串   返回单词的下标
+fn first_word(s: &amp;String) -&gt; usize {
+    // 转换为数组
+    let bytes = s.as_bytes();
+
+    // 遍历 bytes.iter() 并且创建迭代器 enumerate() 可以理解为 enumerate() 会产生出一个元组来
+    for (i, &amp;item) in bytes.iter().enumerate() {
+        //  借阅到了 item
+        if item == b&#x27; &#x27; {
+            return i;
+        }
+    }
+
+    s.len() // 乍一看没有问题 但, 其实这里涉及到了很多问题, 比方单词长度未知和 s 被销毁了 这组数据就失效了
+}
+</code></pre></li><li><p>引入切片</p><pre><code class="language-rust">
+fn main() {
+    let s = String::from(&quot;hello&quot;);
+
+    let len = s.len();
+    let slice = &amp;s[0..2];
+    let slice = &amp;s[..2];
+    let slice = &amp;s[3..len];
+    let slice = &amp;s[3..];
+    let slice = &amp;s[0..len];
+    let slice = &amp;s[..];
+}
+</code></pre></li><li><p><code>&amp;str</code> 表示的是切片类型 <code>&amp;String</code> 表示的字符串类型</p></li><li><p>有了切片这个概念之后就可以改写取第一个单词的函数了</p><pre><code class="language-rust">fn first_word(s: &amp;String) -&gt; &amp;str {
+    let bytes = s.as_bytes();
+
+    for (i, &amp;item) in bytes.iter().enumerate() {
+        if item == b&#x27; &#x27; {
+            return &amp;s[0..i];    // 直接返回切片
+        }
+    }
+    // 刚好这里的 s 是借来的 所以直接拿着这玩意 转借给别人就行了 没我啥事了的意思
+    &amp;s[..]
+}
+</code></pre></li><li><p>使用上述代码</p><pre><code class="language-rust">fn main() {
+    let mut s = String::from(&quot;hello world&quot;);
+
+    let word = first_word(&amp;s); // 这个切片还是用的 s 的
+
+    s.clear(); // 这里就会直接报错了 因为会获取s的可变引用并且把它清空, 而 world是 first_word 借了s又转手给了word的一个不可变引用
+
+    println!(&quot;the first word is: {}&quot;, word);
+}
+</code></pre></li><li><p>把传入的 <code>&amp;String</code> 类型变成 <code>&amp;str</code> 类型 就可以接受 切片和字符串了 因为字符串就是全切片</p></li><li><p>其他的切片</p><pre><code class="language-rust">    let a = [1, 2, 3, 4, 5];    // 他的类型是   [i32; 5]
+    let slice = &amp;a[1..3];       // 切片的类型是 &amp;[i32]
+</code></pre></li></ol><h3>使用结构体来构造相关数据</h3><h4>定义和实例化结构</h4><ol><li><p>定义一个结构体</p><pre><code class="language-rust">struct User {
+    username: String,   // 现在先不声明为 &amp;str 切片类型 会涉及到生命周期
+    email: String,
+    sign_in_count: u64,
+    active: bool,
+}
+
+fn build_user(email: String, username: String) -&gt; User {
+    User {
+        email: email,
+        username: username,
+        active: true,
+        sign_in_count: 1,
+    }
+}
+// 简化写法
+fn build_user(email: String, username: String) -&gt; User {
+    User {
+        email,
+        username,
+        active: true,
+        sign_in_count: 1,
+    }
+}
+
+fn main() {
+    let mut user1 = User {
+        email: String::from(&quot;someone@example.com&quot;),
+        username: String::from(&quot;someusername123&quot;),
+        active: true,
+        sign_in_count: 1,
+    };
+
+    // 点语法直接更改
+    user1.email = String::from(&quot;anotheremail@example.com&quot;);
+
+    // 新建user2
+    let user2 = User {
+        email: String::from(&quot;another@example.com&quot;),
+        username: String::from(&quot;anotherusername567&quot;),
+        active: user1.active,
+        sign_in_count: user1.sign_in_count,
+    };
+
+    // 但可以写成这样
+    let user2 = User {
+        email: String::from(&quot;another@example.com&quot;),
+        username: String::from(&quot;anotherusername567&quot;),
+        ..user1 // 其他字段沿用该实例
+    };
+}
+</code></pre></li><li><p>元组结构</p><pre><code class="language-rust">struct Color(i32, i32, i32);
+struct Point(i32, i32, i32);
+
+let black = Color(0, 0, 0);
+let origin = Point(0, 0, 0);
+</code></pre></li><li><p>打印结构 首先添加 <code>#[derive(Debug)]</code> 和 然后改 <code>{}</code> 为 <code>{:?}</code> 或 <code>{:#?}</code> 多行打印
+单行打印 : 表示打印出来的键值中间的 : ? 表示的是 值 # 表示立起来 变成多行 形式主义.. 个人理解</p><pre><code class="language-rust">#[derive(Debug)]
+struct Rectangle {
+    width: u32,
+    height: u32,
+}
+
+fn test_rect() {
+    let rect1 = Rectangle { width: 30, height: 50 };
+
+    println!(&quot;rect1 is {:?}&quot;, rect1);   // 表示的意思是
+    println!(&quot;rect1 is {:#?}&quot;, rect1);
+}
+
+</code></pre></li></ol><h4>方块语法</h4><ol><li><p>实现一个方法</p><pre><code class="language-rust">#[derive(Debug)]
+struct Rectangle {
+    width: u32,
+    height: u32,
+}
+
+// 实现 可以有多个实现
+impl Rectangle {
+    // 这里的self都只是借来的 只做访问变量使用
+    // 但如果要用来修改其内容的话 也是需要加上mut
+    fn area(&amp;self) -&gt; u32 {
+        self.width * self.height
+    }
+}
+
+impl Rectangle {
+    // 可以理解为定义了一个 类函数 只能通过类来调用 调用方式 采用 :: 双冒号形式
+    fn square(size: u32) -&gt; Rectangle {
+        Rectangle { width: size, height: size }
+    }
+}
+
+fn main() {
+    let rect1 = Rectangle { width: 30, height: 50 };
+
+    println!(
+        &quot;The area of the rectangle is {} square pixels.&quot;,
+        rect1.area()
+    );
+
+    let sq = Rectangle::square(3)
+}
+
+</code></pre></li><li><p>自动修改调用的第一个参数类型, 仅仅针对 <code>self</code> 参数   会自动添加他的变体 <code>&amp;</code>，<code>&amp;mut</code> 或 <code>*</code></p><pre><code class="language-rust">#![allow(unused_variables)]
+fn main() {
+    #[derive(Debug,Copy,Clone)]
+    struct Point {
+        x: f64,
+        y: f64,
+    }
+
+    impl Point {
+        fn distance(&amp;self, other: &amp;Point) -&gt; f64 {
+            let x_squared = f64::powi(other.x - self.x, 2);
+            let y_squared = f64::powi(other.y - self.y, 2);
+
+            f64::sqrt(x_squared + y_squared)
+        }
+    }
+    let p1 = Point { x: 0.0, y: 0.0 };
+    let p2 = Point { x: 5.0, y: 6.5 };
+    // 这两个方法的调用时一无所谓的
+    p1.distance(&amp;p2);
+    (&amp;p1).distance(&amp;p2);
+}
+</code></pre></li></ol><h4>枚举</h4><ol><li><p>不得不承认 这么没有很吸引我</p><pre><code class="language-rust">// 正常使用
+enum IpAddrKind {
+    V4,
+    V6,
+}
+// 混用
+enum IpAddr {
+    V4(u8, u8, u8, u8),
+    V6(String),
+}
+
+struct Ipv4Addr {
+// --snip--
+}
+
+struct Ipv6Addr {
+    // --snip--
+}
+
+// 结构体使用
+enum IpAddr {
+    V4(Ipv4Addr),
+    V6(Ipv6Addr),
+}
+
+// 强大所在
+enum Message {
+    Quit,
+    Move { x: i32, y: i32 },
+    Write(String),
+    ChangeColor(i32, i32, i32),
+}
+
+impl Message {
+    // 还能...实现 函数!!!
+    fn call(&amp;self) {
+        // method body would be defined here
+    }
+}
+
+</code></pre></li><li><p>Option
+null的发明者Tony Hoare在2009年的演讲“ Null References：十亿美元的错误”中说：</p><pre><code class="language-text">    我称之为我的十亿美元错误。当时，我正在设计第一个全面的类型系统，以使用面向对象的语言进行引用。我的目标是确保所有引用的使用都绝对安全，并由编译器自动执行检查。但是我忍不住要插入一个空引用的诱惑，仅仅是因为它是如此容易实现。这导致了无数错误，漏洞和系统崩溃，在最近四十年中可能造成十亿美元的痛苦和破坏。
+</code></pre><pre><code class="language-rust">enum Option&lt;T&gt; {
+    Some(T),    // 泛型
+    None,
+}
+fn main() {
+    let some_number = Some(5);
+    let some_string = Some(&quot;a string&quot;);     // Some 直接赋值即可推测类型了
+    let absent_number: Option&lt;i32&gt; = None;  // None 没有类型 那么就需要指代类型
+}
+</code></pre><p>加入Option 旨在限制null的普遍性并提高Rust代码的安全性。</p></li><li><p>匹配控制流 <code>match</code></p><p>一个强大的武器</p><pre><code class="language-rust">enum UsState {
+    Alabama,
+    Alaska,
+    // --snip--
+}
+
+enum Coin {
+    Penny,      // 1 美分
+    Nickel,     // 5 美分
+    Dime,       // 10 美分
+    Quarter(UsState),    // 25 美分
+}
+
+fn value_in_cents(coin: Coin) -&gt; u8 {
+    match coin {
+        // 类函数的调用方式 指定 枚举的每个值
+        Coin::Penny =&gt; {    // =&gt; 匹配后直接赋值的意思
+            println!(&quot;Lucky penny!&quot;);
+            1   // 返回值为1
+        },
+        Coin::Nickel =&gt; 5,
+        Coin::Dime =&gt; 10,
+        Coin::Quarter(state) =&gt; {
+            println!(&quot;State quarter from {:?}!&quot;, state);
+            25
+        },
+    }
+}
+</code></pre></li><li><p><code>match</code> 搭配 <code>Option&lt;T&gt;</code></p><pre><code class="language-rust">fn plus_one(x: Option&lt;i32&gt;) -&gt; Option&lt;i32&gt; {
+    match x {
+        None =&gt; None,
+        Some(i) =&gt; Some(i + 1),
+    }
+}
+
+let five = Some(5);
+let six = plus_one(five);
+let none = plus_one(None);
+</code></pre></li><li><p><code>_</code> 占位符 类似于 <code>default</code></p><pre><code class="language-rust">let some_u8_value = 0u8; // 等价于  let some_u8_value : u8 = 1; 
+match some_u8_value {
+    1 =&gt; println!(&quot;one&quot;),
+    3 =&gt; println!(&quot;three&quot;),
+    5 =&gt; println!(&quot;five&quot;),
+    7 =&gt; println!(&quot;seven&quot;),
+    _ =&gt; (),
+}
+</code></pre></li><li><p>就算使用了占位符 但如果我们只要匹配一种模式的话 用<code>match</code>有点焉用牛刀的感觉了 所以引入了 <code>if let</code></p><pre><code class="language-rust">// 牛刀模式
+let some_u8_value = Some(0u8);
+match some_u8_value {
+    Some(3) =&gt; println!(&quot;three&quot;),
+    _ =&gt; (),
+}
+// 简约模式
+if let Some(3) = some_u8_value {
+    println!(&quot;three&quot;);
+}
+
+</code></pre><p>换句话说，您可以将其<code>if let</code>视为<code>match</code>当值匹配一个模式然后忽略所有其他值时运行代码的语法语法。</p></li></ol><h3>使用包(头文件)</h3><h4>包</h4><ol><li>在使用<code>cargo</code>的时候, 生成出来的 <code>src</code> 其实就是一个包</li></ol><h4>模块 <code>mod</code></h4><ol><li><p>样板</p><pre><code class="language-rust">mod front_of_house {
+    // 如果这里不添加 pub 的话 是没有办法在外部使用的
+    pub mod hosting {
+        pub fn add_to_waitlist() {}
+        fn seat_at_table() {}
+    }
+
+    mod serving {
+        fn take_order() {}
+        fn serve_order() {}
+        fn take_payment() {}
+    }
+}
+</code></pre></li></ol><pre><code>pub fn eat_at_restaurant() {
+    // 绝对路径调用的时候 采用的关键字是 crate 箱子 其实可以理解为当前目录 root
+    crate::front_of_house::hosting::add_to_waitlist();
+
+    // 相对路径调用的时候可以省略
+    front_of_house::hosting::add_to_waitlist();
+}
+```
+</code></pre><ol start="2"><li><p>模块树</p><pre><code class="language-rust">crate
+└── front_of_house
+    ├── hosting
+    │   ├── add_to_waitlist
+    │   └── seat_at_table
+    └── serving
+        ├── take_order
+        ├── serve_order
+        └── take_payment
+</code></pre></li><li><p>起始相对路径 <code>super</code></p><pre><code class="language-rust">fn serve_order() {}
+
+mod back_of_house {
+    fn fix_incorrect_order() {
+        cook_order();
+        // 这里的super意思就是 back_of_house 而且 serve_order 和 super 同级
+        super::serve_order();
+    }
+
+    fn cook_order() {}
+}
+fn main() {}
+
+</code></pre></li></ol><h4>使用 <code>use</code> 来引入路径 缩短路径</h4><ol><li><p>正常使用</p><pre><code class="language-rust">mod front_of_house {
+    pub mod hosting {
+        pub fn add_to_waitlist() {}
+    }
+}
+
+use crate::front_of_house::hosting;
+
+pub fn eat_at_restaurant() {
+    // 绝对路径下
+    crate::front_of_house::hosting::add_to_waitlist();
+    // 相对路径下
+    front_of_house::hosting::add_to_waitlist();
+    // 被缩短的使用方式
+    hosting::add_to_waitlist();
+}
+</code></pre></li><li><p><code>as</code> 来重写命名</p><pre><code class="language-rust">fn main() {
+    use std::fmt::Result;
+    use std::io::Result as IoResult;
+
+    fn function1() -&gt; Result {
+        // --snip--
+        Ok(())
+    }
+
+    fn function2() -&gt; IoResult&lt;()&gt; {
+        // --snip--
+        Ok(())
+    }
+}
+</code></pre></li><li><p>导出 <code>pub use</code></p><pre><code class="language-rust">mod front_of_house {
+    pub mod hosting {
+        pub fn add_to_waitlist() {}
+    }
+}
+// 外部访问可以直接访问 hosting::add_to_waitlist()
+pub use crate::front_of_house::hosting;
+
+pub fn eat_at_restaurant() {
+    hosting::add_to_waitlist();
+    hosting::add_to_waitlist();
+    hosting::add_to_waitlist();
+}
+fn main() {}
+
+</code></pre></li><li><p>对于同一包下的多个路径使用嵌套处理 <code>{ , }</code></p><pre><code class="language-rust">use std::io;
+use std::io::Write;
+use std::cmp::Ordering;
+
+use std::{cmp::Ordering, io};
+// 对于路径本身 使用 self
+use std::io::{self, Write};
+</code></pre></li><li><p>导入所有的公共项目</p><pre><code class="language-rust">use std::collections::*;
+</code></pre></li><li><p>模块 <code>mod</code> 分文件存放</p><p>这个不需要太多的内容去写 大概就是和安卓的机制类似 文件夹存放即可</p></li></ol><h3>常用的一些键值保存的东西</h3><h4>矢量</h4><ol><li><p>矢量 <code>Vec</code> 可以存放任何类型, 但仅限于同一类型的, 所以可以借助 <code>enum</code> 来达到混存的功能</p><pre><code class="language-rust">let v: Vec&lt;i32&gt; = Vec::new();
+v.push(5);
+v.push(6);
+let v = vec![1, 2, 3];
+
+enum SpreadsheetCell {
+    Int(i32),
+    Float(f64),
+    Text(String),
+}
+
+let row = vec![
+    SpreadsheetCell::Int(3),
+    SpreadsheetCell::Text(String::from(&quot;blue&quot;)),
+    SpreadsheetCell::Float(10.12),
+];
+</code></pre></li><li><p>如果已经生成过了个 不可变 的引用之后, 再继续对其push</p><pre><code class="language-rust">let mut v = vec![1, 2, 3, 4, 5];
+let first = &amp;v[0];  // 产生不可变的引用之后
+v.push(6);          // 这里会生成 可变
+println!(&quot;The first element is: {}&quot;, first);
+</code></pre></li><li><p>可以直接对其遍历</p><pre><code class="language-rust">let v = vec![100, 32, 57];
+for i in &amp;v {
+    println!(&quot;{}&quot;, i);
+}
+// 如果要改值得话 需要加 mut
+for i in &amp;mut v {
+    // 甚至是直接遍历的时候更改他的值
+    *i += 50; // * 有点强买强卖的问道
+}
+</code></pre></li></ol><h4>String</h4><ol><li><p>不能对 <code>String</code> 索引</p><pre><code class="language-rust">let hello = &quot;Здравствуйте&quot;;
+let answer = &amp;hello[0]; // 因为Unicode吗的字节长度是不定的
+</code></pre></li><li><p>字符串的一些相关操作</p><pre><code class="language-rust">// 追加
+let mut s1 = String::from(&quot;foo&quot;);
+let s2 = &quot;bar&quot;;
+s1.push_str(s2); // 这里并不会转让所有权
+println!(&quot;s2 is {}&quot;, s2);
+
+let mut s = String::from(&quot;lo&quot;);
+s.push(&#x27;l&#x27;);
+
+// 合并
+// 加号
+let s1 = String::from(&quot;Hello, &quot;);
+let s2 = String::from(&quot;world!&quot;);
+let s3 = s1 + &amp;s2; // s1 的所有权被移交出去了 + 号其实调用的是 add 方法
+
+// 格式化
+let s1 = String::from(&quot;tic&quot;);
+let s2 = String::from(&quot;tac&quot;);
+let s3 = String::from(&quot;toe&quot;);
+let s = format!(&quot;{}-{}-{}&quot;, s1, s2, s3);
+</code></pre></li><li><p>但可以对字符串做范围切片 但是会可能报错</p><pre><code class="language-rust">let hello = &quot;Здравствуйте&quot;; // 这里的一个字符占两个字节
+let s = &amp;hello[0..4];       // 所以 0到4 取出来的是 &#x27;Зд&#x27;
+// 一旦取了 [0..1] 或者是 [0..3] 就会导致字符无法被正常切出来 会报错
+</code></pre></li><li><p>遍历字符串的真正字符 使用 <code>chars</code></p><pre><code class="language-rust">for c in &quot;नमस्ते&quot;.chars() {
+    println!(&quot;{}&quot;, c);
+}
+</code></pre></li><li><p>或者遍历字符串的字节码 使用 <code>bytes</code></p><pre><code class="language-rust">for b in &quot;नमस्ते&quot;.bytes() {
+    println!(&quot;{}&quot;, b);
+}
+</code></pre></li></ol><h4>HashMap</h4><ol><li><p>所有的键值必须一致, 也就是键的类型要一致, 值的类型也要一致</p></li><li><p>使用</p><pre><code class="language-rust">use std::collections::HashMap;
+
+let mut scores = HashMap::new();
+// 一个一个插入
+scores.insert(String::from(&quot;Blue&quot;), 10);
+scores.insert(String::from(&quot;Yellow&quot;), 50);
+
+// 先创建所有的键 和 值 存放到 vec当中
+let teams  = vec![String::from(&quot;Blue&quot;), String::from(&quot;Yellow&quot;)];
+let initial_scores = vec![10, 50];
+
+// 这里的 下划线是可以编译器 自己去猜测的
+let scores: HashMap&lt;_, _&gt; = teams.iter().zip(initial_scores.iter()).collect();
+</code></pre></li><li><p>会接收所有权</p><pre><code class="language-rust">let field_name = String::from(&quot;Favorite color&quot;);
+let field_value = String::from(&quot;Blue&quot;);
+
+let mut map = HashMap::new();
+map.insert(field_name, field_value);
+// 下面这行代码会报错的 所有权失效了
+println!(&quot;{}, {}&quot;, field_name, field_value);
+</code></pre></li><li><p>获取值 <code>get</code> 返回的是个 <code>Option</code> 值 因为是有可能为 <code>None</code>的</p><pre><code class="language-rust">scores.insert(String::from(&quot;Blue&quot;), 10);
+scores.insert(String::from(&quot;Yellow&quot;), 50);
+
+let team_name = String::from(&quot;Blue&quot;);
+let score = scores.get(&amp;team_name);
+// score =&gt; Some(10)
+</code></pre></li><li><p>仅当键没有值时才插入值 <code>entry</code> <code>or_insert</code></p><pre><code class="language-rust">let mut scores = HashMap::new();
+scores.insert(String::from(&quot;Blue&quot;), 10);
+
+scores.entry(String::from(&quot;Yellow&quot;)).or_insert(50);
+scores.entry(String::from(&quot;Blue&quot;)).or_insert(50);   // 这里不会生效
+
+println!(&quot;{:?}&quot;, scores);
+</code></pre></li><li><p>更新值 但这里感觉有点问题</p><pre><code class="language-rust">let text = &quot;hello world wonderful world&quot;;
+
+let mut map = HashMap::new();
+
+for word in text.split_whitespace() {
+    let count = map.entry(word).or_insert(0);
+    *count += 1; // 在这里更新了 但是就怎么那么怪呢
+}
+
+println!(&quot;{:?}&quot;, map);
+</code></pre></li></ol><pre><code>// 如果按照上述这个思路的话
+let score = scores.entry(String::from(&quot;Blue&quot;)).or_insert(1);
+*score += 1;
+```
+</code></pre><h3>报错 <code>panic!</code></h3><ol><li><p>关于 <code>panic!</code></p></li><li><p><code>Result</code></p><p>这是一个枚举, 表示这个值可以是有两种结果, 如果是<code>OK</code>会附带对应的<code>&lt;T&gt;</code>类型, 如果是<code>Err</code>的话, 将会是报错</p><pre><code class="language-rust">enum Result&lt;T, E&gt; {
+    Ok(T),
+    Err(E),
+}
+use std::fs::File;
+
+fn main() {
+    let f = File::open(&quot;hello.txt&quot;);
+
+    let f = match f {
+        Ok(file) =&gt; file,
+        Err(error) =&gt; {
+            // 这里的 panic! 表示会直接停止在这里
+            panic!(&quot;Problem opening the file: {:?}&quot;, error)
+        },
+    };
+}
+
+// 甚至可以匹配不同的错误 也就是针对 err 的错误类型做文章
+use std::fs::File;
+use std::io::ErrorKind;
+
+fn main() {
+    let f = File::open(&quot;hello.txt&quot;);
+
+    let f = match f {
+        Ok(file) =&gt; file,
+        Err(error) =&gt; match error.kind() {
+            ErrorKind::NotFound =&gt; match File::create(&quot;hello.txt&quot;) {
+                Ok(fc) =&gt; fc,
+                Err(e) =&gt; panic!(&quot;Problem creating the file: {:?}&quot;, e),
+            },
+            other_error =&gt; panic!(&quot;Problem opening the file: {:?}&quot;, other_error),
+        },
+    };
+}
+</code></pre></li><li><p>闭包</p><p>如果在使用多个<code>match</code>会使得代码看起来很原始</p><pre><code class="language-rust">use std::fs::File;
+use std::io::ErrorKind;
+
+fn main() {
+    let f = File::open(&quot;hello.txt&quot;).unwrap_or_else(|error| {
+        if error.kind() == ErrorKind::NotFound {
+            File::create(&quot;hello.txt&quot;).unwrap_or_else(|error| {
+                panic!(&quot;Problem creating the file: {:?}&quot;, error);
+            })
+        } else {
+            panic!(&quot;Problem opening the file: {:?}&quot;, error);
+        }
+    });
+}
+</code></pre></li><li><p>新的关键字用来单独解决报错 <code>unwrap</code> 和 <code>expect</code></p><pre><code class="language-rust">use std::fs::File;
+
+fn main() {
+    let f = File::open(&quot;hello.txt&quot;).unwrap();   // 如果报错 会直接中断在这里
+}
+
+fn main() {
+    let f = File::open(&quot;hello.txt&quot;).expect(&quot;Failed to open hello.txt&quot;); // 如果报错 会直接显示错误信息 并且中断
+}
+</code></pre></li><li><p>传递报错</p><pre><code class="language-rust">fn main() {
+    use std::io;
+    use std::io::Read;
+    use std::fs::File;
+
+    // 首先看返回值 是个 Result
+    fn read_username_from_file() -&gt; Result&lt;String, io::Error&gt; {
+        let f = File::open(&quot;hello.txt&quot;);
+        // 判断 f 是否是错误 如果是的话直接返回报错 否则直接赋值为文件的 句柄
+        let mut f = match f {
+            Ok(file) =&gt; file,
+            Err(e) =&gt; return Err(e),
+        };
+
+        let mut s = String::new();
+
+        // 匹配文件读出来的内容给到 新建的 s 当中去
+        match f.read_to_string(&amp;mut s) {
+            Ok(_) =&gt; Ok(s),
+            Err(e) =&gt; Err(e),
+        }   // 这里没有 ; 表示这里就是返回值了
+    }
+}
+</code></pre></li><li><p>由于以上传递 非常常见 导致可以 用 <code>?</code> 使其精简 </p><pre><code class="language-rust">use std::io;
+use std::io::Read;
+use std::fs::File;
+
+fn read_username_from_file() -&gt; Result&lt;String, io::Error&gt; {
+    let mut f = File::open(&quot;hello.txt&quot;)?;
+    let mut s = String::new();
+    f.read_to_string(&amp;mut s)?;
+    Ok(s)
+}
+</code></pre><p>该<code>?</code>放在后<code>Result</code>值定义为工作在几乎相同的方式<code>match</code>表达我们定义来处理<code>Result</code>
+也就是可以直接做到简化返回操作的能力
+甚至更加的精简</p><pre><code class="language-rust">use std::io;
+use std::io::Read;
+use std::fs::File;
+
+fn read_username_from_file() -&gt; Result&lt;String, io::Error&gt; {
+    let mut s = String::new();
+    File::open(&quot;hello.txt&quot;)?.read_to_string(&amp;mut s)?;
+    Ok(s)
+}
+</code></pre><p>好吧 其实还可以超级精简</p><pre><code class="language-rust">use std::io;
+use std::fs;
+
+fn read_username_from_file() -&gt; Result&lt;String, io::Error&gt; {
+    // 我觉得这里已经癫了 直接帮你写好了 打开文件夹并且获取内容 并且返回出去...
+    fs::read_to_string(&quot;hello.txt&quot;)
+}
+</code></pre></li><li><p>那么这个<code>?</code>能用在别的地方吗? 不能的 只能用在返回值为 <code>Result</code> 的函数上</p><pre><code class="language-rust">// 错误代码
+
+use std::fs::File;
+
+fn main() {
+    let f = File::open(&quot;hello.txt&quot;)?;
+}
+</code></pre><p>这里说一嘴 <code>main</code> 函数的返回值是 <code>()</code> 我完全不知道这是个什么类型...</p><p>但你可以这么写</p><pre><code class="language-rust">use std::error::Error;
+use std::fs::File;
+
+fn main() -&gt; Result&lt;(), Box&lt;dyn Error&gt;&gt; {
+    let f = File::open(&quot;hello.txt&quot;)?;
+    // 返回了 () 的同时 耶 完成了 ?
+    Ok(())
+}
+</code></pre><p>但这里出现了个新的玩意 <code>Box&lt;dyn Error&gt;</code> <code>Box</code> 看了文档不是很懂 <code>pub struct Box&lt;T: ?Sized&gt;(Unique&lt;T&gt;);</code>
+但 <code>dyn</code> 表示可以是任何类型
+所以 <code>Box&lt;dyn Error&gt;</code> 可以理解为 任何类型的错误</p></li></ol><h3>泛型 特征 和 生命周期</h3><h4>特征</h4><ol><li><p>定义共同接口</p><pre><code class="language-rust">pub trait Summary {
+    fn summarize(&amp;self) -&gt; String;
+}
+
+pub struct NewsArticle {
+    pub headline: String,
+    pub location: String,
+    pub author: String,
+    pub content: String,
+}
+
+// 实现接口 对于 NewsArticle 这个结构体来说
+impl Summary for NewsArticle {
+    fn summarize(&amp;self) -&gt; String {
+        format!(&quot;{}, by {} ({})&quot;, self.headline, self.author, self.location)
+    }
+}
+
+pub struct Tweet {
+    pub username: String,
+    pub content: String,
+    pub reply: bool,
+    pub retweet: bool,
+}
+
+// 实现接口 对于 Tweet 这个结构体来说
+impl Summary for Tweet {
+    fn summarize(&amp;self) -&gt; String {
+        format!(&quot;{}: {}&quot;, self.username, self.content)
+    }
+}
+
+</code></pre></li><li><p>不能实现外部特征, 只能本地使用</p></li><li><p>可以默认实现特征, 这样本地就都可以使用了</p></li><li><p>特征可以作为参数, 也就是必须实现这个特征的任意类型</p><pre><code class="language-rust">// 单独使用
+pub fn notify(item: impl Summary) {
+    println!(&quot;Breaking news! {}&quot;, item.summarize());
+}
+
+// 提取出来使用
+pub fn notify&lt;T: Summary&gt;(item: T) {
+    println!(&quot;Breaking news! {}&quot;, item.summarize());
+}
+
+// 正常单独使用多个
+pub fn notify(item1: impl Summary, item2: impl Summary) {
+
+}
+
+// 但可以写成这样
+pub fn notify&lt;T: Summary&gt;(item1: T, item2: T) {
+
+}
+
+// 可以相加
+pub fn notify(item: impl Summary + Display) {
+
+}
+
+// 当然也可以提取出来
+pub fn notify&lt;T: Summary + Display&gt;(item: T) {
+
+}
+
+// 但如果有多个的时候 就会很乱
+fn some_function&lt;T: Display + Clone, U: Clone + Debug&gt;(t: T, u: U) -&gt; i32 {
+
+}
+
+// 可以使用 where 来后续补充说明
+fn some_function&lt;T, U&gt;(t: T, u: U) -&gt; i32
+    where T: Display + Clone,
+        U: Clone + Debug
+{
+
+}
+</code></pre></li><li><p>既然能做参数, 那么也能做返回值</p><pre><code class="language-rust">fn returns_summarizable() -&gt; impl Summary {
+    Tweet {
+        username: String::from(&quot;horse_ebooks&quot;),
+        content: String::from(&quot;of course, as you probably already know, people&quot;),
+        reply: false,
+        retweet: false,
+    }
+}
+
+// 但有局限性 也就是说 这样是不允许的 只允许返回一个类型
+fn returns_summarizable(switch: bool) -&gt; impl Summary {
+    if switch {
+        NewsArticle {
+            // ...
+        }
+    } else {
+        Tweet {
+            // ...
+        }
+    }
+}
+</code></pre></li><li><p>完成之前的比大小</p><pre><code class="language-rust">// PartialOrd 可以比较 Copy 可以进行拷贝 代表就是在堆上的值
+fn largest&lt;T: PartialOrd + Copy&gt;(list: &amp;[T]) -&gt; T {
+    let mut largest = list[0];
+
+    for &amp;item in list.iter() {
+        if item &gt; largest {
+            largest = item;
+        }
+    }
+
+    largest
+}
+</code></pre></li></ol><h4><code>lifetime</code> 寿命</h4><ol><li><p>三条规则</p><ol><li><p>作为引用的参数都有其自己的寿命 <code>fn foo&lt;&#x27;a, &#x27;b&gt;(x: &amp;&#x27;a i32, y: &amp;&#x27;b i32);</code></p></li><li><p>如果存在一个有输入寿命的参数的时候, 那么返回的也得是这个带有寿命的参数</p></li><li><p>如果有多个不同寿命参数, 但其中有的是 <code>&amp;self</code> 或者是 <code>&amp;mut self</code>, 那么就把 <code>self</code> 分配给所有输出寿命参数???</p><pre><code class="language-rust">// 分析 1
+fn first_word(s: &amp;str) -&gt; &amp;str {
+// 由于没有指定 那么就算是 先执行第一条规则 给所有的引用参数指定寿命
+fn first_word(s: &amp;&#x27;a str) -&gt; &amp;str {
+// 又只有一个寿命类型, 那么把输入的寿命给到输出
+fn first_word(s: &amp;&#x27;a str) -&gt; &amp;&#x27;a str {
+// 那么现在，此函数所有引用都具有寿命，并且编译器可以继续进行分析，所以我们就不用编写这个寿命了
+</code></pre></li></ol></li></ol><pre><code>// 分析 2
+fn longest(x: &amp;str, y: &amp;str) -&gt; &amp;str {
+// 由于没有指定 入参的寿命 所以先执行第一条规则
+fn longest(x: &amp;&#x27;a str, y: &amp;&#x27;b str) -&gt; &amp;str {
+// 第二条规则适用? 由于有多个不适用
+// 第三条规则呢? 没有 self 也不适用
+// 所以这个编译的时候 就会报错
+```
+</code></pre><h3>自动化测试</h3><h3>构建命令行程序</h3><h3>闭包和迭代器</h3><h4>闭包</h4><ol><li><p>可以不指定数据类型, 但使用的时候 不能乱用, 他不是泛型</p><pre><code class="language-rust">fn  add_one_v1   (x: u32) -&gt; u32 { x + 1 }  // 函数 完整版
+let add_one_v2 = |x: u32| -&gt; u32 { x + 1 }; // 闭包 完整版
+let add_one_v3 = |x|             { x + 1 }; // 闭包 删除指定数据类型
+let add_one_v4 = |x|               x + 1  ; // 闭包 删除花括号
+</code></pre></li></ol><pre><code>// 但在使用后上
+let example_closure = |x| x;
+
+let s = example_closure(String::from(&quot;hello&quot;)); // 使用了字符串作为参数传入
+let n = example_closure(5);                     // 又使用了 数字  这里会崩
+```
+</code></pre><ol start="2"><li><p>闭包也是有特征的, 这样的话就可以作为泛型的参数传入了 <code>Fn</code> <code>FnMut</code> <code>FnOnce</code></p><pre><code class="language-rust">struct Cacher&lt;T&gt;
+    where T: Fn(u32) -&gt; u32
+{
+    calculation: T,
+    value: Option&lt;u32&gt;,
+}
+</code></pre></li><li><p>闭包可以使用外部的变量</p><pre><code class="language-rust">fn main() {
+    let x = 4;
+
+    let equal_to_x = |z| z == x;    // 使用了 x
+    // fn equal_to_x(z: i32) -&gt; bool { z == x } //这个就会崩
+
+    let y = 4;
+
+    assert!(equal_to_x(y));
+}
+</code></pre><p>所以说闭包是会强制获取所有权的
+<code>FnOnce</code>    获取完后 但只能调用一次
+<code>FnMut</code>     可变的形式获取了值
+<code>Fn</code>        不可变的形式获取了值</p></li></ol><h4>迭代器</h4><ol><li><p>特征为 <code>Iterator</code> 和 具有 <code>next</code> 方法</p><pre><code class="language-rust">pub trait Iterator {
+    type Item;
+
+    fn next(&amp;mut self) -&gt; Option&lt;Self::Item&gt;;
+}
+</code></pre></li><li><p><code>next</code> 是会消耗掉的</p><pre><code class="language-rust">#[test]
+fn iterator_demonstration() {
+    let v1 = vec![1, 2, 3];
+
+    let mut v1_iter = v1.iter();
+
+    assert_eq!(v1_iter.next(), Some(&amp;1));
+    assert_eq!(v1_iter.next(), Some(&amp;2));
+    assert_eq!(v1_iter.next(), Some(&amp;3));
+    assert_eq!(v1_iter.next(), None);
+}
+
+fn iterator_sum() {
+    let v1 = vec![1, 2, 3];
+    let v1_iter = v1.iter();
+    let total: i32 = v1_iter.sum();
+    assert_eq!(total, 6);
+}
+</code></pre></li><li><p>迭代器是不会自己调用的</p><pre><code class="language-rust">let v1: Vec&lt;i32&gt; = vec![1, 2, 3];
+
+v1.iter().map(|x| x + 1);   // 这么使用时会收到警告 说明这行代码没有起到任何作用
+
+let v2: Vec&lt;_&gt; = v1.iter().map(|x| x + 1).collect();    // 直接进行迭代
+
+assert_eq!(v2, vec![2, 3, 4]);
+</code></pre></li><li><p>使用场景</p><pre><code class="language-rust">#![allow(unused_variables)]
+fn main() {
+#[derive(PartialEq, Debug)]
+struct Shoe {
+    size: u32,
+    style: String,
+}
+
+fn shoes_in_my_size(shoes: Vec&lt;Shoe&gt;, shoe_size: u32) -&gt; Vec&lt;Shoe&gt; {
+    shoes.into_iter()
+        .filter(|s| s.size == shoe_size)
+        .collect()
+}
+
+#[test]
+fn filters_by_size() {
+    let shoes = vec![
+        Shoe { size: 10, style: String::from(&quot;sneaker&quot;) },
+        Shoe { size: 13, style: String::from(&quot;sandal&quot;) },
+        Shoe { size: 10, style: String::from(&quot;boot&quot;) },
+    ];
+
+    let in_my_size = shoes_in_my_size(shoes, 10);
+
+    assert_eq!(
+        in_my_size,
+        vec![
+            Shoe { size: 10, style: String::from(&quot;sneaker&quot;) },
+            Shoe { size: 10, style: String::from(&quot;boot&quot;) },
+        ]
+    );
+}
+}
+</code></pre></li></ol><h3>Crates.io</h3><h3>智能指针</h3><ol><li><code>Rc&lt;T&gt;</code> 允许对一个变量有多个所有者；<code>Box&lt;T&gt;</code> 和 <code>RefCell&lt;T&gt;</code> 只能有一个所有者。</li><li><code>Box&lt;T&gt;</code> 允许在编译时检查是不可变还是可变的；<code>Rc&lt;T&gt;</code> 只允许在编译时检查不可变的引用；<code>RefCell&lt;T&gt;</code> 允许在运行时检查不可变或可变的引用。</li><li>由于<code>RefCell&lt;T&gt;</code>允许在运行时检查可变引用，因此 <code>RefCell&lt;T&gt;</code> 即使<code>RefCell&lt;T&gt;</code> 是不可变的，也可以在内部改变值。</li></ol><h3>并发</h3><h4>线程</h4><ol><li><p>创建线程 <code>thread::spawn</code></p></li><li><p>等待该线程跑完 <code>join</code> 阻塞的</p></li><li><p>线程内使用外部的值 其实也可以看做是 闭包内使用外部变量 但闭包是在单一线程下使用的 <code>move</code> 是针对线程闭包的 所以 会强制获取所有权</p></li></ol><h4>通道</h4><ol><li><p>例子</p><pre><code class="language-rust">use std::thread;
+use std::sync::mpsc;
+
+fn main() {
+    let (tx, rx) = mpsc::channel();
+
+    thread::spawn(move || {
+        let val = String::from(&quot;hi&quot;);
+        tx.send(val).unwrap();  // 移交所有权
+    });
+
+    let received = rx.recv().unwrap();
+    println!(&quot;Got: {}&quot;, received);
+}
+</code></pre></li></ol><h4>上锁</h4><ol><li><p>互斥 和 原子引用计数</p><pre><code class="language-rust">use std::sync::{Mutex, Arc};
+use std::thread;
+
+fn main() {
+    let counter = Arc::new(Mutex::new(0));
+    let mut handles = vec![];
+
+    for _ in 0..10 {
+        let counter = Arc::clone(&amp;counter);
+        let handle = thread::spawn(move || {
+            let mut num = counter.lock().unwrap();
+
+            *num += 1;
+        });
+        handles.push(handle);
+    }
+
+    for handle in handles {
+        handle.join().unwrap();
+    }
+
+    println!(&quot;Result: {}&quot;, *counter.lock().unwrap());
+}
+</code></pre></li></ol>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[mac上启动文件服务器]]></title>
+            <link>https://danyow.cn/blog/2019/mac</link>
+            <guid>/2019/mac</guid>
+            <pubDate>Tue, 10 Sep 2019 14:39:06 GMT</pubDate>
+            <description><![CDATA[Title: 使用 mac 自带的apache 启动文件服务器]]></description>
+            <content:encoded><![CDATA[<p>Title: 使用 <em>mac</em> 自带的<em>apache</em> 启动文件服务器</p><ol><li><p>开启 <em>apache</em></p><p><code>sudo apachectl start</code></p></li><li><p><code>cd</code> 到对应的目录下</p></li><li><p>开启 <em>HttpServer</em></p><p><code>python -m SimpleHTTPServer</code></p></li><li><p>访问链接</p><p><code>http://localhost:8000</code></p></li></ol>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[ruby在mac上的升级]]></title>
+            <link>https://danyow.cn/blog/2019/ruby</link>
+            <guid>/2019/ruby</guid>
+            <pubDate>Fri, 06 Sep 2019 16:40:54 GMT</pubDate>
+            <description><![CDATA[Title: mac自带的ruby版本过低]]></description>
+            <content:encoded><![CDATA[<p>Title: <em>mac</em>自带的<em>ruby</em>版本过低</p><h2>安装<em>rvm</em>环境来安装<em>ruby</em>环境</h2><pre><code>`curl -L https://get.rvm.io | bash -s stable`
+</code></pre><h2>查看当前版本</h2><pre><code>`rvm list known`
+</code></pre><h2>安装指定<em>ruby</em>版本</h2><pre><code>`rvm install 2.6.3`
+</code></pre><p>done!</p>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[vscode插件开发]]></title>
+            <link>https://danyow.cn/blog/2019/vscode/plugin</link>
+            <guid>/2019/vscode/plugin</guid>
+            <pubDate>Thu, 22 Aug 2019 14:35:39 GMT</pubDate>
+            <description><![CDATA[Title:目的是为了将剪切板里面的图片一键base64到markdown当中, 省去建立图床的步骤. 当然后续是有可能搭建图床去保存图片.]]></description>
+            <content:encoded><![CDATA[<p>Title:目的是为了将剪切板里面的图片一键base64到markdown当中, 省去建立图床的步骤. 当然后续是有可能搭建图床去保存图片.</p><h2>前期准备</h2><ul><li>需要安装 <em>node.js</em> <code>brew install node</code></li><li>利用 <em>npm</em> 安装 另外两个工具 <em>Yeoman</em> 和 <em>VS Code Extension generator</em> . 类似于脚手架 <code>npm install -g yo generator-code</code></li></ul><h2>生成工程</h2><p><code>yo code</code> 即可</p>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[zsh的使用]]></title>
+            <link>https://danyow.cn/blog/2019/zsh</link>
+            <guid>/2019/zsh</guid>
+            <pubDate>Wed, 21 Aug 2019 15:33:55 GMT</pubDate>
+            <description><![CDATA[Title:貌似这样可以让你的终端变得很好看呢]]></description>
+            <content:encoded><![CDATA[<p>Title:貌似这样可以让你的终端变得很好看呢</p><h2>使用 <em>zsh</em></h2><p>切换默认的终端 <em>zsh</em>, 这会提示你输入密码.</p><p><code>chsh -s /bin/zsh</code></p><p>如果想改回来的话</p><p><code>chsh -s /bin/bash</code></p><h2>使用 <em>antigen</em> 来安装 <em>oh my zsh</em></h2><p><code>brew install antigen</code></p><p>这里安装完后会有个提示说: 源目录在某个位置, 让你自己写到 <strong>.zshrc</strong> 里面去.</p><h3>关于 <em>antigen</em> 的简单介绍</h3><blockquote><p>一款类似在 <em>bash</em> 下管理的 <em>brew</em> 工具, 因为直接使用 <em>oh my zsh</em> 会使得你的配置变得稍稍复杂.</p></blockquote><ol><li>安装官方插件 <code>antigen bundle brew</code></li><li>安装<em>github</em>上的插件 <code>antigen bundle zsh-users/zsh-syntax-highlighting</code></li><li>生成缓存, 加快下次载入过程 <code>antigen cache-gen</code></li><li>更新某个或者全部插件 <code>antigen update [&lt;bundle-name&gt;]</code>: 如果留空那么就是更新全部.</li><li>回滚更新 <code>antigen revert</code>: 回滚到更新前的状态</li><li>列出本地安装的插件列表 <code>antigen list [--simple|--short|--long]</code></li><li>清理没有使用到的插件 <code>antigen cleanup</code></li><li>删除插件 <code>antigen purge</code></li><li>使用zsh框架 <code>antigen use oh-my-zsh</code></li><li>使用主题 <code>antigen theme</code></li><li>应用更改 <code>antigen apply</code></li><li>自身更新 <code>antigen selfupdate</code></li></ol><h2>新建 <strong>.zshrc</strong> 文件 填入下面内容</h2><pre><code class="language-shell">source /usr/local/share/antigen/antigen.zsh
+
+# 加载oh-my-zsh库
+antigen use oh-my-zsh
+
+# 加载原版oh-my-zsh中的功能(robbyrussell&#x27;s oh-my-zsh).
+antigen bundle brew
+antigen bundle command-not-found
+antigen bundle git
+antigen bundle pip
+
+# 语法高亮功能
+antigen bundle zsh-users/zsh-syntax-highlighting
+
+# 代码提示功能
+antigen bundle zsh-users/zsh-autosuggestions
+
+# 自动补全功能
+antigen bundle zsh-users/zsh-completions
+
+# 这个不知道是啥
+antigen bundle zsh-users/zsh-apple-touchbar
+
+# 加载主题
+# antigen theme robbyrussell
+antigen theme https://github.com/bhilburn/powerlevel9k powerlevel9k
+
+# 保存更改
+antigen apply
+
+## 配合powerlevel9k主题使用
+POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
+
+POWERLEVEL9K_MODE=&#x27;awesome-patched&#x27;
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon dir vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status nvm node_version)
+
+POWERLEVEL9K_OS_ICON_BACKGROUND=&quot;white&quot;
+POWERLEVEL9K_OS_ICON_FOREGROUND=&quot;blue&quot;
+POWERLEVEL9K_DIR_HOME_FOREGROUND=&quot;white&quot;
+POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND=&quot;white&quot;
+POWERLEVEL9K_DIR_DEFAULT_FOREGROUND=&quot;white&quot;
+
+</code></pre><h2>这时候终端界面会呈现为部分乱码, 因为缺少对应的图标字体</h2><p>在终端执行以下步骤:</p><pre><code class="language-shell"># 下载
+git clone https://github.com/powerline/fonts.git
+# 安装
+cd fonts
+./install.sh
+# 删除安装包
+cd ..
+rm -rf fonts
+</code></pre><h2>在对应的终端工具内选择安装的字体</h2><p>以 <em>VSCode</em> 为例, 在设置界面内查找字体, 然后找到终端输入 <em>Meslo LG S for Powerline</em> 就可以了!</p>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Mac的包管理工具brew]]></title>
+            <link>https://danyow.cn/blog/2019/brew</link>
+            <guid>/2019/brew</guid>
+            <pubDate>Tue, 06 Aug 2019 06:55:00 GMT</pubDate>
+            <description><![CDATA[Title: brew工具的使用]]></description>
+            <content:encoded><![CDATA[<p>Title: brew工具的使用</p><h2>相关指令介绍</h2><ol><li><p>升级本体</p><p><code>brew update</code></p></li><li><p>升级所有程序</p><p><code>brew upgrade</code></p></li><li><p>查看本地安装了哪些&#x27;环境&#x27;和&#x27;应用&#x27;</p><pre><code class="language-shell">brew list
+brew cask list
+</code></pre></li></ol><h2>相关使用技巧</h2><ul><li>经常在安装的会去检查本体的更新, 可能会导致长时间的等待. 所以可以采用关闭自动更新. <code>export HOMEBREW_NO_AUTO_UPDATE=true</code> 但每次重启后都需要重新设置, 可以将这行加入到对应的shell配置文件中去.</li></ul><h2>个人已经安装的</h2><pre><code class="language-shell">brew cask install visual-studio-code
+brew cask install the-unarchiver
+brew cask install google-chrome
+brew cask install sourcetree
+brew cask install wechat
+brew cask install iterm2
+brew cask install powershell
+brew cask install sogouinput ## 需要自己重新打开一下
+brew cask install qq
+brew cask install synergy
+brew cask install unity-hub
+brew cask install beyond-compare
+brew cask install steam
+brew cask install neteasemusic
+brew cask install baidunetdisk
+brew cask install vlc
+brew cask install aria2gui
+brew cask install teamviewer
+brew cask install background-music ## 这个工具可以推荐一下 很赞! 类似windows上的声音合成器
+brew cask install vnc-viewer
+brew cask install impactor
+brew cask install thunder
+brew cask install epic-games
+brew cask install svnx
+brew cask install visual-studio
+brew cask install weiyun
+brew cask install spotifree
+brew cask install spotify
+brew cask install free-download-manager ## 顶替迅雷的
+brew cask install tencent-lemon ## 顶替CMM的
+brew cask install android-studio
+brew cask install genymotion
+brew cask install airserver ## 哎~ 这个还是之后自行破解或者付费吧 只能14天
+brew cask install java
+brew cask install postman
+brew cask install microsoft-remote-desktop-beta
+brew cask install qqmusic
+brew cask install adobe-air
+brew cask install poedit
+brew cask install yinxiangbiji
+brew cask install mailmaster
+
+brew install antigen ## zsh下的管理工具
+brew install python3
+brew install node
+brew install dotnet
+brew install ruby ## 这样安装的并不能正常使用 需要配置环境 建议采用 rvm来安装
+</code></pre><h2>额外无法在brew上找到的</h2><ol><li>人人影视</li><li>Parallels Desktop</li><li>C4D</li><li>MAYA</li></ol><h3><em>VSCode</em> 所使用到的插件</h3><ol><li>Better Align -&gt; 代码对齐 -&gt; 需要在键盘快捷方式里面加入键值绑定</li><li>C#</li><li>C# XML Documentation Comments</li><li>Chinese</li><li>Comment Translate</li><li>Debugger for Unity</li><li>GitLens</li><li>Jekyll Snippets</li><li>Jekyll Syntax Support</li><li>luaide -&gt; 密码不能有符号</li><li>Markdown All in One -&gt; 快捷键</li><li>markdownlint -&gt; 语法纠查</li><li>Material Icon Theme</li><li>Material Theme</li><li>Partial Diff -&gt; 代码比对</li><li>Paste Image</li><li>Python</li><li>Python</li><li>TSLint</li></ol>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[SSH Windows]]></title>
+            <link>https://danyow.cn/blog/2019/ssh</link>
+            <guid>/2019/ssh</guid>
+            <pubDate>Fri, 02 Aug 2019 09:07:42 GMT</pubDate>
+            <description><![CDATA[Title: Windows 下生成 ssh 用来连接 git]]></description>
+            <content:encoded><![CDATA[<p>Title: Windows 下生成 <em>ssh</em> 用来连接 <em>git</em></p><h2>生成</h2><p><code>ssh-keygen -t rsa -C &quot;i.zuucol@gmail.com&quot;</code></p><ol><li>然后他会询问你要存放的位置 -&gt; 直接回车就是默认位置 -&gt; <code>C:\Users\Danyow/.ssh/id_rsa</code></li><li>然后让你输入密码 -&gt; 直接回车就是为空即可</li><li>然后获取刚刚生成出来的公钥 <code>cat C:\Users\Danyow\.ssh\id_rsa.pub</code></li></ol>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Windows To Go]]></title>
+            <link>https://danyow.cn/blog/2019/wtg</link>
+            <guid>/2019/wtg</guid>
+            <pubDate>Fri, 02 Aug 2019 02:48:02 GMT</pubDate>
+            <description><![CDATA[Title: Windows To Go 的一些使用说明]]></description>
+            <content:encoded><![CDATA[<p>Title: Windows To Go 的一些使用说明</p><h2>Mac安装后键鼠供电问题</h2><p>在 <em>mac</em> 供电方式推荐采用直接供电, 不推荐外接拓展坞，有可能导致键鼠使用出现问题.</p><h2>访问本机磁盘</h2><p>默认本机磁盘是脱机状态的</p><p>启用本机磁盘:</p><ol><li>启动 <em>cmd</em></li><li><code>DISKPART.exe</code></li><li><code>san</code></li><li><code>san policy=onlineall</code></li><li><code>list disk</code></li><li><code>select disk 1</code></li><li><code>attributes disk clear readonly</code></li><li><code>online disk</code></li></ol>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Windows的包管理工具chocolatey]]></title>
+            <link>https://danyow.cn/blog/2019/chocolatey</link>
+            <guid>/2019/chocolatey</guid>
+            <pubDate>Thu, 01 Aug 2019 06:55:00 GMT</pubDate>
+            <description><![CDATA[Title: chocolatey工具的使用]]></description>
+            <content:encoded><![CDATA[<p>Title: chocolatey工具的使用</p><h2>安裝 <strong>chocolatey</strong></h2><p>官网首页：<a href="https://chocolatey.org">Home</a></p><p>使用 <strong>PowerShell</strong> 即可</p><pre><code class="language-powershell">iex ((new-object net.webclient).DownloadString(&#x27;https://chocolatey.org/install.ps1&#x27;))
+</code></pre><h3>更改安裝软件存放位置</h3><p>新建环境变量<br/>
+<!-- -->名为 <em>ChocolateyInstall</em><br/>
+<!-- -->值为 <em>你想要存放的路径</em></p><h3>相关链接</h3><p>利用网页检索所需要的包 <a href="https://chocolatey.org/packages">Packages</a></p><h2>常用指令</h2><ol><li><p>安装</p><p><code>choco install &lt;package&gt;</code></p><p>这是正常的安装，但只是装一两个软件还好，每次都需要你输入 <em>y、a、n</em> 等进行交互，可以加入后缀 <code>-y</code> 来自动全部确认</p></li><li><p>其他常用命令</p><ol><li>卸载 <code>choco uninstall &lt;package&gt;</code></li><li>搜索 <code>choco search &lt;package&gt;</code></li><li>更新 <code>choco upgrade &lt;package&gt;</code></li><li>查看本地 <code>choco list --local-only</code> 或者 <code>choco list -lo</code></li></ol></li><li><p>不常用指令</p><ol><li>搜索所有版本 <code>choco search &lt;package&gt; -all</code></li><li>安裝指定版本 <code>choco install &lt;package&gt; -version &lt;版本号&gt;</code></li><li>更新所有 <code>choco upgrade -all</code></li></ol></li></ol><h2>个人已经安装的</h2><pre><code class="language-powershell">choco install 7zip -y
+choco install androidstudio -y
+choco install ccleaner -y
+choco install curl -y
+choco install Everything -y
+choco install gimp -y
+choco install git -y
+choco install git-lfs -y
+choco install github -y
+choco install github-desktop -y
+choco install golang -y
+choco install GoogleChrome -y
+choco install gradle -y
+choco install javaruntime -y
+choco install jdk8 -y
+choco install jekyll -y
+choco install jre8 -y
+choco install nodejs -y
+choco install openssh -y
+choco install php -y
+choco install PowerShell -y
+choco install python -y
+choco install ruby -y
+choco install steam -y
+choco install unity -y
+choco install unity-hub -y
+choco install vscode -y
+choco install wechat -y
+choco install tim -y
+choco install flutter -y
+choco install mongodb -y
+choco install notepadplusplus -y
+choco install dotnetcore-sdk -y
+choco install sourcetree -y
+choco install beyondcompare -y
+</code></pre><h3>个人使用但无法在chocolatey上找到的</h3><ol><li>搜狗输入法</li><li>ShadowsocksR</li><li><del>木木模拟器</del>（已经删除，采用AS自带的模拟器）</li><li>WeGame</li><li>PanDownload（替换百度网盘）</li><li>Synergy</li></ol>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Hello flutter]]></title>
+            <link>https://danyow.cn/blog/2019/flutter</link>
+            <guid>/2019/flutter</guid>
+            <pubDate>Thu, 01 Aug 2019 02:55:00 GMT</pubDate>
+            <description><![CDATA[Title: 关于flutter的初体验]]></description>
+            <content:encoded><![CDATA[<p>Title: 关于flutter的初体验</p><p>安装就不哔哔了</p><h2>环境变量配置</h2><blockquote><p>macOS Todo</p></blockquote><p>mac的，唉~由于在安装配置完后使用的是10.15的beta版本。 目前 fultter 还不支持就先告一段落了。</p><p>2019-12-22 更新:
+流程没啥大毛病
+<code>flutter doctor</code> 走就完事了</p><p>但是启动ios模拟器的时候 没有反应
+需要配置相应环境
+<code>brew install --HEAD libimobiledevice</code></p><blockquote><p>Windows</p></blockquote><p><em>bin</em> 目录配置 <em>Path</em> 即可</p><h2>自检环节</h2><p><code>flutter doctor</code></p><p>会检查以下几个环境</p><ol><li>Flutter 本身环境 （macOS 10.15 beta 就是在这里挂了）</li><li>Android SDK 环境<ol><li><code>flutter doctor --android-licenses</code></li></ol></li><li>Android Studio 环境 需要装插件<ol><li>在开始界面点击 <code>Configure</code> 里的 <code>Plugins</code></li></ol></li><li>VSCode 环境 需要装插件</li><li>连接设备</li><li>Mac 下还会检测 XCode 以及其命令行环境</li></ol>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[CocosCreator 打包记录]]></title>
+            <link>https://danyow.cn/blog/2019/cocos</link>
+            <guid>/2019/cocos</guid>
+            <pubDate>Thu, 04 Jul 2019 15:30:17 GMT</pubDate>
+            <description><![CDATA[Title: 记录在打包过程中遇到的坑]]></description>
+            <content:encoded><![CDATA[<p>Title: 记录在打包过程中遇到的坑
+Version: 2.0.10</p><h2>环境配置</h2><ol><li><p><em>NDK</em> 环境
+推荐的是 <em><a href="http://dl.google.com/android/ndk/android-ndk-r10e-darwin-x86_64.bin">r10e</a></em>(点击即可下载了)</p></li><li><p>但是打出的包不可使用！！！</p></li></ol><p>...告辞</p>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[上帝掷骰子吗？]]></title>
+            <link>https://danyow.cn/blog/2019/quantum</link>
+            <guid>/2019/quantum</guid>
+            <pubDate>Thu, 04 Jul 2019 15:30:17 GMT</pubDate>
+            <description><![CDATA[Title: 思维实验室 推荐]]></description>
+            <content:encoded><![CDATA[<p>Title: <em>思维实验室</em> 推荐</p><h2>黄金时代</h2><h3>赫兹</h3><ul><li>1887 年证实了电磁波。</li><li>不到 37 岁卒。</li></ul><h3>以太 （伪科学定论）</h3><h3>胡克 - 惨</h3><h3>光的两个实验</h3><ul><li>双缝干涉（杨）</li><li>圆盘衍射（菲涅尔）</li></ul><h3>麦克斯韦的电磁波（光被划为其中）</h3>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[mac VSCode报错]]></title>
+            <link>https://danyow.cn/blog/2019/vscode/vscode</link>
+            <guid>/2019/vscode/vscode</guid>
+            <pubDate>Wed, 19 Jun 2019 14:20:03 GMT</pubDate>
+            <description><![CDATA[Title: mac VSCode 更新失败，提示 Permission denied 解决办法]]></description>
+            <content:encoded><![CDATA[<p>Title: <em>mac VSCode</em> 更新失败，提示 <em>Permission denied</em> 解决办法</p><h2>1. 针对右下提示如下</h2><pre><code class="language-error">Could not create temporary directory: Permission denied
+</code></pre><h3>解决办法</h3><ol><li><p>完全关闭 <em>VSCode</em></p></li><li><p>终端输入</p><pre><code class="language-shell">sudo chown -R $USER ~/Library/Caches/com.microsoft.VSCode.ShipIt/
+xattr -dr com.apple.quarantine /Applications/Visual\ Studio\ Code.app
+</code></pre></li><li><p>完成</p></li></ol><h2>多去 <em><a href="https://github.com/microsoft/vscode">VSCode</a></em> 底下的提交问题</h2><p><a href="https://github.com/Microsoft/vscode/issues/7426">原issues地址</a>
+<a href="https://github.com/microsoft/vscode">Github地址</a></p>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[常用命令]]></title>
+            <link>https://danyow.cn/blog/2019/command</link>
+            <guid>/2019/command</guid>
+            <pubDate>Sun, 16 Jun 2019 13:03:12 GMT</pubDate>
+            <description><![CDATA[Title: 记录下自己经常上网查的命令。]]></description>
+            <content:encoded><![CDATA[<p>Title: 记录下自己经常上网查的命令。</p><h2>Nginx</h2><ul><li>查看是否还在运行</li></ul><p><code>ps -ef|grep nginx</code></p><ul><li><p>重启</p><ol><li>验证 <code>nginx.conf</code> 是否正确。 <code>nginx -t</code></li><li>重启服务 <code>nginx -s reload</code></li></ol></li></ul><h2>macOS</h2><h3>安装 <em>rvm</em></h3><ol><li><p>安装 <em>rvm</em> , 一个基于 <em>ruby</em> 的工具库？</p><p><code>curl -L get.rvm.io | bash -s stable</code></p></li><li><p>安装好 <em>rvm</em> 之后</p><pre><code class="language-shell">source ~/.bashrc
+source ~/.bash_profile
+</code></pre></li><li><p>测试安装是否正常</p><p><code>rvm -v</code></p></li><li><p>查看当前 <em>ruby</em> 版本</p><p><code>ruby -v</code></p></li><li><p>列出已知的 <em>ruby</em> 版本</p><p><code>rvm list known</code></p></li><li><p>安装 <em>ruby</em> </p><p><code>rvm install x.x.x</code></p></li><li><p>升级 <em>gem</em> </p><p><code>sudo gem update --system</code></p></li></ol><h3><em>SSH</em></h3><ol><li><p>查看本地是否生成了 <em>SSH</em></p><p><code>ls -al ~/.ssh</code></p></li><li><p>生成新的 <em>SSH</em> <strong>key</strong></p><p><code>ssh-keygen -t rsa -C &quot;i.zuucol@gmail.com&quot;</code></p></li><li><p>查看公钥</p><p><code>cat ~/.ssh/id_rsa.pub</code></p></li></ol><h3>提示安装文件损坏</h3><p><code>sudo spctl --master-disable</code></p><h3><em>cocoapod</em> 更新</h3><p><code>pod install --verbose --no-repo-update</code>
+<code>pod update --verbose --no-repo-update</code></p><h3><em>Xcode</em> 无法被检测到时</h3><p><code>sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer</code></p>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[fullstack开源库]]></title>
+            <link>https://danyow.cn/blog/2019/fullstack</link>
+            <guid>/2019/fullstack</guid>
+            <pubDate>Mon, 10 Jun 2019 12:10:20 GMT</pubDate>
+            <description><![CDATA[Title: 大致就是项目做完没给钱，然后就开源了。]]></description>
+            <content:encoded><![CDATA[<p>Title: 大致就是项目做完没给钱，然后就开源了。</p><p>Github：<a href="https://github.com/TrillCyborg/fullstack">fullstack</a>
+提交是 <em>586fe8bea5d5a12406253994bb848c257109eb15</em></p><h2>大致步骤</h2><ol><li><p>首先准备本地环境</p><ol><li>安装 node 环境 <code>brew install node</code></li><li>安装 yarn <code>brew install yarn</code></li></ol></li><li><p>去准备 api 参数</p><ol><li><p>先去谷歌云平台 <a href="https://console.cloud.google.com/">Google Cloud Platform</a> 里面创建一个凭据，在 <em>API和服务</em> 里面的 <em>凭据</em>, 这时候会获得一个密钥，将其记作 <strong>GOOGLE_MAPS_KEY</strong>。</p></li><li><p>然后到 <em>API和服务</em> 里面的 <em>库</em>，找的地图类别中的 <em>Places API</em>，将其启用，谷歌这边就算是完成了。</p></li><li><p>然后到 <a href="https://plaid.com/">PLAID</a> 上注册账号，这个网站应该是专门获取银行账户内信息的一个聚合平台。完成后找到 <code>Node.js</code> 选项，下面会有对应的信息</p><pre><code class="language-json">{
+    &quot;ACCOUNTS_SECRET&quot;: &quot;secret&quot;,
+    &quot;PLAID_CLIENT_ID&quot;: &quot;xxxxxxxxxxxxxxxxxxxx&quot;,
+    &quot;PLAID_SECRET&quot;: &quot;xxxxxxxxxxxxxxxxxxxx&quot;,
+    &quot;PLAID_PUBLIC_KEY&quot;: &quot;xxxxxxxxxxxxxxxxxxxx&quot;,
+    &quot;PLAID_PRODUCTS&quot;: &quot;transactions&quot;,
+    &quot;PLAID_COUNTRY_CODES&quot;: &quot;US&quot;,
+    &quot;PLAID_ENV&quot;: &quot;sandbox&quot;
+}
+</code></pre></li></ol></li><li><p>填写参数</p><ol><li>将 <strong>GOOGLE_MAPS_KEY</strong> 替换到 <code>/client/src/config/example.env.json</code> 文件内。</li><li>将 <strong>PLAID_PUBLIC_KEY</strong> 也替换到这个文件内。</li><li>将 <strong>PLAID_CLIENT_ID</strong>、<strong>PLAID_SECRET</strong>、<strong>PLAID_PUBLIC_KEY</strong> 替换到 <code>server/config/default.json</code> 文件内。</li></ol></li><li><p>然后启动本地的 mongo</p><p><code>mongod --dbpath /Users/imagons/mongo/data</code></p><p>这个只是我的启动方式。</p></li><li><p>进入到 <code>server</code> 目录, 然后执行 <code>yarn install</code> 和 <code>yarn watch</code></p></li><li><p>另起一个终端，然后进入到 <code>client</code> 目录，然后执行</p><ol><li><code>cp ./src/config/example.env.json ./src/config/development.env.json</code></li><li><code>yarn install</code></li><li><code>yarn start</code></li></ol></li><li><p>（这一步貌似不执行也能运行了）又再起一个终端，继续在 <code>client</code> 目录，执行 <code>yarn gen:types:watch</code></p></li></ol><h2>注意事项</h2><ul><li><p>如果遇到 <code>npm</code> 相关的问题，建议重装 <code>node</code> 环境。</p></li><li><p>4000 的端口和 3000 的端口不要被占用。</p></li></ul>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Flask全套组件及原理剖析]]></title>
+            <link>https://danyow.cn/blog/2019/flask</link>
+            <guid>/2019/flask</guid>
+            <pubDate>Sun, 09 Jun 2019 14:31:08 GMT</pubDate>
+            <description><![CDATA[Title: Bilibili]]></description>
+            <content:encoded><![CDATA[<p>Title: <a href="https://www.bilibili.com/video/av23109760/?p=1">Bilibili</a></p><h2>P8</h2><ul><li>使用字符串来导入类</li></ul><pre><code class="language-python">__import__(name, globals=None, locals=None, fromlist=(), level=0)
+</code></pre><ul><li><code>config</code> 的配置文件路径默认在根目录下，需要更改目录的话，要查看对应的Api文档。</li></ul><h2>P9</h2><ul><li><code>__name__</code> 函数调用的话，可以获取这个函数的名称。</li></ul><h2>P18</h2><ul><li>怎么用父类去约束子类必须实现某方法，意指接口（<code>interface</code>）。</li></ul><pre><code class="language-python">class Base(object):
+    def play():
+        raise NoImplementedError(&#x27;必须实现该方法&#x27;)
+</code></pre><ul><li><p>顺带一提 <a href="https://www.bilibili.com/video/av23109760/?p=18">P18</a> 这一讲当中大概是 20 几分钟左右讲到的配置去做某事的思路对我启发蛮大。并且有助于理解 <em>Django</em> 的中间件。</p></li><li><p>装饰器可以有多个，下面的会和被装饰的函数当成 inner 加入到上层的装饰器当中去。</p></li><li><p><code>endpoint</code> 的意义目前理解为 <code>id</code>。</p></li></ul><h2>P19</h2><ul><li>利用 <code>functools.wraps()</code> 来帮助我们设置函数的元信息</li></ul><pre><code class="language-python">import functools
+
+def wapper(func):
+    @functools.wapper(func) # 保存元信息
+    def inner(*args, **kw):
+        return func(*args, **kw)
+    return inner
+
+@wapper
+def foo():
+    pass
+
+print(foo.__name__)
+
+&#x27;&#x27;&#x27;
+如果不设置元信息的话，会导致打印的是 inner
+设置之后才可以确定是原先的函数
+&#x27;&#x27;&#x27;
+</code></pre><h2>P20</h2><ul><li><p>闪现：类似于暂时存储部分内容的快照，取出来就没了。（阅后即焚）</p><p>  应用场景：对临时数据的操作，例如错误信息。</p></li><li><p>请求扩展，指的是在请求之前和响应之前的监听，可以有多个监听，请求之前的监听是顺序执行，响应的是倒序执行。</p><pre><code class="language-python">@app.before_request
+def before_request_1(*args, **kw):
+    print(&quot;before_request_1 进来了&quot;)
+
+@app.before_request
+def before_request_2(*args, **kw):
+    print(&quot;before_request_2 进来了&quot;)
+
+@app.after_request
+def after_request_1(response):
+    print(&quot;after_request_1 走了&quot;)
+
+@app.after_request
+def after_request_2(response):
+    print(&quot;after_request_2 走了&quot;)
+
+&#x27;&#x27;&#x27;
+打印顺序为
+before_request_1 进来了
+before_request_2 进来了
+...
+after_request_2 走了
+after_request_1 走了
+&#x27;&#x27;&#x27;
+</code></pre><p>  如果请求拦截之后，在他之后的请求就不会执行了，但响应的还是会继续执行。</p></li><li><p>根据状态码定义错误信息</p><pre><code class="language-python">@app.errorhandler(404)
+def error_404(args):
+    return &quot;404页面没找到&quot;
+</code></pre></li><li><p><code>before_first_request</code> 第一个请求</p><pre><code class="language-python">@app.before_first_request
+def first(*args, **kw):
+    ## 连接数据库之类的
+    pass
+</code></pre></li></ul><h2>P22</h2><ul><li>中间件的讲解 <a href="https://www.bilibili.com/video/av23109760/?p=22">P22</a></li></ul><h2>P25</h2><ul><li><code>threading.local()</code> 给每个线程开辟一个内存空间用以对应的线程执行相应操作。达到类似加锁的目的。</li></ul><h2>P36</h2><ul><li>数据的链接池库采用 <code>DBUtils</code> ，但如果使用的是 <code>PooledDB</code> 模式的话，其中有个参数需要注意 <code>maxshared</code> : 链接池中最多共享的链接数量。0 为全部共享，但这个值设置的时候是由 <code>creator</code> 的 <code>threadsafety</code> 来判别的，也就是说设置后不一定会生效。</li></ul>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[天文与重力测量]]></title>
+            <link>https://danyow.cn/blog/2019/astronomy</link>
+            <guid>/2019/astronomy</guid>
+            <pubDate>Sun, 09 Jun 2019 05:23:22 GMT</pubDate>
+            <description><![CDATA[Title: 高等院校测绘工程系列教材]]></description>
+            <content:encoded><![CDATA[<p>Title: 高等院校测绘工程系列教材</p><h2>1. 天文测量简介</h2><ul><li><p>宇宙的”宙”指的是时间</p></li><li><p>米（m），1791年为海平面上地球赤道到北极点距离的千万分之一作为 1 米，1983 年改为光在真空中的 1/299792458s 的时间间隔所经路程的长度作为 1 米。</p></li><li><p>随后引入天文单位，AU（Astronomical Unit）日地距离</p><p>  $$1 AU = 1.495 978 7\times10 ^{11} m$$</p></li></ul><p>但这个天文单位还是太小，于是引入了光年ly（Light Year），1 光年约等于 9.46 万亿千米。</p><p>$$1 ly = 63 240 AU$$</p><ul><li><p>质量的天文单位是太阳质量</p></li><li><p>地球自转</p></li></ul><ol><li>恒星日   地球上某点与恒星的周期间隔  真正自转周期 23h56m4s</li><li>太阳日   地球上某点与太阳的周期间隔  昼夜交替周期 24h</li><li>太阴日   地球上某点与月球的周期间隔  潮汐变化周期 24h50m</li></ol><ul><li>开普勒三大定律</li></ul><ol><li>所有行星轨道的形状是一个椭圆，太阳位于椭圆的一个焦点上。</li><li>在相等的时间间隔内，行星与太阳的连线所扫过的面积相等。</li><li>行星运动周期的平方与椭圆长半轴的立方成正比。</li></ol><ul><li>星等 理解为就是亮度</li></ul><p>星等越大亮度越小，连续的星等其亮度成几何级数，而且又 1 等星的亮度正好是 6 等星的 100 倍，$$\sqrt<!-- -->[5]<!-- -->100 = 2.512$$，这个数为星等比。目前照相的方式可看到 23 等的暗星。</p><ol><li>北极星 2.12 等</li><li>牛郎星 0.89 等</li><li>月亮 -12.5 等</li><li>太阳 -27 等</li></ol><h2>2. 天球坐标系及各坐标系间关系</h2><ul><li>坐标系这块过于数学化，认输！</li></ul><h2>3. 时间系统及其换算</h2><ul><li><p>首先定义时间（时刻、历元）和（时间间隔），我们通常使用到的是后者。</p></li><li><p>时间的基本单位</p></li></ul><ol><li>地球自转 $$ 1 \times 10^{-8} $$</li><li>行星绕太阳的公转</li><li>原子的谐波振荡 $$ 1 \times 10^{-13} $$</li></ol>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[旅行者一号]]></title>
+            <link>https://danyow.cn/blog/2019/voyager</link>
+            <guid>/2019/voyager</guid>
+            <pubDate>Sun, 09 Jun 2019 03:57:27 GMT</pubDate>
+            <description><![CDATA[Title: 旅行者一号]]></description>
+            <content:encoded><![CDATA[<p>Title: 旅行者一号</p><h2>环境</h2><ol><li>地理位置转空间坐标的规则</li><li><del>星系规模的随机算法</del></li><li>飞船的飞行时间计算</li><li>遭遇当前星系时某星的引力弹弓时间确定</li></ol><h3>地理位置转空间坐标的规则</h3><p>假定以目前地球为例，每个人的坐标是球上的某个点，那么得出来将会是一个点化的世界地图，这就看起来很不合适，所以应当保持其真正的地理坐标？</p><p>简单点，以平行宇宙来算和固定的星系来确定。更加具有真实性和科幻性。</p><blockquote><p>TODO</p></blockquote><ul><li>平行宇宙的数量</li><li>有哪些固定的星系</li></ul><h3><del>星系规模的随机算法</del></h3><h3>飞船的飞行时间计算</h3><p>需要收集资料  </p><ol><li>星系之间的距离</li><li>飞船的速度</li><li>时间的缩减方式（以天为基准<ol><li>速度增加？</li><li>距离缩短？</li></ol></li></ol><blockquote><p>TODO</p></blockquote><ul><li>固定星系之间的距离</li><li>飞船的速度</li><li>缩减方式</li><li>黑洞位置的设置</li></ul><h3>遭遇当前星系时某星的引力弹弓时间确定</h3><ol><li>以天为单位，一天最多两次，通知用户操作</li><li>数量，依据当前旅行者弹弓次数</li></ol><blockquote><p>TODO</p></blockquote><ul><li>旅行者弹弓次数</li></ul><h2>玩家信息</h2><ol><li>创建<ol><li>基于地理坐标去生成星系图谱所在位置</li><li>用户名</li></ol></li><li>修改<ol><li>用户名</li><li>地理位置（暂且不做）</li></ol></li><li>查询<ol><li>设计查询方案（暂且不做）</li></ol></li></ol><h2>星球玩法</h2><ol><li>收集<ol><li>采矿</li><li>冶炼</li><li>制作</li></ol></li><li>剧情<ol><li>人物剧情</li><li>星球剧情</li><li>历史剧情</li></ol></li><li>操作方式<ol><li>点为主</li></ol></li></ol><blockquote><p>TODO</p></blockquote><ul><li>原始掉落飞行器所携带信息清单</li><li>修复飞行器所需物资精简以及清单</li><li>火箭所需物资清单</li><li>飞行器所携带信息限制</li><li>剧情的分配</li></ul><h2>飞行途中</h2><ol><li>引力弹弓时通知玩家找寻最佳时机</li><li>拍照？</li></ol><p>由于飞行器是不能直接创造出来。
+如果需要添加飞行器功能，类似AI，需要在星球的收集过程中添加上去。</p><blockquote><p>TODO</p></blockquote><ul><li>拍照功能确定如何做？</li><li>通知后的操作方式</li><li>操作时间限制</li></ul>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Python高手之路]]></title>
+            <link>https://danyow.cn/blog/2019/python/inspect</link>
+            <guid>/2019/python/inspect</guid>
+            <pubDate>Sun, 09 Jun 2019 03:28:32 GMT</pubDate>
+            <description><![CDATA[Title: 第三版]]></description>
+            <content:encoded><![CDATA[<p>Title: 第三版</p><ul><li>10.1 生成器</li></ul><p>查看一个函数是否是生成器 <code>isgeneratorfunction()</code></p><pre><code class="language-python">import inspect
+
+inspect.isgeneratorfunction(foo)
+</code></pre><p>获取生成器的当前状态 <code>getgeneratorstate()</code></p><ol><li><code>GEN_CREATED</code>    等待被第一次执行</li><li><code>GEN_RUNNING</code>    正在被执行</li><li><code>GEN_SUSPENDED</code>  等待被 <code>next()</code> 调用</li><li><code>GEN_CLOSED</code>     结束运行</li></ol>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[对对子]]></title>
+            <link>https://danyow.cn/blog/2019/poetry</link>
+            <guid>/2019/poetry</guid>
+            <pubDate>Thu, 30 May 2019 13:24:23 GMT</pubDate>
+            <description><![CDATA[花无百日红，却有百态生，一态又一态，毁灭至重生！水有清浊，人有正邪，似清却非清，似邪却非邪，鱼目混珠境，慧眼观，慧眼连慧心，非眼，亦非耳，心净静，心无杂念，方能辨！  —— Elewen]]></description>
+            <content:encoded><![CDATA[<p>花无百日红，却有百态生，一态又一态，毁灭至重生！水有清浊，人有正邪，似清却非清，似邪却非邪，鱼目混珠境，慧眼观，慧眼连慧心，非眼，亦非耳，心净静，心无杂念，方能辨！  —— Elewen</p><p>叶有常青绿，却无诗词颂，顾花忘落叶，花落拂袖去！人有离合，月有圆缺，似离却非离，似缺却非缺，泾渭分明时，现彼岸，彼岸有羞花，无色，亦无叶，花待叶，叶肥花红，登彼岸！  —— Danyow</p><p>Title: 和有钱的文艺青年约会是什么样的体验？（已经被删）</p><p><a href="https://www.youtube.com/watch?v=xJ-wHmfnuek">墙外链接</a></p><p>章台柳，章台柳；昔日青青今在否？
+东风恶，欢情薄；一杯愁绪，几年离索。
+而今却悔当时错，当时错；
+万事休休休莫莫；
+一夜湘君白发多，
+无人能唱采莲歌；
+夜长人奈何。
+人成各，今非昨；
+今日岱宗夫如何。</p>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[廖雪峰Python学习教程]]></title>
+            <link>https://danyow.cn/blog/2019/python/python</link>
+            <guid>/2019/python/python</guid>
+            <pubDate>Wed, 29 May 2019 14:19:59 GMT</pubDate>
+            <description><![CDATA[小白入门, 以前的笔记。]]></description>
+            <content:encoded><![CDATA[<p>小白入门, 以前的笔记。</p><h2>函数</h2><h3>函数的参数</h3><ul><li>当默认参数为可变对象的时候 eg:</li></ul><pre><code class="language-python">def add_end(L=[]):
+    L.append(&#x27;END&#x27;)
+    return L
+
+&#x27;&#x27;&#x27;
+如果多次调用该函数
+就会导致L的值不断递增
+&gt;&gt;&gt; add_end()
+[&#x27;END&#x27;, &#x27;END&#x27;]
+&gt;&gt;&gt; add_end()
+[&#x27;END&#x27;, &#x27;END&#x27;, &#x27;END&#x27;]
+因为L也是一个变量
+所以最佳做法是将 L=None
+在函数内部去做判断
+&#x27;&#x27;&#x27;
+</code></pre><ul><li>定义可变参数的的函数</li></ul><pre><code class="language-python">def calc(*numbers):
+    sum = 0
+    for n in numbers:
+        sum = sum + n * n
+    return sum
+
+&#x27;&#x27;&#x27;
+# 当如果要使用list传入的话
+&#x27;&#x27;&#x27;
+nums = [1, 2, 3]
+calc(*nums)
+</code></pre><ul><li>关键字参数的用法和可变参数类似</li></ul><pre><code class="language-python"># 定义
+**kw
+#调用
+&gt;&gt;&gt; extra = {&#x27;city&#x27;: &#x27;Beijing&#x27;, &#x27;job&#x27;: &#x27;Engineer&#x27;}
+&gt;&gt;&gt; person(&#x27;Jack&#x27;, 24, **extra)
+</code></pre><ul><li>命名关键字参数</li></ul><pre><code class="language-python"># 无可变参数时 必须加入*分隔
+def person(name, age, *, city, job):
+    print(name, age, city, job)
+
+# 有可变参数时 无序理会
+def person(name, age, *args, city, job):
+    print(name, age, args, city, job)
+</code></pre><ul><li>参数组合</li></ul><p>目前共有五种参数</p><ol><li>必选</li><li>默认</li><li>可变</li><li>关键字</li><li>命名关键字</li></ol><p>定义必须遵循以上顺序</p><h3>递归函数</h3><ul><li><p>递归需要注意一点就是: 防止函数栈溢出</p></li><li><p>尽可能的采用尾递归方式来处理递归函数</p><ul><li>尾递归：函数返回的时候, 只调用该函数本身, 不能添加其他的表达式.</li></ul></li></ul><h2>高级特性</h2><h3>切片</h3><ul><li>当如果采用-号来进行倒序取数的时候, 并不是取得顺序也是倒的, 而是正序.</li></ul><pre><code class="language-python">L = [&#x27;Michael&#x27;, &#x27;Sarah&#x27;, &#x27;Tracy&#x27;, &#x27;Bob&#x27;, &#x27;Jack&#x27;]
+L[-2:]
+# 这个-2指从倒数第二个开始, 继续往后取值, 而不是往前取值.
+# 即: [&#x27;Bob&#x27;, &#x27;Jack&#x27;]
+# 而不是 [&#x27;Bob&#x27;, &#x27;Tracy&#x27;, &#x27;Sarah&#x27;, &#x27;Michael&#x27;]
+</code></pre><h3>迭代</h3><ul><li><p>字典直接遍历时取得是所有的键, 需要字典的所有值是 <code>dic.values()</code>, 所有键值对是 <code>dic.items()</code></p></li><li><p><code>Iterable</code>: 可迭代 <code>from collections import Iterable</code></p></li><li><p><code>isinstance</code>: 判断一个对象的类型 <code>isinstance(object, class-or-type-or-tuple)</code></p></li><li><p><code>enumerate</code> 将一个list改变为索引-元素对</p></li></ul><pre><code class="language-python">&gt;&gt;&gt; for i, value in enumerate([&#x27;A&#x27;, &#x27;B&#x27;, &#x27;C&#x27;]):
+...     print(i, value)
+...
+0 A
+1 B
+2 C
+</code></pre><ul><li>可以同时引用两个变量</li></ul><pre><code class="language-py">&gt;&gt;&gt; for x, y in [(1, 1), (2, 4), (3, 9)]:
+...     print(x, y)
+...
+1 1
+2 4
+3 9
+</code></pre><ul><li><code>for ... in</code> 是不支持直接遍历字典的时候, 同时取到键和值需要以下方法</li></ul><pre><code class="language-py"># 会报错
+d = {&#x27;key_1&#x27;:&#x27;1&#x27;, &#x27;key_2&#x27;:&#x27;2&#x27;, &#x27;key_3&#x27;:&#x27;3&#x27;}
+for key, value in d:
+    print(key + value)
+
+# 加上items这样就不会报错了
+d = {&#x27;key_1&#x27;:&#x27;1&#x27;, &#x27;key_2&#x27;:&#x27;2&#x27;, &#x27;key_3&#x27;:&#x27;3&#x27;}
+for key, value in d.items():
+    print(key + value)
+</code></pre><h3>列表生成器</h3><ul><li><code>[]</code></li></ul><h3>生成器: generator</h3><ul><li><code>()</code> 或者 <code>yield</code></li></ul><h3>迭代器: Iterator</h3><ul><li>凡是可作用于<code>for</code>循环的对象都是<code>Iterable</code>类型；</li><li>凡是可作用于<code>next()</code>函数的对象都是<code>Iterator</code>类型，它们表示一个惰性计算的序列；</li><li>集合数据类型如<code>list、dict、str</code>等是<code>Iterable</code>但不是<code>Iterator</code>，不过可以通过<code>iter()</code>函数获得一个<code>Iterator</code>对象。</li><li><code>for</code>循环本质上就是通过不断调用<code>next()</code>函数实现的</li></ul><h2>函数式编程</h2><h3>builtins: 内置函数</h3><ul><li><code>abs</code>就在<code>import builtins</code></li></ul><h3>高阶函数</h3><ul><li><p><code>map</code> 对每个数进行一次函数算法, 然后重新组装为一个数组.</p></li><li><p><code>reduce</code> 从 0, 1 每两个, 直到最后一个数进行一次函数算法, 然后返回.</p></li><li><p><code>filter</code> 遍历每个数对其进行过滤 真保存, 假删除.</p></li></ul><blockquote><p>以上都是返回的是 <code>Iterator</code> 类型 需要用<code>list()</code>让其算完.</p></blockquote><h2>模块</h2><h3>使用模块</h3><ul><li><p><code>sys.argv</code>存储了命令行输入参数, 当长度为1时没有输入参数.</p></li><li><p><code>if __name__==&#x27;__main__&#x27;:</code> 被引入使用时失效, 仅在运行当前文件时生效, 主要用于测试.</p></li></ul><h3>安装第三方模块</h3><ul><li>模块搜索路径 环境修改<code>PYTHONPATH</code></li></ul><pre><code class="language-py"># 仅仅在运行时添加
+import sys
+&gt;&gt;&gt; sys.path.append(&#x27;/Users/michael/my_py_scripts&#x27;)
+</code></pre><h2>面向对象编程</h2><h3>获取对象信息</h3><ul><li><p>获取对象所有方法 <code>dir()</code></p></li><li><p>类似OC动态运行时 <code>getattr()</code> <code>setattr()</code> <code>hasattr()</code></p></li></ul><h2>面向对象高级编程</h2><h3>使用<strong>slots</strong></h3><ul><li>python的动态能力很强, 甚至可以给类添加绑定一个方法, 或者是给对象绑定一个参数. 但有问题就是想起限制作用, 这时候就可以使用到了<strong>slots</strong></li></ul><pre><code class="language-py">class Student(object):
+    __slots__ = (&#x27;name&#x27;, &#x27;age&#x27;) # 用tuple定义允许绑定的属性名称
+&#x27;&#x27;&#x27;
+这里补充下网友发现的一些现象
+1. 如果设置了__slots__ 但是给类直接绑定新的值, 还是可行 eg: Student.score = 99
+2. 如果采用了__slots__内含有双下划线的变量时, 在继承的时候该 变量会变形 eg: Person __slots__(&#x27;__name&#x27;) Student(Person) __slots__() 这时候的Student的name在用的时候会报错. 由于其没有改写本身的__name, 所以已经变形为_Persion__name
+&#x27;&#x27;&#x27;
+</code></pre><h3>定制类</h3><ul><li><code>__init__</code>    初始化的时候使用</li><li><code>__len__</code>     <code>len()</code>方法的时候</li><li><code>__str__</code>     <code>print()</code>方法的时候</li><li><code>__repr__</code>    命令行直接输出的时候</li><li><code>__iter__</code>    返回迭代所需要的对象</li><li><code>__next__</code>    返回下一个取出来的值</li><li><code>__getitem__</code> <code>[::]</code>的方式取下标</li><li><code>__getattr__</code> 通常用作获取一个没有的值得属性的时候</li><li><code>__call__</code>    判断是否可调用的具体条件<code>callable()</code></li></ul><h3>元类</h3><ul><li>类可以通过 <code>type()</code> 直接去创建.</li></ul><pre><code class="language-py">def fn(self, name=&#x27;world&#x27;): # 先定义函数
+    print(&#x27;Hello, %s.&#x27; % name)
+Hello = type(&#x27;Hello&#x27;, (object,), dict(hello=fn)) # 创建Hello class
+</code></pre><ul><li>而<code>metaclass</code>本质上就是监听创建这个类时的回调, 从而在本源上大规模的去改动这个类的创建形式.</li></ul><pre><code class="language-py">class ListMetaclass(type):
+    def __new__(cls, name, bases, attrs):
+        attrs[&#x27;add&#x27;] = lambda self, value: self.append(value)
+        return type.__new__(cls, name, bases, attrs)
+class MyList(list, metaclass=ListMetaclass):
+    pass
+&#x27;&#x27;&#x27;
+&gt;&gt;&gt; L = MyList()
+&gt;&gt;&gt; L.add(1)
+&gt;&gt; L
+[1]
+&#x27;&#x27;&#x27;
+</code></pre><h2>IO编程</h2><h3>序列化</h3><ul><li>模型转json</li></ul><pre><code class="language-py"># 自定义模式
+def student2dict(std):
+    return {
+        &#x27;name&#x27;: std.name,
+        &#x27;age&#x27;: std.age,
+        &#x27;score&#x27;: std.score
+    }
+json.dumps(s, default=student2dict)
+
+# 偷懒模式
+json.dumps(s, default=lambda obj: obj.__dict__)
+</code></pre><ul><li>json转模型</li></ul><pre><code class="language-py">def dict2student(d):
+    return Student(d[&#x27;name&#x27;], d[&#x27;age&#x27;], d[&#x27;score&#x27;])
+json.loads(json_str, object_hook=dict2student)
+</code></pre><h2>进程和线程</h2><h3>多线程</h3><ul><li><p>GIL</p><p>  启动与CPU核心数量相同的N个线程，在4核CPU上可以监控到CPU占用率仅有102%，也就是仅使用了一核。</p><p>  但是用C、C++或Java来改写相同的死循环，直接可以把全部核心跑满，4核就跑到400%，8核就跑到800%，为什么Python不行呢？</p><p>  因为Python的线程虽然是真正的线程，但解释器执行代码时，有一个GIL锁：Global Interpreter Lock，任何Python线程执行前，必须先获得GIL锁，然后，每执行100条字节码，解释器就自动释放GIL锁，让别的线程有机会执行。这个GIL全局锁实际上把所有线程的执行代码都给上了锁，所以，多线程在Python中只能交替执行，即使100个线程跑在100核CPU上，也只能用到1个核。</p><p>  GIL是Python解释器设计的历史遗留问题，通常我们用的解释器是官方实现的CPython，要真正利用多核，除非重写一个不带GIL的解释器。</p><p>  所以，在Python中，可以使用多线程，但不要指望能有效利用多核。如果一定要通过多线程利用多核，那只能通过C扩展来实现，不过这样就失去了Python简单易用的特点。</p><p>  不过，也不用过于担心，Python虽然不能利用多线程实现多核任务，但可以通过多进程实现多核任务。多个Python进程有各自独立的GIL锁，互不影响。</p></li></ul>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Python 内置函数]]></title>
+            <link>https://danyow.cn/blog/2019/python/eval</link>
+            <guid>/2019/python/eval</guid>
+            <pubDate>Tue, 28 May 2019 14:28:38 GMT</pubDate>
+            <description><![CDATA[eval()]]></description>
+            <content:encoded><![CDATA[<h2><code>eval()</code></h2><p><code>eval(expression[, globals[, locals]])</code></p><ul><li>expression -- 表达式。</li><li>globals -- 变量作用域，全局命名空间，如果被提供，则必须是一个字典对象。</li><li>locals -- 变量作用域，局部命名空间，如果被提供，可以是任何映射对象。</li></ul><pre><code class="language-python">&gt;&gt;&gt;x = 7
+&gt;&gt;&gt; eval( &#x27;3 * x&#x27; )
+21
+&gt;&gt;&gt; eval(&#x27;pow(2,2)&#x27;)
+4
+&gt;&gt;&gt; eval(&#x27;2 + 2&#x27;)
+4
+&gt;&gt;&gt; n=81
+&gt;&gt;&gt; eval(&quot;n + 4&quot;)
+85
+</code></pre><blockquote><p>就好像是在 <em>python</em> 语言里面自建了一个 <em>python</em> 解析器。</p></blockquote>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Python3面向对象编程]]></title>
+            <link>https://danyow.cn/blog/2019/python/object</link>
+            <guid>/2019/python/object</guid>
+            <pubDate>Mon, 27 May 2019 14:33:07 GMT</pubDate>
+            <description><![CDATA[Title: 第二版]]></description>
+            <content:encoded><![CDATA[<p>Title: 第二版</p><h2>2. Python 对象</h2><ul><li>自我解释 -&gt; 在规范自己所编写的类的时候，应该加入详尽的注释。</li></ul><pre><code class="language-python">class Point:
+    &#x27;这段是类注释，建议用单引号&#x27;
+
+    def __init__(self, x=0, y=0):
+        &#x27;&#x27;&#x27;多行文档注释&#x27;&#x27;&#x27;
+        pass
+
+    def foo(self):
+        &#x27;单行文档注释&#x27;
+        pass
+</code></pre><ul><li>双下划线的命名的变量，是会对其实施<strong>命名改装</strong>。会自动封装 _(类名)</li></ul><h2>3. 对象相似时</h2><ul><li>如果一个类继承了多个类，那么在初始化其父类时，可以采用如下方式。</li></ul><pre><code class="language-python"># 分别调用父类
+class Teacher(Person, Title):
+    def __init__(self, name, title, studens):
+        Person.__init__(self, name)
+        Title.__init__(self, title)
+        self.studens = studens
+
+&#x27;&#x27;&#x27;
+以上就是简单定义了一个多继承关系的类，这么看来是没什么问题的
+但作者提到了一个问题，如果在定义模型的时候，需要连接数据库，那么每次都是连接两次数据库。
+这里可以采用 __mro__ 来修改方法的调用顺序
+&#x27;&#x27;&#x27;
+
+# 采用super() 和 **kw 的方式
+
+class Person(object):
+    def __init__(self, name=&#x27;&#x27;, **kw):
+        self.name = name
+
+class Title(object):
+    def __init__(self, title=&#x27;&#x27;, **kw):
+        self.title = title
+
+class Teacher(Person, Title):
+    def __init__(self, studens=null, **kw):
+        super().__init__(**kw)
+        self.studens = studens
+
+&#x27;&#x27;&#x27;
+super() 的方式可以确保object只初始化一次。
+**kw 的方式可以解决多父类情况下 参数不一致的问题
+&#x27;&#x27;&#x27;
+</code></pre><ul><li>如果定义了一个抽象基类 <code>abc</code> 而且这个类重写了 <code>__subclasshook__(cls, C)</code> 的时候，需要注意</li></ul><p>任意类的实例在被调用 <code>insubclass</code> 和 <code>ininstance</code> 是会去调用抽象基类重写的 <code>__subclasshook__</code> 这个方法的，如果他说的是那么就是。</p><h2>4. 异常捕获</h2><ul><li><p><code>else</code> 和 <code>finally</code> 的调用是，没有异常时前者会执行，后者无论如何都会执行。</p></li><li><p>异常的层级</p></li></ul><pre><code class="language-python">&#x27;&#x27;&#x27;
+    BaseException   &lt;---    KeybordInterrupt, SystemExit
+                    &lt;---    Exception   &lt;---    其他所有的异常
+&#x27;&#x27;&#x27;
+</code></pre><h2>6. Python 数据结构</h2><ul><li>无法给内置类实例添加属性，但可以给自定义类添加属性。</li></ul><pre><code class="language-python">o = object()
+o.x = 0
+&#x27;&#x27;&#x27;
+👆会报错
+👇正常运行
+&#x27;&#x27;&#x27;
+class MyClass(object):
+    pass
+m = MyClass()
+m.x = 1
+</code></pre><ul><li>命名元组相当于字典</li></ul><pre><code class="language-python">from collections import namedtuple
+
+Stock = namedtuple(&quot;Stock&quot;, &quot;symbol current high low&quot;)
+# Stock = namedtuple(&quot;Stock&quot;, &quot;symbol, current, high, low&quot;)
+stock = Stock(&quot;FB&quot;, 75.0, 75.3, 74.2)
+# 可以使用点语法
+stock.symbol
+</code></pre><ul><li><p><code>total_ordering</code> 对应着 <code>&gt;, &lt;, ==, !=, &gt;=, &lt;=</code> 逻辑运算符</p></li><li><p><code>operator.itemgetter</code> 可以对元组排序时，直接修改所要比较时用到的是第几个属性</p></li></ul><pre><code class="language-python">from operator import itemgetter
+
+l = [(&#x27;h&#x27;, 4), (&#x27;n&#x27;, 6), (&#x27;o&#x27;, 5), (&#x27;p&#x27;, 1), (&#x27;t&#x27;, 3), (&#x27;y&#x27;, 2)]
+# 这里直接采用第二个键来做比较的项
+l.sort(key=itemgetter(1))
+</code></pre><ul><li>队列有三种</li></ul><ol><li><p>FIFO 队列（<em>First In First Out</em>）</p><p><code>from queue import Queue</code></p></li><li><p>LIFO 队列（<em>Last In First Out</em>）</p><p><code>from queue import LifoQueue</code></p></li><li><p>优先级队列</p><p><code>from queue import PriorityQueue</code></p></li></ol><h2>7. Python 面向对象的捷径</h2><ul><li><p>上下文管理器，判断一个对象能否执行 <code>with</code> 语句，可以用哪个 <code>dir()</code> 查看里面是否有 <code>__ennter__</code> 和 <code>__exit__</code></p></li><li><p>参数解包，对于列表对象的解包是加 <code>*</code>, 字典的解包是 <code>**</code></p></li></ul><h2>8. 字符串与序列化</h2><ul><li>占位值改变打印样式</li></ul><pre><code class="language-python">&#x27;&#x27;&#x27;
+{0:10s}     s字符串，然后是占10个字节。
+{1:^9d}     d整形，然后占9个字节，^(脱字符)表示居中对齐。
+{2:&lt;8.2f}   f浮点型，然后占8个字节，&lt;表示向左对齐，.2省略两位小数
+{3:&gt;7.2f}   f浮点型，然后占7个字节，&gt;表示向右对齐，.2省略两位小数
+&#x27;&#x27;&#x27;
+orders = [(&#x27;burger&#x27;, 2, 5),
+          (&#x27;fries&#x27;, 3.5, 1),
+          (&#x27;cola&#x27;, 1.75, 3)]
+
+print(&quot;PRODUCT    QUANTITY   PRICE    SUBTOTAL&quot;)
+
+for product, price, quantity in orders:
+    subtotal = price * quantity
+    print(&quot;{0:10s}{1:^9d}   ${2:&lt;8.2f}${3:&gt;7.2f}&quot;.format(product, quantity, price, subtotal))
+
+&#x27;&#x27;&#x27;
+PRODUCT    QUANTITY   PRICE    SUBTOTAL
+burger        5       $2.00    $  10.00
+fries         1       $3.50    $   3.50
+cola          3       $1.75    $   5.25
+&#x27;&#x27;&#x27;
+</code></pre><h2>9. 迭代器模式</h2><ul><li>协程</li></ul><pre><code class="language-python">def tally():
+    score = 0
+    while True:
+        increment = yield score
+        print(&quot;increment : {}, score : {}&quot;.format(increment, score))
+        score += increment
+
+white_sox = tally()
+next(white_sox)
+white_sox.send(3)
+
+&#x27;&#x27;&#x27;
+increment : 3, score : 0
+&#x27;&#x27;&#x27;
+</code></pre><ol><li><code>yield</code> 的出现和生成器暂停。</li><li>在函数外执行 <code>send()</code> 方法，且激活了生成器。</li><li>发送的值赋给了 <code>yield</code> 语句左侧的变量。</li><li>生成器继续执行，直至遇到下一个 <code>yield</code> 语句。</li></ol><h2>10. Python 设计模式 I</h2><ul><li><p>观察者模式在执行起来需要以下两个步骤</p><ol><li><p>被观察者主动通知观察者 通过 <code>_update_observers</code></p><pre><code class="language-python">class Inventory:
+    def __init__(self):
+        self.observers = []
+
+    def _update_observers(self):
+        for observer in self.observers:
+            observer()
+</code></pre></li><li><p>观察者自身现实被调用方法 通过 <code>__call__</code></p><pre><code class="language-python">class Observer:
+    def __init__(self, inventory):
+        self.inventory = inventory
+
+    def __call__(self):
+        print(&quot;观察成功！&quot;)
+</code></pre></li></ol></li></ul><h2>12. 测试面向对象程序</h2><ul><li><p><code>unittest</code> 的 <code>setUp()</code> 是用于每次执行测试时，都会调用该方法用以保证数据被污染 和 <code>tearDown()</code> 是用来保证每次测试结束后调用。</p></li><li><p><code>py.test</code> 与之相对应的有类似几个。</p><ol><li><code>setup_module</code></li><li><code>teardown_module</code></li><li><code>setup_class</code></li><li><code>teardown_class</code></li><li><code>setup_method</code></li><li><code>teardown_method</code></li></ol></li><li><p><code>pytest_funcarg__&lt;idenntifier&gt;</code> 和被测试函数需要接受的参数作为测试</p></li></ul><pre><code class="language-python">def pytest_funcarg__numbers(request):
+    return [1,2,3]
+
+def test_sum(numbers):
+    assert sum(numbers) == 6
+</code></pre><h2>13. 并发</h2><ul><li>自定义线程再被需要重写 <code>run()</code> 方法，但调用时用到的是 <code>start()</code></li></ul>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Python程序设计基础]]></title>
+            <link>https://danyow.cn/blog/2019/python/fundamentals</link>
+            <guid>/2019/python/fundamentals</guid>
+            <pubDate>Mon, 27 May 2019 13:06:13 GMT</pubDate>
+            <description><![CDATA[Title: 上海市高等学校计算机等级考试（二级）推荐教材]]></description>
+            <content:encoded><![CDATA[<p>Title: 上海市高等学校计算机等级考试（二级）推荐教材</p><h2>2. Python程序的基本语法</h2><ul><li>四舍六入五留双 <code>round()</code></li></ul><pre><code class="language-python">round(1.5)
+round(2.5)
+&#x27;&#x27;&#x27;
+2
+2
+&#x27;&#x27;&#x27;
+</code></pre><h2>3. Python 程序的基本流程控制</h2><ul><li><p>允许 <code>x &gt; y &gt; z</code> <code>x &lt; y &gt; z</code></p></li><li><p><code>while</code> 和 <code>else</code> 可以一起用 在退出循环的时候调用</p></li></ul><h2>4. Python的特征数据类型</h2><ul><li>列表和字典的 <code>clear()</code> 方法</li></ul><pre><code class="language-py">a = b = [1, 2, 3]
+print(a, b)
+a.clear()
+print(a, b)
+
+c = d = {&#x27;x&#x27;:1, &#x27;y&#x27;:2}
+print(c, d)
+c.clear()
+print(c, d)
+
+&#x27;&#x27;&#x27;
+[1, 2, 3] [1, 2, 3]
+[] []
+{&#x27;x&#x27;: 1, &#x27;y&#x27;: 2} {&#x27;x&#x27;: 1, &#x27;y&#x27;: 2}
+{} {}
+clear可以理解为是清除指针指向所在地址的内存
+&#x27;&#x27;&#x27;
+</code></pre><ul><li><p>集合里面不能包含有列表或字典</p></li><li><p>列表自己 append 自身的时候会无穷递归 <code>lst.append(list)</code></p></li></ul><h2>5. 文件</h2><ul><li>在表示路径的字符串中 <code>/</code> 等同于 <code>\</code>，但 <code>\</code> 又必须转义为 <code>\\</code></li></ul><pre><code class="language-python">&quot;D:\\Dir\\file.txt&quot;
+
+&quot;D:/Dir/file.txt&quot;
+</code></pre><h2>7. 面向对象的程序设计</h2><ul><li><p><code>dir()</code> 是可以返回当前对象里面的所有参数 包括方法和属性</p></li><li><p>多继承时，如果其父类当做有共同的方法时，子类调用会以第一个为准，即先查找先调用。</p></li></ul>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Hello World!]]></title>
+            <link>https://danyow.cn/blog/2019/jekyll</link>
+            <guid>/2019/jekyll</guid>
+            <pubDate>Sun, 26 May 2019 04:40:24 GMT</pubDate>
+            <description><![CDATA[1. jekyll 静态页面框架]]></description>
+            <content:encoded><![CDATA[<ol><li><strong>jekyll</strong> 静态页面框架</li><li><strong>whiteglass</strong> 主题</li><li><strong>Disqus</strong> 评论系统（国内<em>IP</em>应该无法访问）</li><li><strong>Travis CI</strong> 自动构建工具</li></ol><h2>jekyll</h2><p>之所以采用 <strong>jekyll</strong> 而没有去使用中文文档更为丰富的 <em>Hexo</em>，是因为 <em>Github</em> 官方推荐的是前者。 同时也有另外一个原因，<strong>jekyll</strong> 看起来会简约许多。</p><p>大致步骤如下:</p><ol><li>安装 <em>bundler</em> 和 <em>jekyll</em><code>gem install bundler jekyll</code></li><li>创建项目
+<code>jekyll new blog</code> 和 <code>jekyll new blog --skip-bundle</code>
+后者是针对 <strong>whiteglass</strong> 的，后面会讲到。</li><li>进入目录
+<code>bundle install</code></li><li>启动本地调试
+<code>bundle exec jekyll serve</code></li></ol><p>以上就算是把房子建好了，剩下的就是需要让房客（我的笔记）入住，和让房间更好看些（<strong>whiteglass</strong>）。<br/>
+<!-- -->这些生成出来的文件直接推送到 <em>Github</em> 时，是可以正常运行的。</p><h2>whiteglass</h2><p>这个是在 <a href="https://jekyllthemes.dev/"><em>jekyllthemes</em></a> 主题网站上面找到的。
+推荐采用重新建房子的方式。</p><p>大致使用方法:</p><ol><li><p>创建项目 <code>jekyll new blog --skip-bundle</code></p></li><li><p>添加 <code>gem &quot;jekyll-whiteglass&quot;</code> 到 <code>Gemfile</code></p></li><li><p>编辑 <code>_config.yml</code></p><pre><code class="language-yml"> theme: jekyll-whiteglass
+ plugins:
+ - jekyll-archives
+ - jekyll-paginate
+ - jekyll-sitemap
+
+ permalink: /:year/:month/:day/:title/
+ paginate_path: /posts/:num/
+ paginate: 5
+
+ jekyll-archives:
+ enabled:
+     - categories
+     - tags
+ layout: category_archives
+ permalinks:
+     category: /categories/:name/
+  tag: /tags/:name/
+</code></pre></li><li><p>依次执行以下命令</p><pre><code class="language-shell">rm index.md
+curl -L -O &quot;https://github.com/yous/whiteglass/raw/master/{index.html,about.md,archives.md,feed.xml}&quot;
+curl -L --create-dirs -o _data/navigation.yml https://github.com/yous/whiteglass/raw/master/_data/navigation.yml
+</code></pre></li><li><p>安装所需文件和启动</p><pre><code class="language-shell">bundle install
+bundle exec jekyll serve
+</code></pre></li></ol><p>但这里做完之后直接推送到 <em>Github</em> 上时是没有任何反应，看不到任何界面。
+这时需要 <strong>Travis CI</strong></p><h2>Travis CI</h2><p>由于主题用到了 <em>gem</em> 包，而 <em>Github</em> 又并不能直接支持去操作 <em>gem</em>，所以需要一个类似 <em>Jenkins</em> 的持续集成工具来完成该操作。<br/>
+<strong>Travis</strong> 会根据当前 <em>master</em> 分支下的 <code>.travis.yml</code> 这个文件去执行相应操作。<br/>
+<!-- -->根目录下新建 <code>.travis.yml</code> 或者去 <a href="https://github.com/yous/whiteglass/blob/master/.travis.yml">下载最新的文件</a>  </p><pre><code class="language-yml">language: ruby
+sudo: false
+cache: bundler
+rvm:
+  - 2.6.3
+before_install:
+  - gem update --system
+  - gem install bundler
+script:
+  - rm -rf _site
+  - bundle exec jekyll build
+branches:
+  only:
+    - master
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN  # &lt;-- 1
+  keep-history: true
+  local-dir: _site
+  target-branch: gh-pages   # &lt;-- 2
+  on:
+    branch: master
+</code></pre><p><em>yml</em> 区别于 <em>xml</em>，其中 <em>tab</em> 键以两个空格为主，可读性很高。</p><p>有几点说明:</p><ol><li>这个参数不需要修改，但是需要在 <em>Github</em> 的设置（<em>Settings</em>）后台的（<em>Developer settings</em>）上添加一个（<em>Personal access tokens</em>）. 得到这个 <em>key</em> 后添加到 <strong>Travis</strong> 的对应仓库的设置后台。 在 <em>Environment Variables</em> 键入 <em>GITHUB_TOKEN</em> 为 <em>Name</em>，<em>key</em> 为 <em>Value</em>。 然后直接 <em>Add</em> 即可。</li><li>这里需要新建一个名为 <em>gh-pages</em> 的分支，主要是给 <strong>Travis</strong> 自动构建完后推送用。</li></ol><p>做完这些，新建一个新的提交，<strong>Travis</strong> 就会自动开始运行，然后就可以查看网页了。</p><ul><li>可能这里也并不能直接的查看网页，需要修改 <code>_config.yml</code></li></ul><pre><code class="language-yml">baseurl: &quot;/blog&quot; # 为你的项目名
+url: &quot;https://xxx.github.io&quot;    # xxx为你的 Github 用户名
+</code></pre><h2>Disqus</h2><p>这个会比较简单:</p><ol><li>新建目录和文件 <code>_includes/custom_comments_provider.html</code></li><li>添加 <code>comments: true</code> 到 <code>_config.yml</code></li></ol><p>然后去到 <strong>Disqus</strong> 的后台，新建站点，然后选择 <strong>jekyll</strong>，把他的通用代码全部拷贝到刚刚新建的 <em>html</em> 文件当中。</p><h3>其他</h3><blockquote><p>自定义域名</p></blockquote><ol><li><p>自定义域名解析三处。</p><pre><code class="language-text">*.xxx.com
+www.xxx.com
+@.xxx.com
+</code></pre></li><li><p><em>ip</em> 地址的获取 <code>ping xxx.github.io</code></p></li><li><p>由于变成了子域名，需要更改<code>_config.xml</code></p><pre><code class="language-yml">baseurl: &quot;&quot;
+url: &quot;https://blog.xxx.com&quot;    # blog作为子域名放在前面 xxx为你的 Github 用户名
+</code></pre></li></ol><blockquote><p>Ps: 2019年8月2日更新</p></blockquote><p>由于最近在 <em>Windows</em> 平台上开发, 所以遇到一个问题.
+<em>Travis CI</em> 不会自动运行构建了. 应该说每次运行都会报错.
+查找发现有个回答</p><p><code>啊，我明白了。您正在使用Windows计算机进行开发，但构建将在Linux上运行。如果您无法访问Linux机器，我认为最好不要Gemfile.lock登录您的Git存储库。</code></p>]]></content:encoded>
         </item>
     </channel>
 </rss>
