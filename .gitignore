@@ -21,3 +21,5 @@ yarn-error.log*
 
 
 /i18n
+/en
+/docs/unity/
