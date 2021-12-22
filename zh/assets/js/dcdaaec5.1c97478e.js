@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdanyow=self.webpackChunkdanyow||[]).push([[733],{8303:function(a){a.exports=JSON.parse('{"allTagsPath":"/danyow/zh/blog/tags","slug":"/danyow/zh/blog/tags/hola","name":"hola","count":1,"permalink":"/danyow/zh/blog/tags/hola"}')}}]);

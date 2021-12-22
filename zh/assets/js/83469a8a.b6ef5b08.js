@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdanyow=self.webpackChunkdanyow||[]).push([[7926],{2972:function(a){a.exports=JSON.parse('{"allTagsPath":"/danyow/zh/blog/tags","slug":"/danyow/zh/blog/tags/docusaurus","name":"docusaurus","count":4,"permalink":"/danyow/zh/blog/tags/docusaurus"}')}}]);

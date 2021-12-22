@@ -4,8 +4,8 @@
   <ShortName>My Site</ShortName>
   <Description>Search My Site</Description>
   <InputEncoding>UTF-8</InputEncoding>
-  <Image width="16" height="16" type="image/x-icon">https://your-docusaurus-test-site.com/img/favicon.ico</Image>
-  <Url type="text/html" method="get" template="https://your-docusaurus-test-site.com/search?q={searchTerms}"/>
-  <Url type="application/opensearchdescription+xml" rel="self" template="https://your-docusaurus-test-site.com/opensearch.xml" />
-  <moz:SearchForm>https://your-docusaurus-test-site.com/</moz:SearchForm>
+  <Image width="16" height="16" type="image/x-icon">https://danyow.github.io/danyow/danyow/img/favicon.ico</Image>
+  <Url type="text/html" method="get" template="https://danyow.github.io/danyow//danyow/search?q={searchTerms}"/>
+  <Url type="application/opensearchdescription+xml" rel="self" template="https://danyow.github.io/danyow//danyow/opensearch.xml" />
+  <moz:SearchForm>https://danyow.github.io/danyow//danyow/</moz:SearchForm>
 </OpenSearchDescription>
