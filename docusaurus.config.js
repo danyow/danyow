@@ -24,7 +24,7 @@ function getNextBetaVersionName() {
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: '4🌀4',
-  tagline: '你做三四月的事，在八九月自由答案。',
+  tagline: '你做三四月的事，在八九月自有答案。',
   url: 'https://danyow.cn',
   baseUrl: '/',
   onBrokenLinks: 'throw',
