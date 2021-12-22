@@ -25,13 +25,13 @@ function getNextBetaVersionName() {
 const config = {
   title: 'My Site',
   tagline: 'Dinosaurs are cool',
-  url: 'https://danyow.netlify.app',
+  url: 'https://danyow.cn',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: 'danyow', // Usually your GitHub org/user name.
+  projectName: 'danyow', // Usually your repo name.
 
   presets: [
     [
