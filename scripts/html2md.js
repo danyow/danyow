@@ -4,16 +4,11 @@ const readline = require('readline')
 const TService = require("turndown")
 const os = require("os");
 
-
 const tds = new TService()
 //要遍历的文件夹所在的路径
 const DIR_EN = path.resolve('../unity_doc/en/')
 const TEMP = path.resolve('../unity_doc/temp/')
-const DIR_MD = path.resolve('../unity_doc/md/')
-
-// const DIR_EN = 'D:\\Unity\\Editors\\2020.3.24f1c2\\Editor\\Data\\Documentation\\en'
-// const TEMP = 'D:\\Unity\\Editors\\2020.3.24f1c2\\Editor\\Data\\Documentation\\temp'
-// const DIR_MD = 'D:\\Unity\\Editors\\2020.3.24f1c2\\Editor\\Data\\Documentation\\md'
+const DIR_MD = path.resolve('./docs/')
 
 //调用文件遍历方法
 readDirectory(DIR_EN, TEMP, DIR_MD, false)
@@ -52,23 +47,31 @@ function readDirectory(sourceDir, tempDir, destDir) {
           if (line.includes('<div id="_content"></div>')) {
             isStart = false
           }
+          if (line.includes('<div class="footer-wrapper">')) {
+            isStart = false
+          }
           if (isStart) {
             writeStream.write(line + os.EOL)
           }
           if (line.includes('<div id="_leavefeedback"></div>')) {
             isStart = true
           }
+          if (line.includes('<div class="mb20 clear" id="">')) {
+            isStart = true
+          }
         })
         reader.on('close', function () {
-          let html = fs.readFileSync(tempPath).toString()
-          let md = tds.turndown(html)
+          writeStream.close(function () {
+            let html = fs.readFileSync(tempPath).toString()
+            let md = tds.turndown(html)
 
-          md = md.replaceAll('.html', '.md')
-          md = md.replaceAll('../uploads/', 'https://docs.unity3d.com/uploads/')
-          md = md.replaceAll('../StaticFiles/', 'https://docs.unity3d.com/StaticFiles/')
-          md = md.replaceAll('../StaticFilesManual/', 'https://docs.unity3d.com/StaticFilesManual/')
-          md = md.replaceAll('../ScriptReference/docdata/', 'https://docs.unity3d.com/ScriptReference/docdata/')
-          fs.writeFileSync(destPath, md)
+            md = md.replaceAll('.html', '.md')
+            md = md.replaceAll('../uploads/', 'https://docs.unity3d.com/uploads/')
+            md = md.replaceAll('../StaticFiles/', 'https://docs.unity3d.com/StaticFiles/')
+            md = md.replaceAll('../StaticFilesManual/', 'https://docs.unity3d.com/StaticFilesManual/')
+            md = md.replaceAll('../ScriptReference/docdata/', 'https://docs.unity3d.com/ScriptReference/docdata/')
+            fs.writeFileSync(destPath, md)
+          })
         })
       }
     } else if (states.isDirectory()) {
@@ -76,6 +79,3 @@ function readDirectory(sourceDir, tempDir, destDir) {
     }
   })
 }
-
-
-// // var markdown = tds.turndown()
