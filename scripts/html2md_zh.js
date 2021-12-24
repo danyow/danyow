@@ -9,13 +9,13 @@ const tds = new TService({
   bulletListMarker: "-",
   codeBlockStyle: "fenced",
   emDelimiter: "*",
-  linkStyle: "",
-  // linkReferenceStyle: "full",
+  linkStyle: "referenced",
+  linkReferenceStyle: "shortcut",
 })
 //要遍历的文件夹所在的路径
-const DIR_EN = path.resolve('../unity_doc/en/')
+const DIR_EN = path.resolve('../unity_doc/zh/')
 const TEMP = path.resolve('../unity_doc/temp/')
-const DIR_MD = path.resolve('../unity_doc/md')
+const DIR_MD = path.resolve('../unity_doc/md/')
 
 //调用文件遍历方法
 readDirectory(DIR_EN, TEMP, DIR_MD, false)
@@ -51,20 +51,14 @@ function readDirectory(sourceDir, tempDir, destDir) {
         let reader = readline.createInterface(readStream)
         let isStart = false
         reader.on('line', function (line) {
-          if (line.includes('<div id="_content"></div>')) {
+          if (line.startsWith('<div class="nextprev clear">')) {
             isStart = false
           }
-          if (line.includes('<div class="footer-wrapper">')) {
-            isStart = false
+          if (line.includes('<h1>')) {
+            isStart = true
           }
           if (isStart) {
             writeStream.write(line + os.EOL)
-          }
-          if (line.includes('<div id="_leavefeedback"></div>')) {
-            isStart = true
-          }
-          if (line.includes('<div class="mb20 clear" id="">')) {
-            isStart = true
           }
         })
         reader.on('close', function () {
@@ -73,21 +67,11 @@ function readDirectory(sourceDir, tempDir, destDir) {
             let md = tds.turndown(html)
 
             md = md.replaceAll('.html', '.md')
-            // 锚点首字母小写 .md# 和 ](#
-            md = md.replaceAll(/(\.md#\w+)|(\]\(#\w+)/g, function (str) {
-              let words = str.replaceAll(/([A-Z][a-z]+)|([a-z][A-Z]+)/g, function (word) {
-                return word.toLocaleLowerCase() + '-'
-              })
-              words = words.replaceAll(/([0-9A-Z]+)/g, function (word) {
-                return word.toLocaleLowerCase() + '-'
-              })
-              words = words.substr(0, words.length - 1)
-              return words
-            })
-            md = md.replaceAll('(../', 'https://docs.unity3d.com/')
-            md = md.replaceAll(/(https:\/\/|http:\/\/)[\w|\/|\.|\-]+\.md/g, function (str) {
-              return str.replaceAll('.md', '.html')
-            })
+            md = md.replaceAll('../uploads/', 'https://docs.unity3d.com/uploads/')
+            md = md.replaceAll('../StaticFiles/', 'https://docs.unity3d.com/StaticFiles/')
+            md = md.replaceAll('\\_\\_', '**')
+            md = md.replaceAll('../StaticFilesManual/', 'https://docs.unity3d.com/StaticFilesManual/')
+            md = md.replaceAll('../ScriptReference/docdata/', 'https://docs.unity3d.com/ScriptReference/docdata/')
             fs.writeFileSync(destPath, md)
           })
         })
