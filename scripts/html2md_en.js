@@ -16,16 +16,16 @@ const tds = new TService({
 })
 tds.use(TPlugin.gfm)
 tds.use([TPlugin.tables, TPlugin.strikethrough])
-tds.addRule('pre2Code', {
-  filter: ['pre'],
-  replacement(content) {
-    const len = content.length
-    // 除了pre标签，里面是否还有code标签包裹，有的话去掉首尾的`（针对微信文章）
-    const isCode = content[0] === '`' && content[len - 1] === '`'
-    const result = isCode ? content.substr(1, len - 2) : content
-    return '```\n' + result + '\n```\n'
-  }
-})
+// tds.addRule('pre2Code', {
+//   filter: ['pre'],
+//   replacement(content) {
+//     const len = content.length
+//     // 除了pre标签，里面是否还有code标签包裹，有的话去掉首尾的`（针对微信文章）
+//     const isCode = content[0] === '`' && content[len - 1] === '`'
+//     const result = isCode ? content.substr(1, len - 2) : content
+//     return '```\n' + result + '\n```\n'
+//   }
+// })
 
 //要遍历的文件夹所在的路径
 let DIR_EN = path.resolve('../unity_doc/en/')
