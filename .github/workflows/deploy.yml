@@ -1,4 +1,4 @@
-name: 部署到 GitHub Pages
+name: 部署到GitHubPages
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
 
 jobs:
   deploy:
-    name: 部署到 GitHub Pages
+    name: 部署到GitHubPages
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -21,9 +21,9 @@ jobs:
           yarn install --frozen-lockfile
           yarn crowdin-udb
 
-      # 目前较为流行部署到 GitHub Pages 的Action：
+      # 目前较为流行部署到GitHubPages 的Action：
       # 文档: https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-docusaurus
-      - name: 部署到 GitHub Pages
+      - name: 部署到GitHubPages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
