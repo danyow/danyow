@@ -6753,6 +6753,11 @@ std-env@^3.0.1:
   resolved "https://registry.npmmirror.com/std-env/download/std-env-3.0.1.tgz?cache=0&sync_timestamp=1636124943886&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fstd-env%2Fdownload%2Fstd-env-3.0.1.tgz"
   integrity sha1-vEy8DkOGEBl+NMLXnD3zC0kfUYI=
 
+string-format@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.npmjs.org/string-format/-/string-format-2.0.0.tgz#f2df2e7097440d3b65de31b6d40d54c96eaffb9b"
+  integrity sha512-bbEs3scLeYNXLecRRuk6uJxdXUSj6le/8rNPHChIJTn2V79aXVTR1EH2OH5zLKKoz0V02fOUKZZcw01pLUShZA==
+
 string-width@^4.0.0, string-width@^4.1.0, string-width@^4.2.2:
   version "4.2.3"
   resolved "https://registry.npmmirror.com/string-width/download/string-width-4.2.3.tgz"
@@ -6989,6 +6994,11 @@ tslib@~2.1.0:
   version "2.1.0"
   resolved "https://registry.nlark.com/tslib/download/tslib-2.1.0.tgz?cache=0&sync_timestamp=1628722556410&other_urls=https%3A%2F%2Fregistry.nlark.com%2Ftslib%2Fdownload%2Ftslib-2.1.0.tgz"
   integrity sha1-2mCGDxwuyqVwOrfTm8Bba/mIuXo=
+
+turndown-plugin-gfm@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.npmjs.org/turndown-plugin-gfm/-/turndown-plugin-gfm-1.0.2.tgz#6f8678a361f35220b2bdf5619e6049add75bf1c7"
+  integrity sha512-vwz9tfvF7XN/jE0dGoBei3FXWuvll78ohzCZQuOb+ZjWrs3a0XhQVomJEb2Qh4VHTPNRO4GPZh0V7VRbiWwkRg==
 
 turndown@^7.1.1:
   version "7.1.1"

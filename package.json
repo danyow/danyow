@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "docusaurus": "node --max_old_space_size=16384 node_modules/@docusaurus/core/bin/docusaurus start",
+    "docusaurus": "docusaurus",
     "start": "docusaurus start",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
@@ -29,8 +29,10 @@
     "prism-react-renderer": "^1.2.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.1",
+    "string-format": "^2.0.0",
     "trim": "^1.0.1",
-    "turndown": "^7.1.1"
+    "turndown": "^7.1.1",
+    "turndown-plugin-gfm": "^1.0.2"
   },
   "browserslist": {
     "production": [
