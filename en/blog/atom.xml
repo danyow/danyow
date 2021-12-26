@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://danyow.cn/en/blog</id>
-    <title>🧩 Blog</title>
+    <title>:D Blog</title>
     <updated>2020-06-15T01:42:42.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://danyow.cn/en/blog"/>
-    <subtitle>🧩 Blog</subtitle>
+    <subtitle>:D Blog</subtitle>
     <icon>https://danyow.cn/en/img/favicon.ico</icon>
     <entry>
         <title type="html"><![CDATA[Clash的使用]]></title>
