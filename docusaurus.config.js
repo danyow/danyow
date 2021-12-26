@@ -89,7 +89,7 @@ const config = {
         items: [
           {
             type: 'doc',
-            docId: 'greeting',
+            docId: 'itinerary',
             position: 'left',
             label: '笔记',
           },
