@@ -23,7 +23,7 @@ function getNextBetaVersionName() {
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: '4🌀4',
+  title: '🌽',
   tagline: '你做三四月的事，在八九月自有答案。',
   url: 'https://danyow.cn',
   baseUrl: '/',
@@ -74,6 +74,19 @@ const config = {
         },
       },
     ],
+    [
+      require.resolve('@easyops-cn/docusaurus-search-local'),
+      {
+        // ... Your options.
+        // 推荐使用 `hashed`，因为索引文件的长期缓存是可能的。
+        hashed: true,
+        // 对于使用中文的文档，建议将`language`设置为：
+        // ```
+        language: ["zh", "en"],
+        // ```
+        // 在语言中应用`zh`时，请在你的项目中安装`nodejieba`。
+      },
+    ],
   ],
 
   i18n: {
@@ -85,9 +98,9 @@ const config = {
   /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: '4🌀4',
+        title: '🌽',
         logo: {
-          alt: '4🌀4 logo',
+          alt: '🌽 logo',
           src: 'img/logo.svg',
         },
         items: [
@@ -98,36 +111,40 @@ const config = {
             label: '笔记',
           },
           {to: '/blog', label: '博客', position: 'left'},
+          // right
           {
             type: 'docsVersionDropdown',
             docsPluginId: 'tutorial',
             label: '教程',
+            position: 'right',
           },
           {
             type: 'localeDropdown',
             position: 'right',
           },
           {
-            href: 'https://github.com/facebook/docusaurus',
-            label: 'GitHub',
+            href: 'https://github.com/danyow/danyow',
             position: 'right',
+            className: 'header-github-link',
+            'aria-label': 'GitHub repository',
           },
         ],
       },
-      algolia: {
-        // 如果 Algolia 没有为您提供任何 appId，请使用“BH4D9OD16A”
-        appId: 'S3KRFC060Q',
-        // 公共 API 密钥：提交它是安全的
-        apiKey: '06d01f9fee4e5ca81a5c2a3d789de5f8',
-        indexName: 'danyow',
-        // 可选：请参阅下面的文档部分
-        contextualSearch: true,
-        // 可选：指定应通过 window.location 而不是 history.push 进行导航的域。当我们的 Algolia 配置抓取多个文档站点并且我们想要使用 window.location.href 导航到它们时很有用。
-        externalUrlRegex: 'external\\.com|domain\\.com',
-        // 可选：Algolia 搜索参数
-        searchParameters: {},
-        //... 其他 Algolia 参数
-      },
+      // 启用 `algolia` 搜索
+      // algolia: {
+      //   // 如果 Algolia 没有为您提供任何 appId，请使用“BH4D9OD16A”
+      //   appId: 'S3KRFC060Q',
+      //   // 公共 API 密钥：提交它是安全的
+      //   apiKey: '06d01f9fee4e5ca81a5c2a3d789de5f8',
+      //   indexName: 'danyow',
+      //   // 可选：请参阅下面的文档部分
+      //   contextualSearch: true,
+      //   // 可选：指定应通过 window.location 而不是 history.push 进行导航的域。当我们的 Algolia 配置抓取多个文档站点并且我们想要使用 window.location.href 导航到它们时很有用。
+      //   externalUrlRegex: 'external\\.com|domain\\.com',
+      //   // 可选：Algolia 搜索参数
+      //   searchParameters: {},
+      //   //... 其他 Algolia 参数
+      // },
       footer: {
         style: 'dark',
         copyright: `版权 © ${new Date().getFullYear()} danyow, Inc. 使用 Docusaurus 构建。`,
