@@ -1,4 +1,4 @@
-name: 部署到GitHubPages
+name: 部署到GitHub
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
 
 jobs:
   deploy:
-    name: 部署到GitHubPages
+    name: 部署到GitHub
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -24,7 +24,7 @@ jobs:
 
       # 目前较为流行部署到GitHubPages 的Action：
       # 文档: https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-docusaurus
-      - name: 部署到GitHubPages
+      - name: 部署到GitHub
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
@@ -38,6 +38,11 @@ jobs:
           user_email: 41898282+github-actions[bot]@users.noreply.github.com
           cname: danyow.cn
 
+  sync:
+    needs: deploy
+    name: 同步到Gitee
+    runs-on: ubuntu-latest
+    steps:
       - name: 同步到Gitee
         uses: wearerequired/git-mirror-action@master
         env:
@@ -49,6 +54,11 @@ jobs:
           # 注意替换为你的 Gitee 目标仓库地址
           destination-repo: git@gitee.com:danyow/danyow.git
 
+  gitee:
+    needs: sync
+    name: 部署Gitee
+    runs-on: ubuntu-latest
+    steps:
       - name: 部署Gitee
         uses: yanglbme/gitee-pages-action@main
         with:
