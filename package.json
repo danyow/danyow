@@ -3,19 +3,19 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "docusaurus": "docusaurus",
-    "start": "docusaurus start",
-    "build": "docusaurus build",
-    "swizzle": "docusaurus swizzle",
-    "deploy": "docusaurus deploy",
-    "clear": "docusaurus clear",
-    "serve": "docusaurus serve",
+    "docusaurus": "node --max-old-space-size=8192 node_modules/@docusaurus/core/bin/docusaurus",
+    "start": "node --max-old-space-size=8192 node_modules/@docusaurus/core/bin/docusaurus start",
+    "build": "node --max-old-space-size=8192 node_modules/@docusaurus/core/bin/docusaurus build",
+    "swizzle": "node --max-old-space-size=8192 node_modules/@docusaurus/core/bin/docusaurus swizzle",
+    "deploy": "node --max-old-space-size=8192 node_modules/@docusaurus/core/bin/docusaurus deploy",
+    "clear": "node --max-old-space-size=8192 node_modules/@docusaurus/core/bin/docusaurus clear",
+    "serve": "node --max-old-space-size=8192 node_modules/@docusaurus/core/bin/docusaurus serve",
     "crowdin-uploade": "crowdin upload",
     "crowdin-download": "crowdin download",
     "crowdin-udb": "yarn write-translations && yarn crowdin-download && yarn build",
     "crowdin-db": "yarn write-translations && yarn crowdin-uploade && yarn crowdin-download && yarn build",
-    "write-translations": "docusaurus write-translations",
-    "write-heading-ids": "docusaurus write-heading-ids"
+    "write-translations": "node --max-old-space-size=8192 node_modules/@docusaurus/core/bin/docusaurus write-translations",
+    "write-heading-ids": "node --max-old-space-size=8192 node_modules/@docusaurus/core/bin/docusaurus write-heading-ids"
   },
   "dependencies": {
     "@crowdin/cli": "3",
