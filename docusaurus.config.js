@@ -1,30 +1,10 @@
 // @ts-check
 // Note: 类型注释允许类型检查和 IDE 自动完成
 
-const versions = require('./tutorial_versions.json');
-
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
-
-
-// 这可能只对 beta 阶段有意义，暂时
-function getNextBetaVersionName() {
-  const expectedPrefix = 'v';
-
-  const lastReleasedVersion = versions[0];
-  if (!lastReleasedVersion.includes(expectedPrefix)) {
-    throw new Error(
-      'this code is only meant to be used during the 2.0 beta phase.',
-    );
-  }
-  const version = parseInt(lastReleasedVersion.replace(expectedPrefix, ''), 10);
-  return `${expectedPrefix}${version + 1}`;
-}
-
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: '🧩',
-  tagline: '你做三四月的事，在八九月自有答案。',
+  title: ':D',
+  tagline: 'O ever youthful, O ever weeping',
   url: 'https://danyow.cn',
   baseUrl: '/',
   onBrokenLinks: 'throw',
@@ -62,23 +42,23 @@ const config = {
   ],
 
   plugins: [
-    [
-      '@docusaurus/plugin-content-docs',
-      {
-        id: 'tutorial',
-        path: 'tutorial',
-        routeBasePath: 'tutorial',
-        sidebarPath: require.resolve('./sidebarsTutorial.js'),
-        editUrl: 'https://github.com/facebook/docusaurus/edit/main/website/',
-        showLastUpdateAuthor: true,
-        showLastUpdateTime: true,
-        versions: {
-          current: {
-            label: `${getNextBetaVersionName()} 🚧`,
-          },
-        },
-      },
-    ],
+    // [
+    //   '@docusaurus/plugin-content-docs',
+    //   {
+    //     id: 'tutorial',
+    //     path: 'tutorial',
+    //     routeBasePath: 'tutorial',
+    //     sidebarPath: require.resolve('./sidebarsTutorial.js'),
+    //     editUrl: 'https://github.com/facebook/docusaurus/edit/main/website/',
+    //     showLastUpdateAuthor: true,
+    //     showLastUpdateTime: true,
+    //     versions: {
+    //       current: {
+    //         label: `${getNextBetaVersionName()} 🚧`,
+    //       },
+    //     },
+    //   },
+    // ],
     [
       require.resolve('@easyops-cn/docusaurus-search-local'),
       {
@@ -103,11 +83,9 @@ const config = {
   /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: '🧩',
-        logo: {
-          alt: '🧩 logo',
-          src: 'img/logo.svg',
-        },
+        title: ':D',
+        style: 'primary',
+        hideOnScroll: false,
         items: [
           {
             type: 'doc',
@@ -117,12 +95,12 @@ const config = {
           },
           {to: '/blog', label: '博客', position: 'left'},
           // right
-          {
-            type: 'docsVersionDropdown',
-            docsPluginId: 'tutorial',
-            label: '教程',
-            position: 'right',
-          },
+          // {
+          //   type: 'docsVersionDropdown',
+          //   docsPluginId: 'tutorial',
+          //   label: '教程',
+          //   position: 'right',
+          // },
           {
             type: 'localeDropdown',
             position: 'right',
@@ -151,12 +129,16 @@ const config = {
       //   //... 其他 Algolia 参数
       // },
       footer: {
-        style: 'dark',
-        copyright: `版权 © ${new Date().getFullYear()} danyow, Inc. 使用 Docusaurus 构建。`,
+        // style: 'dark',
+        copyright: `© ${new Date().getFullYear()} danyow, Inc. 使用 Docusaurus 构建。`,
+        logo: {
+          src: 'img/logo.svg',
+        },
       },
       prism: {
-        theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
+        theme: require('prism-react-renderer/themes/github'),
+        darkTheme: require('prism-react-renderer/themes/dracula'),
+        defaultLanguage: 'javascript',
       },
     }),
 };
