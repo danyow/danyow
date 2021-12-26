@@ -35,7 +35,7 @@ const HomeSplash = () => {
     <div className="homeContainer">
       <div className="homeSplashFade">
         <div className="logo">
-          <img src={useBaseUrl('img/puzzle.svg')} alt={}/>
+          <img src={useBaseUrl('img/puzzle.svg')} alt={'puzzle'}/>
         </div>
         <div className="wrapper homeWrapper">
           <h2 className="projectTitle">
