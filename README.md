@@ -4,6 +4,8 @@
 
 ![statistics](https://github-readme-stats.vercel.app/api?username=danyow&include_all_commits=true)
 
-[Vercel website](https://danyow.vercel.app/)
+[Vercel site](https://danyow.vercel.app/)
 
-[Netlify website](https://danyow.netlify.app/)
+[Netlify site](https://danyow.netlify.app/)
+
+[Gitee pages](https://danyow.gitee.io/)
