@@ -8,6 +8,8 @@ import React from 'react';
 import Translate from '@docusaurus/Translate';
 import IconEdit from '@theme/IconEdit';
 import {ThemeClassNames} from '@docusaurus/theme-common';
+import AnyText from "../../core/AnyText";
+
 export default function EditThisPage({editUrl}) {
   return (
     <a
@@ -15,11 +17,11 @@ export default function EditThisPage({editUrl}) {
       target="_blank"
       rel="noreferrer noopener"
       className={ThemeClassNames.common.editThisPage}>
-      <IconEdit />
+      <IconEdit/>
       <Translate
         id="theme.common.editThisPage"
         description="编辑当前页面的链接标签">
-        编辑该页面
+        {AnyText.GetAny(AnyText.EditThisPage.editThisPage)}
       </Translate>
     </a>
   );

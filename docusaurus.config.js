@@ -74,10 +74,10 @@ const config = {
     ],
   ],
 
-  // i18n: {
-  //   defaultLocale: 'zh',
-  //   locales: ['zh', 'en'],
-  // },
+  i18n: {
+    defaultLocale: 'zh',
+    locales: ['zh'],
+  },
 
   themeConfig:
   /** @type {import('@docusaurus/preset-classic').ThemeConfig} */

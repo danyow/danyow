@@ -2,7 +2,7 @@
 
 [![pages-build-deployment](https://github.com/danyow/danyow/actions/workflows/pages/pages-build-deployment/badge.svg?branch=gh-pages)](https://github.com/danyow/danyow/actions/workflows/pages/pages-build-deployment)
 
-[![Sync to Gitee](https://github.com/danyow/danyow/actions/workflows/gitee.yml/badge.svg?branch=gh-pages)](https://github.com/danyow/danyow/actions/workflows/gitee.yml)
+[![Sync to Gitee](https://github.com/danyow/danyow/actions/workflows/gitee.yml/badge.svg?branch=main)](https://github.com/danyow/danyow/actions/workflows/gitee.yml)
 
 [//]: # ([![Crowdin]&#40;https://badges.crowdin.net/danyow/localized.svg&#41;]&#40;https://crowdin.com/project/danyow&#41;)
 
