@@ -23,7 +23,7 @@ function getNextBetaVersionName() {
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: '🌽',
+  title: '🧩',
   tagline: '你做三四月的事，在八九月自有答案。',
   url: 'https://danyow.cn',
   baseUrl: '/',
@@ -50,7 +50,12 @@ const config = {
             'https://github.com/danyow/danyow/edit/main/blog',
         },
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: [
+            '../src/css/docusaurus-1.css',
+            '../src/css/prism.css',
+            '../src/css/customTheme.css',
+            '../src/css/custom.css',
+          ],
         },
       }),
     ],
@@ -98,9 +103,9 @@ const config = {
   /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: '🌽',
+        title: '🧩',
         logo: {
-          alt: '🌽 logo',
+          alt: '🧩 logo',
           src: 'img/logo.svg',
         },
         items: [

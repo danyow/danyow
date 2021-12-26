@@ -1,30 +1,50 @@
 import React from 'react';
-import clsx from 'clsx';
 import Layout from '@theme/Layout';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import styles from './index.module.css';
-import HomepageFeatures from '../components/HomepageFeatures';
+import useBaseUrl from "@docusaurus/core/lib/client/exports/useBaseUrl";
 
-function HomepageHeader() {
+export default (props) => (
+  <Layout>
+    <Index {...props} />
+  </Layout>
+);
+
+const Index = () => {
+  return (
+    <div>
+      <HomeSplash/>
+      {/*<div className="homePage mainContainer">*/}
+      {/*  <Container className="textSection" background="light">*/}
+      {/*    <h2>Built for scale</h2>*/}
+      {/*    <p>*/}
+      {/*      Relay is designed for high performance at any scale. Relay keeps*/}
+      {/*      management of data-fetching easy, whether your app has tens,*/}
+      {/*      hundreds, or thousands of components. And thanks to Relay’s*/}
+      {/*      incremental compiler, it keeps your iteration speed fast even as*/}
+      {/*      your app grows.*/}
+      {/*    </p>*/}
+      {/*  </Container>*/}
+      {/*</div>*/}
+    </div>
+  );
+};
+
+const HomeSplash = () => {
   const {siteConfig} = useDocusaurusContext();
   return (
-    <header className={clsx('hero hero--primary', styles.heroBanner)}>
-      <div className="container">
-        <h1 className="hero__title">{siteConfig.title}</h1>
+    <div className="homeContainer">
+      <div className="homeSplashFade">
+        <div className="logo">
+          <img src={useBaseUrl('img/puzzle.svg')} alt={}/>
+        </div>
+        <div className="wrapper homeWrapper">
+          <h2 className="projectTitle">
+            {siteConfig.title}
+            <small>{siteConfig.tagline}</small>
+            <small>{siteConfig.subtagline}</small>
+          </h2>
+        </div>
       </div>
-    </header>
+    </div>
   );
-}
-
-export default function Home() {
-  return (
-    <Layout
-      title="主页"
-      description="知识库">
-      <HomepageHeader/>
-      <main>
-        <HomepageFeatures/>
-      </main>
-    </Layout>
-  );
-}
+};

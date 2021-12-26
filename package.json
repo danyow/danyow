@@ -23,6 +23,7 @@
     "@docusaurus/preset-classic": "^2.0.0-beta.14",
     "@easyops-cn/docusaurus-search-local": "^0.21.4",
     "@mdx-js/react": "^1.6.21",
+    "classnames": "^2.3.1",
     "clsx": "^1.1.1",
     "fs": "^0.0.1-security",
     "nodejieba": "^2.5.2",
