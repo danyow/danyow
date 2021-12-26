@@ -74,10 +74,10 @@ const config = {
     ],
   ],
 
-  i18n: {
-    defaultLocale: 'zh',
-    locales: ['zh', 'en'],
-  },
+  // i18n: {
+  //   defaultLocale: 'zh',
+  //   locales: ['zh', 'en'],
+  // },
 
   themeConfig:
   /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
@@ -95,16 +95,16 @@ const config = {
           },
           {to: '/blog', label: '博客', position: 'left'},
           // right
-          // {
+          // {   // 版本控制
           //   type: 'docsVersionDropdown',
           //   docsPluginId: 'tutorial',
           //   label: '教程',
           //   position: 'right',
           // },
-          {
-            type: 'localeDropdown',
-            position: 'right',
-          },
+          // {  // 本地化
+          //   type: 'localeDropdown',
+          //   position: 'right',
+          // },
           {
             href: 'https://github.com/danyow/danyow',
             position: 'right',

@@ -17,9 +17,10 @@ jobs:
       - name: 构建网站
         env:
           CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
+        # 本地化 crowdin-udb
         run: |
           yarn install --frozen-lockfile
-          yarn crowdin-udb
+          yarn build
 
       # 目前较为流行部署到GitHubPages 的Action：
       # 文档: https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-docusaurus
