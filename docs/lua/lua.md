@@ -110,3 +110,4 @@ stack traceback:
 false   stdin:1: 123
 ```
 
+值得注意的是， msgh 的传入参数是异常数据，函数结束时必须将这个数据返回，才能实现和 pcall 一样的返回值
