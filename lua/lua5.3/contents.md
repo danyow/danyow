@@ -1,8 +1,8 @@
-Lua 5.3 参考手册 - 目录   ul { list-style-type: none ; list-style-position: outside ; }
+---
+sidebar_position: 2
+---
 
-* * *
-
-# [![](http://cloudwu.github.io/lua53doc/logo.gif)][1] Lua 5.3 参考手册
+# 目录
 
 这份参考手册是对 Lua 语言的官方定义。 关于 Lua 编程的全部细节，则放在 [Programming in Lua][2] 这本书中。
 
@@ -14,85 +14,85 @@ Lua.org, PUC-Rio 版权所有 © 2015 ， 在遵循 [Lua license][7] 条款下�
 
 ## 目录
 
--   [1 – 简介][8]
-    
--   [2 – 基本概念][9]
-    
-    -   [2.1 – 值与类型][10]
-    -   [2.2 – 环境与全局环境][11]
-    -   [2.3 – 错误处理][12]
-    -   [2.4 – 元表及元方法][13]
-    -   [2.5 – 垃圾收集][14]
-        -   [2.5.1 – 垃圾收集的元方法][15]
-        -   [2.5.2 – 弱表][16]
-    -   [2.6 – 协程][17]
-    
--   [3 – 语言定义][18]
-    
-    -   [3.1 – 词法约定][19]
-    -   [3.2 – 变量][20]
-    -   [3.3 – 语句][21]
-        -   [3.3.1 – 语句块][22]
-        -   [3.3.2 – 代码块][23]
-        -   [3.3.3 – 赋值][24]
-        -   [3.3.4 – 控制结构][25]
-        -   [3.3.5 – For 语句][26]
-        -   [3.3.6 – 函数调用语句][27]
-        -   [3.3.7 – 局部声明][28]
-    -   [3.4 – 表达式][29]
-        -   [3.4.1 – 数学运算操作符][30]
-        -   [3.4.2 – 位操作符][31]
-        -   [3.4.3 – 强制转换][32]
-        -   [3.4.4 – 比较操作符][33]
-        -   [3.4.5 – 逻辑操作符][34]
-        -   [3.4.6 – 字符串连接][35]
-        -   [3.4.7 – 取长度操作符][36]
-        -   [3.4.8 – 优先级][37]
-        -   [3.4.9 – 表构建][38]
-        -   [3.4.10 – 函数调用][39]
-        -   [3.4.11 – 函数定义][40]
-    -   [3.5 – 可见性规则][41]
-    
--   [4 – 编程接口][42]
-    
-    -   [4.1 – 栈][43]
-    -   [4.2 – 栈大小][44]
-    -   [4.3 – 有效索引与可接受索引][45]
-    -   [4.4 – C 闭包][46]
-    -   [4.5 – 注册表][47]
-    -   [4.6 – C 中的错误处理][48]
-    -   [4.7 – C 中的让出处理][49]
-    -   [4.8 – 函数和类型][50]
-    -   [4.9 – 调试接口][51]
-    
--   [5 – 辅助库][52]
-    
-    -   [5.1 – 函数和类型][53]
-    
--   [6 – 标准库][54]
-    
-    -   [6.1 – 基本函数][55]
-    -   [6.2 – 协程管理][56]
-    -   [6.3 – 模块][57]
-    -   [6.4 – 字符串处理][58]
-        -   [6.4.1 – 匹配模式][59]
-        -   [6.4.2 – 打包和解包用到的格式串][60]
-    -   [6.5 – UTF-8 支持][61]
-    -   [6.6 – 表处理][62]
-    -   [6.7 – 数学函数][63]
-    -   [6.8 – 输入输出设施][64]
-    -   [6.9 – 操作系统设施][65]
-    -   [6.10 – 调试库][66]
-    
--   [7 – 独立版 Lua][67]
-    
--   [8 – 与之前版本不兼容的地方][68]
-    
-    -   [8.1 – 语言的变更][69]
-    -   [8.2 – 库的变更][70]
-    -   [8.3 – API 的变更][71]
-    
--   [9 – Lua 的完整语法][72]
+- [1 – 简介][8]
+
+- [2 – 基本概念][9]
+
+    - [2.1 – 值与类型][10]
+    - [2.2 – 环境与全局环境][11]
+    - [2.3 – 错误处理][12]
+    - [2.4 – 元表及元方法][13]
+    - [2.5 – 垃圾收集][14]
+        - [2.5.1 – 垃圾收集的元方法][15]
+        - [2.5.2 – 弱表][16]
+    - [2.6 – 协程][17]
+
+- [3 – 语言定义][18]
+
+    - [3.1 – 词法约定][19]
+    - [3.2 – 变量][20]
+    - [3.3 – 语句][21]
+        - [3.3.1 – 语句块][22]
+        - [3.3.2 – 代码块][23]
+        - [3.3.3 – 赋值][24]
+        - [3.3.4 – 控制结构][25]
+        - [3.3.5 – For 语句][26]
+        - [3.3.6 – 函数调用语句][27]
+        - [3.3.7 – 局部声明][28]
+    - [3.4 – 表达式][29]
+        - [3.4.1 – 数学运算操作符][30]
+        - [3.4.2 – 位操作符][31]
+        - [3.4.3 – 强制转换][32]
+        - [3.4.4 – 比较操作符][33]
+        - [3.4.5 – 逻辑操作符][34]
+        - [3.4.6 – 字符串连接][35]
+        - [3.4.7 – 取长度操作符][36]
+        - [3.4.8 – 优先级][37]
+        - [3.4.9 – 表构建][38]
+        - [3.4.10 – 函数调用][39]
+        - [3.4.11 – 函数定义][40]
+    - [3.5 – 可见性规则][41]
+
+- [4 – 编程接口][42]
+
+    - [4.1 – 栈][43]
+    - [4.2 – 栈大小][44]
+    - [4.3 – 有效索引与可接受索引][45]
+    - [4.4 – C 闭包][46]
+    - [4.5 – 注册表][47]
+    - [4.6 – C 中的错误处理][48]
+    - [4.7 – C 中的让出处理][49]
+    - [4.8 – 函数和类型][50]
+    - [4.9 – 调试接口][51]
+
+- [5 – 辅助库][52]
+
+    - [5.1 – 函数和类型][53]
+
+- [6 – 标准库][54]
+
+    - [6.1 – 基本函数][55]
+    - [6.2 – 协程管理][56]
+    - [6.3 – 模块][57]
+    - [6.4 – 字符串处理][58]
+        - [6.4.1 – 匹配模式][59]
+        - [6.4.2 – 打包和解包用到的格式串][60]
+    - [6.5 – UTF-8 支持][61]
+    - [6.6 – 表处理][62]
+    - [6.7 – 数学函数][63]
+    - [6.8 – 输入输出设施][64]
+    - [6.9 – 操作系统设施][65]
+    - [6.10 – 调试库][66]
+
+- [7 – 独立版 Lua][67]
+
+- [8 – 与之前版本不兼容的地方][68]
+
+    - [8.1 – 语言的变更][69]
+    - [8.2 – 库的变更][70]
+    - [8.3 – API 的变更][71]
+
+- [9 – Lua 的完整语法][72]
 
 ## 索引
 
@@ -103,490 +103,977 @@ Lua.org, PUC-Rio 版权所有 © 2015 ， 在遵循 [Lua license][7] 条款下�
 最后更新时间： 2015年1月18日19:49
 
 [1]: http://www.lua.org/
+
 [2]: http://www.lua.org/pil/
+
 [3]: manual.md
+
 [4]: #contents
+
 [5]: #index
+
 [6]: glossary.md
+
 [7]: http://www.lua.org/license.html
+
 [8]: manual.md
+
 [9]: manual.md#2
+
 [10]: manual.md#2.1.1
+
 [11]: manual.md#&sect;22.2
+
 [12]: manual.md#&sect;23.3
+
 [13]: manual.md#&sect;24.4
+
 [14]: manual.md#&sect;25.5
+
 [15]: manual.md#2.5.1.5.1
+
 [16]: manual.md#2.5.2.5.2
+
 [17]: manual.md#&sect;26.6
+
 [18]: manual.md#3
+
 [19]: manual.md#&sect;31.1
+
 [20]: manual.md#&sect;32.2
+
 [21]: manual.md#3.3.3
+
 [22]: manual.md#3.3.1.3.1
+
 [23]: manual.md#&sect;332.3.2
+
 [24]: manual.md#&sect;333.3.3
+
 [25]: manual.md#&sect;334.3.4
+
 [26]: manual.md#&sect;335.3.5
+
 [27]: manual.md#&sect;336.3.6
+
 [28]: manual.md#&sect;337.3.7
+
 [29]: manual.md#&sect;34.4
+
 [30]: manual.md#&sect;341.4.1
+
 [31]: manual.md#&sect;342.4.2
+
 [32]: manual.md#&sect;343.4.3
+
 [33]: manual.md#&sect;344.4.4
+
 [34]: manual.md#&sect;345.4.5
+
 [35]: manual.md#&sect;346.4.6
+
 [36]: manual.md#&sect;347.4.7
+
 [37]: manual.md#&sect;348.4.8
+
 [38]: manual.md#&sect;349.4.9
+
 [39]: manual.md#&sect;3410.4.10
+
 [40]: manual.md#&sect;3411.4.11
+
 [41]: manual.md#&sect;35.5
+
 [42]: manual.md#4
+
 [43]: manual.md#4.1.1
+
 [44]: manual.md#&sect;42.2
+
 [45]: manual.md#4.3.3
+
 [46]: manual.md#&sect;44.4
+
 [47]: manual.md#&sect;45.5
+
 [48]: manual.md#&sect;46.6
+
 [49]: manual.md#&sect;47.7
+
 [50]: manual.md#4.8.8
+
 [51]: manual.md#&sect;49.9
+
 [52]: manual.md#5
+
 [53]: manual.md#5.1.1
+
 [54]: manual.md#6
+
 [55]: manual.md#&sect;61.1
+
 [56]: manual.md#&sect;62.2
+
 [57]: manual.md#&sect;63.3
+
 [58]: manual.md#&sect;64.4
+
 [59]: manual.md#&sect;641.4.1
+
 [60]: manual.md#&sect;642.4.2
+
 [61]: manual.md#&sect;65.5
+
 [62]: manual.md#&sect;66.6
+
 [63]: manual.md#&sect;67.7
+
 [64]: manual.md#&sect;68.8
+
 [65]: manual.md#&sect;69.9
+
 [66]: manual.md#&sect;610.10
+
 [67]: manual.md#7
+
 [68]: manual.md#8
+
 [69]: manual.md#8.1.1
+
 [70]: manual.md#8.2.2
+
 [71]: manual.md#8.3.3
+
 [72]: manual.md#&sect;9
+
 [73]: manual.md#&sect;61.1
+
 [74]: manual.md#<code>_g<code>
+
 [75]: manual.md#<code>_version<code>
+
 [76]: manual.md#pdf-assert
+
 [77]: manual.md#<code>collectgarbage<code>
+
 [78]: manual.md#pdf-dofile
+
 [79]: manual.md#<code>error<code>
+
 [80]: manual.md#<code>getmetatable<code>
+
 [81]: manual.md#<code>ipairs<code>
+
 [82]: manual.md#<code>load<code>
+
 [83]: manual.md#pdf-loadfile
+
 [84]: manual.md#<code>next<code>
+
 [85]: manual.md#pdf-pairs
+
 [86]: manual.md#<code>pcall<code>
+
 [87]: manual.md#<code>print<code>
+
 [88]: manual.md#pdf-rawequal
+
 [89]: manual.md#<code>rawget<code>
+
 [90]: manual.md#pdf-rawlen
+
 [91]: manual.md#<code>rawset<code>
+
 [92]: manual.md#<code>require<code>
+
 [93]: manual.md#pdf-select
+
 [94]: manual.md#<code>setmetatable<code>
+
 [95]: manual.md#pdf-tonumber
+
 [96]: manual.md#<code>tostring<code>
+
 [97]: manual.md#<code>type<code>
+
 [98]: manual.md#<code>xpcall<code>
+
 [99]: manual.md#&sect;62.2
+
 [100]: manual.md#<code>coroutinecreate<code>.create
+
 [101]: manual.md#pdf-coroutine.isyieldable.isyieldable
+
 [102]: manual.md#<code>coroutineresume<code>.resume
+
 [103]: manual.md#pdf-coroutine.running.running
+
 [104]: manual.md#pdf-coroutine.status.status
+
 [105]: manual.md#<code>coroutinewrap<code>.wrap
+
 [106]: manual.md#<code>coroutineyield<code>.yield
+
 [107]: manual.md#&sect;610.10
+
 [108]: manual.md#pdf-debug.debug.debug
+
 [109]: manual.md#pdf-debug.gethook.gethook
+
 [110]: manual.md#<code>debuggetinfo<code>.getinfo
+
 [111]: manual.md#<code>debuggetlocal<code>.getlocal
+
 [112]: manual.md#pdf-debug.getmetatable.getmetatable
+
 [113]: manual.md#pdf-debug.getregistry.getregistry
+
 [114]: manual.md#pdf-debug.getupvalue.getupvalue
+
 [115]: manual.md#pdf-debug.getuservalue.getuservalue
+
 [116]: manual.md#<code>debugsethook<code>.sethook
+
 [117]: manual.md#pdf-debug.setlocal.setlocal
+
 [118]: manual.md#pdf-debug.setmetatable.setmetatable
+
 [119]: manual.md#pdf-debug.setupvalue.setupvalue
+
 [120]: manual.md#pdf-debug.setuservalue.setuservalue
+
 [121]: manual.md#pdf-debug.traceback.traceback
+
 [122]: manual.md#pdf-debug.upvalueid.upvalueid
+
 [123]: manual.md#pdf-debug.upvaluejoin.upvaluejoin
+
 [124]: manual.md#&sect;68.8
+
 [125]: manual.md#pdf-io.close.close
+
 [126]: manual.md#<code>ioflush<code>.flush
+
 [127]: manual.md#<code>ioinput<code>.input
+
 [128]: manual.md#<code>iolines<code>.lines
+
 [129]: manual.md#<code>ioopen<code>.open
+
 [130]: manual.md#pdf-io.output.output
+
 [131]: manual.md#<code>iopopen<code>.popen
+
 [132]: manual.md#<code>ioread<code>.read
+
 [133]: manual.md#pdf-io.stderr.stderr
+
 [134]: manual.md#pdf-io.stdin.stdin
+
 [135]: manual.md#pdf-io.stdout.stdout
+
 [136]: manual.md#<code>iotmpfile<code>.tmpfile
+
 [137]: manual.md#pdf-io.type.type
+
 [138]: manual.md#pdf-io.write.write
+
 [139]: manual.md#<code>fileclose<code>:close
+
 [140]: manual.md#pdf-file:flush:flush
+
 [141]: manual.md#pdf-file:lines:lines
+
 [142]: manual.md#pdf-file:read:read
+
 [143]: manual.md#<code>fileseek<code>:seek
+
 [144]: manual.md#pdf-file:setvbuf:setvbuf
+
 [145]: manual.md#pdf-file:write:write
+
 [146]: manual.md#&sect;67.7
+
 [147]: manual.md#pdf-math.abs.abs
+
 [148]: manual.md#pdf-math.acos.acos
+
 [149]: manual.md#pdf-math.asin.asin
+
 [150]: manual.md#pdf-math.atan.atan
+
 [151]: manual.md#pdf-math.ceil.ceil
+
 [152]: manual.md#pdf-math.cos.cos
+
 [153]: manual.md#pdf-math.deg.deg
+
 [154]: manual.md#pdf-math.exp.exp
+
 [155]: manual.md#pdf-math.floor.floor
+
 [156]: manual.md#pdf-math.fmod.fmod
+
 [157]: manual.md#pdf-math.huge.huge
+
 [158]: manual.md#pdf-math.log.log
+
 [159]: manual.md#pdf-math.max.max
+
 [160]: manual.md#pdf-math.maxinteger.maxinteger
+
 [161]: manual.md#pdf-math.min.min
+
 [162]: manual.md#pdf-math.mininteger.mininteger
+
 [163]: manual.md#pdf-math.modf.modf
+
 [164]: manual.md#pdf-math.pi.pi
+
 [165]: manual.md#pdf-math.rad.rad
+
 [166]: manual.md#pdf-math.random.random
+
 [167]: manual.md#pdf-math.randomseed.randomseed
+
 [168]: manual.md#pdf-math.sin.sin
+
 [169]: manual.md#pdf-math.sqrt.sqrt
+
 [170]: manual.md#pdf-math.tan.tan
+
 [171]: manual.md#pdf-math.tointeger.tointeger
+
 [172]: manual.md#pdf-math.type.type
+
 [173]: manual.md#pdf-math.ult.ult
+
 [174]: manual.md#&sect;69.9
+
 [175]: manual.md#pdf-os.clock.clock
+
 [176]: manual.md#<code>osdate<code>.date
+
 [177]: manual.md#pdf-os.difftime.difftime
+
 [178]: manual.md#<code>osexecute<code>.execute
+
 [179]: manual.md#<code>osexit<code>.exit
+
 [180]: manual.md#pdf-os.getenv.getenv
+
 [181]: manual.md#pdf-os.remove.remove
+
 [182]: manual.md#<code>osrename<code>.rename
+
 [183]: manual.md#pdf-os.setlocale.setlocale
+
 [184]: manual.md#<code>ostime<code>.time
+
 [185]: manual.md#pdf-os.tmpname.tmpname
+
 [186]: manual.md#&sect;63.3
+
 [187]: manual.md#pdf-package.config.config
+
 [188]: manual.md#<code>packagecpath<code>.cpath
+
 [189]: manual.md#<code>packageloaded<code>.loaded
+
 [190]: manual.md#pdf-package.loadlib.loadlib
+
 [191]: manual.md#<code>packagecpath<code>.path
+
 [192]: manual.md#<code>packagepreload<code>.preload
+
 [193]: manual.md#<code>packagesearchers<code>.searchers
+
 [194]: manual.md#<code>packagesearchpath<code>.searchpath
+
 [195]: manual.md#&sect;64.4
+
 [196]: manual.md#pdf-string.byte.byte
+
 [197]: manual.md#pdf-string.char.char
+
 [198]: manual.md#<code>stringdump<code>.dump
+
 [199]: manual.md#<code>stringfind<code>.find
+
 [200]: manual.md#<code>stringformat<code>.format
+
 [201]: manual.md#<code>stringgmatch<code>.gmatch
+
 [202]: manual.md#<code>stringgsub<code>.gsub
+
 [203]: manual.md#pdf-string.len.len
+
 [204]: manual.md#pdf-string.lower.lower
+
 [205]: manual.md#<code>stringmatch<code>.match
+
 [206]: manual.md#<code>stringpack<code>.pack
+
 [207]: manual.md#<code>stringpacksize<code>.packsize
+
 [208]: manual.md#pdf-string.rep.rep
+
 [209]: manual.md#pdf-string.reverse.reverse
+
 [210]: manual.md#<code>stringsub<code>.sub
+
 [211]: manual.md#<code>stringunpack<code>.unpack
+
 [212]: manual.md#pdf-string.upper.upper
+
 [213]: manual.md#&sect;66.6
+
 [214]: manual.md#pdf-table.concat.concat
+
 [215]: manual.md#pdf-table.insert.insert
+
 [216]: manual.md#pdf-table.move.move
+
 [217]: manual.md#pdf-table.pack.pack
+
 [218]: manual.md#pdf-table.remove.remove
+
 [219]: manual.md#<code>tablesort<code>.sort
+
 [220]: manual.md#pdf-table.unpack.unpack
+
 [221]: manual.md#&sect;65.5
+
 [222]: manual.md#pdf-utf8.char.char
+
 [223]: manual.md#pdf-utf8.charpattern.charpattern
+
 [224]: manual.md#pdf-utf8.codepoint.codepoint
+
 [225]: manual.md#pdf-utf8.codes.codes
+
 [226]: manual.md#pdf-utf8.len.len
+
 [227]: manual.md#pdf-utf8.offset.offset
+
 [228]: manual.md#pdf-LUA_CPATH
+
 [229]: manual.md#pdf-LUA_CPATH_5_3
+
 [230]: manual.md#pdf-LUA_INIT
+
 [231]: manual.md#pdf-LUA_INIT_5_3
+
 [232]: manual.md#pdf-LUA_PATH
+
 [233]: manual.md#pdf-LUA_PATH_5_3
+
 [234]: manual.md#lua_Alloc
+
 [235]: manual.md#<code>lua_cfunction<code>
+
 [236]: manual.md#<code>lua_debug<code>
+
 [237]: manual.md#<code>lua_hook<code>
+
 [238]: manual.md#<code>lua_integer<code>
+
 [239]: manual.md#lua_KContext
+
 [240]: manual.md#<code>lua_kfunction<code>
+
 [241]: manual.md#<code>lua_number<code>
+
 [242]: manual.md#<code>lua_reader<code>
+
 [243]: manual.md#<code>lua_state<code>
+
 [244]: manual.md#lua_Unsigned
+
 [245]: manual.md#<code>lua_writer<code>
+
 [246]: manual.md#lua_absindex
+
 [247]: manual.md#lua_arith
+
 [248]: manual.md#<code>lua_atpanic<code>
+
 [249]: manual.md#<code>lua_call<code>
+
 [250]: manual.md#<code>lua_callk<code>
+
 [251]: manual.md#<code>lua_checkstack<code>
+
 [252]: manual.md#<code>lua_close<code>
+
 [253]: manual.md#lua_compare
+
 [254]: manual.md#lua_concat
+
 [255]: manual.md#lua_copy
+
 [256]: manual.md#lua_createtable
+
 [257]: manual.md#<code>lua_dump<code>
+
 [258]: manual.md#<code>lua_error<code>
+
 [259]: manual.md#<code>lua_gc<code>
+
 [260]: manual.md#lua_getallocf
+
 [261]: manual.md#lua_getextraspace
+
 [262]: manual.md#lua_getfield
+
 [263]: manual.md#lua_getglobal
+
 [264]: manual.md#lua_gethook
+
 [265]: manual.md#lua_gethookcount
+
 [266]: manual.md#lua_gethookmask
+
 [267]: manual.md#lua_geti
+
 [268]: manual.md#<code>lua_getinfo<code>
+
 [269]: manual.md#<code>lua_getlocal<code>
+
 [270]: manual.md#lua_getmetatable
+
 [271]: manual.md#<code>lua_getstack<code>
+
 [272]: manual.md#<code>lua_gettable<code>
+
 [273]: manual.md#lua_gettop
+
 [274]: manual.md#<code>lua_getupvalue<code>
+
 [275]: manual.md#lua_getuservalue
+
 [276]: manual.md#lua_insert
+
 [277]: manual.md#<code>lua_isboolean<code>
+
 [278]: manual.md#lua_iscfunction
+
 [279]: manual.md#lua_isfunction
+
 [280]: manual.md#lua_isinteger
+
 [281]: manual.md#lua_islightuserdata
+
 [282]: manual.md#lua_isnil
+
 [283]: manual.md#lua_isnone
+
 [284]: manual.md#lua_isnoneornil
+
 [285]: manual.md#lua_isnumber
+
 [286]: manual.md#lua_isstring
+
 [287]: manual.md#lua_istable
+
 [288]: manual.md#lua_isthread
+
 [289]: manual.md#lua_isuserdata
+
 [290]: manual.md#lua_isyieldable
+
 [291]: manual.md#lua_len
+
 [292]: manual.md#<code>lua_load<code>
+
 [293]: manual.md#<code>lua_newstate<code>
+
 [294]: manual.md#<code>lua_newtable<code>
+
 [295]: manual.md#<code>lua_newthread<code>
+
 [296]: manual.md#lua_newuserdata
+
 [297]: manual.md#<code>lua_next<code>
+
 [298]: manual.md#lua_numbertointeger
+
 [299]: manual.md#<code>lua_pcall<code>
+
 [300]: manual.md#<code>lua_pcallk<code>
+
 [301]: manual.md#lua_pop
+
 [302]: manual.md#lua_pushboolean
+
 [303]: manual.md#<code>lua_pushcclosure<code>
+
 [304]: manual.md#lua_pushcfunction
+
 [305]: manual.md#<code>lua_pushfstring<code>
+
 [306]: manual.md#lua_pushglobaltable
+
 [307]: manual.md#lua_pushinteger
+
 [308]: manual.md#lua_pushlightuserdata
+
 [309]: manual.md#lua_pushliteral
+
 [310]: manual.md#lua_pushlstring
+
 [311]: manual.md#lua_pushnil
+
 [312]: manual.md#lua_pushnumber
+
 [313]: manual.md#<code>lua_pushstring<code>
+
 [314]: manual.md#lua_pushthread
+
 [315]: manual.md#lua_pushvalue
+
 [316]: manual.md#lua_pushvfstring
+
 [317]: manual.md#lua_rawequal
+
 [318]: manual.md#lua_rawget
+
 [319]: manual.md#lua_rawgeti
+
 [320]: manual.md#lua_rawgetp
+
 [321]: manual.md#lua_rawlen
+
 [322]: manual.md#lua_rawset
+
 [323]: manual.md#lua_rawseti
+
 [324]: manual.md#lua_rawsetp
+
 [325]: manual.md#lua_register
+
 [326]: manual.md#lua_remove
+
 [327]: manual.md#lua_replace
+
 [328]: manual.md#<code>lua_resume<code>
+
 [329]: manual.md#lua_rotate
+
 [330]: manual.md#lua_setallocf
+
 [331]: manual.md#lua_setfield
+
 [332]: manual.md#lua_setglobal
+
 [333]: manual.md#lua_sethook
+
 [334]: manual.md#lua_seti
+
 [335]: manual.md#<code>lua_setlocal<code>
+
 [336]: manual.md#lua_setmetatable
+
 [337]: manual.md#<code>lua_settable<code>
+
 [338]: manual.md#lua_settop
+
 [339]: manual.md#lua_setupvalue
+
 [340]: manual.md#lua_setuservalue
+
 [341]: manual.md#lua_status
+
 [342]: manual.md#lua_stringtonumber
+
 [343]: manual.md#<code>lua_toboolean<code>
+
 [344]: manual.md#lua_tocfunction
+
 [345]: manual.md#lua_tointeger
+
 [346]: manual.md#<code>lua_tointegerx<code>
+
 [347]: manual.md#<code>lua_tolstring<code>
+
 [348]: manual.md#lua_tonumber
+
 [349]: manual.md#<code>lua_tonumberx<code>
+
 [350]: manual.md#lua_topointer
+
 [351]: manual.md#lua_tostring
+
 [352]: manual.md#lua_tothread
+
 [353]: manual.md#<code>lua_touserdata<code>
+
 [354]: manual.md#<code>lua_type<code>
+
 [355]: manual.md#lua_typename
+
 [356]: manual.md#lua_upvalueid
+
 [357]: manual.md#<code>lua_upvalueindex<code>
+
 [358]: manual.md#lua_upvaluejoin
+
 [359]: manual.md#lua_version
+
 [360]: manual.md#lua_xmove
+
 [361]: manual.md#<code>lua_yield<code>
+
 [362]: manual.md#<code>lua_yieldk<code>
+
 [363]: manual.md#<code>lual_buffer<code>
+
 [364]: manual.md#<code>lual_reg<code>
+
 [365]: manual.md#luaL_Stream
+
 [366]: manual.md#luaL_addchar
+
 [367]: manual.md#luaL_addlstring
+
 [368]: manual.md#<code>lual_addsize<code>
+
 [369]: manual.md#luaL_addstring
+
 [370]: manual.md#<code>lual_addvalue<code>
+
 [371]: manual.md#luaL_argcheck
+
 [372]: manual.md#<code>lual_argerror<code>
+
 [373]: manual.md#<code>lual_buffinit<code>
+
 [374]: manual.md#luaL_buffinitsize
+
 [375]: manual.md#luaL_callmeta
+
 [376]: manual.md#luaL_checkany
+
 [377]: manual.md#luaL_checkinteger
+
 [378]: manual.md#luaL_checklstring
+
 [379]: manual.md#luaL_checknumber
+
 [380]: manual.md#luaL_checkoption
+
 [381]: manual.md#luaL_checkstack
+
 [382]: manual.md#luaL_checkstring
+
 [383]: manual.md#luaL_checktype
+
 [384]: manual.md#<code>lual_checkudata<code>
+
 [385]: manual.md#luaL_checkversion
+
 [386]: manual.md#luaL_dofile
+
 [387]: manual.md#luaL_dostring
+
 [388]: manual.md#<code>lual_error<code>
+
 [389]: manual.md#luaL_execresult
+
 [390]: manual.md#luaL_fileresult
+
 [391]: manual.md#luaL_getmetafield
+
 [392]: manual.md#luaL_getmetatable
+
 [393]: manual.md#luaL_getsubtable
+
 [394]: manual.md#luaL_gsub
+
 [395]: manual.md#luaL_len
+
 [396]: manual.md#luaL_loadbuffer
+
 [397]: manual.md#<code>lual_loadbufferx<code>
+
 [398]: manual.md#luaL_loadfile
+
 [399]: manual.md#<code>lual_loadfilex<code>
+
 [400]: manual.md#luaL_loadstring
+
 [401]: manual.md#<code>lual_newlib<code>
+
 [402]: manual.md#luaL_newlibtable
+
 [403]: manual.md#<code>lual_newmetatable<code>
+
 [404]: manual.md#<code>lual_newstate<code>
+
 [405]: manual.md#<code>lual_openlibs<code>
+
 [406]: manual.md#luaL_optinteger
+
 [407]: manual.md#luaL_optlstring
+
 [408]: manual.md#luaL_optnumber
+
 [409]: manual.md#luaL_optstring
+
 [410]: manual.md#<code>lual_prepbuffer<code>
+
 [411]: manual.md#<code>lual_prepbuffsize<code>
+
 [412]: manual.md#<code>lual_pushresult<code>
+
 [413]: manual.md#luaL_pushresultsize
+
 [414]: manual.md#<code>lual_ref<code>
+
 [415]: manual.md#<code>lual_requiref<code>
+
 [416]: manual.md#<code>lual_setfuncs<code>
+
 [417]: manual.md#luaL_setmetatable
+
 [418]: manual.md#luaL_testudata
+
 [419]: manual.md#luaL_tolstring
+
 [420]: manual.md#luaL_traceback
+
 [421]: manual.md#luaL_typename
+
 [422]: manual.md#<code>lual_unref<code>
+
 [423]: manual.md#luaL_where
+
 [424]: manual.md#pdf-luaopen_base
+
 [425]: manual.md#pdf-luaopen_coroutine
+
 [426]: manual.md#pdf-luaopen_debug
+
 [427]: manual.md#pdf-luaopen_io
+
 [428]: manual.md#pdf-luaopen_math
+
 [429]: manual.md#pdf-luaopen_os
+
 [430]: manual.md#pdf-luaopen_package
+
 [431]: manual.md#pdf-luaopen_string
+
 [432]: manual.md#pdf-luaopen_table
+
 [433]: manual.md#pdf-luaopen_utf8
+
 [434]: manual.md#pdf-LUA_ERRERR
+
 [435]: manual.md#pdf-LUA_ERRFILE
+
 [436]: manual.md#<code>lua_errgcmm<code>
+
 [437]: manual.md#<code>lua_errmem<code>
+
 [438]: manual.md#pdf-LUA_ERRRUN
+
 [439]: manual.md#pdf-LUA_ERRSYNTAX
+
 [440]: manual.md#pdf-LUA_HOOKCALL
+
 [441]: manual.md#pdf-LUA_HOOKCOUNT
+
 [442]: manual.md#pdf-LUA_HOOKLINE
+
 [443]: manual.md#pdf-LUA_HOOKRET
+
 [444]: manual.md#pdf-LUA_HOOKTAILCALL
+
 [445]: manual.md#pdf-LUA_MASKCALL
+
 [446]: manual.md#pdf-LUA_MASKCOUNT
+
 [447]: manual.md#pdf-LUA_MASKLINE
+
 [448]: manual.md#pdf-LUA_MASKRET
+
 [449]: manual.md#pdf-LUA_MAXINTEGER
+
 [450]: manual.md#pdf-LUA_MININTEGER
+
 [451]: manual.md#pdf-LUA_MINSTACK
+
 [452]: manual.md#pdf-LUA_MULTRET
+
 [453]: manual.md#<code>lua_noref<code>
+
 [454]: manual.md#<code>lua_ok<code>
+
 [455]: manual.md#pdf-LUA_OPADD
+
 [456]: manual.md#pdf-LUA_OPBAND
+
 [457]: manual.md#pdf-LUA_OPBNOT
+
 [458]: manual.md#pdf-LUA_OPBOR
+
 [459]: manual.md#pdf-LUA_OPBXOR
+
 [460]: manual.md#pdf-LUA_OPDIV
+
 [461]: manual.md#pdf-LUA_OPEQ
+
 [462]: manual.md#pdf-LUA_OPIDIV
+
 [463]: manual.md#pdf-LUA_OPLE
+
 [464]: manual.md#pdf-LUA_OPLT
+
 [465]: manual.md#pdf-LUA_OPMOD
+
 [466]: manual.md#pdf-LUA_OPMUL
+
 [467]: manual.md#pdf-LUA_OPPOW
+
 [468]: manual.md#pdf-LUA_OPSHL
+
 [469]: manual.md#pdf-LUA_OPSHR
+
 [470]: manual.md#pdf-LUA_OPSUB
+
 [471]: manual.md#pdf-LUA_OPUNM
+
 [472]: manual.md#<code>lua_refnil<code>
+
 [473]: manual.md#pdf-LUA_REGISTRYINDEX
+
 [474]: manual.md#pdf-LUA_RIDX_GLOBALS
+
 [475]: manual.md#pdf-LUA_RIDX_MAINTHREAD
+
 [476]: manual.md#pdf-LUA_TBOOLEAN
+
 [477]: manual.md#pdf-LUA_TFUNCTION
+
 [478]: manual.md#pdf-LUA_TLIGHTUSERDATA
+
 [479]: manual.md#pdf-LUA_TNIL
+
 [480]: manual.md#pdf-LUA_TNONE
+
 [481]: manual.md#pdf-LUA_TNUMBER
+
 [482]: manual.md#pdf-LUA_TSTRING
+
 [483]: manual.md#pdf-LUA_TTABLE
+
 [484]: manual.md#pdf-LUA_TTHREAD
+
 [485]: manual.md#pdf-LUA_TUSERDATA
+
 [486]: manual.md#pdf-LUA_USE_APICHECK
+
 [487]: manual.md#<code>lua_yield<code>
+
 [488]: manual.md#pdf-LUAL_BUFFERSIZE

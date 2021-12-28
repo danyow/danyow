@@ -1,8 +1,8 @@
-Lua 5.3 术语中英对照表   ul { list-style-type: none ; list-style-position: outside ; }
+---
+sidebar_position: 4
+---
 
-* * *
-
-# [![](http://cloudwu.github.io/lua53doc/logo.gif)][1] Lua 5.3 术语中英对照表
+# 术语中英对照表
 
 译者在翻译时，使用了一些尚未统一的中文术语译词，统一罗列如下：
 
@@ -11,5 +11,3 @@ Lua 5.3 术语中英对照表   ul { list-style-type: none ; list-style-position
 * * *
 
 最后修改时间: 2015年1月14日23:07
-
-[1]: http://www.lua.org/

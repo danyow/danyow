@@ -18,16 +18,15 @@ const config = {
       'classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
-        docs: {
-          sidebarPath: require.resolve('./sidebars.js'),
-          // 请将其更改为您的仓库。
-          editUrl: 'https://github.com/danyow/danyow/edit/main/',
-        },
+        // docs: {
+        //   sidebarPath: require.resolve('./sidebars.js'),
+        //   // 请将其更改为您的仓库。
+        //   editUrl: 'https://github.com/danyow/danyow/edit/main/docs',
+        // },
         blog: {
           showReadingTime: true,
           // 请将其更改为您的仓库。
-          editUrl:
-            'https://github.com/danyow/danyow/edit/main/blog',
+          editUrl: 'https://github.com/danyow/danyow/edit/main/blog',
         },
         theme: {
           customCss: [
@@ -42,23 +41,47 @@ const config = {
   ],
 
   plugins: [
-    // [
-    //   '@docusaurus/plugin-content-docs',
-    //   {
-    //     id: 'tutorial',
-    //     path: 'tutorial',
-    //     routeBasePath: 'tutorial',
-    //     sidebarPath: require.resolve('./sidebarsTutorial.js'),
-    //     editUrl: 'https://github.com/facebook/docusaurus/edit/main/website/',
-    //     showLastUpdateAuthor: true,
-    //     showLastUpdateTime: true,
-    //     versions: {
-    //       current: {
-    //         label: `${getNextBetaVersionName()} 🚧`,
-    //       },
-    //     },
-    //   },
-    // ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'note',
+        path: 'note',
+        routeBasePath: 'note',
+        sidebarPath: require.resolve('./sidebars.js'),
+        editUrl: 'https://github.com/danyow/danyow/edit/main/note',
+        showLastUpdateAuthor: true,
+        showLastUpdateTime: true,
+      },
+    ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'lua',
+        path: 'lua',
+        routeBasePath: 'lua',
+        sidebarPath: require.resolve('./sidebars.js'),
+        editUrl: 'https://github.com/danyow/danyow/edit/main/lua',
+        showLastUpdateAuthor: true,
+        showLastUpdateTime: true,
+      },
+    ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'unity',
+        path: 'unity',
+        routeBasePath: 'unity',
+        sidebarPath: require.resolve('./sidebars.js'),
+        editUrl: 'https://github.com/danyow/danyow/edit/main/unity',
+        showLastUpdateAuthor: true,
+        showLastUpdateTime: true,
+        // versions: {
+        //   current: {
+        //     label: `${getNextBetaVersionName()} 🚧`,
+        //   },
+        // },
+      },
+    ],
     [
       require.resolve('@easyops-cn/docusaurus-search-local'),
       {
@@ -90,14 +113,33 @@ const config = {
           {
             type: 'doc',
             docId: 'itinerary',
+            docsPluginId: 'note',
             position: 'left',
             label: '笔记',
           },
-          {to: '/blog', label: '博客', position: 'left'},
+          {
+            type: 'doc',
+            docId: 'lua',
+            docsPluginId: 'lua',
+            position: 'left',
+            label: 'lua',
+          },
+          {
+            type: 'doc',
+            docId: 'unity',
+            docsPluginId: 'unity',
+            position: 'left',
+            label: 'unity',
+          },
+          {
+            to: '/blog',
+            position: 'left',
+            label: '博客',
+          },
           // right
           // {   // 版本控制
           //   type: 'docsVersionDropdown',
-          //   docsPluginId: 'tutorial',
+          //   docsPluginId: 'lua',
           //   label: '教程',
           //   position: 'right',
           // },
