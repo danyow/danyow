@@ -2514,12 +2514,25 @@ Lua 没有内置的调试机制。 但是它提供了一组特殊的函数接口
 
 #### `lua_Debug`
 
-typedef struct lua_Debug { int event; const char *name; /* (n) */ const char *namewhat; /* (n) */ const char
-*what; /* (S) */ const char *source; /* (S) */ int currentline; /* (l) */ int linedefined; /* (S) */ int
-lastlinedefined; /* (S) */ unsigned char nups; /* (u) 上值的数量 */ unsigned char nparams; /* (u) 参数的数量 */ char
-isvararg; /* (u) */ char istailcall; /* (t) */ char short_src[LUA_IDSIZE]; /* (S) */ /* 私有部分 */
-*其它域*
+```c
+typedef struct lua_Debug {
+  int event;
+  const char *name;           /* (n) */
+  const char *namewhat;       /* (n) */
+  const char *what;           /* (S) */
+  const char *source;         /* (S) */
+  int currentline;            /* (l) */
+  int linedefined;            /* (S) */
+  int lastlinedefined;        /* (S) */
+  unsigned char nups;         /* (u) 上值的数量 */
+  unsigned char nparams;      /* (u) 参数的数量 */
+  char isvararg;              /* (u) */
+  char istailcall;            /* (t) */
+  char short_src[LUA_IDSIZE]; /* (S) */
+  /* 私有部分 */
+  其它域
 } lua_Debug;
+```
 
 这是一个携带有有关函数或活动记录的各种信息的结构。 [`lua_getstack`][264] 只会填充结构的私有部分供后面使用。 调用 [`lua_getinfo`][265] 可以在 [`lua_Debug`][266]
 中填充那些可被使用的信息域。
@@ -5086,7 +5099,7 @@ Lua 的版本更替总是会修改一些 C API 并涉及源代码的改变。 �
 
 [13]: #3411-函数定义
 
-[14]: #<code>type<code>
+[14]: #type-v
 
 [15]: #61-基础函数
 
@@ -5100,31 +5113,31 @@ Lua 的版本更替总是会修改一些 C API 并涉及源代码的改变。 �
 
 [20]: #45-注册表
 
-[21]: #<code>_g<code>
+[21]: #_g
 
-[22]: #<code>_g<code>
+[22]: #_g
 
-[23]: #<code>load<code>
+[23]: #load-chunk--chunkname--mode--env
 
-[24]: #<code>load<code>
+[24]: #load-chunk--chunkname--mode--env
 
-[25]: #pdf-loadfile
+[25]: #loadfile-filename--mode--env
 
-[26]: #<code>error<code>
+[26]: #error-message--level
 
-[27]: #<code>pcall<code>
+[27]: #pcall-f--arg1-
 
-[28]: #<code>xpcall<code>
+[28]: #xpcall-f-msgh--arg1-
 
-[29]: #<code>xpcall<code>
+[29]: #xpcall-f-msgh--arg1-
 
-[30]: #<code>lua_pcall<code>
+[30]: #lua_pcall
 
-[31]: #<code>getmetatable<code>
+[31]: #getmetatable-object
 
-[32]: #<code>rawget<code>
+[32]: #rawget-table-index
 
-[33]: #<code>setmetatable<code>
+[33]: #setmetatable-table-metatable
 
 [34]: #610-调试库
 
@@ -5136,65 +5149,65 @@ Lua 的版本更替总是会修改一些 C API 并涉及源代码的改变。 �
 
 [38]: #347-取长度操作符
 
-[39]: #<code>rawset<code>
+[39]: #rawset-table-index-value
 
-[40]: #<code>lua_gc<code>
+[40]: #lua_gc
 
-[41]: #<code>collectgarbage<code>
+[41]: #collectgarbage-opt--arg
 
 [42]: #24-元表及元方法
 
-[43]: #<code>lua_close<code>
+[43]: #lua_close
 
-[44]: #<code>coroutinecreate<code>.create
+[44]: #coroutinecreate-f
 
-[45]: #<code>coroutineresume<code>.resume
+[45]: #coroutineresume-co--val1-
 
-[46]: #<code>coroutineresume<code>.resume
+[46]: #coroutineresume-co--val1-
 
-[47]: #<code>coroutinecreate<code>.create
+[47]: #coroutinecreate-f
 
-[48]: #<code>coroutineresume<code>.resume
+[48]: #coroutineresume-co--val1-
 
-[49]: #<code>coroutineresume<code>.resume
+[49]: #coroutineresume-co--val1-
 
-[50]: #<code>coroutineresume<code>.resume
+[50]: #coroutineresume-co--val1-
 
-[51]: #<code>coroutineyield<code>.yield
+[51]: #coroutineyield-
 
-[52]: #<code>coroutineresume<code>.resume
+[52]: #coroutineresume-co--val1-
 
-[53]: #<code>coroutineresume<code>.resume
+[53]: #coroutineresume-co--val1-
 
-[54]: #<code>coroutineyield<code>.yield
+[54]: #coroutineyield-
 
-[55]: #<code>coroutineyield<code>.yield
+[55]: #coroutineyield-
 
-[56]: #<code>coroutineresume<code>.resume
+[56]: #coroutineresume-co--val1-
 
-[57]: #<code>coroutinecreate<code>.create
+[57]: #coroutinecreate-f
 
-[58]: #<code>coroutinewrap<code>.wrap
+[58]: #coroutinewrap-f
 
-[59]: #<code>coroutineresume<code>.resume
+[59]: #coroutineresume-co--val1-
 
-[60]: #<code>coroutinewrap<code>.wrap
+[60]: #coroutinewrap-f
 
-[61]: #<code>coroutineresume<code>.resume
+[61]: #coroutineresume-co--val1-
 
-[62]: #<code>coroutineresume<code>.resume
+[62]: #coroutineresume-co--val1-
 
-[63]: #<code>coroutinewrap<code>.wrap
+[63]: #coroutinewrap-f
 
-[64]: #<code>lua_newthread<code>
+[64]: #lua_newthread
 
-[65]: #<code>lua_resume<code>
+[65]: #lua_resume
 
-[66]: #<code>lua_yield<code>
+[66]: #lua_yield
 
 [67]: #9-lua-的完整语法
 
-[68]: #<code>_version<code>
+[68]: #_version
 
 [69]: #31-词法约定
 
@@ -5212,9 +5225,9 @@ Lua 的版本更替总是会修改一些 C API 并涉及源代码的改变。 �
 
 [76]: #22-环境与全局环境
 
-[77]: #<code>stringdump<code>.dump
+[77]: #stringdump-function--strip
 
-[78]: #<code>load<code>
+[78]: #load-chunk--chunkname--mode--env
 
 [79]: #34-表达式
 
@@ -5270,7 +5283,7 @@ Lua 的版本更替总是会修改一些 C API 并涉及源代码的改变。 �
 
 [105]: #343-强制转换
 
-[106]: #<code>stringformat<code>.format
+[106]: #stringformat-formatstring-
 
 [107]: #24-元表及元方法
 
@@ -5290,85 +5303,85 @@ Lua 的版本更替总是会修改一些 C API 并涉及源代码的改变。 �
 
 [115]: #334-控制结构
 
-[116]: #<code>lua_cfunction<code>
+[116]: #lua_cfunction
 
-[117]: #<code>lua_checkstack<code>
+[117]: #lua_checkstack
 
-[118]: #<code>lua_call<code>
+[118]: #lua_call
 
-[119]: #<code>lua_checkstack<code>
+[119]: #lua_checkstack
 
 [120]: #44-c-闭包
 
-[121]: #<code>lua_pushcclosure<code>
+[121]: #lua_pushcclosure
 
-[122]: #<code>lua_upvalueindex<code>
+[122]: #lua_upvalueindex
 
-[123]: #<code>lual_ref<code>
+[123]: #lual_ref
 
-[124]: #<code>lua_atpanic<code>
+[124]: #lua_atpanic
 
 [125]: #23-错误处理
 
 [126]: #42-栈大小
 
-[127]: #<code>lua_error<code>
+[127]: #lua_error
 
-[128]: #<code>lua_yieldk<code>
+[128]: #lua_yieldk
 
-[129]: #<code>lua_callk<code>
+[129]: #lua_callk
 
-[130]: #<code>lua_pcallk<code>
+[130]: #lua_pcallk
 
-[131]: #<code>lua_yieldk<code>
+[131]: #lua_yieldk
 
-[132]: #<code>lua_callk<code>
+[132]: #lua_callk
 
-[133]: #<code>lua_pcallk<code>
+[133]: #lua_pcallk
 
-[134]: #<code>lua_pcall<code>
+[134]: #lua_pcall
 
-[135]: #<code>lua_kfunction<code>
+[135]: #lua_kfunction
 
-[136]: #<code>lua_pcall<code>
+[136]: #lua_pcall
 
-[137]: #<code>lua_pcall<code>
+[137]: #lua_pcall
 
-[138]: #<code>lua_pcall<code>
+[138]: #lua_pcall
 
-[139]: #<code>lua_pcallk<code>
+[139]: #lua_pcallk
 
-[140]: #<code>lua_pcallk<code>
+[140]: #lua_pcallk
 
-[141]: #<code>lua_callk<code>
+[141]: #lua_callk
 
-[142]: #<code>lua_pcallk<code>
+[142]: #lua_pcallk
 
-[143]: #<code>lua_pcallk<code>
+[143]: #lua_pcallk
 
-[144]: #<code>lua_pcallk<code>
+[144]: #lua_pcallk
 
-[145]: #<code>lua_yield<code>
+[145]: #lua_yield
 
 [146]: #<code>lua_ok<code>
 
-[147]: #<code>lua_yieldk<code>
+[147]: #lua_yieldk
 
-[148]: #<code>lua_callk<code>
+[148]: #lua_callk
 
-[149]: #<code>lua_yield<code>
+[149]: #lua_yield
 
-[150]: #<code>lua_callk<code>
+[150]: #lua_callk
 
 [151]: #<code>lua_ok<code>
 
-[152]: #<code>lua_yieldk<code>
+[152]: #lua_yieldk
 
-[153]: #<code>lua_yieldk<code>
+[153]: #lua_yieldk
 
-[154]: #<code>lua_callk<code>
+[154]: #lua_callk
 
-[155]: #<code>lua_newstate<code>
+[155]: #lua_newstate
 
 [156]: #pdf-LUA_TSTRING
 
@@ -5380,31 +5393,31 @@ Lua 的版本更替总是会修改一些 C API 并涉及源代码的改变。 �
 
 [160]: #pdf-LUA_TTHREAD
 
-[161]: #<code>lual_newstate<code>
+[161]: #lual_newstate
 
 [162]: #46-c-中的错误处理
 
-[163]: #<code>lua_call<code>
+[163]: #lua_call
 
-[164]: #<code>lua_call<code>
+[164]: #lua_call
 
 [165]: #47-c-中的让出处理
 
 [166]: #346-字符串连接
 
-[167]: #<code>lua_newtable<code>
+[167]: #lua_newtable
 
-[168]: #<code>lua_dump<code>
+[168]: #lua_dump
 
-[169]: #<code>lua_writer<code>
+[169]: #lua_writer
 
-[170]: #<code>lual_error<code>
+[170]: #lual_error
 
 [171]: #25-垃圾收集
 
 [172]: #25-垃圾收集
 
-[173]: #<code>collectgarbage<code>
+[173]: #collectgarbage-opt--arg
 
 [174]: #24-元表及元方法
 
@@ -5428,83 +5441,83 @@ Lua 的版本更替总是会修改一些 C API 并涉及源代码的改变。 �
 
 [184]: #49-调试接口
 
-[185]: #<code>load<code>
+[185]: #load-chunk--chunkname--mode--env
 
 [186]: #45-注册表
 
 [187]: #22-环境与全局环境
 
-[188]: #<code>lua_state<code>
+[188]: #lua_state
 
-[189]: #<code>lua_next<code>
+[189]: #lua_next
 
-[190]: #<code>lua_tolstring<code>
+[190]: #lua_tolstring
 
-[191]: #<code>lua_tolstring<code>
+[191]: #lua_tolstring
 
-[192]: #<code>lua_next<code>
+[192]: #lua_next
 
-[193]: #<code>next<code>
+[193]: #next-table--index
 
-[194]: #<code>lua_call<code>
+[194]: #lua_call
 
-[195]: #<code>lua_pcall<code>
+[195]: #lua_pcall
 
-[196]: #<code>lua_call<code>
+[196]: #lua_call
 
-[197]: #<code>lua_pcall<code>
+[197]: #lua_pcall
 
-[198]: #<code>lua_call<code>
+[198]: #lua_call
 
-[199]: #<code>lua_pcall<code>
+[199]: #lua_pcall
 
-[200]: #<code>lua_pcall<code>
+[200]: #lua_pcall
 
-[201]: #<code>lua_pcall<code>
+[201]: #lua_pcall
 
-[202]: #<code>lua_pcall<code>
+[202]: #lua_pcall
 
-[203]: #<code>lua_pcall<code>
+[203]: #lua_pcall
 
 [204]: #47-c-中的让出处理
 
 [205]: #44-c-闭包
 
-[206]: #<code>lua_pushcclosure<code>
+[206]: #lua_pushcclosure
 
-[207]: #<code>lua_pushcclosure<code>
+[207]: #lua_pushcclosure
 
-[208]: #<code>lua_cfunction<code>
+[208]: #lua_cfunction
 
-[209]: #<code>lua_number<code>
+[209]: #lua_number
 
-[210]: #<code>lua_integer<code>
+[210]: #lua_integer
 
-[211]: #<code>lua_pushstring<code>
+[211]: #lua_pushstring
 
-[212]: #<code>lua_pushfstring<code>
+[212]: #lua_pushfstring
 
-[213]: #<code>lua_gettable<code>
+[213]: #lua_gettable
 
-[214]: #<code>lua_settable<code>
+[214]: #lua_settable
 
-[215]: #<code>lua_load<code>
+[215]: #lua_load
 
-[216]: #<code>lua_load<code>
+[216]: #lua_load
 
-[217]: #<code>lua_resume<code>
+[217]: #lua_resume
 
-[218]: #<code>lua_yield<code>
+[218]: #lua_yield
 
-[219]: #<code>lua_resume<code>
+[219]: #lua_resume
 
-[220]: #<code>lua_yield<code>
+[220]: #lua_yield
 
-[221]: #<code>lua_pcall<code>
+[221]: #lua_pcall
 
-[222]: #<code>lua_yield<code>
+[222]: #lua_yield
 
-[223]: #<code>lua_resume<code>
+[223]: #lua_resume
 
 [224]: #24-元表及元方法
 
@@ -5512,265 +5525,265 @@ Lua 的版本更替总是会修改一些 C API 并涉及源代码的改变。 �
 
 [226]: #24-元表及元方法
 
-[227]: #<code>lua_newstate<code>
+[227]: #lua_newstate
 
 [228]: #<code>lua_ok<code>
 
-[229]: #<code>lua_resume<code>
+[229]: #lua_resume
 
 [230]: #<code>lua_ok<code>
 
 [231]: #<code>lua_ok<code>
 
-[232]: #<code>lua_yield<code>
+[232]: #lua_yield
 
 [233]: #31-词法约定
 
-[234]: #<code>lua_toboolean<code>
+[234]: #lua_toboolean
 
-[235]: #<code>lua_isboolean<code>
+[235]: #lua_isboolean
 
-[236]: #<code>lua_tointegerx<code>
+[236]: #lua_tointegerx
 
-[237]: #<code>lua_integer<code>
+[237]: #lua_integer
 
 [238]: #343-强制转换
 
-[239]: #<code>lua_next<code>
+[239]: #lua_next
 
-[240]: #<code>lua_tonumberx<code>
+[240]: #lua_tonumberx
 
-[241]: #<code>lua_number<code>
+[241]: #lua_number
 
 [242]: #343-强制转换
 
-[243]: #<code>lua_tonumberx<code>
+[243]: #lua_tonumberx
 
-[244]: #<code>lua_tolstring<code>
+[244]: #lua_tolstring
 
-[245]: #<code>lua_type<code>
+[245]: #lua_type
 
-[246]: #<code>lua_type<code>
+[246]: #lua_type
 
-[247]: #<code>lua_integer<code>
+[247]: #lua_integer
 
 [248]: #44-c-闭包
 
-[249]: #<code>lua_state<code>
+[249]: #lua_state
 
-[250]: #<code>lua_dump<code>
+[250]: #lua_dump
 
-[251]: #<code>lua_dump<code>
+[251]: #lua_dump
 
-[252]: #<code>lua_dump<code>
+[252]: #lua_dump
 
-[253]: #<code>lua_dump<code>
+[253]: #lua_dump
 
-[254]: #<code>lua_yieldk<code>
+[254]: #lua_yieldk
 
 [255]: #47-c-中的让出处理
 
-[256]: #<code>lua_yieldk<code>
+[256]: #lua_yieldk
 
-[257]: #<code>lua_resume<code>
+[257]: #lua_resume
 
-[258]: #<code>lua_resume<code>
+[258]: #lua_resume
 
 [259]: #47-c-中的让出处理
 
-[260]: #<code>lua_resume<code>
+[260]: #lua_resume
 
-[261]: #<code>lua_yieldk<code>
+[261]: #lua_yieldk
 
 [262]: #49-调试接口
 
-[263]: #<code>lua_yield<code>
+[263]: #lua_yield
 
-[264]: #<code>lua_getstack<code>
+[264]: #lua_getstack
 
-[265]: #<code>lua_getinfo<code>
+[265]: #lua_getinfo
 
-[266]: #<code>lua_debug<code>
+[266]: #lua_debug
 
-[267]: #<code>lua_debug<code>
+[267]: #lua_debug
 
-[268]: #<code>lua_getstack<code>
+[268]: #lua_getstack
 
-[269]: #<code>lua_hook<code>
+[269]: #lua_hook
 
-[270]: #<code>lua_getstack<code>
+[270]: #lua_getstack
 
-[271]: #<code>lua_hook<code>
+[271]: #lua_hook
 
-[272]: #<code>debuggetlocal<code>.getlocal
+[272]: #debuggetlocal-thread-f-local
 
-[273]: #<code>lua_getlocal<code>
+[273]: #lua_getlocal
 
-[274]: #<code>lua_debug<code>
+[274]: #lua_debug
 
-[275]: #<code>lua_getstack<code>
+[275]: #lua_getstack
 
-[276]: #<code>lua_getupvalue<code>
+[276]: #lua_getupvalue
 
-[277]: #<code>lua_getinfo<code>
+[277]: #lua_getinfo
 
-[278]: #<code>lua_yieldk<code>
+[278]: #lua_yieldk
 
-[279]: #<code>lua_pcallk<code>
+[279]: #lua_pcallk
 
-[280]: #<code>lua_callk<code>
+[280]: #lua_callk
 
-[281]: #<code>lua_yield<code>
+[281]: #lua_yield
 
-[282]: #<code>lua_getlocal<code>
+[282]: #lua_getlocal
 
-[283]: #<code>lua_getlocal<code>
+[283]: #lua_getlocal
 
-[284]: #<code>lua_setlocal<code>
+[284]: #lua_setlocal
 
-[285]: #<code>lua_getupvalue<code>
+[285]: #lua_getupvalue
 
-[286]: #<code>lua_getupvalue<code>
+[286]: #lua_getupvalue
 
-[287]: #<code>lua_getupvalue<code>
+[287]: #lua_getupvalue
 
-[288]: #<code>lua_getupvalue<code>
+[288]: #lua_getupvalue
 
-[289]: #<code>lual_buffer<code>
+[289]: #lual_buffer
 
-[290]: #<code>lual_buffer<code>
+[290]: #lual_buffer
 
-[291]: #<code>lual_buffer<code>
+[291]: #lual_buffer
 
-[292]: #<code>lual_prepbuffer<code>
+[292]: #lual_prepbuffer
 
-[293]: #<code>lual_buffer<code>
+[293]: #lual_buffer
 
-[294]: #<code>lual_buffer<code>
+[294]: #lual_buffer
 
-[295]: #<code>lual_argerror<code>
+[295]: #lual_argerror
 
-[296]: #<code>lual_buffer<code>
+[296]: #lual_buffer
 
-[297]: #<code>lual_buffer<code>
+[297]: #lual_buffer
 
-[298]: #<code>lual_addvalue<code>
+[298]: #lual_addvalue
 
-[299]: #<code>lual_pushresult<code>
+[299]: #lual_pushresult
 
-[300]: #<code>lual_buffer<code>
+[300]: #lual_buffer
 
-[301]: #<code>lual_buffinit<code>
+[301]: #lual_buffinit
 
-[302]: #<code>lual_prepbuffsize<code>
+[302]: #lual_prepbuffsize
 
-[303]: #<code>lua_integer<code>
+[303]: #lua_integer
 
-[304]: #<code>lua_tolstring<code>
+[304]: #lua_tolstring
 
-[305]: #<code>lua_tolstring<code>
+[305]: #lua_tolstring
 
-[306]: #<code>lua_type<code>
+[306]: #lua_type
 
-[307]: #<code>lual_newmetatable<code>
+[307]: #lual_newmetatable
 
-[308]: #<code>lua_touserdata<code>
+[308]: #lua_touserdata
 
-[309]: #<code>lua_pushfstring<code>
+[309]: #lua_pushfstring
 
-[310]: #<code>osexecute<code>.execute
+[310]: #osexecute-command
 
 [311]: #pdf-io.close.close
 
-[312]: #<code>ioopen<code>.open
+[312]: #ioopen-filename--mode
 
-[313]: #<code>osrename<code>.rename
+[313]: #osrename-oldname-newname
 
-[314]: #<code>fileseek<code>:seek
+[314]: #fileseek-whence--offset
 
-[315]: #<code>lual_newmetatable<code>
+[315]: #lual_newmetatable
 
 [316]: #347-取长度操作符
 
-[317]: #<code>lual_loadbufferx<code>
+[317]: #lual_loadbufferx
 
-[318]: #<code>lua_load<code>
+[318]: #lua_load
 
-[319]: #<code>lua_load<code>
+[319]: #lua_load
 
-[320]: #<code>lua_load<code>
+[320]: #lua_load
 
-[321]: #<code>lual_loadfilex<code>
+[321]: #lual_loadfilex
 
-[322]: #<code>lua_load<code>
+[322]: #lua_load
 
-[323]: #<code>lua_load<code>
+[323]: #lua_load
 
-[324]: #<code>lua_load<code>
+[324]: #lua_load
 
-[325]: #<code>lua_load<code>
+[325]: #lua_load
 
-[326]: #<code>lua_load<code>
+[326]: #lua_load
 
-[327]: #<code>lua_load<code>
+[327]: #lua_load
 
-[328]: #<code>lua_load<code>
+[328]: #lua_load
 
-[329]: #<code>lual_setfuncs<code>
+[329]: #lual_setfuncs
 
-[330]: #<code>lual_newlib<code>
+[330]: #lual_newlib
 
-[331]: #<code>lua_newstate<code>
+[331]: #lua_newstate
 
 [332]: #46-c-中的错误处理
 
-[333]: #<code>lual_prepbuffsize<code>
+[333]: #lual_prepbuffsize
 
-[334]: #<code>lual_buffer<code>
+[334]: #lual_buffer
 
-[335]: #<code>lual_addsize<code>
+[335]: #lual_addsize
 
-[336]: #<code>lual_addsize<code>
+[336]: #lual_addsize
 
-[337]: #<code>lual_pushresult<code>
+[337]: #lual_pushresult
 
-[338]: #<code>lual_ref<code>
+[338]: #lual_ref
 
-[339]: #<code>lual_unref<code>
+[339]: #lual_unref
 
-[340]: #<code>lual_ref<code>
+[340]: #lual_ref
 
-[341]: #<code>lual_ref<code>
+[341]: #lual_ref
 
-[342]: #<code>lual_setfuncs<code>
+[342]: #lual_setfuncs
 
-[343]: #<code>lual_reg<code>
+[343]: #lual_reg
 
-[344]: #<code>packageloaded<code>.loaded
+[344]: #packageloaded
 
-[345]: #<code>require<code>
+[345]: #require-modname
 
-[346]: #<code>lual_reg<code>
+[346]: #lual_reg
 
-[347]: #<code>lual_newmetatable<code>
+[347]: #lual_newmetatable
 
-[348]: #<code>lual_newmetatable<code>
+[348]: #lual_newmetatable
 
-[349]: #<code>lual_checkudata<code>
+[349]: #lual_checkudata
 
-[350]: #<code>lual_ref<code>
+[350]: #lual_ref
 
 [351]: #<code>lua_noref<code>
 
 [352]: #<code>lua_refnil<code>
 
-[353]: #<code>lual_unref<code>
+[353]: #lual_unref
 
-[354]: #<code>type<code>
+[354]: #type-v
 
-[355]: #<code>getmetatable<code>
+[355]: #getmetatable-object
 
-[356]: #<code>tablesort<code>.sort
+[356]: #tablesort-list--comp
 
 [357]: #61-基础函数
 
@@ -5792,11 +5805,11 @@ Lua 的版本更替总是会修改一些 C API 并涉及源代码的改变。 �
 
 [366]: #610-调试库
 
-[367]: #<code>lual_openlibs<code>
+[367]: #lual_openlibs
 
-[368]: #<code>lual_requiref<code>
+[368]: #lual_requiref
 
-[369]: #<code>error<code>
+[369]: #error-message--level
 
 [370]: #25-垃圾收集
 
@@ -5806,93 +5819,93 @@ Lua 的版本更替总是会修改一些 C API 并涉及源代码的改变。 �
 
 [373]: #22-环境与全局环境
 
-[374]: #<code>stringdump<code>.dump
+[374]: #stringdump-function--strip
 
 [375]: #49-调试接口
 
-[376]: #<code>load<code>
+[376]: #load-chunk--chunkname--mode--env
 
-[377]: #<code>next<code>
+[377]: #next-table--index
 
-[378]: #<code>next<code>
+[378]: #next-table--index
 
-[379]: #<code>tostring<code>
+[379]: #tostring-v
 
-[380]: #<code>stringformat<code>.format
+[380]: #stringformat-formatstring-
 
 [381]: #pdf-io.write.write
 
 [382]: #31-词法约定
 
-[383]: #<code>stringformat<code>.format
+[383]: #stringformat-formatstring-
 
-[384]: #<code>pcall<code>
+[384]: #pcall-f--arg1-
 
 [385]: #26-协程
 
-[386]: #<code>require<code>
+[386]: #require-modname
 
-[387]: #<code>packageloaded<code>.loaded
+[387]: #packageloaded
 
-[388]: #<code>packagesearchers<code>.searchers
+[388]: #packagesearchers
 
-[389]: #<code>packagesearchers<code>.searchers
+[389]: #packagesearchers
 
-[390]: #<code>packagecpath<code>.path
+[390]: #packagepath
 
-[391]: #<code>packagecpath<code>.cpath
+[391]: #packagecpath
 
-[392]: #<code>packagesearchers<code>.searchers
+[392]: #packagesearchers
 
-[393]: #<code>require<code>
+[393]: #require-modname
 
-[394]: #<code>packagecpath<code>.path
+[394]: #packagepath
 
-[395]: #<code>packagecpath<code>.cpath
+[395]: #packagecpath
 
-[396]: #<code>require<code>
+[396]: #require-modname
 
-[397]: #<code>require<code>
+[397]: #require-modname
 
-[398]: #<code>require<code>
+[398]: #require-modname
 
-[399]: #<code>lua_cfunction<code>
+[399]: #lua_cfunction
 
-[400]: #<code>lua_cfunction<code>
+[400]: #lua_cfunction
 
-[401]: #<code>require<code>
+[401]: #require-modname
 
-[402]: #<code>require<code>
+[402]: #require-modname
 
-[403]: #<code>require<code>
+[403]: #require-modname
 
-[404]: #<code>require<code>
+[404]: #require-modname
 
-[405]: #<code>require<code>
+[405]: #require-modname
 
-[406]: #<code>require<code>
+[406]: #require-modname
 
-[407]: #<code>require<code>
+[407]: #require-modname
 
-[408]: #<code>packagepreload<code>.preload
+[408]: #packagepreload
 
-[409]: #<code>packagecpath<code>.path
+[409]: #packagepath
 
-[410]: #<code>packagesearchpath<code>.searchpath
+[410]: #packagesearchpath-name-path--sep--rep
 
-[411]: #<code>packagecpath<code>.path
+[411]: #packagepath
 
-[412]: #<code>packagesearchpath<code>.searchpath
+[412]: #packagesearchpath-name-path--sep--rep
 
-[413]: #<code>packagesearchpath<code>.searchpath
+[413]: #packagesearchpath-name-path--sep--rep
 
-[414]: #<code>stringsub<code>.sub
+[414]: #stringsub-s-i--j
 
-[415]: #<code>load<code>
+[415]: #load-chunk--chunkname--mode--env
 
 [416]: #641-匹配模式
 
-[417]: #<code>tostring<code>
+[417]: #tostring-v
 
 [418]: #641-匹配模式
 
@@ -5902,39 +5915,39 @@ Lua 的版本更替总是会修改一些 C API 并涉及源代码的改变。 �
 
 [421]: #642-打包和解包用到的格式串
 
-[422]: #<code>stringpack<code>.pack
+[422]: #stringpack-fmt-v1-v2-
 
 [423]: #642-打包和解包用到的格式串
 
 [424]: #642-打包和解包用到的格式串
 
-[425]: #<code>stringpack<code>.pack
+[425]: #stringpack-fmt-v1-v2-
 
-[426]: #<code>stringfind<code>.find
+[426]: #stringfind-s-pattern--init--plain
 
-[427]: #<code>stringgmatch<code>.gmatch
+[427]: #stringmatch-s-pattern--init
 
-[428]: #<code>stringgsub<code>.gsub
+[428]: #stringgsub-s-pattern-repl--n
 
-[429]: #<code>stringmatch<code>.match
+[429]: #stringmatch-s-pattern--init
 
-[430]: #<code>stringpack<code>.pack
+[430]: #stringpack-fmt-v1-v2-
 
-[431]: #<code>stringpacksize<code>.packsize
+[431]: #stringpacksize-fmt
 
-[432]: #<code>stringunpack<code>.unpack
+[432]: #stringunpack-fmt-s--pos
 
-[433]: #<code>stringpack<code>.pack
+[433]: #stringpack-fmt-v1-v2-
 
-[434]: #<code>stringunpack<code>.unpack
+[434]: #stringunpack-fmt-s--pos
 
-[435]: #<code>stringpack<code>.pack
+[435]: #stringpack-fmt-v1-v2-
 
-[436]: #<code>stringunpack<code>.unpack
+[436]: #stringunpack-fmt-s--pos
 
-[437]: #<code>stringpack<code>.pack
+[437]: #stringpack-fmt-v1-v2-
 
-[438]: #<code>stringunpack<code>.unpack
+[438]: #stringunpack-fmt-s--pos
 
 [439]: #641-匹配模式
 
@@ -5946,15 +5959,15 @@ Lua 的版本更替总是会修改一些 C API 并涉及源代码的改变。 �
 
 [443]: #pdf-math.modf.modf
 
-[444]: #<code>ioopen<code>.open
+[444]: #ioopen-filename--mode
 
-[445]: #<code>ioinput<code>.input
+[445]: #ioinput-file
 
-[446]: #<code>iopopen<code>.popen
+[446]: #iopopen-prog--mode
 
 [447]: #<code>fileclose<code>:close
 
-[448]: #<code>osexecute<code>.execute
+[448]: #osexecute-command
 
 [449]: #<code>iolines<code>.lines
 
@@ -5976,7 +5989,7 @@ Lua 的版本更替总是会修改一些 C API 并涉及源代码的改变。 �
 
 [458]: #<code>debugsethook<code>.sethook
 
-[459]: #<code>lua_getinfo<code>
+[459]: #lua_getinfo
 
 [460]: #<code>print<code>
 
@@ -5988,13 +6001,13 @@ Lua 的版本更替总是会修改一些 C API 并涉及源代码的改变。 �
 
 [464]: #<code>debuggetinfo<code>.getinfo
 
-[465]: #<code>debuggetlocal<code>.getlocal
+[465]: #debuggetlocal-thread-f-local
 
-[466]: #<code>packagecpath<code>.path
+[466]: #packagepath
 
-[467]: #<code>packagecpath<code>.cpath
+[467]: #packagecpath
 
-[468]: #<code>lua_close<code>
+[468]: #lua_close
 
 [469]: #<code>osexit<code>.exit
 
@@ -6002,13 +6015,13 @@ Lua 的版本更替总是会修改一些 C API 并涉及源代码的改变。 �
 
 [471]: #<code>ioread<code>.read
 
-[472]: #<code>require<code>
+[472]: #require-modname
 
-[473]: #<code>lua_dump<code>
+[473]: #lua_dump
 
-[474]: #<code>lua_integer<code>
+[474]: #lua_integer
 
-[475]: #<code>lua_integer<code>
+[475]: #lua_integer
 
 [476]: #348-优先级
 
