@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# 目录
+# 概览
 
 这份参考手册是对 Lua 语言的官方定义。 关于 Lua 编程的全部细节，则放在 [Programming in Lua][2] 这本书中。
 
@@ -108,9 +108,9 @@ Lua.org, PUC-Rio 版权所有 © 2015 ， 在遵循 [Lua license][7] 条款下�
 
 [3]: manual.md
 
-[4]: #contents
+[4]: #目录
 
-[5]: #index
+[5]: #概览
 
 [6]: glossary.md
 

@@ -79,7 +79,7 @@ Lua 可以调用（以及操作）用 Lua 或 C （参见 [§3.4.10][8]）编写
 代码块都会有一个外部的局部变量叫 `_ENV` （参见 [§3.3.2][18]）， 因此，`_ENV` 这个名字永远都不会成为一个代码块中的自由名字。
 
 在转译那些自由名字时，`_ENV` 是否是那个外部的局部变量无所谓。 `_ENV` 和其它你可以使用的变量名没有区别。 这里特别指出，你可以定义一个新变量或指定一个参数叫这个名字。 当编译器在转译自由名字时所用到的 `_ENV` ，
-指的是你的程序在那个点上可见的那个名为 \_ENV 的变量。 （Lua 的可见性规则参见 [§3.5][19]）
+指的是你的程序在那个点上可见的那个名为 _ENV 的变量。 （Lua 的可见性规则参见 [§3.5][19]）
 
 被 `_ENV` 用于值的那张表被称为 *环境*。
 
@@ -110,7 +110,7 @@ Lua 中的每个值都可以有一个 *元表*。 这个 *元表* 就是一个�
 
 你可以用 [`getmetatable`][31] 函数 来获取任何值的元表。 Lua 使用直接访问的方式从元表中查询元方法（参见[`rawget`][32]）。 所以，从对象 `o` 中获取事件 `ev` 的元方法等价于下面的代码：
 
-     rawget(getmetatable(*o*) or {}, "\_\_*ev*")
+     rawget(getmetatable(*o*) or {}, "__*ev*")
 
 你可以使用 [`setmetatable`][33] 来替换一张表的元表。在 Lua 中，你不可以改变表以外其它类型的值的元表 （除非你使用调试库（参见[§6.10][34]））； 若想改变这些非表类型的值的元表，请使用 C API。
 
@@ -243,7 +243,7 @@ Lua 支持协程，也叫 *协同式多线程*。 一个协程在 Lua 中代表�
 
      function foo (a)
        print("foo", a)
-       return coroutine.yield(2\*a)
+       return coroutine.yield(2*a)
      end
      
      co = coroutine.create(function (a,b)
@@ -277,8 +277,8 @@ Lua 支持协程，也叫 *协同式多线程*。 一个协程在 Lua 中代表�
 
 这一章描述了 Lua 的词法、语法和句法。 换句话说，本章描述哪些符记是有效的， 它们如何被组合起来，这些组合方式有什么含义。
 
-关于语言的构成概念将用常见的扩展 BNF 表达式写出。 也就是这个样子： {*a*} 表示 0 或多个 *a*， \[*a*\] 表示一个可选的 *a*。 可以被分解的非最终符号会这样写 non-terminal ， 关键字会写成这样 **
-kword**， 而其它不能被分解的最终符号则写成这样 ‘**\=**’ 。 完整的 Lua 语法可以在本手册最后一章 [§9][67] 找到。
+关于语言的构成概念将用常见的扩展 BNF 表达式写出。 也就是这个样子： {*a*} 表示 0 或多个 *a*， [*a*] 表示一个可选的 *a*。 可以被分解的非最终符号会这样写 non-terminal ， 关键字会写成这样 
+**kword**， 而其它不能被分解的最终符号则写成这样 ‘**\=**’ 。 完整的 Lua 语法可以在本手册最后一章 [§9][67] 找到。
 
 ## 3.1 – 词法约定
 
@@ -297,10 +297,10 @@ Lua 语言对大小写敏感： `and` 是一个保留字，但 `And` 与 `AND` �
 
 下列字符串是另外一些符记：
 
-     +     -     \*     /     %     ^     #
+     +     -     *     /     %     ^     #
      &     ~     |     <<    >>    //
      ==    ~=    <=    >=    <     >     =
-     (     )     {     }     \[     \]     ::
+     (     )     {     }     [     ]     ::
      ;     :     ,     .     ..    ...
 
 *字面串* 可以用单引号或双引号括起。 字面串内部可以包含下列 C 风格的转义串： '`\a`' （响铃）， '`\b`' （退格）， '`\f`' （换页）， '`\n`' （换行）， '`\r`' （回车）， '`\t`'
@@ -308,7 +308,7 @@ Lua 语言对大小写敏感： `and` 是一个保留字，但 `And` 与 `AND` �
 会忽略其后的一系列空白符，包括换行； 它在你需要对一个很长的字符串常量断行为多行并希望在每个新行保持缩进时非常有用。
 
 Lua 中的字符串可以保存任意 8 位值，其中包括用 '`\0`' 表示的 0 。 一般而言，你可以用字符的数字值来表示这个字符。 方式是用转义串 `\x*XX*`， 此处的 *XX* 必须是恰好两个字符的 16 进制数。
-或者你也可以使用转义串 `\*ddd*` ， 这里的 *ddd* 是一到三个十进制数字。 （注意，如果在转义符后接着恰巧是一个数字符号的话， 你就必须在这个转义形式中写满三个数字。）
+或者你也可以使用转义串 `*ddd*` ， 这里的 *ddd* 是一到三个十进制数字。 （注意，如果在转义符后接着恰巧是一个数字符号的话， 你就必须在这个转义形式中写满三个数字。）
 
 对于用 UTF-8 编码的 Unicode 字符，你可以用 转义符 `\u{*XXX*}` 来表示 （这里必须有一对花括号）， 此处的 *XXX* 是用 16 进制表示的字符编号。
 
@@ -324,11 +324,11 @@ Lua 中的字符串可以保存任意 8 位值，其中包括用 '`\0`' 表示�
      a = 'alo\\n123"'
      a = "alo\\n123\\""
      a = '\\97lo\\10\\04923"'
-     a = \[\[alo
-     123"\]\]
-     a = \[==\[
+     a = [[alo
+     123"]]
+     a = [==[
      alo
-     123"\]==\]
+     123"]==]
 
 *数字常量* （或称为 *数字量*） 可以由可选的小数部分和可选的十为底的指数部分构成， 指数部分用字符 '`e`' 或 '`E`' 来标记。 Lua 也接受以 `0x` 或 `0X` 开头的 16 进制常量。 16
 进制常量也接受小数加指数部分的形式，指数部分是以二为底， 用字符 '`p`' 或 '`P`' 来标记。 数字常量中包含小数点或指数部分时，被认为是一个浮点数； 否则被认为是一个整数。 下面有一些合法的整数常量的例子：
@@ -359,7 +359,7 @@ Lua 中的字符串可以保存任意 8 位值，其中包括用 '`\0`' 表示�
 
 方括号被用来对表作索引：
 
-	var ::= prefixexp ‘**\[**’ exp ‘**\]**’
+	var ::= prefixexp ‘**[**’ exp ‘**]**’
 
 对全局变量以及表的域之访问的含义可以通过元表来改变。 以索引方式访问一个变量 `t[i]` 等价于 调用 `gettable_event(t,i)`。 （参见 [§2.4][72] ，有一份完整的关于 `gettable_event`
 函数的说明。 这个函数并没有在 lua 中定义出来，也不能在 lua 中调用。这里我们把提到它只是方便说明问题。）
@@ -435,7 +435,7 @@ Lua 允许多重赋值。 因此，赋值的语法定义是等号左边放一个
 赋值语句首先让所有的表达式完成运算， 之后再做赋值操作。 因此，下面这段代码
 
      i = 3
-     i, a\[i\] = i+1, 20
+     i, a[i] = i+1, 20
 
 会把 `a[3]` 设置为 20，而不会影响到 `a[4]` 。 这是因为 `a[i]` 中的 `i` 在被赋值为 4 之前就被计算出来了（当时是 3 ）。 简单说 ，这样一行
 
@@ -458,7 +458,7 @@ Lua 允许多重赋值。 因此，赋值的语法定义是等号左边放一个
 
 	stat ::= **while** exp **do** block **end**
 	stat ::= **repeat** block **until** exp
-	stat ::= **if** exp **then** block {**elseif** exp **then** block} \[**else** block\] **end**
+	stat ::= **if** exp **then** block {**elseif** exp **then** block} [**else** block] **end**
 
 Lua 也有一个 **for** 语句，它有两种形式 （参见 [§3.3.5][83]）。
 
@@ -484,7 +484,7 @@ Lua 也有一个 **for** 语句，它有两种形式 （参见 [§3.3.5][83]）�
 
 **return** 被用于从函数或是代码块（其实它就是一个函数） 中返回值。 函数可以返回不止一个值，所以 **return** 的语法为
 
-	stat ::= **return** \[explist\] \[‘**;**’\]
+	stat ::= **return** [explist] [‘**;**’]
 
 **return** 只能被写在一个语句块的最后一句。 如果你真的需要从语句块的中间 **return**， 你可以使用显式的定义一个内部语句块， 一般写作 `do return end`。 可以这样写是因为现在 **return**
 成了（内部）语句块的最后一句了。
@@ -495,7 +495,7 @@ Lua 也有一个 **for** 语句，它有两种形式 （参见 [§3.3.5][83]）�
 
 数字形式的 **for** 循环，通过一个数学运算不断地运行内部的代码块。 下面是它的语法：
 
-	stat ::= **for** Name ‘**\=**’ exp ‘**,**’ exp \[‘**,**’ exp\] **do** block **end**
+	stat ::= **for** Name ‘**\=**’ exp ‘**,**’ exp [‘**,**’ exp] **do** block **end**
 
 *block* 将把 *name* 作循环变量。 从第一个 *exp* 开始起，直到第二个 *exp* 的值为止， 其步长为第三个 *exp* 。 更确切的说，一个 **for** 循环看起来是这个样子
 
@@ -532,16 +532,16 @@ Lua 也有一个 **for** 语句，它有两种形式 （参见 [§3.3.5][83]）�
 
 这样的 **for** 语句
 
-     for *var\_1*, ···, *var\_n* in *explist* do *block* end
+     for *var_1*, ···, *var_n* in *explist* do *block* end
 
 它等价于这样一段代码：
 
      do
        local *f*, *s*, *var* = *explist*
        while true do
-         local *var\_1*, ···, *var\_n* = *f*(*s*, *var*)
-         if *var\_1* == nil then break end
-         *var* = *var\_1*
+         local *var_1*, ···, *var_n* = *f*(*s*, *var*)
+         if *var_1* == nil then break end
+         *var* = *var_1*
          *block*
        end
      end
@@ -565,7 +565,7 @@ Lua 也有一个 **for** 语句，它有两种形式 （参见 [§3.3.5][83]）�
 
 局部变量可以在语句块中任何地方声明。 声明可以包含一个初始化赋值操作：
 
-	stat ::= **local** namelist \[‘**\=**’ explist\]
+	stat ::= **local** namelist [‘**\=**’ explist]
 
 如果有初始化值的话，初始化赋值操作的语法和赋值操作一致 （参见 [§3.3.3][85] ）。 若没有初始化值，所有的变量都被初始化为 **nil**。
 
@@ -751,7 +751,7 @@ Lua 中操作符的优先级写在下表中，从低到高优先级排序：
      <<    >>
      ..
      +     -
-     \*     /     //    %
+     *     /     //    %
      unary operators (not   #     -     ~)
      ^
 
@@ -761,27 +761,27 @@ Lua 中操作符的优先级写在下表中，从低到高优先级排序：
 
 表构造子是一个构造表的表达式。 每次构造子被执行，都会构造出一张新的表。 构造子可以被用来构造一张空表， 也可以用来构造一张表并初始化其中的一些域。 一般的构造子的语法如下
 
-	tableconstructor ::= ‘**{**’ \[fieldlist\] ‘**}**’
-	fieldlist ::= field {fieldsep field} \[fieldsep\]
-	field ::= ‘**\[**’ exp ‘**\]**’ ‘**\=**’ exp | Name ‘**\=**’ exp | exp
+	tableconstructor ::= ‘**{**’ [fieldlist] ‘**}**’
+	fieldlist ::= field {fieldsep field} [fieldsep]
+	field ::= ‘**[**’ exp ‘**]**’ ‘**\=**’ exp | Name ‘**\=**’ exp | exp
 	fieldsep ::= ‘**,**’ | ‘**;**’
 
 每个形如 `[exp1] = exp2` 的域向表中增加新的一项， 其键为 `exp1` 而值为 `exp2`。 形如 `name = exp` 的域等价于 `["name"] = exp`。 最后，形如 `exp`
 的域等价于 `[i] = exp` ， 这里的 `i` 是一个从 1 开始不断增长的数字。 这这个格式中的其它域不会破坏其记数。 举个例子：
 
-     a = { \[f(1)\] = g; "x", "y"; x = 1, f(x), \[30\] = 23; 45 }
+     a = { [f(1)] = g; "x", "y"; x = 1, f(x), [30] = 23; 45 }
 
 等价于
 
      do
        local t = {}
-       t\[f(1)\] = g
-       t\[1\] = "x"         -- 1st exp
-       t\[2\] = "y"         -- 2nd exp
-       t.x = 1            -- t\["x"\] = 1
-       t\[3\] = f(x)        -- 3rd exp
-       t\[30\] = 23
-       t\[4\] = 45          -- 4th exp
+       t[f(1)] = g
+       t[1] = "x"         -- 1st exp
+       t[2] = "y"         -- 2nd exp
+       t.x = 1            -- t["x"] = 1
+       t[3] = f(x)        -- 3rd exp
+       t[30] = 23
+       t[4] = 45          -- 4th exp
        a = t
      end
 
@@ -808,7 +808,7 @@ Lua 中的函数调用的语法如下：
 
 参数的语法如下：
 
-	args ::= ‘**(**’ \[explist\] ‘**)**’
+	args ::= ‘**(**’ [explist] ‘**)**’
 	args ::= tableconstructor
 	args ::= LiteralString
 
@@ -820,7 +820,7 @@ Lua 中的函数调用的语法如下：
 这种语法使得调用函数的所有结果可以完整地返回。 因此，下面这些例子都不是尾调用：
 
      return (f(x))        -- 返回值被调整为一个
-     return 2 \* f(x)
+     return 2 * f(x)
      return x, f(x)       -- 追加若干返回值
      f(x); return         -- 返回值全部被舍弃
      return x or f(x)     -- 返回值被调整为一个
@@ -830,13 +830,13 @@ Lua 中的函数调用的语法如下：
 函数定义的语法如下：
 
 	functiondef ::= **function** funcbody
-	funcbody ::= ‘**(**’ \[parlist\] ‘**)**’ block **end**
+	funcbody ::= ‘**(**’ [parlist] ‘**)**’ block **end**
 
 另外定义了一些语法糖简化函数定义的写法：
 
 	stat ::= **function** funcname funcbody
 	stat ::= **local** **function** Name funcbody
-	funcname ::= Name {‘**.**’ Name} \[‘**:**’ Name\]
+	funcname ::= Name {‘**.**’ Name} [‘**:**’ Name]
 
 该语句
 
@@ -873,7 +873,7 @@ Lua 中的函数调用的语法如下：
 
 形参被看作是一些局部变量， 它们将由实参的值来初始化：
 
-	parlist ::= namelist \[‘**,**’ ‘**...**’\] | ‘**...**’
+	parlist ::= namelist [‘**,**’ ‘**...**’] | ‘**...**’
 
 当一个函数被调用， 如果函数并非一个 *可变参数函数*， 即在形参列表的末尾注明三个点 ('`...`')， 那么实参列表就会被调整到形参列表的长度。 变长参数函数不会调整实参列表； 取而代之的是，它将把所有额外的参数放在一起通过 *
 变长参数表达式*传递给函数， 其写法依旧是三个点。 这个表达式的值是一串实参值的列表， 看起来就跟一个可以返回多个结果的函数一样。 如果一个变长参数表达式放在另一个表达式中使用， 或是放在另一串表达式的中间，
@@ -939,7 +939,7 @@ Lua 语言有词法作用范围。 变量的作用范围开始于声明它们之
      local x = 20
      for i=1,10 do
        local y = 0
-       a\[i\] = function () y=y+1; return x+y end
+       a[i] = function () y=y+1; return x+y end
      end
 
 这个循环创建了十个闭包（这指十个匿名函数的实例）。 这些闭包中的每一个都使用了不同的 `y` 变量， 而它们又共享了同一份 `x`。
@@ -1036,30 +1036,30 @@ Lua 就无法返回到 `foo` 里了。
 
 下面的函数会做一个说明：
 
-     int original\_function (lua\_State \*L) {
-       ...     /\* code 1 \*/
-       status = lua\_pcall(L, n, m, h);  /\* calls Lua \*/
-       ...     /\* code 2 \*/
+     int original_function (lua_State *L) {
+       ...     /* code 1 */
+       status = lua_pcall(L, n, m, h);  /* calls Lua */
+       ...     /* code 2 */
      }
 
 现在我们想允许被 [`lua_pcall`][134] 运行的 Lua 代码让出。 首先，我们把函数改写成这个样子：
 
-     int k (lua\_State \*L, int status, lua\_KContext ctx) {
-       ...  /\* code 2 \*/
+     int k (lua_State *L, int status, lua_KContext ctx) {
+       ...  /* code 2 */
      }
      
-     int original\_function (lua\_State \*L) {
-       ...     /\* code 1 \*/
-       return k(L, lua\_pcall(L, n, m, h), ctx);
+     int original_function (lua_State *L) {
+       ...     /* code 1 */
+       return k(L, lua_pcall(L, n, m, h), ctx);
      }
 
 上面的代码中，新函数 `k` 就是一个 *延续函数* （函数类型为 [`lua_KFunction`][135]）。 它的工作就是原函数中调用 [`lua_pcall`][136] 之后做的那些事情。 现在我们必须通知 Lua
 说，你必须在被 [`lua_pcall`][137] 执行的 Lua 代码发生过中断（错误或让出）后， 还得继续调用 `k` 。 所以我们还得继续改写这段代码，把 [`lua_pcall`][138]
 替换成 [`lua_pcallk`][139]：
 
-     int original\_function (lua\_State \*L) {
-       ...     /\* code 1 \*/
-       return k(L, lua\_pcallk(L, n, m, h, ctx2, k), ctx1);
+     int original_function (lua_State *L) {
+       ...     /* code 1 */
+       return k(L, lua_pcallk(L, n, m, h, ctx2, k), ctx1);
      }
 
 注意这里那个额外的显式的对延续函数的调用： Lua 仅在需要时，这可能是由错误导致的也可能是发生了让出而需要继续运行，才会调用延续函数。 如果没有发生过任何让出，调用的函数正常返回， 那么 [`lua_pcallk`][140]
@@ -1076,7 +1076,7 @@ Lua 会把延续函数看作原函数。 延续函数将接收到和原函数相
 
 ## 4.8 – 函数和类型
 
-这里按字母次序列出了所有 C API 中的函数和类型。 每个函数都有一个这样的提示： \[-o, +p, *x*\]
+这里按字母次序列出了所有 C API 中的函数和类型。 每个函数都有一个这样的提示： [-o, +p, *x*]
 
 对于第一个域，`o`， 指的是该函数会从栈上弹出多少个元素。 第二个域，`p`， 指该函数会将多少个元素压栈。 （所有函数都会在弹出参数后再把结果压栈。） `x|y` 这种形式的域表示该函数根据具体情况可能压入（或弹出） `x` 或 `y`
 个元素； 问号 '`?`' 表示 我们无法仅通过参数来了解该函数会弹出/压入多少元素 （比如，数量取决于栈上有些什么）。 第三个域，`x`， 解释了该函数是否会抛出错误： '`-`' 表示该函数绝对不会抛出错误； '`e`'
@@ -1086,9 +1086,9 @@ Lua 会把延续函数看作原函数。 延续函数将接收到和原函数相
 
 ### `lua_absindex`
 
-\[-0, +0, –\]
+[-0, +0, –]
 
-int lua\_absindex (lua\_State \*L, int idx);
+int lua_absindex (lua_State *L, int idx);
 
 将一个可接受的索引 `idx` 转换为绝对索引 （即，一个不依赖栈顶在哪的值）。
 
@@ -1096,7 +1096,7 @@ int lua\_absindex (lua\_State \*L, int idx);
 
 ### `lua_Alloc`
 
-typedef void \* (\*lua\_Alloc) (void \*ud, void \*ptr, size\_t osize, size\_t nsize);
+typedef void * (*lua_Alloc) (void *ud, void *ptr, size_t osize, size_t nsize);
 
 Lua 状态机中使用的内存分配器函数的类型。 内存分配函数必须提供一个功能类似于 `realloc` 但又不完全相同的函数。 它的参数有 `ud` ，一个由 [`lua_newstate`][155] 传给它的指针； `ptr`
 ，一个指向已分配出来/将被重新分配/要释放的内存块指针； `osize` ，内存块原来的尺寸或是关于什么将被分配出来的代码； `nsize` ，新内存块的尺寸。
@@ -1115,9 +1115,9 @@ Lua 假定分配器函数会遵循以下行为：
 
 这里有一个简单的分配器函数的实现。 这个实现被放在补充库中，供 [`luaL_newstate`][161] 使用。
 
-     static void \*l\_alloc (void \*ud, void \*ptr, size\_t osize,
-                                                size\_t nsize) {
-       (void)ud;  (void)osize;  /\* not used \*/
+     static void *l_alloc (void *ud, void *ptr, size_t osize,
+                                                size_t nsize) {
+       (void)ud;  (void)osize;  /* not used */
        if (nsize == 0) {
          free(ptr);
          return NULL;
@@ -1133,9 +1133,9 @@ Lua 假定分配器函数会遵循以下行为：
 
 ### `lua_arith`
 
-\[-(2|1), +1, *e*\]
+[-(2|1), +1, *e*]
 
-void lua\_arith (lua\_State \*L, int op);
+void lua_arith (lua_State *L, int op);
 
 对栈顶的两个值（或者一个，比如取反）做一次数学或位操作。 其中，栈顶的那个值是第二个操作数。 它会弹出压入的值，并把结果放在栈顶。 这个函数遵循 Lua 对应的操作符运算规则 （即有可能触发元方法）。
 
@@ -1160,9 +1160,9 @@ void lua\_arith (lua\_State \*L, int op);
 
 ### `lua_atpanic`
 
-\[-0, +0, –\]
+[-0, +0, –]
 
-lua\_CFunction lua\_atpanic (lua\_State \*L, lua\_CFunction panicf);
+lua_CFunction lua_atpanic (lua_State *L, lua_CFunction panicf);
 
 设置一个新的 panic 函数，并返回之前设置的那个。 （参见 [§4.6][162]）。
 
@@ -1170,9 +1170,9 @@ lua\_CFunction lua\_atpanic (lua\_State \*L, lua\_CFunction panicf);
 
 ### `lua_call`
 
-\[-(nargs+1), +nresults, *e*\]
+[-(nargs+1), +nresults, *e*]
 
-void lua\_call (lua\_State \*L, int nargs, int nresults);
+void lua_call (lua_State *L, int nargs, int nresults);
 
 调用一个函数。
 
@@ -1188,14 +1188,14 @@ void lua\_call (lua\_State \*L, int nargs, int nresults);
 
 这里是 C 里的代码：
 
-     lua\_getglobal(L, "f");                  /\* function to be called \*/
-     lua\_pushliteral(L, "how");                       /\* 1st argument \*/
-     lua\_getglobal(L, "t");                    /\* table to be indexed \*/
-     lua\_getfield(L, -1, "x");        /\* push result of t.x (2nd arg) \*/
-     lua\_remove(L, -2);                  /\* remove 't' from the stack \*/
-     lua\_pushinteger(L, 14);                          /\* 3rd argument \*/
-     lua\_call(L, 3, 1);     /\* call 'f' with 3 arguments and 1 result \*/
-     lua\_setglobal(L, "a");                         /\* set global 'a' \*/
+     lua_getglobal(L, "f");                  /* function to be called */
+     lua_pushliteral(L, "how");                       /* 1st argument */
+     lua_getglobal(L, "t");                    /* table to be indexed */
+     lua_getfield(L, -1, "x");        /* push result of t.x (2nd arg) */
+     lua_remove(L, -2);                  /* remove 't' from the stack */
+     lua_pushinteger(L, 14);                          /* 3rd argument */
+     lua_call(L, 3, 1);     /* call 'f' with 3 arguments and 1 result */
+     lua_setglobal(L, "a");                         /* set global 'a' */
 
 注意上面这段代码是 *平衡* 的： 到了最后，堆栈恢复成原有的配置。 这是一种良好的编程习惯。
 
@@ -1203,9 +1203,9 @@ void lua\_call (lua\_State \*L, int nargs, int nresults);
 
 ### `lua_callk`
 
-\[-(nargs + 1), +nresults, *e*\]
+[-(nargs + 1), +nresults, *e*]
 
-void lua\_callk (lua\_State \*L, int nargs, int nresults, lua\_KContext ctx, lua\_KFunction k);
+void lua_callk (lua_State *L, int nargs, int nresults, lua_KContext ctx, lua_KFunction k);
 
 这个函数的行为和 [`lua_call`][164] 完全一致，只不过它还允许被调用的函数让出 （参见 [§4.7][165]）。
 
@@ -1213,7 +1213,7 @@ void lua\_callk (lua\_State \*L, int nargs, int nresults, lua\_KContext ctx, lua
 
 ### `lua_CFunction`
 
-typedef int (\*lua\_CFunction) (lua\_State \*L);
+typedef int (*lua_CFunction) (lua_State *L);
 
 C 函数的类型。
 
@@ -1223,29 +1223,29 @@ C 函数的类型。
 
 下面这个例子中的函数将接收若干数字参数，并返回它们的平均数与和：
 
-     static int foo (lua\_State \*L) {
-       int n = lua\_gettop(L);    /\* 参数的个数 \*/
-       lua\_Number sum = 0.0;
+     static int foo (lua_State *L) {
+       int n = lua_gettop(L);    /* 参数的个数 */
+       lua_Number sum = 0.0;
        int i;
        for (i = 1; i <= n; i++) {
-         if (!lua\_isnumber(L, i)) {
-           lua\_pushliteral(L, "incorrect argument");
-           lua\_error(L);
+         if (!lua_isnumber(L, i)) {
+           lua_pushliteral(L, "incorrect argument");
+           lua_error(L);
          }
-         sum += lua\_tonumber(L, i);
+         sum += lua_tonumber(L, i);
        }
-       lua\_pushnumber(L, sum/n);        /\* 第一个返回值 \*/
-       lua\_pushnumber(L, sum);         /\* 第二个返回值 \*/
-       return 2;                   /\* 返回值的个数 \*/
+       lua_pushnumber(L, sum/n);        /* 第一个返回值 */
+       lua_pushnumber(L, sum);         /* 第二个返回值 */
+       return 2;                   /* 返回值的个数 */
      }
 
 * * *
 
 ### `lua_checkstack`
 
-\[-0, +0, –\]
+[-0, +0, –]
 
-int lua\_checkstack (lua\_State \*L, int n);
+int lua_checkstack (lua_State *L, int n);
 
 确保堆栈上至少有 `n` 个额外空位。 如果不能把堆栈扩展到相应的尺寸，函数返回假。 失败的原因包括将把栈扩展到比固定最大尺寸还大 （至少是几千个元素）或分配内存失败。 这个函数永远不会缩小堆栈； 如果堆栈已经比需要的大了，那么就保持原样。
 
@@ -1253,9 +1253,9 @@ int lua\_checkstack (lua\_State \*L, int n);
 
 ### `lua_close`
 
-\[-0, +0, –\]
+[-0, +0, –]
 
-void lua\_close (lua\_State \*L);
+void lua_close (lua_State *L);
 
 销毁指定 Lua 状态机中的所有对象 （如果有垃圾收集相关的元方法的话，会调用它们）， 并且释放状态机中使用的所有动态内存。 在一些平台上，你可以不必调用这个函数， 因为当宿主程序结束的时候，所有的资源就自然被释放掉了。
 另一方面，长期运行的程序，比如一个后台程序或是一个网站服务器， 会创建出多个 Lua 状态机。那么就应该在不需要时赶紧关闭它们。
@@ -1264,9 +1264,9 @@ void lua\_close (lua\_State \*L);
 
 ### `lua_compare`
 
-\[-0, +0, *e*\]
+[-0, +0, *e*]
 
-int lua\_compare (lua\_State \*L, int index1, int index2, int op);
+int lua_compare (lua_State *L, int index1, int index2, int op);
 
 比较两个 Lua 值。 当索引 `index1` 处的值通过 `op` 和索引 `index2` 处的值做比较后条件满足，函数返回 1 。 这个函数遵循 Lua 对应的操作规则（即有可能触发元方法）。 反之，函数返回 0。
 当任何一个索引无效时，函数也会返回 0 。
@@ -1281,9 +1281,9 @@ int lua\_compare (lua\_State \*L, int index1, int index2, int op);
 
 ### `lua_concat`
 
-\[-n, +1, *e*\]
+[-n, +1, *e*]
 
-void lua\_concat (lua\_State \*L, int n);
+void lua_concat (lua_State *L, int n);
 
 连接栈顶的 `n` 个值， 然后将这些值出栈，并把结果放在栈顶。 如果 `n` 为 1 ，结果就是那个值放在栈上（即，函数什么都不做）； 如果 `n` 为 0 ，结果是一个空串。 连接依照 Lua
 中通常语义完成（参见 [§3.4.6][166] ）。
@@ -1292,9 +1292,9 @@ void lua\_concat (lua\_State \*L, int n);
 
 ### `lua_copy`
 
-\[-0, +0, –\]
+[-0, +0, –]
 
-void lua\_copy (lua\_State \*L, int fromidx, int toidx);
+void lua_copy (lua_State *L, int fromidx, int toidx);
 
 从索引 `fromidx` 处复制一个值到一个有效索引 `toidx` 处，覆盖那里的原有值。 不会影响其它位置的值。
 
@@ -1302,9 +1302,9 @@ void lua\_copy (lua\_State \*L, int fromidx, int toidx);
 
 ### `lua_createtable`
 
-\[-0, +1, *e*\]
+[-0, +1, *e*]
 
-void lua\_createtable (lua\_State \*L, int narr, int nrec);
+void lua_createtable (lua_State *L, int narr, int nrec);
 
 创建一张新的空表压栈。 参数 `narr` 建议了这张表作为序列使用时会有多少个元素； 参数 `nrec` 建议了这张表可能拥有多少序列之外的元素。 Lua 会使用这些建议来预分配这张新表。
 如果你知道这张表用途的更多信息，预分配可以提高性能。 否则，你可以使用函数 [`lua_newtable`][167] 。
@@ -1313,9 +1313,9 @@ void lua\_createtable (lua\_State \*L, int narr, int nrec);
 
 ### `lua_dump`
 
-\[-0, +0, *e*\]
+[-0, +0, *e*]
 
-int lua\_dump (lua\_State \*L, lua\_Writer writer, void \*data, int strip);
+int lua_dump (lua_State *L, lua_Writer writer, void *data, int strip);
 
 把函数导出成二进制代码块 。 函数接收栈顶的 Lua 函数做参数， 然后生成它的二进制代码块。 若被导出的东西被再次加载， 加载的结果就相当于原来的函数。 当它在产生代码块的时候， [`lua_dump`][168]
 通过调用函数 `writer` （参见 [`lua_Writer`][169] ） 来写入数据，后面的 `data` 参数会被传入 `writer` 。
@@ -1330,9 +1330,9 @@ int lua\_dump (lua\_State \*L, lua\_Writer writer, void \*data, int strip);
 
 ### `lua_error`
 
-\[-1, +0, *v*\]
+[-1, +0, *v*]
 
-int lua\_error (lua\_State \*L);
+int lua_error (lua_State *L);
 
 以栈顶的值作为错误对象，抛出一个 Lua 错误。 这个函数将做一次长跳转，所以一定不会返回 （参见 [`luaL_error`][170]）。
 
@@ -1340,9 +1340,9 @@ int lua\_error (lua\_State \*L);
 
 ### `lua_gc`
 
-\[-0, +0, *e*\]
+[-0, +0, *e*]
 
-int lua\_gc (lua\_State \*L, int what, int data);
+int lua_gc (lua_State *L, int what, int data);
 
 控制垃圾收集器。
 
@@ -1364,9 +1364,9 @@ int lua\_gc (lua\_State \*L, int what, int data);
 
 ### `lua_getallocf`
 
-\[-0, +0, –\]
+[-0, +0, –]
 
-lua\_Alloc lua\_getallocf (lua\_State \*L, void \*\*ud);
+lua_Alloc lua_getallocf (lua_State *L, void **ud);
 
 返回给定状态机的内存分配器函数。 如果 `ud` 不是 `NULL` ， Lua 把设置内存分配函数时设置的那个指针置入 `*ud` 。
 
@@ -1374,9 +1374,9 @@ lua\_Alloc lua\_getallocf (lua\_State \*L, void \*\*ud);
 
 ### `lua_getfield`
 
-\[-0, +1, *e*\]
+[-0, +1, *e*]
 
-int lua\_getfield (lua\_State \*L, int index, const char \*k);
+int lua_getfield (lua_State *L, int index, const char *k);
 
 把 `t[k]` 的值压栈， 这里的 `t` 是索引指向的值。 在 Lua 中，这个函数可能触发对应 "index" 事件对应的元方法 （参见 [§2.4][174] ）。
 
@@ -1386,9 +1386,9 @@ int lua\_getfield (lua\_State \*L, int index, const char \*k);
 
 ### `lua_getextraspace`
 
-\[-0, +0, –\]
+[-0, +0, –]
 
-void \*lua\_getextraspace (lua\_State \*L);
+void *lua_getextraspace (lua_State *L);
 
 返回一个 Lua 状态机中关联的内存块指针。 程序可以把这块内存用于任何用途；而 Lua 不会使用它。
 
@@ -1400,9 +1400,9 @@ void \*lua\_getextraspace (lua\_State \*L);
 
 ### `lua_getglobal`
 
-\[-0, +1, *e*\]
+[-0, +1, *e*]
 
-int lua\_getglobal (lua\_State \*L, const char \*name);
+int lua_getglobal (lua_State *L, const char *name);
 
 把全局变量 name 里的值压栈，返回该值的类型。
 
@@ -1410,9 +1410,9 @@ int lua\_getglobal (lua\_State \*L, const char \*name);
 
 ### `lua_geti`
 
-\[-0, +1, *e*\]
+[-0, +1, *e*]
 
-int lua\_geti (lua\_State \*L, int index, lua\_Integer i);
+int lua_geti (lua_State *L, int index, lua_Integer i);
 
 把 `t[i]` 的值压栈， 这里的 `t` 指给定的索引指代的值。 和在 Lua 里一样，这个函数可能会触发 "index" 事件的元方法 （参见 [§2.4][175]）。
 
@@ -1422,9 +1422,9 @@ int lua\_geti (lua\_State \*L, int index, lua\_Integer i);
 
 ### `lua_getmetatable`
 
-\[-0, +(0|1), –\]
+[-0, +(0|1), –]
 
-int lua\_getmetatable (lua\_State \*L, int index);
+int lua_getmetatable (lua_State *L, int index);
 
 如果该索引处的值有元表，则将其元表压栈，返回 1 。 否则不会将任何东西入栈，返回 0 。
 
@@ -1432,9 +1432,9 @@ int lua\_getmetatable (lua\_State \*L, int index);
 
 ### `lua_gettable`
 
-\[-1, +1, *e*\]
+[-1, +1, *e*]
 
-int lua\_gettable (lua\_State \*L, int index);
+int lua_gettable (lua_State *L, int index);
 
 把 `t[k]` 的值压栈， 这里的 `t` 是指索引指向的值， 而 `k` 则是栈顶放的值。
 
@@ -1446,9 +1446,9 @@ int lua\_gettable (lua\_State \*L, int index);
 
 ### `lua_gettop`
 
-\[-0, +0, –\]
+[-0, +0, –]
 
-int lua\_gettop (lua\_State \*L);
+int lua_gettop (lua_State *L);
 
 返回栈顶元素的索引。 因为索引是从 1 开始编号的， 所以这个结果等于栈上的元素个数； 特别指出，0 表示栈为空。
 
@@ -1456,9 +1456,9 @@ int lua\_gettop (lua\_State \*L);
 
 ### `lua_getuservalue`
 
-\[-0, +1, –\]
+[-0, +1, –]
 
-int lua\_getuservalue (lua\_State \*L, int index);
+int lua_getuservalue (lua_State *L, int index);
 
 将给定索引处的用户数据所关联的 Lua 值压栈。
 
@@ -1468,9 +1468,9 @@ int lua\_getuservalue (lua\_State \*L, int index);
 
 ### `lua_insert`
 
-\[-1, +1, –\]
+[-1, +1, –]
 
-void lua\_insert (lua\_State \*L, int index);
+void lua_insert (lua_State *L, int index);
 
 把栈顶元素移动到指定的有效索引处， 依次移动这个索引之上的元素。 不要用伪索引来调用这个函数， 因为伪索引没有真正指向栈上的位置。
 
@@ -1478,7 +1478,7 @@ void lua\_insert (lua\_State \*L, int index);
 
 ### `lua_Integer`
 
-typedef ... lua\_Integer;
+typedef ... lua_Integer;
 
 Lua 中的整数类型。
 
@@ -1490,9 +1490,9 @@ Lua 定义了两个常量： `LUA_MININTEGER` 和 `LUA_MAXINTEGER` 来表示这�
 
 ### `lua_isboolean`
 
-\[-0, +0, –\]
+[-0, +0, –]
 
-int lua\_isboolean (lua\_State \*L, int index);
+int lua_isboolean (lua_State *L, int index);
 
 当给定索引的值是一个布尔量时，返回 1 ，否则返回 0 。
 
@@ -1500,9 +1500,9 @@ int lua\_isboolean (lua\_State \*L, int index);
 
 ### `lua_iscfunction`
 
-\[-0, +0, –\]
+[-0, +0, –]
 
-int lua\_iscfunction (lua\_State \*L, int index);
+int lua_iscfunction (lua_State *L, int index);
 
 当给定索引的值是一个 C 函数时，返回 1 ，否则返回 0 。
 
@@ -1510,9 +1510,9 @@ int lua\_iscfunction (lua\_State \*L, int index);
 
 ### `lua_isfunction`
 
-\[-0, +0, –\]
+[-0, +0, –]
 
-int lua\_isfunction (lua\_State \*L, int index);
+int lua_isfunction (lua_State *L, int index);
 
 当给定索引的值是一个函数（ C 或 Lua 函数均可）时，返回 1 ，否则返回 0 。
 
@@ -1520,9 +1520,9 @@ int lua\_isfunction (lua\_State \*L, int index);
 
 ### `lua_isinteger`
 
-\[-0, +0, –\]
+[-0, +0, –]
 
-int lua\_isinteger (lua\_State \*L, int index);
+int lua_isinteger (lua_State *L, int index);
 
 当给定索引的值是一个整数 （其值是一个数字，且内部以整数储存）， 时，返回 1 ，否则返回 0 。
 
@@ -1530,9 +1530,9 @@ int lua\_isinteger (lua\_State \*L, int index);
 
 ### `lua_islightuserdata`
 
-\[-0, +0, –\]
+[-0, +0, –]
 
-int lua\_islightuserdata (lua\_State \*L, int index);
+int lua_islightuserdata (lua_State *L, int index);
 
 当给定索引的值是一个轻量用户数据时，返回 1 ，否则返回 0 。
 
@@ -1540,9 +1540,9 @@ int lua\_islightuserdata (lua\_State \*L, int index);
 
 ### `lua_isnil`
 
-\[-0, +0, –\]
+[-0, +0, –]
 
-int lua\_isnil (lua\_State \*L, int index);
+int lua_isnil (lua_State *L, int index);
 
 当给定索引的值是 **nil** 时，返回 1 ，否则返回 0 。
 
@@ -1550,9 +1550,9 @@ int lua\_isnil (lua\_State \*L, int index);
 
 ### `lua_isnone`
 
-\[-0, +0, –\]
+[-0, +0, –]
 
-int lua\_isnone (lua\_State \*L, int index);
+int lua_isnone (lua_State *L, int index);
 
 当给定索引无效时，返回 1 ，否则返回 0 。
 
@@ -1560,9 +1560,9 @@ int lua\_isnone (lua\_State \*L, int index);
 
 ### `lua_isnoneornil`
 
-\[-0, +0, –\]
+[-0, +0, –]
 
-int lua\_isnoneornil (lua\_State \*L, int index);
+int lua_isnoneornil (lua_State *L, int index);
 
 当给定索引无效或其值是 **nil** 时， 返回 1 ，否则返回 0 。
 
@@ -1570,9 +1570,9 @@ int lua\_isnoneornil (lua\_State \*L, int index);
 
 ### `lua_isnumber`
 
-\[-0, +0, –\]
+[-0, +0, –]
 
-int lua\_isnumber (lua\_State \*L, int index);
+int lua_isnumber (lua_State *L, int index);
 
 当给定索引的值是一个数字，或是一个可转换为数字的字符串时，返回 1 ，否则返回 0 。
 
@@ -1580,9 +1580,9 @@ int lua\_isnumber (lua\_State \*L, int index);
 
 ### `lua_isstring`
 
-\[-0, +0, –\]
+[-0, +0, –]
 
-int lua\_isstring (lua\_State \*L, int index);
+int lua_isstring (lua_State *L, int index);
 
 当给定索引的值是一个字符串或是一个数字 （数字总能转换成字符串）时，返回 1 ，否则返回 0 。
 
@@ -1590,9 +1590,9 @@ int lua\_isstring (lua\_State \*L, int index);
 
 ### `lua_istable`
 
-\[-0, +0, –\]
+[-0, +0, –]
 
-int lua\_istable (lua\_State \*L, int index);
+int lua_istable (lua_State *L, int index);
 
 当给定索引的值是一张表时，返回 1 ，否则返回 0 。
 
@@ -1600,9 +1600,9 @@ int lua\_istable (lua\_State \*L, int index);
 
 ### `lua_isthread`
 
-\[-0, +0, –\]
+[-0, +0, –]
 
-int lua\_isthread (lua\_State \*L, int index);
+int lua_isthread (lua_State *L, int index);
 
 当给定索引的值是一条线程时，返回 1 ，否则返回 0 。
 
@@ -1610,9 +1610,9 @@ int lua\_isthread (lua\_State \*L, int index);
 
 ### `lua_isuserdata`
 
-\[-0, +0, –\]
+[-0, +0, –]
 
-int lua\_isuserdata (lua\_State \*L, int index);
+int lua_isuserdata (lua_State *L, int index);
 
 当给定索引的值是一个用户数据（无论是完全的还是轻量的）时， 返回 1 ，否则返回 0 。
 
@@ -1620,9 +1620,9 @@ int lua\_isuserdata (lua\_State \*L, int index);
 
 ### `lua_isyieldable`
 
-\[-0, +0, –\]
+[-0, +0, –]
 
-int lua\_isyieldable (lua\_State \*L);
+int lua_isyieldable (lua_State *L);
 
 如果给定的协程可以让出，返回 1 ，否则返回 0 。
 
@@ -1630,7 +1630,7 @@ int lua\_isyieldable (lua\_State \*L);
 
 ### `lua_KContext`
 
-typedef ... lua\_KContext;
+typedef ... lua_KContext;
 
 延续函数上下文参数的类型。 这一定是一个数字类型。 当有 `intptr_t` 时，被定义为 `intptr_t` ， 因此它也可以保存指针。 否则，它被定义为 `ptrdiff_t`。
 
@@ -1638,7 +1638,7 @@ typedef ... lua\_KContext;
 
 ### `lua_KFunction`
 
-typedef int (\*lua\_KFunction) (lua\_State \*L, int status, lua\_KContext ctx);
+typedef int (*lua_KFunction) (lua_State *L, int status, lua_KContext ctx);
 
 延续函数的类型（参见 [§4.7][177] ）。
 
@@ -1646,9 +1646,9 @@ typedef int (\*lua\_KFunction) (lua\_State \*L, int status, lua\_KContext ctx);
 
 ### `lua_len`
 
-\[-0, +1, *e*\]
+[-0, +1, *e*]
 
-void lua\_len (lua\_State \*L, int index);
+void lua_len (lua_State *L, int index);
 
 返回给定索引的值的长度。 它等价于 Lua 中的 '`#`' 操作符 （参见 [§3.4.7][178]）。 它有可能触发 "length" 事件对应的元方法 （参见 [§2.4][179] ）。 结果压栈。
 
@@ -1656,9 +1656,9 @@ void lua\_len (lua\_State \*L, int index);
 
 ### `lua_load`
 
-\[-0, +1, –\]
+[-0, +1, –]
 
-int lua\_load (lua\_State \*L, lua\_Reader reader, void \*data, const char \*chunkname, const char \*mode);
+int lua_load (lua_State *L, lua_Reader reader, void *data, const char *chunkname, const char *mode);
 
 加载一段 Lua 代码块，但不运行它。 如果没有错误， `lua_load` 把一个编译好的代码块作为一个 Lua 函数压到栈顶。 否则，压入错误消息。
 
@@ -1684,9 +1684,9 @@ int lua\_load (lua\_State \*L, lua\_Reader reader, void \*data, const char \*chu
 
 ### `lua_newstate`
 
-\[-0, +0, –\]
+[-0, +0, –]
 
-lua\_State \*lua\_newstate (lua\_Alloc f, void \*ud);
+lua_State *lua_newstate (lua_Alloc f, void *ud);
 
 创建一个运行在新的独立的状态机中的线程。 如果无法创建线程或状态机（由于内存有限）则返回 `NULL`。 参数 `f` 是一个分配器函数； Lua 将通过这个函数做状态机内所有的内存分配操作。 第二个参数 `ud`
 ，这个指针将在每次调用分配器时被转入。
@@ -1695,9 +1695,9 @@ lua\_State \*lua\_newstate (lua\_Alloc f, void \*ud);
 
 ### `lua_newtable`
 
-\[-0, +1, *e*\]
+[-0, +1, *e*]
 
-void lua\_newtable (lua\_State \*L);
+void lua_newtable (lua_State *L);
 
 创建一张空表，并将其压栈。 它等价于 `lua_createtable(L, 0, 0)` 。
 
@@ -1705,9 +1705,9 @@ void lua\_newtable (lua\_State \*L);
 
 ### `lua_newthread`
 
-\[-0, +1, *e*\]
+[-0, +1, *e*]
 
-lua\_State \*lua\_newthread (lua\_State \*L);
+lua_State *lua_newthread (lua_State *L);
 
 创建一条新线程，并将其压栈， 并返回维护这个线程的 [`lua_State`][188] 指针。 这个函数返回的新线程共享原线程的全局环境， 但是它有独立的运行栈。
 
@@ -1717,9 +1717,9 @@ lua\_State \*lua\_newthread (lua\_State \*L);
 
 ### `lua_newuserdata`
 
-\[-0, +1, *e*\]
+[-0, +1, *e*]
 
-void \*lua\_newuserdata (lua\_State \*L, size\_t size);
+void *lua_newuserdata (lua_State *L, size_t size);
 
 这个函数分配一块指定大小的内存块， 把内存块地址作为一个完全用户数据压栈， 并返回这个地址。 宿主程序可以随意使用这块内存。
 
@@ -1727,23 +1727,23 @@ void \*lua\_newuserdata (lua\_State \*L, size\_t size);
 
 ### `lua_next`
 
-\[-1, +(2|0), *e*\]
+[-1, +(2|0), *e*]
 
-int lua\_next (lua\_State \*L, int index);
+int lua_next (lua_State *L, int index);
 
 从栈顶弹出一个键， 然后把索引指定的表中的一个键值对压栈 （弹出的键之后的 “下一” 对）。 如果表中以无更多元素， 那么 [`lua_next`][189] 将返回 0 （什么也不压栈）。
 
 典型的遍历方法是这样的：
 
-     /\*  表放在索引 't' 处 \*/
-     lua\_pushnil(L);  /\* 第一个键 \*/
-     while (lua\_next(L, t) != 0) {
-       /\* 使用 '键' （在索引 -2 处） 和 '值' （在索引 -1 处）\*/
+     /*  表放在索引 't' 处 */
+     lua_pushnil(L);  /* 第一个键 */
+     while (lua_next(L, t) != 0) {
+       /* 使用 '键' （在索引 -2 处） 和 '值' （在索引 -1 处）*/
        printf("%s - %s\\n",
-              lua\_typename(L, lua\_type(L, -2)),
-              lua\_typename(L, lua\_type(L, -1)));
-       /\* 移除 '值' ；保留 '键' 做下一次迭代 \*/
-       lua\_pop(L, 1);
+              lua_typename(L, lua_type(L, -2)),
+              lua_typename(L, lua_type(L, -1)));
+       /* 移除 '值' ；保留 '键' 做下一次迭代 */
+       lua_pop(L, 1);
      }
 
 在遍历一张表的时候， 不要直接对键调用 [`lua_tolstring`][190] ， 除非你知道这个键一定是一个字符串。 调用 [`lua_tolstring`][191] 有可能改变给定索引位置的值；
@@ -1755,7 +1755,7 @@ int lua\_next (lua\_State \*L, int index);
 
 ### `lua_Number`
 
-typedef double lua\_Number;
+typedef double lua_Number;
 
 Lua 中浮点数的类型。
 
@@ -1765,7 +1765,7 @@ Lua 中数字的类型。缺省是 double ，但是你可以改成 float 。 （
 
 ### `lua_numbertointeger`
 
-int lua\_numbertointeger (lua\_Number n, lua\_Integer \*p);
+int lua_numbertointeger (lua_Number n, lua_Integer *p);
 
 将一个 Lua 浮点数转换为一个 Lua 整数。 这个宏假设 `n` 有对应的整数值。 如果该值在 Lua 整数可表示范围内， 就将其转换为一个整数赋给 `*p`。 宏的结果是一个布尔量，表示转换是否成功。
 （注意、由于圆整关系，这个范围测试不用此宏很难做对。）
@@ -1776,9 +1776,9 @@ int lua\_numbertointeger (lua\_Number n, lua\_Integer \*p);
 
 ### `lua_pcall`
 
-\[-(nargs + 1), +(nresults|1), –\]
+[-(nargs + 1), +(nresults|1), –]
 
-int lua\_pcall (lua\_State \*L, int nargs, int nresults, int msgh);
+int lua_pcall (lua_State *L, int nargs, int nresults, int msgh);
 
 以保护模式调用一个函数。
 
@@ -1803,9 +1803,9 @@ int lua\_pcall (lua\_State \*L, int nargs, int nresults, int msgh);
 
 ### `lua_pcallk`
 
-\[-(nargs + 1), +(nresults|1), –\]
+[-(nargs + 1), +(nresults|1), –]
 
-int lua\_pcallk (lua\_State \*L, int nargs, int nresults, int msgh, lua\_KContext ctx, lua\_KFunction k);
+int lua_pcallk (lua_State *L, int nargs, int nresults, int msgh, lua_KContext ctx, lua_KFunction k);
 
 这个函数的行为和 [`lua_pcall`][203] 完全一致，只不过它还允许被调用的函数让出 （参见 [§4.7][204]）。
 
@@ -1813,9 +1813,9 @@ int lua\_pcallk (lua\_State \*L, int nargs, int nresults, int msgh, lua\_KContex
 
 ### `lua_pop`
 
-\[-n, +0, –\]
+[-n, +0, –]
 
-void lua\_pop (lua\_State \*L, int n);
+void lua_pop (lua_State *L, int n);
 
 从栈中弹出 `n` 个元素。
 
@@ -1823,9 +1823,9 @@ void lua\_pop (lua\_State \*L, int n);
 
 ### `lua_pushboolean`
 
-\[-0, +1, –\]
+[-0, +1, –]
 
-void lua\_pushboolean (lua\_State \*L, int b);
+void lua_pushboolean (lua_State *L, int b);
 
 把 `b` 作为一个布尔量压栈。
 
@@ -1833,9 +1833,9 @@ void lua\_pushboolean (lua\_State \*L, int b);
 
 ### `lua_pushcclosure`
 
-\[-n, +1, *e*\]
+[-n, +1, *e*]
 
-void lua\_pushcclosure (lua\_State \*L, lua\_CFunction fn, int n);
+void lua_pushcclosure (lua_State *L, lua_CFunction fn, int n);
 
 把一个新的 C 闭包压栈。
 
@@ -1851,9 +1851,9 @@ void lua\_pushcclosure (lua\_State \*L, lua\_CFunction fn, int n);
 
 ### `lua_pushcfunction`
 
-\[-0, +1, –\]
+[-0, +1, –]
 
-void lua\_pushcfunction (lua\_State \*L, lua\_CFunction f);
+void lua_pushcfunction (lua_State *L, lua_CFunction f);
 
 将一个 C 函数压栈。 这个函数接收一个 C 函数指针， 并将一个类型为 `function` 的 Lua 值压栈。 当这个栈顶的值被调用时，将触发对应的 C 函数。
 
@@ -1861,15 +1861,15 @@ void lua\_pushcfunction (lua\_State \*L, lua\_CFunction f);
 
 `lua_pushcfunction` 是作为一个宏定义出现的：
 
-     #define lua\_pushcfunction(L,f)  lua\_pushcclosure(L,f,0)
+     #define lua_pushcfunction(L,f)  lua_pushcclosure(L,f,0)
 
 * * *
 
 ### `lua_pushfstring`
 
-\[-0, +1, *e*\]
+[-0, +1, *e*]
 
-const char \*lua\_pushfstring (lua\_State \*L, const char \*fmt, ...);
+const char *lua_pushfstring (lua_State *L, const char *fmt, ...);
 
 把一个格式化过的字符串压栈， 然后返回这个字符串的指针。 它和 C 函数 `sprintf` 比较像， 不过有一些重要的区别：
 
@@ -1882,9 +1882,9 @@ const char \*lua\_pushfstring (lua\_State \*L, const char \*fmt, ...);
 
 ### `lua_pushglobaltable`
 
-\[-0, +1, –\]
+[-0, +1, –]
 
-void lua\_pushglobaltable (lua\_State \*L);
+void lua_pushglobaltable (lua_State *L);
 
 将全局环境压栈。
 
@@ -1892,9 +1892,9 @@ void lua\_pushglobaltable (lua\_State \*L);
 
 ### `lua_pushinteger`
 
-\[-0, +1, –\]
+[-0, +1, –]
 
-void lua\_pushinteger (lua\_State \*L, lua\_Integer n);
+void lua_pushinteger (lua_State *L, lua_Integer n);
 
 把值为 `n` 的整数压栈。
 
@@ -1902,9 +1902,9 @@ void lua\_pushinteger (lua\_State \*L, lua\_Integer n);
 
 ### `lua_pushlightuserdata`
 
-\[-0, +1, –\]
+[-0, +1, –]
 
-void lua\_pushlightuserdata (lua\_State \*L, void \*p);
+void lua_pushlightuserdata (lua_State *L, void *p);
 
 把一个轻量用户数据压栈。
 
@@ -1915,9 +1915,9 @@ void lua\_pushlightuserdata (lua\_State \*L, void \*p);
 
 ### `lua_pushliteral`
 
-\[-0, +1, *e*\]
+[-0, +1, *e*]
 
-const char \*lua\_pushliteral (lua\_State \*L, const char \*s);
+const char *lua_pushliteral (lua_State *L, const char *s);
 
 这个宏等价于 [`lua_pushstring`][211]， 区别仅在于只能在 `s` 是一个字面量时才能用它。 它会自动给出字符串的长度。
 
@@ -1925,9 +1925,9 @@ const char \*lua\_pushliteral (lua\_State \*L, const char \*s);
 
 ### `lua_pushlstring`
 
-\[-0, +1, *e*\]
+[-0, +1, *e*]
 
-const char \*lua\_pushlstring (lua\_State \*L, const char \*s, size\_t len);
+const char *lua_pushlstring (lua_State *L, const char *s, size_t len);
 
 把指针 `s` 指向的长度为 `len` 的字符串压栈。 Lua 对这个字符串做一个内部副本（或是复用一个副本）， 因此 `s` 处的内存在函数返回后，可以释放掉或是立刻重用于其它用途。 字符串内可以是任意二进制数据，包括零字符。
 
@@ -1937,9 +1937,9 @@ const char \*lua\_pushlstring (lua\_State \*L, const char \*s, size\_t len);
 
 ### `lua_pushnil`
 
-\[-0, +1, –\]
+[-0, +1, –]
 
-void lua\_pushnil (lua\_State \*L);
+void lua_pushnil (lua_State *L);
 
 将空值压栈。
 
@@ -1947,9 +1947,9 @@ void lua\_pushnil (lua\_State \*L);
 
 ### `lua_pushnumber`
 
-\[-0, +1, –\]
+[-0, +1, –]
 
-void lua\_pushnumber (lua\_State \*L, lua\_Number n);
+void lua_pushnumber (lua_State *L, lua_Number n);
 
 把一个值为 `n` 的浮点数压栈。
 
@@ -1957,9 +1957,9 @@ void lua\_pushnumber (lua\_State \*L, lua\_Number n);
 
 ### `lua_pushstring`
 
-\[-0, +1, *e*\]
+[-0, +1, *e*]
 
-const char \*lua\_pushstring (lua\_State \*L, const char \*s);
+const char *lua_pushstring (lua_State *L, const char *s);
 
 将指针 s 指向的零结尾的字符串压栈。Lua 对这个字符串做一个内部副本（或是复用一个副本）， 因此 `s` 处的内存在函数返回后，可以释放掉或是立刻重用于其它用途。
 
@@ -1971,9 +1971,9 @@ const char \*lua\_pushstring (lua\_State \*L, const char \*s);
 
 ### `lua_pushthread`
 
-\[-0, +1, –\]
+[-0, +1, –]
 
-int lua\_pushthread (lua\_State \*L);
+int lua_pushthread (lua_State *L);
 
 把 `L` 表示的线程压栈。 如果这个线程是当前状态机的主线程的话，返回 1 。
 
@@ -1981,9 +1981,9 @@ int lua\_pushthread (lua\_State \*L);
 
 ### `lua_pushvalue`
 
-\[-0, +1, –\]
+[-0, +1, –]
 
-void lua\_pushvalue (lua\_State \*L, int index);
+void lua_pushvalue (lua_State *L, int index);
 
 把栈上给定索引处的元素作一个副本压栈。
 
@@ -1991,9 +1991,9 @@ void lua\_pushvalue (lua\_State \*L, int index);
 
 ### `lua_pushvfstring`
 
-\[-0, +1, *e*\]
+[-0, +1, *e*]
 
-const char \*lua\_pushvfstring (lua\_State \*L, const char \*fmt, va\_list argp);
+const char *lua_pushvfstring (lua_State *L, const char *fmt, va_list argp);
 
 等价于 [`lua_pushfstring`][212] ， 不过是用 `va_list` 接收参数，而不是用可变数量的实际参数。
 
@@ -2001,9 +2001,9 @@ const char \*lua\_pushvfstring (lua\_State \*L, const char \*fmt, va\_list argp)
 
 ### `lua_rawequal`
 
-\[-0, +0, –\]
+[-0, +0, –]
 
-int lua\_rawequal (lua\_State \*L, int index1, int index2);
+int lua_rawequal (lua_State *L, int index1, int index2);
 
 如果索引 `index1` 与索引 `index2` 处的值 本身相等（即不调用元方法），返回 1 。 否则返回 0 。 当任何一个索引无效时，也返回 0 。
 
@@ -2011,9 +2011,9 @@ int lua\_rawequal (lua\_State \*L, int index1, int index2);
 
 ### `lua_rawget`
 
-\[-1, +1, –\]
+[-1, +1, –]
 
-int lua\_rawget (lua\_State \*L, int index);
+int lua_rawget (lua_State *L, int index);
 
 类似于 [`lua_gettable`][213] ， 但是作一次直接访问（不触发元方法）。
 
@@ -2021,9 +2021,9 @@ int lua\_rawget (lua\_State \*L, int index);
 
 ### `lua_rawgeti`
 
-\[-0, +1, –\]
+[-0, +1, –]
 
-int lua\_rawgeti (lua\_State \*L, int index, lua\_Integer n);
+int lua_rawgeti (lua_State *L, int index, lua_Integer n);
 
 把 `t[n]` 的值压栈， 这里的 `t` 是指给定索引处的表。 这是一次直接访问；就是说，它不会触发元方法。
 
@@ -2033,9 +2033,9 @@ int lua\_rawgeti (lua\_State \*L, int index, lua\_Integer n);
 
 ### `lua_rawgetp`
 
-\[-0, +1, –\]
+[-0, +1, –]
 
-int lua\_rawgetp (lua\_State \*L, int index, const void \*p);
+int lua_rawgetp (lua_State *L, int index, const void *p);
 
 把 `t[k]` 的值压栈， 这里的 `t` 是指给定索引处的表， `k` 是指针 `p` 对应的轻量用户数据。 这是一次直接访问；就是说，它不会触发元方法。
 
@@ -2045,9 +2045,9 @@ int lua\_rawgetp (lua\_State \*L, int index, const void \*p);
 
 ### `lua_rawlen`
 
-\[-0, +0, –\]
+[-0, +0, –]
 
-size\_t lua\_rawlen (lua\_State \*L, int index);
+size_t lua_rawlen (lua_State *L, int index);
 
 返回给定索引处值的固有“长度”： 对于字符串，它指字符串的长度； 对于表；它指不触发元方法的情况下取长度操作（'`#`'）应得到的值； 对于用户数据，它指为该用户数据分配的内存块的大小； 对于其它值，它为 0 。
 
@@ -2055,9 +2055,9 @@ size\_t lua\_rawlen (lua\_State \*L, int index);
 
 ### `lua_rawset`
 
-\[-2, +0, *e*\]
+[-2, +0, *e*]
 
-void lua\_rawset (lua\_State \*L, int index);
+void lua_rawset (lua_State *L, int index);
 
 类似于 [`lua_settable`][214] ， 但是是做一次直接赋值（不触发元方法）。
 
@@ -2065,9 +2065,9 @@ void lua\_rawset (lua\_State \*L, int index);
 
 ### `lua_rawseti`
 
-\[-1, +0, *e*\]
+[-1, +0, *e*]
 
-void lua\_rawseti (lua\_State \*L, int index, lua\_Integer i);
+void lua_rawseti (lua_State *L, int index, lua_Integer i);
 
 等价于 `t[i] = v` ， 这里的 `t` 是指给定索引处的表， 而 `v` 是栈顶的值。
 
@@ -2077,9 +2077,9 @@ void lua\_rawseti (lua\_State \*L, int index, lua\_Integer i);
 
 ### `lua_rawsetp`
 
-\[-1, +0, *e*\]
+[-1, +0, *e*]
 
-void lua\_rawsetp (lua\_State \*L, int index, const void \*p);
+void lua_rawsetp (lua_State *L, int index, const void *p);
 
 等价于 `t[k] = v` ， 这里的 `t` 是指给定索引处的表， `k` 是指针 `p` 对应的轻量用户数据。 而 `v` 是栈顶的值。
 
@@ -2089,7 +2089,7 @@ void lua\_rawsetp (lua\_State \*L, int index, const void \*p);
 
 ### `lua_Reader`
 
-typedef const char \* (\*lua\_Reader) (lua\_State \*L, void \*data, size\_t \*size);
+typedef const char * (*lua_Reader) (lua_State *L, void *data, size_t *size);
 
 [`lua_load`][215] 用到的读取器函数， 每次它需要一块新的代码块的时候， [`lua_load`][216] 就调用读取器， 每次都会传入一个参数 `data` 。 读取器需要返回含有新的代码块的一块内存的指针，
 并把 `size` 设为这块内存的大小。 内存块必须在下一次函数被调用之前一直存在。 读取器可以通过返回 `NULL` 或设 `size` 为 0 来指示代码块结束。 读取器可能返回多个块，每个块可以有任意的大于零的尺寸。
@@ -2098,22 +2098,22 @@ typedef const char \* (\*lua\_Reader) (lua\_State \*L, void \*data, size\_t \*si
 
 ### `lua_register`
 
-\[-0, +0, *e*\]
+[-0, +0, *e*]
 
-void lua\_register (lua\_State \*L, const char \*name, lua\_CFunction f);
+void lua_register (lua_State *L, const char *name, lua_CFunction f);
 
 把 C 函数 `f` 设到全局变量 `name` 中。 它通过一个宏定义：
 
-     #define lua\_register(L,n,f) \\
-            (lua\_pushcfunction(L, f), lua\_setglobal(L, n))
+     #define lua_register(L,n,f) \\
+            (lua_pushcfunction(L, f), lua_setglobal(L, n))
 
 * * *
 
 ### `lua_remove`
 
-\[-1, +0, –\]
+[-1, +0, –]
 
-void lua\_remove (lua\_State \*L, int index);
+void lua_remove (lua_State *L, int index);
 
 从给定有效索引处移除一个元素， 把这个索引之上的所有元素移下来填补上这个空隙。 不能用伪索引来调用这个函数，因为伪索引并不指向真实的栈上的位置。
 
@@ -2121,9 +2121,9 @@ void lua\_remove (lua\_State \*L, int index);
 
 ### `lua_replace`
 
-\[-1, +0, –\]
+[-1, +0, –]
 
-void lua\_replace (lua\_State \*L, int index);
+void lua_replace (lua_State *L, int index);
 
 把栈顶元素放置到给定位置而不移动其它元素 （因此覆盖了那个位置处的值），然后将栈顶元素弹出。
 
@@ -2131,9 +2131,9 @@ void lua\_replace (lua\_State \*L, int index);
 
 ### `lua_resume`
 
-\[-?, +?, –\]
+[-?, +?, –]
 
-int lua\_resume (lua\_State \*L, lua\_State \*from, int nargs);
+int lua_resume (lua_State *L, lua_State *from, int nargs);
 
 在给定线程中启动或延续一条协程 。
 
@@ -2151,9 +2151,9 @@ int lua\_resume (lua\_State \*L, lua\_State \*from, int nargs);
 
 ### `lua_rotate`
 
-\[-0, +0, –\]
+[-0, +0, –]
 
-void lua\_rotate (lua\_State \*L, int idx, int n);
+void lua_rotate (lua_State *L, int idx, int n);
 
 把从 `idx` 开始到栈顶的元素轮转 `n` 个位置。 对于 `n` 为正数时，轮转方向是向栈顶的； 当 `n` 为负数时，向栈底方向轮转 `-n` 个位置。 `n` 的绝对值不可以比参于轮转的切片长度大。
 
@@ -2161,9 +2161,9 @@ void lua\_rotate (lua\_State \*L, int idx, int n);
 
 ### `lua_setallocf`
 
-\[-0, +0, –\]
+[-0, +0, –]
 
-void lua\_setallocf (lua\_State \*L, lua\_Alloc f, void \*ud);
+void lua_setallocf (lua_State *L, lua_Alloc f, void *ud);
 
 把指定状态机的分配器函数换成带上用户数据 `ud` 的 `f` 。
 
@@ -2171,9 +2171,9 @@ void lua\_setallocf (lua\_State \*L, lua\_Alloc f, void \*ud);
 
 ### `lua_setfield`
 
-\[-1, +0, *e*\]
+[-1, +0, *e*]
 
-void lua\_setfield (lua\_State \*L, int index, const char \*k);
+void lua_setfield (lua_State *L, int index, const char *k);
 
 做一个等价于 `t[k] = v` 的操作， 这里 `t` 是给出的索引处的值， 而 `v` 是栈顶的那个值。
 
@@ -2183,9 +2183,9 @@ void lua\_setfield (lua\_State \*L, int index, const char \*k);
 
 ### `lua_setglobal`
 
-\[-1, +0, *e*\]
+[-1, +0, *e*]
 
-void lua\_setglobal (lua\_State \*L, const char \*name);
+void lua_setglobal (lua_State *L, const char *name);
 
 从堆栈上弹出一个值，并将其设为全局变量 `name` 的新值。
 
@@ -2193,9 +2193,9 @@ void lua\_setglobal (lua\_State \*L, const char \*name);
 
 ### `lua_seti`
 
-\[-1, +0, *e*\]
+[-1, +0, *e*]
 
-void lua\_seti (lua\_State \*L, int index, lua\_Integer n);
+void lua_seti (lua_State *L, int index, lua_Integer n);
 
 做一个等价于 `t[n] = v` 的操作， 这里 `t` 是给出的索引处的值， 而 `v` 是栈顶的那个值。
 
@@ -2205,9 +2205,9 @@ void lua\_seti (lua\_State \*L, int index, lua\_Integer n);
 
 ### `lua_setmetatable`
 
-\[-1, +0, –\]
+[-1, +0, –]
 
-void lua\_setmetatable (lua\_State \*L, int index);
+void lua_setmetatable (lua_State *L, int index);
 
 把一张表弹出栈，并将其设为给定索引处的值的元表。
 
@@ -2215,9 +2215,9 @@ void lua\_setmetatable (lua\_State \*L, int index);
 
 ### `lua_settable`
 
-\[-2, +0, *e*\]
+[-2, +0, *e*]
 
-void lua\_settable (lua\_State \*L, int index);
+void lua_settable (lua_State *L, int index);
 
 做一个等价于 `t[k] = v` 的操作， 这里 `t` 是给出的索引处的值， `v` 是栈顶的那个值， `k` 是栈顶之下的值。
 
@@ -2227,9 +2227,9 @@ void lua\_settable (lua\_State \*L, int index);
 
 ### `lua_settop`
 
-\[-?, +?, –\]
+[-?, +?, –]
 
-void lua\_settop (lua\_State \*L, int index);
+void lua_settop (lua_State *L, int index);
 
 参数允许传入任何索引以及 0 。 它将把堆栈的栈顶设为这个索引。 如果新的栈顶比原来的大， 超出部分的新元素将被填为 **nil** 。 如果 `index` 为 0 ， 把栈上所有元素移除。
 
@@ -2237,9 +2237,9 @@ void lua\_settop (lua\_State \*L, int index);
 
 ### `lua_setuservalue`
 
-\[-1, +0, –\]
+[-1, +0, –]
 
-void lua\_setuservalue (lua\_State \*L, int index);
+void lua_setuservalue (lua_State *L, int index);
 
 从栈上弹出一个值并将其设为给定索引处用户数据的关联值。
 
@@ -2247,7 +2247,7 @@ void lua\_setuservalue (lua\_State \*L, int index);
 
 ### `lua_State`
 
-typedef struct lua\_State lua\_State;
+typedef struct lua_State lua_State;
 
 一个不透明的结构， 它指向一条线程并间接（通过该线程）引用了整个 Lua 解释器的状态。 Lua 库是完全可重入的： 它没有任何全局变量。 状态机所有的信息都可以通过这个结构访问到。
 
@@ -2257,9 +2257,9 @@ typedef struct lua\_State lua\_State;
 
 ### `lua_status`
 
-\[-0, +0, –\]
+[-0, +0, –]
 
-int lua\_status (lua\_State \*L);
+int lua_status (lua_State *L);
 
 返回线程 `L` 的状态。
 
@@ -2271,9 +2271,9 @@ int lua\_status (lua\_State \*L);
 
 ### `lua_stringtonumber`
 
-\[-0, +1, –\]
+[-0, +1, –]
 
-size\_t lua\_stringtonumber (lua\_State \*L, const char \*s);
+size_t lua_stringtonumber (lua_State *L, const char *s);
 
 将一个零结尾的字符串 `s` 转换为一个数字， 将这个数字压栈，并返回字符串的总长度（即长度加一）。 转换的结果可能是整数也可能是浮点数， 这取决于 Lua 的转换语法（参见 [§3.1][233]）。
 这个字符串可以有前置和后置的空格以及符号。 如果字符串并非一个有效的数字，返回 0 并不把任何东西压栈。 （注意，这个结果可以当成一个布尔量使用，为真即转换成功。）
@@ -2282,9 +2282,9 @@ size\_t lua\_stringtonumber (lua\_State \*L, const char \*s);
 
 ### `lua_toboolean`
 
-\[-0, +0, –\]
+[-0, +0, –]
 
-int lua\_toboolean (lua\_State \*L, int index);
+int lua_toboolean (lua_State *L, int index);
 
 把给定索引处的 Lua 值转换为一个 C 中的布尔量（ 0 或是 1 ）。 和 Lua 中做的所有测试一样， [`lua_toboolean`][234] 会把任何不同于 **false** 和 **nil** 的值当作真返回；
 否则就返回假。 （如果你想只接收真正的 boolean 值， 就需要使用 [`lua_isboolean`][235] 来测试值的类型。）
@@ -2293,9 +2293,9 @@ int lua\_toboolean (lua\_State \*L, int index);
 
 ### `lua_tocfunction`
 
-\[-0, +0, –\]
+[-0, +0, –]
 
-lua\_CFunction lua\_tocfunction (lua\_State \*L, int index);
+lua_CFunction lua_tocfunction (lua_State *L, int index);
 
 把给定索引处的 Lua 值转换为一个 C 函数。 这个值必须是一个 C 函数； 如果不是就返回 `NULL` 。
 
@@ -2303,9 +2303,9 @@ lua\_CFunction lua\_tocfunction (lua\_State \*L, int index);
 
 ### `lua_tointeger`
 
-\[-0, +0, –\]
+[-0, +0, –]
 
-lua\_Integer lua\_tointeger (lua\_State \*L, int index);
+lua_Integer lua_tointeger (lua_State *L, int index);
 
 等价于调用 [`lua_tointegerx`][236]， 其参数 `isnum` 为 `NULL`。
 
@@ -2313,9 +2313,9 @@ lua\_Integer lua\_tointeger (lua\_State \*L, int index);
 
 ### `lua_tointegerx`
 
-\[-0, +0, –\]
+[-0, +0, –]
 
-lua\_Integer lua\_tointegerx (lua\_State \*L, int index, int \*isnum);
+lua_Integer lua_tointegerx (lua_State *L, int index, int *isnum);
 
 将给定索引处的 Lua 值转换为带符号的整数类型 [`lua_Integer`][237]。 这个 Lua 值必须是一个整数，或是一个可以被转换为整数 （参见 [§3.4.3][238]）的数字或字符串；
 否则，`lua_tointegerx` 返回 0 。
@@ -2326,9 +2326,9 @@ lua\_Integer lua\_tointegerx (lua\_State \*L, int index, int \*isnum);
 
 ### `lua_tolstring`
 
-\[-0, +0, *e*\]
+[-0, +0, *e*]
 
-const char \*lua\_tolstring (lua\_State \*L, int index, size\_t \*len);
+const char *lua_tolstring (lua_State *L, int index, size_t *len);
 
 把给定索引处的 Lua 值转换为一个 C 字符串。 如果 `len` 不为 `NULL` ， 它还把字符串长度设到 `*len` 中。 这个 Lua 值必须是一个字符串或是一个数字； 否则返回 `NULL` 。
 如果值是一个数字， `lua_tolstring` 还会 *把堆栈中的那个值的实际类型转换为一个字符串*。 （当遍历一张表的时候， 若把 `lua_tolstring` 作用在键上， 这个转换有可能导致 [`lua_next`][239]
@@ -2342,9 +2342,9 @@ const char \*lua\_tolstring (lua\_State \*L, int index, size\_t \*len);
 
 ### `lua_tonumber`
 
-\[-0, +0, –\]
+[-0, +0, –]
 
-lua\_Number lua\_tonumber (lua\_State \*L, int index);
+lua_Number lua_tonumber (lua_State *L, int index);
 
 等价于调用 [`lua_tonumberx`][240]， 其参数 `isnum` 为 `NULL`。
 
@@ -2352,11 +2352,11 @@ lua\_Number lua\_tonumber (lua\_State \*L, int index);
 
 ### `lua_tonumberx`
 
-\[-0, +0, –\]
+[-0, +0, –]
 
-lua\_Number lua\_tonumberx (lua\_State \*L, int index, int \*isnum);
+lua_Number lua_tonumberx (lua_State *L, int index, int *isnum);
 
-把给定索引处的 Lua 值转换为 [`lua_Number`][241] 这样一个 C 类型 （参见 lua\_Number ）。 这个 Lua 值必须是一个数字或是一个可转换为数字的字符串 （参见 [§3.4.3][242]）；
+把给定索引处的 Lua 值转换为 [`lua_Number`][241] 这样一个 C 类型 （参见 lua_Number ）。 这个 Lua 值必须是一个数字或是一个可转换为数字的字符串 （参见 [§3.4.3][242]）；
 否则， [`lua_tonumberx`][243] 返回 0 。
 
 如果 `isnum` 不是 `NULL`， `*isnum` 会被设为操作是否成功。
@@ -2365,9 +2365,9 @@ lua\_Number lua\_tonumberx (lua\_State \*L, int index, int \*isnum);
 
 ### `lua_topointer`
 
-\[-0, +0, –\]
+[-0, +0, –]
 
-const void \*lua\_topointer (lua\_State \*L, int index);
+const void *lua_topointer (lua_State *L, int index);
 
 把给定索引处的值转换为一般的 C 指针 (`void*`) 。 这个值可以是一个用户对象，表 ，线程或是一个函数； 否则， `lua_topointer` 返回 `NULL` 。 不同的对象有不同的指针。 不存在把指针再转回原有类型的方法。
 
@@ -2377,9 +2377,9 @@ const void \*lua\_topointer (lua\_State \*L, int index);
 
 ### `lua_tostring`
 
-\[-0, +0, *e*\]
+[-0, +0, *e*]
 
-const char \*lua\_tostring (lua\_State \*L, int index);
+const char *lua_tostring (lua_State *L, int index);
 
 等价于调用 [`lua_tolstring`][244] ， 其参数 `len` 为 `NULL` 。
 
@@ -2387,9 +2387,9 @@ const char \*lua\_tostring (lua\_State \*L, int index);
 
 ### `lua_tothread`
 
-\[-0, +0, –\]
+[-0, +0, –]
 
-lua\_State \*lua\_tothread (lua\_State \*L, int index);
+lua_State *lua_tothread (lua_State *L, int index);
 
 把给定索引处的值转换为一个 Lua 线程 （表示为 `lua_State*`）。 这个值必须是一个线程； 否则函数返回 `NULL`。
 
@@ -2397,9 +2397,9 @@ lua\_State \*lua\_tothread (lua\_State \*L, int index);
 
 ### `lua_touserdata`
 
-\[-0, +0, –\]
+[-0, +0, –]
 
-void \*lua\_touserdata (lua\_State \*L, int index);
+void *lua_touserdata (lua_State *L, int index);
 
 如果给定索引处的值是一个完全用户数据， 函数返回其内存块的地址。 如果值是一个轻量用户数据， 那么就返回它表示的指针。 否则，返回 `NULL` 。
 
@@ -2407,9 +2407,9 @@ void \*lua\_touserdata (lua\_State \*L, int index);
 
 ### `lua_type`
 
-\[-0, +0, –\]
+[-0, +0, –]
 
-int lua\_type (lua\_State \*L, int index);
+int lua_type (lua_State *L, int index);
 
 返回给定有效索引处值的类型， 当索引无效（或无法访问）时则返回 `LUA_TNONE`。 [`lua_type`][245] 返回的类型被编码为一些个在 `lua.h` 中定义的常量： `LUA_TNIL`， `LUA_TNUMBER`
 ， `LUA_TBOOLEAN`， `LUA_TSTRING`， `LUA_TTABLE`， `LUA_TFUNCTION`， `LUA_TUSERDATA`， `LUA_TTHREAD`， `LUA_TLIGHTUSERDATA`。
@@ -2418,9 +2418,9 @@ int lua\_type (lua\_State \*L, int index);
 
 ### `lua_typename`
 
-\[-0, +0, –\]
+[-0, +0, –]
 
-const char \*lua\_typename (lua\_State \*L, int tp);
+const char *lua_typename (lua_State *L, int tp);
 
 返回 `tp` 表示的类型名， 这个 `tp` 必须是 [`lua_type`][246] 可能返回的值中之一。
 
@@ -2428,7 +2428,7 @@ const char \*lua\_typename (lua\_State \*L, int tp);
 
 ### `lua_Unsigned`
 
-typedef ... lua\_Unsigned;
+typedef ... lua_Unsigned;
 
 [`lua_Integer`][247] 的无符号版本。
 
@@ -2436,9 +2436,9 @@ typedef ... lua\_Unsigned;
 
 ### `lua_upvalueindex`
 
-\[-0, +0, –\]
+[-0, +0, –]
 
-int lua\_upvalueindex (int i);
+int lua_upvalueindex (int i);
 
 返回当前运行的函数（参见 [§4.4][248]）的第 `i` 个上值的伪索引。
 
@@ -2446,9 +2446,9 @@ int lua\_upvalueindex (int i);
 
 ### `lua_version`
 
-\[-0, +0, *v*\]
+[-0, +0, *v*]
 
-const lua\_Number \*lua\_version (lua\_State \*L);
+const lua_Number *lua_version (lua_State *L);
 
 返回保存在 Lua 内核中储存的版本数字的地址。 当调用时传入一个合法的 [`lua_State`][249] ， 返回创建该状态机时的版本地址。 如果用 `NULL` 调用， 返回调用者的版本地址。
 
@@ -2456,7 +2456,7 @@ const lua\_Number \*lua\_version (lua\_State \*L);
 
 ### `lua_Writer`
 
-typedef int (\*lua\_Writer) (lua\_State \*L, const void\* p, size\_t sz, void\* ud);
+typedef int (*lua_Writer) (lua_State *L, const void* p, size_t sz, void* ud);
 
 被 [`lua_dump`][250] 用到的写入器函数。 每次 [`lua_dump`][251] 产生了一段新的代码块， 它都会调用写入器。 传入要写入的缓冲区 (`p`) 和它的尺寸 (`sz`) ，
 以及传给 [`lua_dump`][252] 的参数 `data` 。
@@ -2467,9 +2467,9 @@ typedef int (\*lua\_Writer) (lua\_State \*L, const void\* p, size\_t sz, void\* 
 
 ### `lua_xmove`
 
-\[-?, +?, –\]
+[-?, +?, –]
 
-void lua\_xmove (lua\_State \*from, lua\_State \*to, int n);
+void lua_xmove (lua_State *from, lua_State *to, int n);
 
 交换同一个状态机下不同线程中的值。
 
@@ -2479,9 +2479,9 @@ void lua\_xmove (lua\_State \*from, lua\_State \*to, int n);
 
 ### `lua_yield`
 
-\[-?, +?, *e*\]
+[-?, +?, *e*]
 
-int lua\_yield (lua\_State \*L, int nresults);
+int lua_yield (lua_State *L, int nresults);
 
 这个函数等价于调用 [`lua_yieldk`][254]， 不同的是不提供延续函数（参见 [§4.7][255]）。 因此，当线程被延续，线程会继续运行调用 `lua_yield` 函数的函数。
 
@@ -2489,9 +2489,9 @@ int lua\_yield (lua\_State \*L, int nresults);
 
 ### `lua_yieldk`
 
-\[-?, +?, *e*\]
+[-?, +?, *e*]
 
-int lua\_yieldk (lua\_State \*L, int nresults, lua\_KContext ctx, lua\_KFunction k);
+int lua_yieldk (lua_State *L, int nresults, lua_KContext ctx, lua_KFunction k);
 
 让出协程（线程）。
 
@@ -2514,12 +2514,12 @@ Lua 没有内置的调试机制。 但是它提供了一组特殊的函数接口
 
 ### `lua_Debug`
 
-typedef struct lua\_Debug { int event; const char \*name; /\* (n) \*/ const char \*namewhat; /\* (n) \*/ const char
-\*what; /\* (S) \*/ const char \*source; /\* (S) \*/ int currentline; /\* (l) \*/ int linedefined; /\* (S) \*/ int
-lastlinedefined; /\* (S) \*/ unsigned char nups; /\* (u) 上值的数量 \*/ unsigned char nparams; /\* (u) 参数的数量 \*/ char
-isvararg; /\* (u) \*/ char istailcall; /\* (t) \*/ char short\_src\[LUA\_IDSIZE\]; /\* (S) \*/ /\* 私有部分 \*/
+typedef struct lua_Debug { int event; const char *name; /* (n) */ const char *namewhat; /* (n) */ const char
+*what; /* (S) */ const char *source; /* (S) */ int currentline; /* (l) */ int linedefined; /* (S) */ int
+lastlinedefined; /* (S) */ unsigned char nups; /* (u) 上值的数量 */ unsigned char nparams; /* (u) 参数的数量 */ char
+isvararg; /* (u) */ char istailcall; /* (t) */ char short_src[LUA_IDSIZE]; /* (S) */ /* 私有部分 */
 *其它域*
-} lua\_Debug;
+} lua_Debug;
 
 这是一个携带有有关函数或活动记录的各种信息的结构。 [`lua_getstack`][264] 只会填充结构的私有部分供后面使用。 调用 [`lua_getinfo`][265] 可以在 [`lua_Debug`][266]
 中填充那些可被使用的信息域。
@@ -2546,9 +2546,9 @@ isvararg; /\* (u) \*/ char istailcall; /\* (t) \*/ char short\_src\[LUA\_IDSIZE\
 
 ### `lua_gethook`
 
-\[-0, +0, –\]
+[-0, +0, –]
 
-lua\_Hook lua\_gethook (lua\_State \*L);
+lua_Hook lua_gethook (lua_State *L);
 
 返回当前的钩子函数。
 
@@ -2556,9 +2556,9 @@ lua\_Hook lua\_gethook (lua\_State \*L);
 
 ### `lua_gethookcount`
 
-\[-0, +0, –\]
+[-0, +0, –]
 
-int lua\_gethookcount (lua\_State \*L);
+int lua_gethookcount (lua_State *L);
 
 返回当前的钩子计数。
 
@@ -2566,9 +2566,9 @@ int lua\_gethookcount (lua\_State \*L);
 
 ### `lua_gethookmask`
 
-\[-0, +0, –\]
+[-0, +0, –]
 
-int lua\_gethookmask (lua\_State \*L);
+int lua_gethookmask (lua_State *L);
 
 返回当前的钩子掩码。
 
@@ -2576,9 +2576,9 @@ int lua\_gethookmask (lua\_State \*L);
 
 ### `lua_getinfo`
 
-\[-(0|1), +(0|1|2), *e*\]
+[-(0|1), +(0|1|2), *e*]
 
-int lua\_getinfo (lua\_State \*L, const char \*what, lua\_Debug \*ar);
+int lua_getinfo (lua_State *L, const char *what, lua_Debug *ar);
 
 返回一个指定的函数或函数调用的信息。
 
@@ -2586,9 +2586,9 @@ int lua\_getinfo (lua\_State \*L, const char \*what, lua\_Debug \*ar);
 
 用于获取一个函数的信息时， 可以把这个函数压入堆栈， 然后把 `what` 字符串以字符 '`>`' 起头。 （这会让 `lua_getinfo` 从栈顶上弹出函数。） 例如，想知道函数 `f` 是在哪一行定义的， 你可以使用下列代码：
 
-     lua\_Debug ar;
-     lua\_getglobal(L, "f");  /\* 取得全局变量 'f' \*/
-     lua\_getinfo(L, ">S", &ar);
+     lua_Debug ar;
+     lua_getglobal(L, "f");  /* 取得全局变量 'f' */
+     lua_getinfo(L, ">S", &ar);
      printf("%d\\n", ar.linedefined);
 
 `what` 字符串中的每个字符都筛选出结构 `ar` 结构中一些域用于填充， 或是把一个值压入堆栈：
@@ -2609,9 +2609,9 @@ int lua\_getinfo (lua\_State \*L, const char \*what, lua\_Debug \*ar);
 
 ### `lua_getlocal`
 
-\[-0, +(0|1), –\]
+[-0, +(0|1), –]
 
-const char \*lua\_getlocal (lua\_State \*L, const lua\_Debug \*ar, int n);
+const char *lua_getlocal (lua_State *L, const lua_Debug *ar, int n);
 
 从给定活动记录或从一个函数中获取一个局部变量的信息。
 
@@ -2628,9 +2628,9 @@ const char \*lua\_getlocal (lua\_State \*L, const lua\_Debug \*ar, int n);
 
 ### `lua_getstack`
 
-\[-0, +0, –\]
+[-0, +0, –]
 
-int lua\_getstack (lua\_State \*L, int level, lua\_Debug \*ar);
+int lua_getstack (lua_State *L, int level, lua_Debug *ar);
 
 获取解释器的运行时栈的信息。
 
@@ -2641,9 +2641,9 @@ int lua\_getstack (lua\_State \*L, int level, lua\_Debug \*ar);
 
 ### `lua_getupvalue`
 
-\[-0, +(0|1), –\]
+[-0, +(0|1), –]
 
-const char \*lua\_getupvalue (lua\_State \*L, int funcindex, int n);
+const char *lua_getupvalue (lua_State *L, int funcindex, int n);
 
 获取一个闭包的上值信息。 （对于 Lua 函数，上值是函数需要使用的外部局部变量， 因此这些变量被包含在闭包中。） [`lua_getupvalue`][276] 获取第 `n` 个上值， 把这个上值的值压栈，
 并且返回它的名字。 `funcindex` 指向闭包在栈上的位置。 （ 因为上值在整个函数中都有效，所以它们没有特别的次序。 因此，它们以字母次序来编号。）
@@ -2654,7 +2654,7 @@ const char \*lua\_getupvalue (lua\_State \*L, int funcindex, int n);
 
 ### `lua_Hook`
 
-typedef void (\*lua\_Hook) (lua\_State \*L, lua\_Debug \*ar);
+typedef void (*lua_Hook) (lua_State *L, lua_Debug *ar);
 
 用于调试的钩子函数类型。
 
@@ -2673,9 +2673,9 @@ typedef void (\*lua\_Hook) (lua\_State \*L, lua\_Debug \*ar);
 
 ### `lua_sethook`
 
-\[-0, +0, –\]
+[-0, +0, –]
 
-void lua\_sethook (lua\_State \*L, lua\_Hook f, int mask, int count);
+void lua_sethook (lua_State *L, lua_Hook f, int mask, int count);
 
 设置一个调试用钩子函数。
 
@@ -2693,9 +2693,9 @@ void lua\_sethook (lua\_State \*L, lua\_Hook f, int mask, int count);
 
 ### `lua_setlocal`
 
-\[-(0|1), +0, –\]
+[-(0|1), +0, –]
 
-const char \*lua\_setlocal (lua\_State \*L, const lua\_Debug \*ar, int n);
+const char *lua_setlocal (lua_State *L, const lua_Debug *ar, int n);
 
 设置给定活动记录中的局部变量的值。 参数 `ar` 与 `n` 和 [`lua_getlocal`][282] 中的一样 （参见 [`lua_getlocal`][283] ）。 [`lua_setlocal`][284]
 把栈顶的值赋给变量然后返回变量的名字。 它会将值从栈顶弹出。
@@ -2706,9 +2706,9 @@ const char \*lua\_setlocal (lua\_State \*L, const lua\_Debug \*ar, int n);
 
 ### `lua_setupvalue`
 
-\[-(0|1), +0, –\]
+[-(0|1), +0, –]
 
-const char \*lua\_setupvalue (lua\_State \*L, int funcindex, int n);
+const char *lua_setupvalue (lua_State *L, int funcindex, int n);
 
 设置闭包上值的值。 它把栈顶的值弹出并赋于上值并返回上值的名字。 参数 `funcindex` 与 `n` 和 [`lua_getupvalue`][285] 中的一样 （参见 [`lua_getupvalue`][286] ）。
 
@@ -2718,9 +2718,9 @@ const char \*lua\_setupvalue (lua\_State \*L, int funcindex, int n);
 
 ### `lua_upvalueid`
 
-\[-0, +0, –\]
+[-0, +0, –]
 
-void \*lua\_upvalueid (lua\_State \*L, int funcindex, int n);
+void *lua_upvalueid (lua_State *L, int funcindex, int n);
 
 返回索引 `funcindex` 处的闭包中 编号为 `n` 的上值的一个唯一标识符。 参数 `funcindex` 与 `n` 和 [`lua_getupvalue`][287] 中的一样
 （参见 [`lua_getupvalue`][288] ）。 （但 `n` 不可以大于上值的数量）。
@@ -2731,9 +2731,9 @@ void \*lua\_upvalueid (lua\_State \*L, int funcindex, int n);
 
 ### `lua_upvaluejoin`
 
-\[-0, +0, –\]
+[-0, +0, –]
 
-void lua\_upvaluejoin (lua\_State \*L, int funcindex1, int n1, int funcindex2, int n2);
+void lua_upvaluejoin (lua_State *L, int funcindex1, int n1, int funcindex2, int n2);
 
 让索引 `funcindex1` 处的 Lua 闭包的第 `n1` 个上值 引用索引 `funcindex2` 处的 Lua 闭包的第 `n2` 个上值。
 
@@ -2759,9 +2759,9 @@ void lua\_upvaluejoin (lua\_State \*L, int funcindex1, int n1, int funcindex2, i
 
 ### `luaL_addchar`
 
-\[-?, +?, *e*\]
+[-?, +?, *e*]
 
-void luaL\_addchar (luaL\_Buffer \*B, char c);
+void luaL_addchar (luaL_Buffer *B, char c);
 
 向缓存 `B` （参见 [`luaL_Buffer`][289] ） 添加一个字节 `c`。
 
@@ -2769,9 +2769,9 @@ void luaL\_addchar (luaL\_Buffer \*B, char c);
 
 ### `luaL_addlstring`
 
-\[-?, +?, *e*\]
+[-?, +?, *e*]
 
-void luaL\_addlstring (luaL\_Buffer \*B, const char \*s, size\_t l);
+void luaL_addlstring (luaL_Buffer *B, const char *s, size_t l);
 
 向缓存 `B` （参见 [`luaL_Buffer`][290] ） 添加一个长度为 `l` 的字符串 `s`。 这个字符串可以包含零。
 
@@ -2779,9 +2779,9 @@ void luaL\_addlstring (luaL\_Buffer \*B, const char \*s, size\_t l);
 
 ### `luaL_addsize`
 
-\[-?, +?, *e*\]
+[-?, +?, *e*]
 
-void luaL\_addsize (luaL\_Buffer \*B, size\_t n);
+void luaL_addsize (luaL_Buffer *B, size_t n);
 
 向缓存 `B` （参见 [`luaL_Buffer`][291] ） 添加一个已在之前复制到缓冲区（参见 [`luaL_prepbuffer`][292]） 的长度为 `n` 的字符串。
 
@@ -2789,9 +2789,9 @@ void luaL\_addsize (luaL\_Buffer \*B, size\_t n);
 
 ### `luaL_addstring`
 
-\[-?, +?, *e*\]
+[-?, +?, *e*]
 
-void luaL\_addstring (luaL\_Buffer \*B, const char \*s);
+void luaL_addstring (luaL_Buffer *B, const char *s);
 
 向缓存 `B` （参见 [`luaL_Buffer`][293] ） 添加一个零结尾的字符串 `s`。
 
@@ -2799,9 +2799,9 @@ void luaL\_addstring (luaL\_Buffer \*B, const char \*s);
 
 ### `luaL_addvalue`
 
-\[-1, +?, *e*\]
+[-1, +?, *e*]
 
-void luaL\_addvalue (luaL\_Buffer \*B);
+void luaL_addvalue (luaL_Buffer *B);
 
 向缓存 `B` （参见 [`luaL_Buffer`][294] ） 添加栈顶的一个值，随后将其弹出。
 
@@ -2811,9 +2811,9 @@ void luaL\_addvalue (luaL\_Buffer \*B);
 
 ### `luaL_argcheck`
 
-\[-0, +0, *v*\]
+[-0, +0, *v*]
 
-void luaL\_argcheck (lua\_State \*L, int cond, int arg, const char \*extramsg);
+void luaL_argcheck (lua_State *L, int cond, int arg, const char *extramsg);
 
 检查 `cond` 是否为真。 如果不为真，以标准信息形式抛出一个错误 （参见 [`luaL_argerror`][295]）。
 
@@ -2821,9 +2821,9 @@ void luaL\_argcheck (lua\_State \*L, int cond, int arg, const char \*extramsg);
 
 ### `luaL_argerror`
 
-\[-0, +0, *v*\]
+[-0, +0, *v*]
 
-int luaL\_argerror (lua\_State \*L, int arg, const char \*extramsg);
+int luaL_argerror (lua_State *L, int arg, const char *extramsg);
 
 抛出一个错误报告调用的 C 函数的第 `arg` 个参数的问题。 它使用下列标准信息并包含了一段 `extramsg` 作为注解：
 
@@ -2835,7 +2835,7 @@ int luaL\_argerror (lua\_State \*L, int arg, const char \*extramsg);
 
 ### `luaL_Buffer`
 
-typedef struct luaL\_Buffer luaL\_Buffer;
+typedef struct luaL_Buffer luaL_Buffer;
 
 *字符串缓存* 的类型。
 
@@ -2860,9 +2860,9 @@ typedef struct luaL\_Buffer luaL\_Buffer;
 
 ### `luaL_buffinit`
 
-\[-0, +0, –\]
+[-0, +0, –]
 
-void luaL\_buffinit (lua\_State \*L, luaL\_Buffer \*B);
+void luaL_buffinit (lua_State *L, luaL_Buffer *B);
 
 初始化缓存 `B`。 这个函数不会分配任何空间； 缓存必须以一个变量的形式声明 （参见 [`luaL_Buffer`][300]）。
 
@@ -2870,9 +2870,9 @@ void luaL\_buffinit (lua\_State \*L, luaL\_Buffer \*B);
 
 ### `luaL_buffinitsize`
 
-\[-?, +?, *e*\]
+[-?, +?, *e*]
 
-char \*luaL\_buffinitsize (lua\_State \*L, luaL\_Buffer \*B, size\_t sz);
+char *luaL_buffinitsize (lua_State *L, luaL_Buffer *B, size_t sz);
 
 等价于调用序列 [`luaL_buffinit`][301]， [`luaL_prepbuffsize`][302]。
 
@@ -2880,9 +2880,9 @@ char \*luaL\_buffinitsize (lua\_State \*L, luaL\_Buffer \*B, size\_t sz);
 
 ### `luaL_callmeta`
 
-\[-0, +(0|1), *e*\]
+[-0, +(0|1), *e*]
 
-int luaL\_callmeta (lua\_State \*L, int obj, const char \*e);
+int luaL_callmeta (lua_State *L, int obj, const char *e);
 
 调用一个元方法。
 
@@ -2892,9 +2892,9 @@ int luaL\_callmeta (lua\_State \*L, int obj, const char \*e);
 
 ### `luaL_checkany`
 
-\[-0, +0, *v*\]
+[-0, +0, *v*]
 
-void luaL\_checkany (lua\_State \*L, int arg);
+void luaL_checkany (lua_State *L, int arg);
 
 检查函数在 `arg` 位置是否有任何类型（包括 **nil**）的参数。
 
@@ -2902,9 +2902,9 @@ void luaL\_checkany (lua\_State \*L, int arg);
 
 ### `luaL_checkinteger`
 
-\[-0, +0, *v*\]
+[-0, +0, *v*]
 
-lua\_Integer luaL\_checkinteger (lua\_State \*L, int arg);
+lua_Integer luaL_checkinteger (lua_State *L, int arg);
 
 检查函数的第 `arg` 个参数是否是一个 整数（或是可以被转换为一个整数） 并以 [`lua_Integer`][303] 类型返回这个整数值。
 
@@ -2912,9 +2912,9 @@ lua\_Integer luaL\_checkinteger (lua\_State \*L, int arg);
 
 ### `luaL_checklstring`
 
-\[-0, +0, *v*\]
+[-0, +0, *v*]
 
-const char \*luaL\_checklstring (lua\_State \*L, int arg, size\_t \*l);
+const char *luaL_checklstring (lua_State *L, int arg, size_t *l);
 
 检查函数的第 `arg` 个参数是否是一个 字符串，并返回该字符串； 如果 `l` 不为 `NULL` ， 将字符串的长度填入 `*l`。
 
@@ -2924,9 +2924,9 @@ const char \*luaL\_checklstring (lua\_State \*L, int arg, size\_t \*l);
 
 ### `luaL_checknumber`
 
-\[-0, +0, *v*\]
+[-0, +0, *v*]
 
-lua\_Number luaL\_checknumber (lua\_State \*L, int arg);
+lua_Number luaL_checknumber (lua_State *L, int arg);
 
 检查函数的第 `arg` 个参数是否是一个 数字，并返回这个数字。
 
@@ -2934,9 +2934,9 @@ lua\_Number luaL\_checknumber (lua\_State \*L, int arg);
 
 ### `luaL_checkoption`
 
-\[-0, +0, *v*\]
+[-0, +0, *v*]
 
-int luaL\_checkoption (lua\_State \*L, int arg, const char \*def, const char \*const lst\[\]);
+int luaL_checkoption (lua_State *L, int arg, const char *def, const char *const lst[]);
 
 检查函数的第 `arg` 个参数是否是一个 字符串，并在数组 `lst` （比如是零结尾的字符串数组） 中查找这个字符串。 返回匹配到的字符串在数组中的索引号。 如果参数不是字符串，或是字符串在数组中匹配不到，都将抛出错误。
 
@@ -2948,9 +2948,9 @@ int luaL\_checkoption (lua\_State \*L, int arg, const char \*def, const char \*c
 
 ### `luaL_checkstack`
 
-\[-0, +0, *v*\]
+[-0, +0, *v*]
 
-void luaL\_checkstack (lua\_State \*L, int sz, const char \*msg);
+void luaL_checkstack (lua_State *L, int sz, const char *msg);
 
 将栈空间扩展到 `top + sz` 个元素。 如果扩展不了，则抛出一个错误。 `msg` 是用于错误消息的额外文本 （`NULL` 表示不需要额外文本）。
 
@@ -2958,9 +2958,9 @@ void luaL\_checkstack (lua\_State \*L, int sz, const char \*msg);
 
 ### `luaL_checkstring`
 
-\[-0, +0, *v*\]
+[-0, +0, *v*]
 
-const char \*luaL\_checkstring (lua\_State \*L, int arg);
+const char *luaL_checkstring (lua_State *L, int arg);
 
 检查函数的第 `arg` 个参数是否是一个 字符串并返回这个字符串。
 
@@ -2970,9 +2970,9 @@ const char \*luaL\_checkstring (lua\_State \*L, int arg);
 
 ### `luaL_checktype`
 
-\[-0, +0, *v*\]
+[-0, +0, *v*]
 
-void luaL\_checktype (lua\_State \*L, int arg, int t);
+void luaL_checktype (lua_State *L, int arg, int t);
 
 检查函数的第 `arg` 个参数的类型是否是 `t`。 参见 [`lua_type`][306] 查阅类型 `t` 的编码。
 
@@ -2980,9 +2980,9 @@ void luaL\_checktype (lua\_State \*L, int arg, int t);
 
 ### `luaL_checkudata`
 
-\[-0, +0, *v*\]
+[-0, +0, *v*]
 
-void \*luaL\_checkudata (lua\_State \*L, int arg, const char \*tname);
+void *luaL_checkudata (lua_State *L, int arg, const char *tname);
 
 检查函数的第 `arg` 个参数是否是一个类型为 `tname` 的用户数据 （参见 [`luaL_newmetatable`][307] )。 它会返回该用户数据的地址 （参见 [`lua_touserdata`][308]）。
 
@@ -2990,9 +2990,9 @@ void \*luaL\_checkudata (lua\_State \*L, int arg, const char \*tname);
 
 ### `luaL_checkversion`
 
-\[-0, +0, –\]
+[-0, +0, –]
 
-void luaL\_checkversion (lua\_State \*L);
+void luaL_checkversion (lua_State *L);
 
 检查调用它的内核是否是创建这个 Lua 状态机的内核。 以及调用它的代码是否使用了相同的 Lua 版本。 同时也检查调用它的内核与创建该 Lua 状态机的内核 是否使用了同一片地址空间。
 
@@ -3000,13 +3000,13 @@ void luaL\_checkversion (lua\_State \*L);
 
 ### `luaL_dofile`
 
-\[-0, +?, *e*\]
+[-0, +?, *e*]
 
-int luaL\_dofile (lua\_State \*L, const char \*filename);
+int luaL_dofile (lua_State *L, const char *filename);
 
 加载并运行指定的文件。 它是用下列宏定义出来：
 
-     (luaL\_loadfile(L, filename) || lua\_pcall(L, 0, LUA\_MULTRET, 0))
+     (luaL_loadfile(L, filename) || lua_pcall(L, 0, LUA_MULTRET, 0))
 
 如果没有错误，函数返回假； 有错则返回真。
 
@@ -3014,13 +3014,13 @@ int luaL\_dofile (lua\_State \*L, const char \*filename);
 
 ### `luaL_dostring`
 
-\[-0, +?, –\]
+[-0, +?, –]
 
-int luaL\_dostring (lua\_State \*L, const char \*str);
+int luaL_dostring (lua_State *L, const char *str);
 
 加载并运行指定的字符串。 它是用下列宏定义出来：
 
-     (luaL\_loadstring(L, str) || lua\_pcall(L, 0, LUA\_MULTRET, 0))
+     (luaL_loadstring(L, str) || lua_pcall(L, 0, LUA_MULTRET, 0))
 
 如果没有错误，函数返回假； 有错则返回真。
 
@@ -3028,9 +3028,9 @@ int luaL\_dostring (lua\_State \*L, const char \*str);
 
 ### `luaL_error`
 
-\[-0, +0, *v*\]
+[-0, +0, *v*]
 
-int luaL\_error (lua\_State \*L, const char \*fmt, ...);
+int luaL_error (lua_State *L, const char *fmt, ...);
 
 抛出一个错误。 错误消息的格式由 `fmt` 给出。 后面需提供若干参数， 这些参数遵循 [`lua_pushfstring`][309] 中的规则。 如果能获得相关信息，它还会在消息前面加上错误发生时的文件名及行号。
 
@@ -3040,9 +3040,9 @@ int luaL\_error (lua\_State \*L, const char \*fmt, ...);
 
 ### `luaL_execresult`
 
-\[-0, +3, *e*\]
+[-0, +3, *e*]
 
-int luaL\_execresult (lua\_State \*L, int stat);
+int luaL_execresult (lua_State *L, int stat);
 
 这个函数用于生成标准库中和进程相关函数的返回值。 （指 [`os.execute`][310] 和 [`io.close`][311]）。
 
@@ -3050,9 +3050,9 @@ int luaL\_execresult (lua\_State \*L, int stat);
 
 ### `luaL_fileresult`
 
-\[-0, +(1|3), *e*\]
+[-0, +(1|3), *e*]
 
-int luaL\_fileresult (lua\_State \*L, int stat, const char \*fname);
+int luaL_fileresult (lua_State *L, int stat, const char *fname);
 
 这个函数用于生成标准库中和文件相关的函数的返回值。 （指 ([`io.open`][312]， [`os.rename`][313]， [`file:seek`][314]，等。)。
 
@@ -3060,9 +3060,9 @@ int luaL\_fileresult (lua\_State \*L, int stat, const char \*fname);
 
 ### `luaL_getmetafield`
 
-\[-0, +(0|1), *e*\]
+[-0, +(0|1), *e*]
 
-int luaL\_getmetafield (lua\_State \*L, int obj, const char \*e);
+int luaL_getmetafield (lua_State *L, int obj, const char *e);
 
 将索引 `obj` 处对象的元表中 `e` 域的值压栈。 如果该对象没有元表，或是该元表没有相关域， 此函数什么也不会压栈并返回 `LUA_TNIL`。
 
@@ -3070,9 +3070,9 @@ int luaL\_getmetafield (lua\_State \*L, int obj, const char \*e);
 
 ### `luaL_getmetatable`
 
-\[-0, +1, –\]
+[-0, +1, –]
 
-int luaL\_getmetatable (lua\_State \*L, const char \*tname);
+int luaL_getmetatable (lua_State *L, const char *tname);
 
 将注册表中 `tname` 对应的元表 （参见 [`luaL_newmetatable`][315]）压栈。 如果没有 `tname` 对应的元表，则将 **nil** 压栈并返回假。
 
@@ -3080,9 +3080,9 @@ int luaL\_getmetatable (lua\_State \*L, const char \*tname);
 
 ### `luaL_getsubtable`
 
-\[-0, +1, *e*\]
+[-0, +1, *e*]
 
-int luaL\_getsubtable (lua\_State \*L, int idx, const char \*fname);
+int luaL_getsubtable (lua_State *L, int idx, const char *fname);
 
 确保 `t[fname]` 是一张表，并将这张表压栈。 这里的 `t` 指索引 `idx` 处的值。 如果它原来就是一张表，返回真； 否则为它创建一张新表，返回假。
 
@@ -3090,9 +3090,9 @@ int luaL\_getsubtable (lua\_State \*L, int idx, const char \*fname);
 
 ### `luaL_gsub`
 
-\[-0, +1, *e*\]
+[-0, +1, *e*]
 
-const char \*luaL\_gsub (lua\_State \*L, const char \*s, const char \*p, const char \*r);
+const char *luaL_gsub (lua_State *L, const char *s, const char *p, const char *r);
 
 将字符串 `s` 生成一个副本， 并将其中的所有字符串 `p` 都替换为字符串 `r` 。 将结果串压栈并返回它。
 
@@ -3100,9 +3100,9 @@ const char \*luaL\_gsub (lua\_State \*L, const char \*s, const char \*p, const c
 
 ### `luaL_len`
 
-\[-0, +0, *e*\]
+[-0, +0, *e*]
 
-lua\_Integer luaL\_len (lua\_State \*L, int index);
+lua_Integer luaL_len (lua_State *L, int index);
 
 以数字形式返回给定索引处值的“长度”； 它等价于在 Lua 中调用 '`#`' 的操作 （参见 [§3.4.7][316]）。 如果操作结果不是一个整数，则抛出一个错误。 （这种情况只发生在触发元方法时。）
 
@@ -3110,9 +3110,9 @@ lua\_Integer luaL\_len (lua\_State \*L, int index);
 
 ### `luaL_loadbuffer`
 
-\[-0, +1, –\]
+[-0, +1, –]
 
-int luaL\_loadbuffer (lua\_State \*L, const char \*buff, size\_t sz, const char \*name);
+int luaL_loadbuffer (lua_State *L, const char *buff, size_t sz, const char *name);
 
 等价于 [`luaL_loadbufferx`][317]， 其 `mode` 参数等于 `NULL`。
 
@@ -3120,9 +3120,9 @@ int luaL\_loadbuffer (lua\_State \*L, const char \*buff, size\_t sz, const char 
 
 ### `luaL_loadbufferx`
 
-\[-0, +1, –\]
+[-0, +1, –]
 
-int luaL\_loadbufferx (lua\_State \*L, const char \*buff, size\_t sz, const char \*name, const char \*mode);
+int luaL_loadbufferx (lua_State *L, const char *buff, size_t sz, const char *name, const char *mode);
 
 把一段缓存加载为一个 Lua 代码块。 这个函数使用 [`lua_load`][318] 来加载 `buff` 指向的长度为 `sz` 的内存区。
 
@@ -3132,9 +3132,9 @@ int luaL\_loadbufferx (lua\_State \*L, const char \*buff, size\_t sz, const char
 
 ### `luaL_loadfile`
 
-\[-0, +1, *e*\]
+[-0, +1, *e*]
 
-int luaL\_loadfile (lua\_State \*L, const char \*filename);
+int luaL_loadfile (lua_State *L, const char *filename);
 
 等价于 [`luaL_loadfilex`][321]， 其 `mode` 参数等于 `NULL`。
 
@@ -3142,9 +3142,9 @@ int luaL\_loadfile (lua\_State \*L, const char \*filename);
 
 ### `luaL_loadfilex`
 
-\[-0, +1, *e*\]
+[-0, +1, *e*]
 
-int luaL\_loadfilex (lua\_State \*L, const char \*filename, const char \*mode);
+int luaL_loadfilex (lua_State *L, const char *filename, const char *mode);
 
 把一个文件加载为 Lua 代码块。 这个函数使用 [`lua_load`][322] 加载文件中的数据。 代码块的名字被命名为 `filename`。 如果 `filename` 为 `NULL`， 它从标准输入加载。
 如果文件的第一行以 `#` 打头，则忽略这一行。
@@ -3159,9 +3159,9 @@ int luaL\_loadfilex (lua\_State \*L, const char \*filename, const char \*mode);
 
 ### `luaL_loadstring`
 
-\[-0, +1, –\]
+[-0, +1, –]
 
-int luaL\_loadstring (lua\_State \*L, const char \*s);
+int luaL_loadstring (lua_State *L, const char *s);
 
 将一个字符串加载为 Lua 代码块。 这个函数使用 [`lua_load`][326] 加载一个零结尾的字符串 `s`。
 
@@ -3173,15 +3173,15 @@ int luaL\_loadstring (lua\_State \*L, const char \*s);
 
 ### `luaL_newlib`
 
-\[-0, +1, *e*\]
+[-0, +1, *e*]
 
-void luaL\_newlib (lua\_State \*L, const luaL\_Reg l\[\]);
+void luaL_newlib (lua_State *L, const luaL_Reg l[]);
 
 创建一张新的表，并把列表 `l` 中的函数注册进去。
 
 它是用下列宏实现的：
 
-     (luaL\_newlibtable(L,l), luaL\_setfuncs(L,l,0))
+     (luaL_newlibtable(L,l), luaL_setfuncs(L,l,0))
 
 数组 `l` 必须是一个数组，而不能是一个指针。
 
@@ -3189,9 +3189,9 @@ void luaL\_newlib (lua\_State \*L, const luaL\_Reg l\[\]);
 
 ### `luaL_newlibtable`
 
-\[-0, +1, *e*\]
+[-0, +1, *e*]
 
-void luaL\_newlibtable (lua\_State \*L, const luaL\_Reg l\[\]);
+void luaL_newlibtable (lua_State *L, const luaL_Reg l[]);
 
 创建一张新的表，并预分配足够保存下数组 `l` 内容的空间（但不填充）。 这是给 [`luaL_setfuncs`][329] 一起用的 （参见 [`luaL_newlib`][330]）。
 
@@ -3201,9 +3201,9 @@ void luaL\_newlibtable (lua\_State \*L, const luaL\_Reg l\[\]);
 
 ### `luaL_newmetatable`
 
-\[-0, +1, *e*\]
+[-0, +1, *e*]
 
-int luaL\_newmetatable (lua\_State \*L, const char \*tname);
+int luaL_newmetatable (lua_State *L, const char *tname);
 
 如果注册表中已存在键 `tname`，返回 0 。 否则， 为用户数据的元表创建一张新表。 向这张表加入 `__name = tname` 键值对， 并将 `[tname] = new table` 添加到注册表中， 返回 1 。
 （`__name`项可用于一些错误输出函数。）
@@ -3214,9 +3214,9 @@ int luaL\_newmetatable (lua\_State \*L, const char \*tname);
 
 ### `luaL_newstate`
 
-\[-0, +0, –\]
+[-0, +0, –]
 
-lua\_State \*luaL\_newstate (void);
+lua_State *luaL_newstate (void);
 
 创建一个新的 Lua 状态机。 它以一个基于标准 C 的 `realloc` 函数实现的内存分配器 调用 [`lua_newstate`][331] 。 并把可打印一些出错信息到标准错误输出的 panic 函数（参见 [§4.6][332]
 ） 设置好，用于处理致命错误。
@@ -3227,9 +3227,9 @@ lua\_State \*luaL\_newstate (void);
 
 ### `luaL_openlibs`
 
-\[-0, +0, *e*\]
+[-0, +0, *e*]
 
-void luaL\_openlibs (lua\_State \*L);
+void luaL_openlibs (lua_State *L);
 
 打开指定状态机中的所有 Lua 标准库。
 
@@ -3237,9 +3237,9 @@ void luaL\_openlibs (lua\_State \*L);
 
 ### `luaL_optinteger`
 
-\[-0, +0, *v*\]
+[-0, +0, *v*]
 
-lua\_Integer luaL\_optinteger (lua\_State \*L, int arg, lua\_Integer d);
+lua_Integer luaL_optinteger (lua_State *L, int arg, lua_Integer d);
 
 如果函数的第 `arg` 个参数是一个 整数（或可以转换为一个整数）， 返回该整数。 若该参数不存在或是 **nil**， 返回 `d`。 除此之外的情况，抛出错误。
 
@@ -3247,9 +3247,9 @@ lua\_Integer luaL\_optinteger (lua\_State \*L, int arg, lua\_Integer d);
 
 ### `luaL_optlstring`
 
-\[-0, +0, *v*\]
+[-0, +0, *v*]
 
-const char \*luaL\_optlstring (lua\_State \*L, int arg, const char \*d, size\_t \*l);
+const char *luaL_optlstring (lua_State *L, int arg, const char *d, size_t *l);
 
 如果函数的第 `arg` 个参数是一个 字符串，返回该字符串。 若该参数不存在或是 **nil**， 返回 `d`。 除此之外的情况，抛出错误。
 
@@ -3259,9 +3259,9 @@ const char \*luaL\_optlstring (lua\_State \*L, int arg, const char \*d, size\_t 
 
 ### `luaL_optnumber`
 
-\[-0, +0, *v*\]
+[-0, +0, *v*]
 
-lua\_Number luaL\_optnumber (lua\_State \*L, int arg, lua\_Number d);
+lua_Number luaL_optnumber (lua_State *L, int arg, lua_Number d);
 
 如果函数的第 `arg` 个参数是一个 数字，返回该数字。 若该参数不存在或是 **nil**， 返回 `d`。 除此之外的情况，抛出错误。
 
@@ -3269,9 +3269,9 @@ lua\_Number luaL\_optnumber (lua\_State \*L, int arg, lua\_Number d);
 
 ### `luaL_optstring`
 
-\[-0, +0, *v*\]
+[-0, +0, *v*]
 
-const char \*luaL\_optstring (lua\_State \*L, int arg, const char \*d);
+const char *luaL_optstring (lua_State *L, int arg, const char *d);
 
 如果函数的第 `arg` 个参数是一个 字符串，返回该字符串。 若该参数不存在或是 **nil**， 返回 `d`。 除此之外的情况，抛出错误。
 
@@ -3279,9 +3279,9 @@ const char \*luaL\_optstring (lua\_State \*L, int arg, const char \*d);
 
 ### `luaL_prepbuffer`
 
-\[-?, +?, *e*\]
+[-?, +?, *e*]
 
-char \*luaL\_prepbuffer (luaL\_Buffer \*B);
+char *luaL_prepbuffer (luaL_Buffer *B);
 
 等价于 [`luaL_prepbuffsize`][333]， 其预定义大小为 `LUAL_BUFFERSIZE`。
 
@@ -3289,9 +3289,9 @@ char \*luaL\_prepbuffer (luaL\_Buffer \*B);
 
 ### `luaL_prepbuffsize`
 
-\[-?, +?, *e*\]
+[-?, +?, *e*]
 
-char \*luaL\_prepbuffsize (luaL\_Buffer \*B, size\_t sz);
+char *luaL_prepbuffsize (luaL_Buffer *B, size_t sz);
 
 返回一段大小为 `sz` 的空间地址。 你可以将字符串复制其中以加到缓存 `B` 内 （参见 [`luaL_Buffer`][334]）。 将字符串复制其中后，你必须调用 [`luaL_addsize`][335]
 传入字符串的大小，才会真正把它加入缓存。
@@ -3300,9 +3300,9 @@ char \*luaL\_prepbuffsize (luaL\_Buffer \*B, size\_t sz);
 
 ### `luaL_pushresult`
 
-\[-?, +1, *e*\]
+[-?, +1, *e*]
 
-void luaL\_pushresult (luaL\_Buffer \*B);
+void luaL_pushresult (luaL_Buffer *B);
 
 结束对缓存 `B` 的使用，将最终的字符串留在栈顶。
 
@@ -3310,9 +3310,9 @@ void luaL\_pushresult (luaL\_Buffer \*B);
 
 ### `luaL_pushresultsize`
 
-\[-?, +1, *e*\]
+[-?, +1, *e*]
 
-void luaL\_pushresultsize (luaL\_Buffer \*B, size\_t sz);
+void luaL_pushresultsize (luaL_Buffer *B, size_t sz);
 
 等价于 [`luaL_addsize`][336]，[`luaL_pushresult`][337]。
 
@@ -3320,9 +3320,9 @@ void luaL\_pushresultsize (luaL\_Buffer \*B, size\_t sz);
 
 ### `luaL_ref`
 
-\[-1, +0, *e*\]
+[-1, +0, *e*]
 
-int luaL\_ref (lua\_State \*L, int t);
+int luaL_ref (lua_State *L, int t);
 
 针对栈顶的对象，创建并返回一个在索引 `t` 指向的表中的 *引用* （最后会弹出栈顶对象）。
 
@@ -3335,7 +3335,7 @@ int luaL\_ref (lua\_State \*L, int t);
 
 ### `luaL_Reg`
 
-typedef struct luaL\_Reg { const char \*name; lua\_CFunction func; } luaL\_Reg;
+typedef struct luaL_Reg { const char *name; lua_CFunction func; } luaL_Reg;
 
 用于 [`luaL_setfuncs`][342] 注册函数的数组类型。 `name` 指函数名，`func` 是函数指针。 任何 [`luaL_Reg`][343] 数组必须以一对 `name` 与 `func` 皆为 `NULL`
 结束。
@@ -3344,9 +3344,9 @@ typedef struct luaL\_Reg { const char \*name; lua\_CFunction func; } luaL\_Reg;
 
 ### `luaL_requiref`
 
-\[-0, +1, *e*\]
+[-0, +1, *e*]
 
-void luaL\_requiref (lua\_State \*L, const char \*modname, lua\_CFunction openf, int glb);
+void luaL_requiref (lua_State *L, const char *modname, lua_CFunction openf, int glb);
 
 如果 `modname` 不在 [`package.loaded`][344] 中， 则调用函数 `openf` ，并传入字符串 `modname`。 将其返回值置入 `package.loaded[modname]`。
 这个行为好似该函数通过 [`require`][345] 调用过一样。
@@ -3359,9 +3359,9 @@ void luaL\_requiref (lua\_State \*L, const char \*modname, lua\_CFunction openf,
 
 ### `luaL_setfuncs`
 
-\[-nup, +0, *e*\]
+[-nup, +0, *e*]
 
-void luaL\_setfuncs (lua\_State \*L, const luaL\_Reg \*l, int nup);
+void luaL_setfuncs (lua_State *L, const luaL_Reg *l, int nup);
 
 把数组 `l` 中的所有函数 （参见 [`luaL_Reg`][346]） 注册到栈顶的表中（该表在可选的上值之下，见下面的解说）。
 
@@ -3371,9 +3371,9 @@ void luaL\_setfuncs (lua\_State \*L, const luaL\_Reg \*l, int nup);
 
 ### `luaL_setmetatable`
 
-\[-0, +0, –\]
+[-0, +0, –]
 
-void luaL\_setmetatable (lua\_State \*L, const char \*tname);
+void luaL_setmetatable (lua_State *L, const char *tname);
 
 将注册表中 `tname` 关联元表 （参见 [`luaL_newmetatable`][347]） 设为栈顶对象的元表。
 
@@ -3381,7 +3381,7 @@ void luaL\_setmetatable (lua\_State \*L, const char \*tname);
 
 ### `luaL_Stream`
 
-typedef struct luaL\_Stream { FILE \*f; lua\_CFunction closef; } luaL\_Stream;
+typedef struct luaL_Stream { FILE *f; lua_CFunction closef; } luaL_Stream;
 
 标准输入输出库中用到的标准文件句柄结构。
 
@@ -3395,9 +3395,9 @@ Lua 函数。 该函数将收到一个参数，即文件句柄。 它需要返�
 
 ### `luaL_testudata`
 
-\[-0, +0, *e*\]
+[-0, +0, *e*]
 
-void \*luaL\_testudata (lua\_State \*L, int arg, const char \*tname);
+void *luaL_testudata (lua_State *L, int arg, const char *tname);
 
 此函数和 [`luaL_checkudata`][349] 类似。 但它在测试失败时会返回 `NULL` 而不是抛出错误。
 
@@ -3405,9 +3405,9 @@ void \*luaL\_testudata (lua\_State \*L, int arg, const char \*tname);
 
 ### `luaL_tolstring`
 
-\[-0, +1, *e*\]
+[-0, +1, *e*]
 
-const char \*luaL\_tolstring (lua\_State \*L, int idx, size\_t \*len);
+const char *luaL_tolstring (lua_State *L, int idx, size_t *len);
 
 将给定索引处的 Lua 值转换为一个相应格式的 C 字符串。 结果串不仅会压栈，还会由函数返回。 如果 `len` 不为 `NULL` ， 它还把字符串长度设到 `*len` 中。
 
@@ -3417,9 +3417,9 @@ const char \*luaL\_tolstring (lua\_State \*L, int idx, size\_t \*len);
 
 ### `luaL_traceback`
 
-\[-0, +1, *e*\]
+[-0, +1, *e*]
 
-void luaL\_traceback (lua\_State \*L, lua\_State \*L1, const char \*msg, int level);
+void luaL_traceback (lua_State *L, lua_State *L1, const char *msg, int level);
 
 将栈 `L1` 的栈回溯信息压栈。 如果 `msg` 不为 `NULL` ，它会附加到栈回溯信息之前。 `level` 参数指明从第几层开始做栈回溯。
 
@@ -3427,9 +3427,9 @@ void luaL\_traceback (lua\_State \*L, lua\_State \*L1, const char \*msg, int lev
 
 ### `luaL_typename`
 
-\[-0, +0, –\]
+[-0, +0, –]
 
-const char \*luaL\_typename (lua\_State \*L, int index);
+const char *luaL_typename (lua_State *L, int index);
 
 返回给定索引处值的类型名。
 
@@ -3437,9 +3437,9 @@ const char \*luaL\_typename (lua\_State \*L, int index);
 
 ### `luaL_unref`
 
-\[-0, +0, –\]
+[-0, +0, –]
 
-void luaL\_unref (lua\_State \*L, int t, int ref);
+void luaL_unref (lua_State *L, int t, int ref);
 
 释放索引 `t` 处表的 `ref` 引用对象 （参见 [`luaL_ref`][350] ）。 此条目会从表中移除以让其引用的对象可被垃圾收集。 而引用 `ref` 也被回收再次使用。
 
@@ -3449,9 +3449,9 @@ void luaL\_unref (lua\_State \*L, int t, int ref);
 
 ### `luaL_where`
 
-\[-0, +1, *e*\]
+[-0, +1, *e*]
 
-void luaL\_where (lua\_State \*L, int lvl);
+void luaL_where (lua_State *L, int lvl);
 
 将一个用于表示 `lvl` 层栈的控制点位置的字符串压栈。 这个字符串遵循下面的格式：
 
@@ -3956,7 +3956,7 @@ Lua 用四个查找器函数初始化这张表。
      t = {}
      s = "from=world, to=Lua"
      for k, v in string.gmatch(s, "(%w+)=(%w+)") do
-       t\[k\] = v
+       t[k] = v
      end
 
 对这个函数来说，模板前开始的 '`^`' 不会当成锚点。因为这样会阻止迭代。
@@ -3987,7 +3987,7 @@ Lua 用四个查找器函数初始化这张表。
      x = string.gsub("hello world", "%w+", "%0 %0", 1)
      --> x="hello hello world"
      
-     x = string.gsub("hello world from Lua", "(%w+)%s\*(%w+)", "%2 %1")
+     x = string.gsub("hello world from Lua", "(%w+)%s*(%w+)", "%2 %1")
      --> x="world hello Lua from"
      
      x = string.gsub("home = $HOME, user = $USER", "%$(%w+)", os.getenv)
@@ -4280,7 +4280,7 @@ Lua 中的匹配模式直接用常规的字符串来描述。 它用于模式匹
 
 返回列表中的元素。 这个函数等价于
 
-     return list\[i\], list\[i+1\], ···, list\[j\]
+     return list[i], list[i+1], ···, list[j]
 
 `i` 默认为 1 ，`j` 默认为 `#list`。
 
@@ -4409,7 +4409,7 @@ Lua 中的匹配模式直接用常规的字符串来描述。 它用于模式匹
 
 ### `math.random ([m [, n]])`
 
-当不带参数调用时， 返回一个 *\[0,1)* 区间内一致分布的浮点伪随机数。 当以两个整数 `m` 与 `n` 调用时， `math.random` 返回一个 *\[m, n\]* 区间 内一致分布的整数伪随机数。 （值 *n-m*
+当不带参数调用时， 返回一个 *[0,1)* 区间内一致分布的浮点伪随机数。 当以两个整数 `m` 与 `n` 调用时， `math.random` 返回一个 *[m, n]* 区间 内一致分布的整数伪随机数。 （值 *n-m*
 不能是负数，且必须在 Lua 整数的表示范围内。） 调用 `math.random(n)` 等价于 `math.random(1,n)`。
 
 这个函数是对 C 提供的位随机数函数的封装。 对其统计属性不作担保。
@@ -4881,7 +4881,7 @@ I/O 库提供了两套不同风格的文件处理接口。 第一种风格使用
 
 虽然 Lua 被设计成一门扩展式语言，用于嵌入一个宿主程序。 但经常也会被当成独立语言使用。 独立版的 Lua 语言解释器随标准包发布，就叫 `lua`。 独立版解释器保留了所有的标准库及调试库。 其命令行用法为：
 
-     lua \[options\] \[script \[args\]\]
+     lua [options] [script [args]]
 
 选项有：
 
@@ -4914,13 +4914,13 @@ I/O 库提供了两套不同风格的文件处理接口。 第一种风格使用
 
 这张表是这样的：
 
-     arg = { \[-2\] = "lua", \[-1\] = "-la",
-             \[0\] = "b.lua",
-             \[1\] = "t1", \[2\] = "t2" }
+     arg = { [-2] = "lua", [-1] = "-la",
+             [0] = "b.lua",
+             [1] = "t1", [2] = "t2" }
 
 如果调用中没提供脚本名， 解释器的名字就放在索引 0 处，后面接着其它参数。 例如，调用
 
-     $ lua -e "print(arg\[1\])"
+     $ lua -e "print(arg[1])"
 
 将打印出 "`-e`" 。 如果提供了脚本名， 就以 `arg[1]`, ···, `arg[#arg]` 为参数调用脚本。 （和 Lua 所有的代码块一样， 脚本被编译成一个可变参数函数。）
 
@@ -4989,12 +4989,12 @@ Lua 的版本更替总是会修改一些 C API 并涉及源代码的改变。 �
 
 # 9 – Lua 的完整语法
 
-这是一份采用扩展 BNF 描述的 Lua 完整语法。 在扩展 BNF 中， {A} 表示 0 或多个 A ， \[A\] 表示一个可选的 A 。 （操作符优先级，参见 [§3.4.8][476]；
+这是一份采用扩展 BNF 描述的 Lua 完整语法。 在扩展 BNF 中， {A} 表示 0 或多个 A ， [A] 表示一个可选的 A 。 （操作符优先级，参见 [§3.4.8][476]；
 对于最终符号，名字，数字，字符串字面量的解释，参见 [§3.1][477]。）
 
 	chunk ::= block
 
-	block ::= {stat} \[retstat\]
+	block ::= {stat} [retstat]
 
 	stat ::=  ‘**;**’ | 
 		 varlist ‘**\=**’ explist | 
@@ -5005,22 +5005,22 @@ Lua 的版本更替总是会修改一些 C API 并涉及源代码的改变。 �
 		 **do** block **end** | 
 		 **while** exp **do** block **end** | 
 		 **repeat** block **until** exp | 
-		 **if** exp **then** block {**elseif** exp **then** block} \[**else** block\] **end** | 
-		 **for** Name ‘**\=**’ exp ‘**,**’ exp \[‘**,**’ exp\] **do** block **end** | 
+		 **if** exp **then** block {**elseif** exp **then** block} [**else** block] **end** | 
+		 **for** Name ‘**\=**’ exp ‘**,**’ exp [‘**,**’ exp] **do** block **end** | 
 		 **for** namelist **in** explist **do** block **end** | 
 		 **function** funcname funcbody | 
 		 **local** **function** Name funcbody | 
-		 **local** namelist \[‘**\=**’ explist\] 
+		 **local** namelist [‘**\=**’ explist] 
 
-	retstat ::= **return** \[explist\] \[‘**;**’\]
+	retstat ::= **return** [explist] [‘**;**’]
 
 	label ::= ‘**::**’ Name ‘**::**’
 
-	funcname ::= Name {‘**.**’ Name} \[‘**:**’ Name\]
+	funcname ::= Name {‘**.**’ Name} [‘**:**’ Name]
 
 	varlist ::= var {‘**,**’ var}
 
-	var ::=  Name | prefixexp ‘**\[**’ exp ‘**\]**’ | prefixexp ‘**.**’ Name 
+	var ::=  Name | prefixexp ‘**[**’ exp ‘**]**’ | prefixexp ‘**.**’ Name 
 
 	namelist ::= Name {‘**,**’ Name}
 
@@ -5033,23 +5033,23 @@ Lua 的版本更替总是会修改一些 C API 并涉及源代码的改变。 �
 
 	functioncall ::=  prefixexp args | prefixexp ‘**:**’ Name args 
 
-	args ::=  ‘**(**’ \[explist\] ‘**)**’ | tableconstructor | LiteralString 
+	args ::=  ‘**(**’ [explist] ‘**)**’ | tableconstructor | LiteralString 
 
 	functiondef ::= **function** funcbody
 
-	funcbody ::= ‘**(**’ \[parlist\] ‘**)**’ block **end**
+	funcbody ::= ‘**(**’ [parlist] ‘**)**’ block **end**
 
-	parlist ::= namelist \[‘**,**’ ‘**...**’\] | ‘**...**’
+	parlist ::= namelist [‘**,**’ ‘**...**’] | ‘**...**’
 
-	tableconstructor ::= ‘**{**’ \[fieldlist\] ‘**}**’
+	tableconstructor ::= ‘**{**’ [fieldlist] ‘**}**’
 
-	fieldlist ::= field {fieldsep field} \[fieldsep\]
+	fieldlist ::= field {fieldsep field} [fieldsep]
 
-	field ::= ‘**\[**’ exp ‘**\]**’ ‘**\=**’ exp | Name ‘**\=**’ exp | exp
+	field ::= ‘**[**’ exp ‘**]**’ ‘**\=**’ exp | Name ‘**\=**’ exp | exp
 
 	fieldsep ::= ‘**,**’ | ‘**;**’
 
-	binop ::=  ‘**+**’ | ‘**\-**’ | ‘**\***’ | ‘**/**’ | ‘**//**’ | ‘**^**’ | ‘**%**’ | 
+	binop ::=  ‘**+**’ | ‘**\-**’ | ‘*****’ | ‘**/**’ | ‘**//**’ | ‘**^**’ | ‘**%**’ | 
 		 ‘**&**’ | ‘**~**’ | ‘**|**’ | ‘**\>>**’ | ‘**<<**’ | ‘**..**’ | 
 		 ‘**<**’ | ‘**<=**’ | ‘**\>**’ | ‘**\>=**’ | ‘**\==**’ | ‘**~=**’ | 
 		 **and** | **or**
@@ -5066,9 +5066,9 @@ Lua 的版本更替总是会修改一些 C API 并涉及源代码的改变。 �
 
 [3]: http://www.lua.org/license.html
 
-[4]: contents.md#contents
+[4]: contents.md#目录
 
-[5]: contents.md#index
+[5]: contents.md#索引
 
 [6]: glossary.md
 

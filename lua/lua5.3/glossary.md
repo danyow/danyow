@@ -6,7 +6,30 @@ sidebar_position: 4
 
 译者在翻译时，使用了一些尚未统一的中文术语译词，统一罗列如下：
 
-<table><tbody><tr><td>元表</td><td>metatable</td></tr><tr><td>元方法</td><td>metamethod</td></tr><tr><td>弱表</td><td>weak table</td></tr><tr><td>协程</td><td>coroutine</td></tr><tr><td>闭包</td><td>closure</td></tr><tr><td>注册表</td><td>registry</td></tr><tr><td>让出</td><td>yield</td></tr><tr><td>表</td><td>table</td></tr><tr><td>用户数据</td><td>userdata</td></tr><tr><td>延续点</td><td>continuation</td></tr><tr><td>宿主</td><td>host</td></tr><tr><td>一等公民</td><td>first-class</td></tr><tr><td>语法糖</td><td>syntactic sugar</td></tr><tr><td>序列</td><td>sequence</td></tr><tr><td>异构</td><td>heterogeneous</td></tr><tr><td>终结器</td><td>finalizer</td></tr><tr><td>暂时表</td><td>ephemeron table</td></tr><tr><td>符记</td><td>token</td></tr><tr><td>字面串</td><td>literal string</td></tr><tr><td>代码块</td><td>chunk</td></tr><tr><td>标签</td><td>label</td></tr><tr><td>实例化</td><td>instantiated</td></tr><tr><td>上值</td><td>upvalue</td></tr></tbody></table>
+| 元表   | metatable       |
+|------|-----------------|
+| 元方法  | metamethod      |
+| 弱表   | weak table      |
+| 协程   | coroutine       |
+| 闭包   | closure         |
+| 注册表  | registry        |
+| 让出   | yield           |
+| 表    | table           |
+| 用户数据 | userdata        |
+| 延续点  | continuation    |
+| 宿主   | host            |
+| 一等公民 | first-class     |
+| 语法糖  | syntactic sugar |
+| 序列   | sequence        |
+| 异构   | heterogeneous   |
+| 终结器  | finalizer       |
+| 暂时表  | ephemeron table |
+| 符记   | token           |
+| 字面串  | literal string  |
+| 代码块  | chunk           |
+| 标签   | label           |
+| 实例化  | instantiated    |
+| 上值   | upvalue         |
 
 * * *
 
