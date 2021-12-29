@@ -3,19 +3,18 @@
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: ':D',
-  tagline: 'O ever youthful, O ever weeping',
-  url: 'https://danyow.cn',
-  baseUrl: '/',
-  onBrokenLinks: 'ignore',
-  onBrokenMarkdownLinks: 'ignore',
-  favicon: 'img/favicon.ico',
-  organizationName: 'danyow', // 通常是您的 gitHub.com/<组织用户名>。
-  projectName: 'danyow', // 通常是您的仓库名称。
-
+  title: ":D",
+  tagline: "O ever youthful, O ever weeping",
+  url: "https://danyow.cn",
+  baseUrl: "/",
+  onBrokenLinks: "ignore",
+  onBrokenMarkdownLinks: "ignore",
+  favicon: "img/favicon.ico",
+  organizationName: "danyow", // 通常是您的 gitHub.com/<组织用户名>。
+  projectName: "danyow", // 通常是您的仓库名称。
   presets: [
     [
-      'classic',
+      "classic",
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         // docs: {
@@ -26,14 +25,14 @@ const config = {
         blog: {
           showReadingTime: true,
           // 请将其更改为您的仓库。
-          editUrl: 'https://github.com/danyow/danyow/edit/main/blog',
+          editUrl: "https://github.com/danyow/danyow/edit/main/blog",
         },
         theme: {
           customCss: [
-            '../src/css/docusaurus-1.css',
-            '../src/css/prism.css',
-            '../src/css/customTheme.css',
-            '../src/css/custom.css',
+            "../src/css/docusaurus-1.css",
+            "../src/css/prism.css",
+            "../src/css/customTheme.css",
+            "../src/css/custom.css",
           ],
         },
       }),
@@ -42,37 +41,37 @@ const config = {
 
   plugins: [
     [
-      '@docusaurus/plugin-content-docs',
+      "@docusaurus/plugin-content-docs",
       {
-        id: 'note',
-        path: 'note',
-        routeBasePath: 'note',
-        sidebarPath: require.resolve('./sidebars.js'),
-        editUrl: 'https://github.com/danyow/danyow/edit/main/note',
+        id: "note",
+        path: "note",
+        routeBasePath: "note",
+        sidebarPath: require.resolve("./sidebars.js"),
+        editUrl: "https://github.com/danyow/danyow/edit/main/note",
         showLastUpdateAuthor: true,
         showLastUpdateTime: true,
       },
     ],
     [
-      '@docusaurus/plugin-content-docs',
+      "@docusaurus/plugin-content-docs",
       {
-        id: 'lua',
-        path: 'lua',
-        routeBasePath: 'lua',
-        sidebarPath: require.resolve('./sidebars.js'),
-        editUrl: 'https://github.com/danyow/danyow/edit/main/lua',
+        id: "lua",
+        path: "lua",
+        routeBasePath: "lua",
+        sidebarPath: require.resolve("./sidebars.js"),
+        editUrl: "https://github.com/danyow/danyow/edit/main/lua",
         showLastUpdateAuthor: true,
         showLastUpdateTime: true,
       },
     ],
     [
-      '@docusaurus/plugin-content-docs',
+      "@docusaurus/plugin-content-docs",
       {
-        id: 'unity',
-        path: 'unity',
-        routeBasePath: 'unity',
-        sidebarPath: require.resolve('./sidebars.js'),
-        editUrl: 'https://github.com/danyow/danyow/edit/main/unity',
+        id: "unity",
+        path: "unity",
+        routeBasePath: "unity",
+        sidebarPath: require.resolve("./sidebars.js"),
+        editUrl: "https://github.com/danyow/danyow/edit/main/unity",
         showLastUpdateAuthor: true,
         showLastUpdateTime: true,
         // versions: {
@@ -83,7 +82,7 @@ const config = {
       },
     ],
     [
-      require.resolve('@easyops-cn/docusaurus-search-local'),
+      require.resolve("@easyops-cn/docusaurus-search-local"),
       {
         // ... Your options.
         // 推荐使用 `hashed`，因为索引文件的长期缓存是可能的。
@@ -98,43 +97,42 @@ const config = {
   ],
 
   i18n: {
-    defaultLocale: 'zh',
-    locales: ['zh'],
+    defaultLocale: "zh",
+    locales: ["zh"],
   },
-
   themeConfig:
-  /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
+    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: ':D',
-        style: 'primary',
+        title: ":D",
+        style: "primary",
         hideOnScroll: false,
         items: [
           {
-            type: 'doc',
-            docId: 'itinerary',
-            docsPluginId: 'note',
-            position: 'left',
-            label: '笔记',
+            type: "doc",
+            docId: "itinerary",
+            docsPluginId: "note",
+            position: "left",
+            label: "笔记",
           },
           {
-            type: 'doc',
-            docId: 'lua',
-            docsPluginId: 'lua',
-            position: 'left',
-            label: 'lua',
+            type: "doc",
+            docId: "lua",
+            docsPluginId: "lua",
+            position: "left",
+            label: "lua",
           },
           {
-            type: 'doc',
-            docId: 'unity',
-            docsPluginId: 'unity',
-            position: 'left',
-            label: 'unity',
+            type: "doc",
+            docId: "unity",
+            docsPluginId: "unity",
+            position: "left",
+            label: "unity",
           },
           {
-            to: '/blog',
-            position: 'left',
-            label: '博客',
+            to: "/blog",
+            position: "left",
+            label: "博客",
           },
           // right
           // {   // 版本控制
@@ -148,10 +146,10 @@ const config = {
           //   position: 'right',
           // },
           {
-            href: 'https://github.com/danyow/danyow',
-            position: 'right',
-            className: 'header-github-link',
-            'aria-label': 'GitHub repository',
+            href: "https://github.com/danyow/danyow",
+            position: "right",
+            className: "header-github-link",
+            "aria-label": "GitHub repository",
           },
         ],
       },
@@ -174,13 +172,14 @@ const config = {
         // style: 'dark',
         copyright: `© ${new Date().getFullYear()} danyow, Inc. 使用 Docusaurus 构建。`,
         logo: {
-          src: 'img/logo.svg',
+          src: "img/logo.svg",
         },
       },
       prism: {
-        theme: require('prism-react-renderer/themes/github'),
-        darkTheme: require('prism-react-renderer/themes/dracula'),
-        defaultLanguage: 'javascript',
+        theme: require("prism-react-renderer/themes/github"),
+        darkTheme: require("prism-react-renderer/themes/dracula"),
+        defaultLanguage: "javascript",
+        additionalLanguages: ["lua"],
       },
     }),
 };

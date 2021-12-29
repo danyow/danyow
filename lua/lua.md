@@ -1,6 +1,6 @@
 # Lua
 
-## Lua程序设计（第4版）
+## Lua 程序设计（第 4 版）
 
 ### 运算符
 
@@ -12,12 +12,13 @@ print(a ^ 2) -- 225
 ### 注释技巧
 
 ```lua
+print("Hello world")
 
 --[[ 加多一个`-`就可以解开这段代码的注释
-print("Hello world") 
+print("Hello world")
 --]]
 
----[[ 
+---[[
 print("Hello world")
 --]]
 
@@ -69,7 +70,7 @@ end
 
 ### [异常捕获](https://blog.csdn.net/mycwq/article/details/49256003)
 
-lua有两个函数可用于捕获异常：pcall 和 xpcall，这两个函数很类似，都会在保护模式下执行函数，效果类似try-catch，可捕获并处理异常。
+lua 有两个函数可用于捕获异常：pcall 和 xpcall，这两个函数很类似，都会在保护模式下执行函数，效果类似 try-catch，可捕获并处理异常。
 
 ```lua
 --- 在保护模式下使用给定的参数调用函数`f`。
@@ -93,7 +94,7 @@ function xpcall(f, msgh, arg1, ...)
 end
 ```
 
-对比两个函数，xpcall多了一个消息处理参数 msgh。 对于pcall，异常处理完时只简单记录错误信息，然后释放调用栈空间， 而对于xpcall，这个参数可用于在调用栈释放前跟踪到这些数据。效果如下：
+对比两个函数，xpcall 多了一个消息处理参数 msgh。 对于 pcall，异常处理完时只简单记录错误信息，然后释放调用栈空间， 而对于 xpcall，这个参数可用于在调用栈释放前跟踪到这些数据。效果如下：
 
 ```Shell
 > f=function(...) error(...) end

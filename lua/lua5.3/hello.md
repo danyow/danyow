@@ -47,7 +47,7 @@ MYLIBS=-ltermcap" 。
 运行 "make xxx install" 可以构建和安装一步到位，xxx 指你的平台名。
 
 如果你想把 Lua 安装在本地，运行 "make local"。 它会创建一个 install 目录，内有 bin, include, lib, man, share, 子目录，并将下列文件安装在其中。 如果你想安装到本地其它目录，
-运行 "make install INSTALL\_TOP=xxx"，xxx 指你选择的目录。 由于安装过程中会切换到 src 以及 doc 目录进行， 所以当 INSTALL\_TOP 不是绝对路径时务必小心。
+运行 "make install INSTALL_TOP=xxx"，xxx 指你选择的目录。 由于安装过程中会切换到 src 以及 doc 目录进行， 所以当 INSTALL_TOP 不是绝对路径时务必小心。
 
 bin:
 
@@ -98,7 +98,7 @@ library, lua.c
 
 library, luac.c
 
-把 Lua 以一个库形式用于你的程序，你需要知道如何用你的编译器创建库和使用库。 比如，以动态加载的 C 库形式使用 Lua，你需要了解如何创建动态库并让 Lua API 函数 在动态库中可见 — *不要* 将 Lua 库链入每个动态库。
+把 Lua 以一个库形式用于你的程序，你需要知道如何用你的编译器创建库和使用库。 比如，以动态加载的 C 库形式使用 Lua，你需要了解如何创建动态库并让 Lua API 函数 在动态库中可见 — _不要_ 将 Lua 库链入每个动态库。
 在 Unix 下，我们建议把 Lua 库静态链入宿主程序，然后将符号导出用于动态链接； src/Makefile 就是这样处理 Lua 解释器的。 在 Windows 下，我们建议把 Lua 库编译成一个 DLL 。 无论怎样，编译器
 luac 都应该静态链接。
 
@@ -168,56 +168,32 @@ or its documentation. For details, see [this][25].
 >
 > THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-* * *
+---
 
-最后修改时间: 2015年1月13日15:16
+最后修改时间: 2015 年 1 月 13 日 15:16
 
 [1]: http://www.lua.org/
-
 [2]: #关于-Lua
-
 [3]: #如何安装-lua
-
 [4]: #对比以往变更
-
 [5]: #license
-
 [6]: contents.md
-
 [7]: glossary.md
-
 [8]: http://www.puc-rio.br/
-
 [9]: http://www.lua.org/authors.html
-
 [10]: #license
-
 [11]: http://www.lua.org/
-
 [12]: http://www.lua.org/about.html
-
 [13]: http://www.lua.org/docs.html
-
 [14]: http://www.lua.org/manual/5.3/
-
 [15]: contents.md
-
 [16]: http://www.lua.org/ftp/
-
 [17]: #在其它系统上构建-lua
-
 [18]: #定制
-
 [19]: http://lua-users.org/wiki/LuaBinaries
-
 [20]: http://luadist.org/
-
 [21]: contents.md
-
 [22]: manual.md#8-与之前版本不兼容的地方
-
 [23]: http://www.opensource.org/docs/definition.php
-
 [24]: http://www.opensource.org/licenses/mit-license.html
-
 [25]: http://www.lua.org/license.html
