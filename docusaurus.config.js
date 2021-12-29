@@ -7,8 +7,8 @@ const config = {
   tagline: 'O ever youthful, O ever weeping',
   url: 'https://danyow.cn',
   baseUrl: '/',
-  onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+  onBrokenLinks: 'ignore',
+  onBrokenMarkdownLinks: 'ignore',
   favicon: 'img/favicon.ico',
   organizationName: 'danyow', // 通常是您的 gitHub.com/<组织用户名>。
   projectName: 'danyow', // 通常是您的仓库名称。
