@@ -5363,7 +5363,7 @@ Lua 的版本更替总是会修改一些 C API 并涉及源代码的改变。 �
 
 [145]: #lua_yield
 
-[146]: #<code>lua_ok<code>
+[146]: #lua_pcall
 
 [147]: #lua_yieldk
 
@@ -5373,7 +5373,7 @@ Lua 的版本更替总是会修改一些 C API 并涉及源代码的改变。 �
 
 [150]: #lua_callk
 
-[151]: #<code>lua_ok<code>
+[151]: #lua_pcall
 
 [152]: #lua_yieldk
 
@@ -5383,15 +5383,15 @@ Lua 的版本更替总是会修改一些 C API 并涉及源代码的改变。 �
 
 [155]: #lua_newstate
 
-[156]: #pdf-LUA_TSTRING
+[156]: #lua_type
 
-[157]: #pdf-LUA_TTABLE
+[157]: #lua_type
 
-[158]: #pdf-LUA_TFUNCTION
+[158]: #lua_type
 
-[159]: #pdf-LUA_TUSERDATA
+[159]: #lua_type
 
-[160]: #pdf-LUA_TTHREAD
+[160]: #lua_type
 
 [161]: #lual_newstate
 
@@ -5431,13 +5431,13 @@ Lua 的版本更替总是会修改一些 C API 并涉及源代码的改变。 �
 
 [179]: #24-元表及元方法
 
-[180]: #<code>lua_ok<code>
+[180]: #lua_pcall
 
-[181]: #<code>lua_errmem<code>
+[181]: #lua_load
 
-[182]: #<code>lua_errgcmm<code>
+[182]: #lua_load
 
-[183]: #<code>lua_reader<code>
+[183]: #lua_load
 
 [184]: #49-调试接口
 
@@ -5527,13 +5527,13 @@ Lua 的版本更替总是会修改一些 C API 并涉及源代码的改变。 �
 
 [227]: #lua_newstate
 
-[228]: #<code>lua_ok<code>
+[228]: #lua_pcall
 
 [229]: #lua_resume
 
-[230]: #<code>lua_ok<code>
+[230]: #lua_pcall
 
-[231]: #<code>lua_ok<code>
+[231]: #lua_pcall
 
 [232]: #lua_yield
 
@@ -5693,7 +5693,7 @@ Lua 的版本更替总是会修改一些 C API 并涉及源代码的改变。 �
 
 [310]: #osexecute-command
 
-[311]: #pdf-io.close.close
+[311]: #ioclose-file
 
 [312]: #ioopen-filename--mode
 
@@ -5773,9 +5773,9 @@ Lua 的版本更替总是会修改一些 C API 并涉及源代码的改变。 �
 
 [350]: #lual_ref
 
-[351]: #<code>lua_noref<code>
+[351]: #lual_ref
 
-[352]: #<code>lua_refnil<code>
+[352]: #lual_ref
 
 [353]: #lual_unref
 
@@ -5833,7 +5833,7 @@ Lua 的版本更替总是会修改一些 C API 并涉及源代码的改变。 �
 
 [380]: #stringformat-formatstring-
 
-[381]: #pdf-io.write.write
+[381]: #iowrite-
 
 [382]: #31-词法约定
 
@@ -5953,11 +5953,11 @@ Lua 的版本更替总是会修改一些 C API 并涉及源代码的改变。 �
 
 [440]: #347-取长度操作符
 
-[441]: #pdf-math.ceil.ceil
+[441]: #mathceil-x
 
-[442]: #pdf-math.floor.floor
+[442]: #mathfloor-x
 
-[443]: #pdf-math.modf.modf
+[443]: #mathmodf-x
 
 [444]: #ioopen-filename--mode
 
@@ -5965,41 +5965,41 @@ Lua 的版本更替总是会修改一些 C API 并涉及源代码的改变。 �
 
 [446]: #iopopen-prog--mode
 
-[447]: #<code>fileclose<code>:close
+[447]: #fileclose-
 
 [448]: #osexecute-command
 
-[449]: #<code>iolines<code>.lines
+[449]: #iolines-filename-
 
-[450]: #<code>ioflush<code>.flush
+[450]: #ioflush-
 
-[451]: #<code>ostime<code>.time
+[451]: #ostime-table
 
-[452]: #<code>ostime<code>.time
+[452]: #ostime-table
 
-[453]: #<code>osdate<code>.date
+[453]: #osdate-format--time
 
-[454]: #<code>osdate<code>.date
+[454]: #osdate-format--time
 
-[455]: #pdf-os.difftime.difftime
+[455]: #osdifftime-t2-t1
 
-[456]: #<code>iotmpfile<code>.tmpfile
+[456]: #iotmpfile-
 
 [457]: #49-调试接口
 
-[458]: #<code>debugsethook<code>.sethook
+[458]: #debugsethook-thread-hook-mask--count
 
 [459]: #lua_getinfo
 
-[460]: #<code>print<code>
+[460]: #print-
 
-[461]: #<code>debuggetinfo<code>.getinfo
+[461]: #debuggetinfo-thread-f--what
 
 [462]: #45-注册表
 
-[463]: #<code>debugsethook<code>.sethook
+[463]: #debugsethook-thread-hook-mask--count
 
-[464]: #<code>debuggetinfo<code>.getinfo
+[464]: #debuggetinfo-thread-f--what
 
 [465]: #debuggetlocal-thread-f-local
 
@@ -6009,11 +6009,11 @@ Lua 的版本更替总是会修改一些 C API 并涉及源代码的改变。 �
 
 [468]: #lua_close
 
-[469]: #<code>osexit<code>.exit
+[469]: #osexit-code--close
 
-[470]: #<code>ipairs<code>
+[470]: #ipairs-t
 
-[471]: #<code>ioread<code>.read
+[471]: #ioread-
 
 [472]: #require-modname
 
