@@ -122,87 +122,87 @@ Lua.org, PUC-Rio 版权所有 © 2015 ， 在遵循 [Lua license][7] 条款下�
 
 [10]: manual.md#2.1.1
 
-[11]: manual.md#&sect;22.2
+[11]: manual.md#22-环境与全局环境
 
-[12]: manual.md#&sect;23.3
+[12]: manual.md#23-错误处理
 
-[13]: manual.md#&sect;24.4
+[13]: manual.md#24-元表及元方法
 
-[14]: manual.md#&sect;25.5
+[14]: manual.md#25-垃圾收集
 
 [15]: manual.md#2.5.1.5.1
 
 [16]: manual.md#2.5.2.5.2
 
-[17]: manual.md#&sect;26.6
+[17]: manual.md#26-协程
 
 [18]: manual.md#3
 
-[19]: manual.md#&sect;31.1
+[19]: manual.md#31-词法约定
 
-[20]: manual.md#&sect;32.2
+[20]: manual.md#32-变量
 
 [21]: manual.md#3.3.3
 
 [22]: manual.md#3.3.1.3.1
 
-[23]: manual.md#&sect;332.3.2
+[23]: manual.md#332-代码块
 
-[24]: manual.md#&sect;333.3.3
+[24]: manual.md#333-赋值
 
-[25]: manual.md#&sect;334.3.4
+[25]: manual.md#334-控制结构
 
-[26]: manual.md#&sect;335.3.5
+[26]: manual.md#335-for-语句
 
-[27]: manual.md#&sect;336.3.6
+[27]: manual.md#336-函数调用语句
 
-[28]: manual.md#&sect;337.3.7
+[28]: manual.md#337-局部声明
 
-[29]: manual.md#&sect;34.4
+[29]: manual.md#34-表达式
 
-[30]: manual.md#&sect;341.4.1
+[30]: manual.md#341-数学运算操作符
 
-[31]: manual.md#&sect;342.4.2
+[31]: manual.md#342-位操作符
 
-[32]: manual.md#&sect;343.4.3
+[32]: manual.md#343-强制转换
 
-[33]: manual.md#&sect;344.4.4
+[33]: manual.md#344-比较操作符
 
-[34]: manual.md#&sect;345.4.5
+[34]: manual.md#345-逻辑操作符
 
-[35]: manual.md#&sect;346.4.6
+[35]: manual.md#346-字符串连接
 
-[36]: manual.md#&sect;347.4.7
+[36]: manual.md#347-取长度操作符
 
-[37]: manual.md#&sect;348.4.8
+[37]: manual.md#348-优先级
 
-[38]: manual.md#&sect;349.4.9
+[38]: manual.md#349-表构建
 
-[39]: manual.md#&sect;3410.4.10
+[39]: manual.md#3410-函数调用
 
-[40]: manual.md#&sect;3411.4.11
+[40]: manual.md#3411-函数定义
 
-[41]: manual.md#&sect;35.5
+[41]: manual.md#35-可见性规则
 
 [42]: manual.md#4
 
 [43]: manual.md#4.1.1
 
-[44]: manual.md#&sect;42.2
+[44]: manual.md#42-栈大小
 
 [45]: manual.md#4.3.3
 
-[46]: manual.md#&sect;44.4
+[46]: manual.md#44-c-闭包
 
-[47]: manual.md#&sect;45.5
+[47]: manual.md#45-注册表
 
-[48]: manual.md#&sect;46.6
+[48]: manual.md#46-c-中的错误处理
 
-[49]: manual.md#&sect;47.7
+[49]: manual.md#47-c-中的让出处理
 
 [50]: manual.md#4.8.8
 
-[51]: manual.md#&sect;49.9
+[51]: manual.md#49-调试接口
 
 [52]: manual.md#5
 
@@ -210,29 +210,29 @@ Lua.org, PUC-Rio 版权所有 © 2015 ， 在遵循 [Lua license][7] 条款下�
 
 [54]: manual.md#6
 
-[55]: manual.md#&sect;61.1
+[55]: manual.md#61-基础函数
 
-[56]: manual.md#&sect;62.2
+[56]: manual.md#62-协程管理
 
-[57]: manual.md#&sect;63.3
+[57]: manual.md#63-模块
 
-[58]: manual.md#&sect;64.4
+[58]: manual.md#64-字符串处理
 
-[59]: manual.md#&sect;641.4.1
+[59]: manual.md#641-匹配模式
 
-[60]: manual.md#&sect;642.4.2
+[60]: manual.md#642-打包和解包用到的格式串
 
-[61]: manual.md#&sect;65.5
+[61]: manual.md#65-utf-8-支持
 
-[62]: manual.md#&sect;66.6
+[62]: manual.md#66-表处理
 
-[63]: manual.md#&sect;67.7
+[63]: manual.md#67-数学函数
 
-[64]: manual.md#&sect;68.8
+[64]: manual.md#68-输入输出库
 
-[65]: manual.md#&sect;69.9
+[65]: manual.md#69-操作系统库
 
-[66]: manual.md#&sect;610.10
+[66]: manual.md#610-调试库
 
 [67]: manual.md#7
 
@@ -244,9 +244,9 @@ Lua.org, PUC-Rio 版权所有 © 2015 ， 在遵循 [Lua license][7] 条款下�
 
 [71]: manual.md#8.3.3
 
-[72]: manual.md#&sect;9
+[72]: manual.md#9-lua-的完整语法
 
-[73]: manual.md#&sect;61.1
+[73]: manual.md#61-基础函数
 
 [74]: manual.md#<code>_g<code>
 
@@ -298,7 +298,7 @@ Lua.org, PUC-Rio 版权所有 © 2015 ， 在遵循 [Lua license][7] 条款下�
 
 [98]: manual.md#<code>xpcall<code>
 
-[99]: manual.md#&sect;62.2
+[99]: manual.md#62-协程管理
 
 [100]: manual.md#<code>coroutinecreate<code>.create
 
@@ -314,7 +314,7 @@ Lua.org, PUC-Rio 版权所有 © 2015 ， 在遵循 [Lua license][7] 条款下�
 
 [106]: manual.md#<code>coroutineyield<code>.yield
 
-[107]: manual.md#&sect;610.10
+[107]: manual.md#610-调试库
 
 [108]: manual.md#pdf-debug.debug.debug
 
@@ -348,7 +348,7 @@ Lua.org, PUC-Rio 版权所有 © 2015 ， 在遵循 [Lua license][7] 条款下�
 
 [123]: manual.md#pdf-debug.upvaluejoin.upvaluejoin
 
-[124]: manual.md#&sect;68.8
+[124]: manual.md#68-输入输出库
 
 [125]: manual.md#pdf-io.close.close
 
@@ -392,7 +392,7 @@ Lua.org, PUC-Rio 版权所有 © 2015 ， 在遵循 [Lua license][7] 条款下�
 
 [145]: manual.md#pdf-file:write:write
 
-[146]: manual.md#&sect;67.7
+[146]: manual.md#67-数学函数
 
 [147]: manual.md#pdf-math.abs.abs
 
@@ -448,7 +448,7 @@ Lua.org, PUC-Rio 版权所有 © 2015 ， 在遵循 [Lua license][7] 条款下�
 
 [173]: manual.md#pdf-math.ult.ult
 
-[174]: manual.md#&sect;69.9
+[174]: manual.md#69-操作系统库
 
 [175]: manual.md#pdf-os.clock.clock
 
@@ -472,7 +472,7 @@ Lua.org, PUC-Rio 版权所有 © 2015 ， 在遵循 [Lua license][7] 条款下�
 
 [185]: manual.md#pdf-os.tmpname.tmpname
 
-[186]: manual.md#&sect;63.3
+[186]: manual.md#63-模块
 
 [187]: manual.md#pdf-package.config.config
 
@@ -490,7 +490,7 @@ Lua.org, PUC-Rio 版权所有 © 2015 ， 在遵循 [Lua license][7] 条款下�
 
 [194]: manual.md#<code>packagesearchpath<code>.searchpath
 
-[195]: manual.md#&sect;64.4
+[195]: manual.md#64-字符串处理
 
 [196]: manual.md#pdf-string.byte.byte
 
@@ -526,7 +526,7 @@ Lua.org, PUC-Rio 版权所有 © 2015 ， 在遵循 [Lua license][7] 条款下�
 
 [212]: manual.md#pdf-string.upper.upper
 
-[213]: manual.md#&sect;66.6
+[213]: manual.md#66-表处理
 
 [214]: manual.md#pdf-table.concat.concat
 
@@ -542,7 +542,7 @@ Lua.org, PUC-Rio 版权所有 © 2015 ， 在遵循 [Lua license][7] 条款下�
 
 [220]: manual.md#pdf-table.unpack.unpack
 
-[221]: manual.md#&sect;65.5
+[221]: manual.md#65-utf-8-支持
 
 [222]: manual.md#pdf-utf8.char.char
 
