@@ -214,7 +214,7 @@ or its documentation. For details, see [this][25].
 
 [21]: contents.md
 
-[22]: manual.md#8
+[22]: manual.md#8-与之前版本不兼容的地方
 
 [23]: http://www.opensource.org/docs/definition.php
 
