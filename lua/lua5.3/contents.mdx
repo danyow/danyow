@@ -96,422 +96,283 @@ sidebar_position: 2
 
 ## 索引
 
-- [基础][73]
-- [\_G][74]
-- [\_VERSION][75]
-- [assert][76]
-- [collectgarbage][77]
-- [dofile][78]
-- [error][79]
-- [getmetatable][80]
-- [ipairs][81]
-- [load][82]
-- [loadfile][83]
-- [next][84]
-- [pairs][85]
-- [pcall][86]
-- [print][87]
-- [rawequal][88]
-- [rawget][89]
-- [rawlen][90]
-- [rawset][91]
-- [require][92]
-- [select][93]
-- [setmetatable][94]
-- [tonumber][95]
-- [tostring][96]
-- [type][97]
-- [xpcall][98]
-- [协程][99]
-- [coroutine.create][100]
-- [coroutine.isyieldable][101]
-- [coroutine.resume][102]
-- [coroutine.running][103]
-- [coroutine.status][104]
-- [coroutine.wrap][105]
-- [coroutine.yield][106]
-- [调试][107]
-- [debug.debug][108]
-- [debug.gethook][109]
-- [debug.getinfo][110]
-- [debug.getlocal][111]
-- [debug.getmetatable][112]
-- [debug.getregistry][113]
-- [debug.getupvalue][114]
-- [debug.getuservalue][115]
-- [debug.sethook][116]
-- [debug.setlocal][117]
-- [debug.setmetatable][118]
-- [debug.setupvalue][119]
-- [debug.setuservalue][120]
-- [debug.traceback][121]
-- [debug.upvalueid][122]
-- [debug.upvaluejoin][123]
-- [输入输出][124]
-- [io.close][125]
-- [io.flush][126]
-- [io.input][127]
-- [io.lines][128]
-- [io.open][129]
-- [io.output][130]
-- [io.popen][131]
-- [io.read][132]
-- [io.stderr][133]
-- [io.stdin][134]
-- [io.stdout][135]
-- [io.tmpfile][136]
-- [io.type][137]
-- [io.write][138]
-- [file:close][139]
-- [file:flush][140]
-- [file:lines][141]
-- [file:read][142]
-- [file:seek][143]
-- [file:setvbuf][144]
-- [file:write][145]
-- [数学][146]
-- [math.abs][147]
-- [math.acos][148]
-- [math.asin][149]
-- [math.atan][150]
-- [math.ceil][151]
-- [math.cos][152]
-- [math.deg][153]
-- [math.exp][154]
-- [math.floor][155]
-- [math.fmod][156]
-- [math.huge][157]
-- [math.log][158]
-- [math.max][159]
-- [math.maxinteger][160]
-- [math.min][161]
-- [math.mininteger][162]
-- [math.modf][163]
-- [math.pi][164]
-- [math.rad][165]
-- [math.random][166]
-- [math.randomseed][167]
-- [math.sin][168]
-- [math.sqrt][169]
-- [math.tan][170]
-- [math.tointeger][171]
-- [math.type][172]
-- [math.ult][173]
-- [操作系统][174]
-- [os.clock][175]
-- [os.date][176]
-- [os.difftime][177]
-- [os.execute][178]
-- [os.exit][179]
-- [os.getenv][180]
-- [os.remove][181]
-- [os.rename][182]
-- [os.setlocale][183]
-- [os.time][184]
-- [os.tmpname][185]
-- [包][186]
-- [package.config][187]
-- [package.cpath][188]
-- [package.loaded][189]
-- [package.loadlib][190]
-- [package.path][191]
-- [package.preload][192]
-- [package.searchers][193]
-- [package.searchpath][194]
-- [字符串][195]
-- [string.byte][196]
-- [string.char][197]
-- [string.dump][198]
-- [string.find][199]
-- [string.format][200]
-- [string.gmatch][201]
-- [string.gsub][202]
-- [string.len][203]
-- [string.lower][204]
-- [string.match][205]
-- [string.pack][206]
-- [string.packsize][207]
-- [string.rep][208]
-- [string.reverse][209]
-- [string.sub][210]
-- [string.unpack][211]
-- [string.upper][212]
-- [表][213]
-- [table.concat][214]
-- [table.insert][215]
-- [table.move][216]
-- [table.pack][217]
-- [table.remove][218]
-- [table.sort][219]
-- [table.unpack][220]
-- [utf8][221]
-- [utf8.char][222]
-- [utf8.charpattern][223]
-- [utf8.codepoint][224]
-- [utf8.codes][225]
-- [utf8.len][226]
-- [utf8.offset][227]
-- [LUA_CPATH][228]
-- [LUA_CPATH_5_3][229]
-- [LUA_INIT][230]
-- [LUA_INIT_5_3][231]
-- [LUA_PATH][232]
-- [LUA_PATH_5_3][233]
-- [lua_Alloc][234]
-- [lua_CFunction][235]
-- [lua_Debug][236]
-- [lua_Hook][237]
-- [lua_Integer][238]
-- [lua_KContext][239]
-- [lua_KFunction][240]
-- [lua_Number][241]
-- [lua_Reader][242]
-- [lua_State][243]
-- [lua_Unsigned][244]
-- [lua_Writer][245]
-- [lua_absindex][246]
-- [lua_arith][247]
-- [lua_atpanic][248]
-- [lua_call][249]
-- [lua_callk][250]
-- [lua_checkstack][251]
-- [lua_close][252]
-- [lua_compare][253]
-- [lua_concat][254]
-- [lua_copy][255]
-- [lua_createtable][256]
-- [lua_dump][257]
-- [lua_error][258]
-- [lua_gc][259]
-- [lua_getallocf][260]
-- [lua_getextraspace][261]
-- [lua_getfield][262]
-- [lua_getglobal][263]
-- [lua_gethook][264]
-- [lua_gethookcount][265]
-- [lua_gethookmask][266]
-- [lua_geti][267]
-- [lua_getinfo][268]
-- [lua_getlocal][269]
-- [lua_getmetatable][270]
-- [lua_getstack][271]
-- [lua_gettable][272]
-- [lua_gettop][273]
-- [lua_getupvalue][274]
-- [lua_getuservalue][275]
-- [lua_insert][276]
-- [lua_isboolean][277]
-- [lua_iscfunction][278]
-- [lua_isfunction][279]
-- [lua_isinteger][280]
-- [lua_islightuserdata][281]
-- [lua_isnil][282]
-- [lua_isnone][283]
-- [lua_isnoneornil][284]
-- [lua_isnumber][285]
-- [lua_isstring][286]
-- [lua_istable][287]
-- [lua_isthread][288]
-- [lua_isuserdata][289]
-- [lua_isyieldable][290]
-- [lua_len][291]
-- [lua_load][292]
-- [lua_newstate][293]
-- [lua_newtable][294]
-- [lua_newthread][295]
-- [lua_newuserdata][296]
-- [lua_next][297]
-- [lua_numbertointeger][298]
-- [lua_pcall][299]
-- [lua_pcallk][300]
-- [lua_pop][301]
-- [lua_pushboolean][302]
-- [lua_pushcclosure][303]
-- [lua_pushcfunction][304]
-- [lua_pushfstring][305]
-- [lua_pushglobaltable][306]
-- [lua_pushinteger][307]
-- [lua_pushlightuserdata][308]
-- [lua_pushliteral][309]
-- [lua_pushlstring][310]
-- [lua_pushnil][311]
-- [lua_pushnumber][312]
-- [lua_pushstring][313]
-- [lua_pushthread][314]
-- [lua_pushvalue][315]
-- [lua_pushvfstring][316]
-- [lua_rawequal][317]
-- [lua_rawget][318]
-- [lua_rawgeti][319]
-- [lua_rawgetp][320]
-- [lua_rawlen][321]
-- [lua_rawset][322]
-- [lua_rawseti][323]
-- [lua_rawsetp][324]
-- [lua_register][325]
-- [lua_remove][326]
-- [lua_replace][327]
-- [lua_resume][328]
-- [lua_rotate][329]
-- [lua_setallocf][330]
-- [lua_setfield][331]
-- [lua_setglobal][332]
-- [lua_sethook][333]
-- [lua_seti][334]
-- [lua_setlocal][335]
-- [lua_setmetatable][336]
-- [lua_settable][337]
-- [lua_settop][338]
-- [lua_setupvalue][339]
-- [lua_setuservalue][340]
-- [lua_status][341]
-- [lua_stringtonumber][342]
-- [lua_toboolean][343]
-- [lua_tocfunction][344]
-- [lua_tointeger][345]
-- [lua_tointegerx][346]
-- [lua_tolstring][347]
-- [lua_tonumber][348]
-- [lua_tonumberx][349]
-- [lua_topointer][350]
-- [lua_tostring][351]
-- [lua_tothread][352]
-- [lua_touserdata][353]
-- [lua_type][354]
-- [lua_typename][355]
-- [lua_upvalueid][356]
-- [lua_upvalueindex][357]
-- [lua_upvaluejoin][358]
-- [lua_version][359]
-- [lua_xmove][360]
-- [lua_yield][361]
-- [lua_yieldk][362]
-- [luaL_Buffer][363]
-- [luaL_Reg][364]
-- [luaL_Stream][365]
-- [luaL_addchar][366]
-- [luaL_addlstring][367]
-- [luaL_addsize][368]
-- [luaL_addstring][369]
-- [luaL_addvalue][370]
-- [luaL_argcheck][371]
-- [luaL_argerror][372]
-- [luaL_buffinit][373]
-- [luaL_buffinitsize][374]
-- [luaL_callmeta][375]
-- [luaL_checkany][376]
-- [luaL_checkinteger][377]
-- [luaL_checklstring][378]
-- [luaL_checknumber][379]
-- [luaL_checkoption][380]
-- [luaL_checkstack][381]
-- [luaL_checkstring][382]
-- [luaL_checktype][383]
-- [luaL_checkudata][384]
-- [luaL_checkversion][385]
-- [luaL_dofile][386]
-- [luaL_dostring][387]
-- [luaL_error][388]
-- [luaL_execresult][389]
-- [luaL_fileresult][390]
-- [luaL_getmetafield][391]
-- [luaL_getmetatable][392]
-- [luaL_getsubtable][393]
-- [luaL_gsub][394]
-- [luaL_len][395]
-- [luaL_loadbuffer][396]
-- [luaL_loadbufferx][397]
-- [luaL_loadfile][398]
-- [luaL_loadfilex][399]
-- [luaL_loadstring][400]
-- [luaL_newlib][401]
-- [luaL_newlibtable][402]
-- [luaL_newmetatable][403]
-- [luaL_newstate][404]
-- [luaL_openlibs][405]
-- [luaL_optinteger][406]
-- [luaL_optlstring][407]
-- [luaL_optnumber][408]
-- [luaL_optstring][409]
-- [luaL_prepbuffer][410]
-- [luaL_prepbuffsize][411]
-- [luaL_pushresult][412]
-- [luaL_pushresultsize][413]
-- [luaL_ref][414]
-- [luaL_requiref][415]
-- [luaL_setfuncs][416]
-- [luaL_setmetatable][417]
-- [luaL_testudata][418]
-- [luaL_tolstring][419]
-- [luaL_traceback][420]
-- [luaL_typename][421]
-- [luaL_unref][422]
-- [luaL_where][423]
-- [luaopen_base][424]
-- [luaopen_coroutine][425]
-- [luaopen_debug][426]
-- [luaopen_io][427]
-- [luaopen_math][428]
-- [luaopen_os][429]
-- [luaopen_package][430]
-- [luaopen_string][431]
-- [luaopen_table][432]
-- [luaopen_utf8][433]
-- [LUA_ERRERR][434]
-- [LUA_ERRFILE][435]
-- [LUA_ERRGCMM][436]
-- [LUA_ERRMEM][437]
-- [LUA_ERRRUN][438]
-- [LUA_ERRSYNTAX][439]
-- [LUA_HOOKCALL][440]
-- [LUA_HOOKCOUNT][441]
-- [LUA_HOOKLINE][442]
-- [LUA_HOOKRET][443]
-- [LUA_HOOKTAILCALL][444]
-- [LUA_MASKCALL][445]
-- [LUA_MASKCOUNT][446]
-- [LUA_MASKLINE][447]
-- [LUA_MASKRET][448]
-- [LUA_MAXINTEGER][449]
-- [LUA_MININTEGER][450]
-- [LUA_MINSTACK][451]
-- [LUA_MULTRET][452]
-- [LUA_NOREF][453]
-- [LUA_OK][454]
-- [LUA_OPADD][455]
-- [LUA_OPBAND][456]
-- [LUA_OPBNOT][457]
-- [LUA_OPBOR][458]
-- [LUA_OPBXOR][459]
-- [LUA_OPDIV][460]
-- [LUA_OPEQ][461]
-- [LUA_OPIDIV][462]
-- [LUA_OPLE][463]
-- [LUA_OPLT][464]
-- [LUA_OPMOD][465]
-- [LUA_OPMUL][466]
-- [LUA_OPPOW][467]
-- [LUA_OPSHL][468]
-- [LUA_OPSHR][469]
-- [LUA_OPSUB][470]
-- [LUA_OPUNM][471]
-- [LUA_REFNIL][472]
-- [LUA_REGISTRYINDEX][473]
-- [LUA_RIDX_GLOBALS][474]
-- [LUA_RIDX_MAINTHREAD][475]
-- [LUA_TBOOLEAN][476]
-- [LUA_TFUNCTION][477]
-- [LUA_TLIGHTUSERDATA][478]
-- [LUA_TNIL][479]
-- [LUA_TNONE][480]
-- [LUA_TNUMBER][481]
-- [LUA_TSTRING][482]
-- [LUA_TTABLE][483]
-- [LUA_TTHREAD][484]
-- [LUA_TUSERDATA][485]
-- [LUA_USE_APICHECK][486]
-- [LUA_YIELD][487]
-- [LUAL_BUFFERSIZE][488]
+|          [表][213]           |      [数学][146]       |      [基础][73]      |   [输入输出][124]   |     [字符串][195]      |        [调试][107]        |   [操作系统][174]   |         [包][186]         |          [协程][99]          |
+| :--------------------------: | :--------------------: | :------------------: | :-----------------: | :--------------------: | :-----------------------: | :-----------------: | :-----------------------: | :--------------------------: |
+|     [table.concat][214]      |    [math.abs][147]     |      [\_G][74]       |   [io.close][125]   |   [string.byte][196]   |    [debug.debug][108]     |   [os.clock][175]   |   [package.config][187]   |   [coroutine.create][100]    |
+|     [table.insert][215]      |    [math.acos][148]    |   [\_VERSION][75]    |   [io.flush][126]   |   [string.char][197]   |   [debug.gethook][109]    |   [os.date][176]    |   [package.cpath][188]    | [coroutine.isyieldable][101] |
+|      [table.move][216]       |    [math.asin][149]    |     [assert][76]     |   [io.input][127]   |   [string.dump][198]   |   [debug.getinfo][110]    | [os.difftime][177]  |   [package.loaded][189]   |   [coroutine.resume][102]    |
+|      [table.pack][217]       |    [math.atan][150]    | [collectgarbage][77] |   [io.lines][128]   |   [string.find][199]   |   [debug.getlocal][111]   |  [os.execute][178]  |  [package.loadlib][190]   |   [coroutine.running][103]   |
+|     [table.remove][218]      |    [math.ceil][151]    |     [dofile][78]     |   [io.open][129]    |  [string.format][200]  | [debug.getmetatable][112] |   [os.exit][179]    |    [package.path][191]    |   [coroutine.status][104]    |
+|      [table.sort][219]       |    [math.cos][152]     |     [error][79]      |  [io.output][130]   |  [string.gmatch][201]  | [debug.getregistry][113]  |  [os.getenv][180]   |  [package.preload][192]   |    [coroutine.wrap][105]     |
+|     [table.unpack][220]      |    [math.deg][153]     |  [getmetatable][80]  |   [io.popen][131]   |   [string.gsub][202]   |  [debug.getupvalue][114]  |  [os.remove][181]   | [package.searchers][193]  |    [coroutine.yield][106]    |
+|         [utf8][221]          |    [math.exp][154]     |     [ipairs][81]     |   [io.read][132]    |   [string.len][203]    | [debug.getuservalue][115] |  [os.rename][182]   | [package.searchpath][194] |
+|       [utf8.char][222]       |   [math.floor][155]    |      [load][82]      |  [io.stderr][133]   |  [string.lower][204]   |   [debug.sethook][116]    | [os.setlocale][183] |
+|   [utf8.charpattern][223]    |    [math.fmod][156]    |    [loadfile][83]    |   [io.stdin][134]   |  [string.match][205]   |   [debug.setlocal][117]   |   [os.time][184]    |
+|    [utf8.codepoint][224]     |    [math.huge][157]    |      [next][84]      |  [io.stdout][135]   |   [string.pack][206]   | [debug.setmetatable][118] |  [os.tmpname][185]  |
+|      [utf8.codes][225]       |    [math.log][158]     |     [pairs][85]      |  [io.tmpfile][136]  | [string.packsize][207] |  [debug.setupvalue][119]  |
+|       [utf8.len][226]        |    [math.max][159]     |     [pcall][86]      |   [io.type][137]    |   [string.rep][208]    | [debug.setuservalue][120] |
+|      [utf8.offset][227]      | [math.maxinteger][160] |     [print][87]      |   [io.write][138]   | [string.reverse][209]  |  [debug.traceback][121]   |
+|       [LUA_CPATH][228]       |    [math.min][161]     |    [rawequal][88]    |  [file:close][139]  |   [string.sub][210]    |  [debug.upvalueid][122]   |
+|     [LUA_CPATH_5_3][229]     | [math.mininteger][162] |     [rawget][89]     |  [file:flush][140]  |  [string.unpack][211]  | [debug.upvaluejoin][123]  |
+|       [LUA_INIT][230]        |    [math.modf][163]    |     [rawlen][90]     |  [file:lines][141]  |  [string.upper][212]   |
+|     [LUA_INIT_5_3][231]      |     [math.pi][164]     |     [rawset][91]     |  [file:read][142]   |
+|       [LUA_PATH][232]        |    [math.rad][165]     |    [require][92]     |  [file:seek][143]   |
+|     [LUA_PATH_5_3][233]      |   [math.random][166]   |     [select][93]     | [file:setvbuf][144] |
+|       [lua_Alloc][234]       | [math.randomseed][167] |  [setmetatable][94]  |  [file:write][145]  |
+|     [lua_CFunction][235]     |    [math.sin][168]     |    [tonumber][95]    |
+|       [lua_Debug][236]       |    [math.sqrt][169]    |    [tostring][96]    |
+|       [lua_Hook][237]        |    [math.tan][170]     |      [type][97]      |
+|      [lua_Integer][238]      | [math.tointeger][171]  |     [xpcall][98]     |
+|     [lua_KContext][239]      |    [math.type][172]    |
+|     [lua_KFunction][240]     |    [math.ult][173]     |
+|      [lua_Number][241]       |
+|      [lua_Reader][242]       |
+|       [lua_State][243]       |
+|     [lua_Unsigned][244]      |
+|      [lua_Writer][245]       |
+|     [lua_absindex][246]      |
+|       [lua_arith][247]       |
+|      [lua_atpanic][248]      |
+|       [lua_call][249]        |
+|       [lua_callk][250]       |
+|    [lua_checkstack][251]     |
+|       [lua_close][252]       |
+|      [lua_compare][253]      |
+|      [lua_concat][254]       |
+|       [lua_copy][255]        |
+|    [lua_createtable][256]    |
+|       [lua_dump][257]        |
+|       [lua_error][258]       |
+|        [lua_gc][259]         |
+|     [lua_getallocf][260]     |
+|   [lua_getextraspace][261]   |
+|     [lua_getfield][262]      |
+|     [lua_getglobal][263]     |
+|      [lua_gethook][264]      |
+|   [lua_gethookcount][265]    |
+|    [lua_gethookmask][266]    |
+|       [lua_geti][267]        |
+|      [lua_getinfo][268]      |
+|     [lua_getlocal][269]      |
+|   [lua_getmetatable][270]    |
+|     [lua_getstack][271]      |
+|     [lua_gettable][272]      |
+|      [lua_gettop][273]       |
+|    [lua_getupvalue][274]     |
+|   [lua_getuservalue][275]    |
+|      [lua_insert][276]       |
+|     [lua_isboolean][277]     |
+|    [lua_iscfunction][278]    |
+|    [lua_isfunction][279]     |
+|     [lua_isinteger][280]     |
+|  [lua_islightuserdata][281]  |
+|       [lua_isnil][282]       |
+|      [lua_isnone][283]       |
+|    [lua_isnoneornil][284]    |
+|     [lua_isnumber][285]      |
+|     [lua_isstring][286]      |
+|      [lua_istable][287]      |
+|     [lua_isthread][288]      |
+|    [lua_isuserdata][289]     |
+|    [lua_isyieldable][290]    |
+|        [lua_len][291]        |
+|       [lua_load][292]        |
+|     [lua_newstate][293]      |
+|     [lua_newtable][294]      |
+|     [lua_newthread][295]     |
+|    [lua_newuserdata][296]    |
+|       [lua_next][297]        |
+|  [lua_numbertointeger][298]  |
+|       [lua_pcall][299]       |
+|      [lua_pcallk][300]       |
+|        [lua_pop][301]        |
+|    [lua_pushboolean][302]    |
+|   [lua_pushcclosure][303]    |
+|   [lua_pushcfunction][304]   |
+|    [lua_pushfstring][305]    |
+|  [lua_pushglobaltable][306]  |
+|    [lua_pushinteger][307]    |
+| [lua_pushlightuserdata][308] |
+|    [lua_pushliteral][309]    |
+|    [lua_pushlstring][310]    |
+|      [lua_pushnil][311]      |
+|    [lua_pushnumber][312]     |
+|    [lua_pushstring][313]     |
+|    [lua_pushthread][314]     |
+|     [lua_pushvalue][315]     |
+|   [lua_pushvfstring][316]    |
+|     [lua_rawequal][317]      |
+|      [lua_rawget][318]       |
+|      [lua_rawgeti][319]      |
+|      [lua_rawgetp][320]      |
+|      [lua_rawlen][321]       |
+|      [lua_rawset][322]       |
+|      [lua_rawseti][323]      |
+|      [lua_rawsetp][324]      |
+|     [lua_register][325]      |
+|      [lua_remove][326]       |
+|      [lua_replace][327]      |
+|      [lua_resume][328]       |
+|      [lua_rotate][329]       |
+|     [lua_setallocf][330]     |
+|     [lua_setfield][331]      |
+|     [lua_setglobal][332]     |
+|      [lua_sethook][333]      |
+|       [lua_seti][334]        |
+|     [lua_setlocal][335]      |
+|   [lua_setmetatable][336]    |
+|     [lua_settable][337]      |
+|      [lua_settop][338]       |
+|    [lua_setupvalue][339]     |
+|   [lua_setuservalue][340]    |
+|      [lua_status][341]       |
+|  [lua_stringtonumber][342]   |
+|     [lua_toboolean][343]     |
+|    [lua_tocfunction][344]    |
+|     [lua_tointeger][345]     |
+|    [lua_tointegerx][346]     |
+|     [lua_tolstring][347]     |
+|     [lua_tonumber][348]      |
+|     [lua_tonumberx][349]     |
+|     [lua_topointer][350]     |
+|     [lua_tostring][351]      |
+|     [lua_tothread][352]      |
+|    [lua_touserdata][353]     |
+|       [lua_type][354]        |
+|     [lua_typename][355]      |
+|     [lua_upvalueid][356]     |
+|   [lua_upvalueindex][357]    |
+|    [lua_upvaluejoin][358]    |
+|      [lua_version][359]      |
+|       [lua_xmove][360]       |
+|       [lua_yield][361]       |
+|      [lua_yieldk][362]       |
+|      [luaL_Buffer][363]      |
+|       [luaL_Reg][364]        |
+|      [luaL_Stream][365]      |
+|     [luaL_addchar][366]      |
+|    [luaL_addlstring][367]    |
+|     [luaL_addsize][368]      |
+|    [luaL_addstring][369]     |
+|     [luaL_addvalue][370]     |
+|     [luaL_argcheck][371]     |
+|     [luaL_argerror][372]     |
+|     [luaL_buffinit][373]     |
+|   [luaL_buffinitsize][374]   |
+|     [luaL_callmeta][375]     |
+|     [luaL_checkany][376]     |
+|   [luaL_checkinteger][377]   |
+|   [luaL_checklstring][378]   |
+|   [luaL_checknumber][379]    |
+|   [luaL_checkoption][380]    |
+|    [luaL_checkstack][381]    |
+|   [luaL_checkstring][382]    |
+|    [luaL_checktype][383]     |
+|    [luaL_checkudata][384]    |
+|   [luaL_checkversion][385]   |
+|      [luaL_dofile][386]      |
+|     [luaL_dostring][387]     |
+|      [luaL_error][388]       |
+|    [luaL_execresult][389]    |
+|    [luaL_fileresult][390]    |
+|   [luaL_getmetafield][391]   |
+|   [luaL_getmetatable][392]   |
+|   [luaL_getsubtable][393]    |
+|       [luaL_gsub][394]       |
+|       [luaL_len][395]        |
+|    [luaL_loadbuffer][396]    |
+|   [luaL_loadbufferx][397]    |
+|     [luaL_loadfile][398]     |
+|    [luaL_loadfilex][399]     |
+|    [luaL_loadstring][400]    |
+|      [luaL_newlib][401]      |
+|   [luaL_newlibtable][402]    |
+|   [luaL_newmetatable][403]   |
+|     [luaL_newstate][404]     |
+|     [luaL_openlibs][405]     |
+|    [luaL_optinteger][406]    |
+|    [luaL_optlstring][407]    |
+|    [luaL_optnumber][408]     |
+|    [luaL_optstring][409]     |
+|    [luaL_prepbuffer][410]    |
+|   [luaL_prepbuffsize][411]   |
+|    [luaL_pushresult][412]    |
+|  [luaL_pushresultsize][413]  |
+|       [luaL_ref][414]        |
+|     [luaL_requiref][415]     |
+|     [luaL_setfuncs][416]     |
+|   [luaL_setmetatable][417]   |
+|    [luaL_testudata][418]     |
+|    [luaL_tolstring][419]     |
+|    [luaL_traceback][420]     |
+|     [luaL_typename][421]     |
+|      [luaL_unref][422]       |
+|      [luaL_where][423]       |
+|     [luaopen_base][424]      |
+|   [luaopen_coroutine][425]   |
+|     [luaopen_debug][426]     |
+|      [luaopen_io][427]       |
+|     [luaopen_math][428]      |
+|      [luaopen_os][429]       |
+|    [luaopen_package][430]    |
+|    [luaopen_string][431]     |
+|     [luaopen_table][432]     |
+|     [luaopen_utf8][433]      |
+|      [LUA_ERRERR][434]       |
+|      [LUA_ERRFILE][435]      |
+|      [LUA_ERRGCMM][436]      |
+|      [LUA_ERRMEM][437]       |
+|      [LUA_ERRRUN][438]       |
+|     [LUA_ERRSYNTAX][439]     |
+|     [LUA_HOOKCALL][440]      |
+|     [LUA_HOOKCOUNT][441]     |
+|     [LUA_HOOKLINE][442]      |
+|      [LUA_HOOKRET][443]      |
+|   [LUA_HOOKTAILCALL][444]    |
+|     [LUA_MASKCALL][445]      |
+|     [LUA_MASKCOUNT][446]     |
+|     [LUA_MASKLINE][447]      |
+|      [LUA_MASKRET][448]      |
+|    [LUA_MAXINTEGER][449]     |
+|    [LUA_MININTEGER][450]     |
+|     [LUA_MINSTACK][451]      |
+|      [LUA_MULTRET][452]      |
+|       [LUA_NOREF][453]       |
+|        [LUA_OK][454]         |
+|       [LUA_OPADD][455]       |
+|      [LUA_OPBAND][456]       |
+|      [LUA_OPBNOT][457]       |
+|       [LUA_OPBOR][458]       |
+|      [LUA_OPBXOR][459]       |
+|       [LUA_OPDIV][460]       |
+|       [LUA_OPEQ][461]        |
+|      [LUA_OPIDIV][462]       |
+|       [LUA_OPLE][463]        |
+|       [LUA_OPLT][464]        |
+|       [LUA_OPMOD][465]       |
+|       [LUA_OPMUL][466]       |
+|       [LUA_OPPOW][467]       |
+|       [LUA_OPSHL][468]       |
+|       [LUA_OPSHR][469]       |
+|       [LUA_OPSUB][470]       |
+|       [LUA_OPUNM][471]       |
+|      [LUA_REFNIL][472]       |
+|   [LUA_REGISTRYINDEX][473]   |
+|   [LUA_RIDX_GLOBALS][474]    |
+|  [LUA_RIDX_MAINTHREAD][475]  |
+|     [LUA_TBOOLEAN][476]      |
+|     [LUA_TFUNCTION][477]     |
+|  [LUA_TLIGHTUSERDATA][478]   |
+|       [LUA_TNIL][479]        |
+|       [LUA_TNONE][480]       |
+|      [LUA_TNUMBER][481]      |
+|      [LUA_TSTRING][482]      |
+|      [LUA_TTABLE][483]       |
+|      [LUA_TTHREAD][484]      |
+|     [LUA_TUSERDATA][485]     |
+|   [LUA_USE_APICHECK][486]    |
+|       [LUA_YIELD][487]       |
+|    [LUAL_BUFFERSIZE][488]    |
 
 ---
 
