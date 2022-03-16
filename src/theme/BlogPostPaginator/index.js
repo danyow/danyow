@@ -6,12 +6,10 @@
  */
 import React from 'react';
 import Translate, {translate} from '@docusaurus/Translate';
-import Link from '@docusaurus/Link';
+import PaginatorNavLink from '@theme/PaginatorNavLink';
 import AnyText from "../../core/AnyText";
-
-function BlogPostPaginator(props) {
+export default function BlogPostPaginator(props) {
   const {nextItem, prevItem} = props;
-
   return (
     <nav
       className="pagination-nav docusaurus-mt-lg"
@@ -22,38 +20,32 @@ function BlogPostPaginator(props) {
       })}>
       <div className="pagination-nav__item">
         {prevItem && (
-          <Link className="pagination-nav__link" to={prevItem.permalink}>
-            <div className="pagination-nav__sublabel">
+          <PaginatorNavLink
+            {...prevItem}
+            subLabel={
               <Translate
                 id="theme.blog.post.paginator.newerPost"
                 description="The blog post button label to navigate to the newer/previous post">
                 {AnyText.GetAny(AnyText.BlogPostPaginator.newerPost)}
               </Translate>
-            </div>
-            <div className="pagination-nav__label">
-              &laquo; {prevItem.title}
-            </div>
-          </Link>
+            }
+          />
         )}
       </div>
       <div className="pagination-nav__item pagination-nav__item--next">
         {nextItem && (
-          <Link className="pagination-nav__link" to={nextItem.permalink}>
-            <div className="pagination-nav__sublabel">
+          <PaginatorNavLink
+            {...nextItem}
+            subLabel={
               <Translate
                 id="theme.blog.post.paginator.olderPost"
                 description="The blog post button label to navigate to the older/next post">
                 {AnyText.GetAny(AnyText.BlogPostPaginator.olderPost)}
               </Translate>
-            </div>
-            <div className="pagination-nav__label">
-              {nextItem.title} &raquo;
-            </div>
-          </Link>
+            }
+          />
         )}
       </div>
     </nav>
   );
 }
-
-export default BlogPostPaginator;

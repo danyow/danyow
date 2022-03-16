@@ -11,12 +11,13 @@ import Translate, {translate} from '@docusaurus/Translate';
 import Link from '@docusaurus/Link';
 import {useBaseUrlUtils} from '@docusaurus/useBaseUrl';
 import {usePluralForm} from '@docusaurus/theme-common';
+import {blogPostContainerID} from '@docusaurus/utils-common';
 import MDXComponents from '@theme/MDXComponents';
 import EditThisPage from '@theme/EditThisPage';
 import styles from './styles.module.css';
 import TagsListInline from '@theme/TagsListInline';
-import BlogPostAuthors from '@theme/BlogPostAuthors';
-import AnyText from "../../core/AnyText"; // Very simple pluralization: probably good enough for now
+import BlogPostAuthors from '@theme/BlogPostAuthors'; // Very simple pluralization: probably good enough for now
+import AnyText from "../../core/AnyText";
 
 function useReadingTimePlural() {
   const {selectMessage} = usePluralForm();
@@ -43,7 +44,7 @@ function useReadingTimePlural() {
   };
 }
 
-function BlogPostItem(props) {
+export default function BlogPostItem(props) {
   const readingTimePlural = useReadingTimePlural();
   const {withBaseUrl} = useBaseUrlUtils();
   const {
@@ -67,10 +68,13 @@ function BlogPostItem(props) {
   const image = assets.image ?? frontMatter.image;
   const truncatedPost = !isBlogPostPage && truncated;
   const tagsExists = tags.length > 0;
-
-  const renderPostHeader = () => {
-    const TitleHeading = isBlogPostPage ? 'h1' : 'h2';
-    return (
+  const TitleHeading = isBlogPostPage ? 'h1' : 'h2';
+  return (
+    <article
+      className={!isBlogPostPage ? 'margin-bottom--xl' : undefined}
+      itemProp="blogPost"
+      itemScope
+      itemType="http://schema.org/BlogPosting">
       <header>
         <TitleHeading className={styles.blogPostTitle} itemProp="headline">
           {isBlogPostPage ? (
@@ -93,18 +97,8 @@ function BlogPostItem(props) {
             </>
           )}
         </div>
-        <BlogPostAuthors authors={authors} assets={assets}/>
+        <BlogPostAuthors authors={authors} assets={assets} />
       </header>
-    );
-  };
-
-  return (
-    <article
-      className={!isBlogPostPage ? 'margin-bottom--xl' : undefined}
-      itemProp="blogPost"
-      itemScope
-      itemType="http://schema.org/BlogPosting">
-      {renderPostHeader()}
 
       {image && (
         <meta
@@ -115,7 +109,10 @@ function BlogPostItem(props) {
         />
       )}
 
-      <div className="markdown" itemProp="articleBody">
+      <div // This ID is used for the feed generation to locate the main content
+        id={isBlogPostPage ? blogPostContainerID : undefined}
+        className="markdown"
+        itemProp="articleBody">
         <MDXProvider components={MDXComponents}>{children}</MDXProvider>
       </div>
 
@@ -129,13 +126,13 @@ function BlogPostItem(props) {
               className={clsx('col', {
                 'col--9': truncatedPost,
               })}>
-              <TagsListInline tags={tags}/>
+              <TagsListInline tags={tags} />
             </div>
           )}
 
           {isBlogPostPage && editUrl && (
             <div className="col margin-top--sm">
-              <EditThisPage editUrl={editUrl}/>
+              <EditThisPage editUrl={editUrl} />
             </div>
           )}
 
@@ -146,7 +143,17 @@ function BlogPostItem(props) {
               })}>
               <Link
                 to={metadata.permalink}
-                aria-label={`Read more about ${title}`}>
+                aria-label={translate(
+                  {
+                    message: 'Read more about {title}',
+                    id: 'theme.blog.post.readMoreLabel',
+                    description:
+                      'The ARIA label for the link to full blog posts from excerpts',
+                  },
+                  {
+                    title,
+                  },
+                )}>
                 <b>
                   <Translate
                     id="theme.blog.post.readMore"
@@ -162,5 +169,3 @@ function BlogPostItem(props) {
     </article>
   );
 }
-
-export default BlogPostItem;

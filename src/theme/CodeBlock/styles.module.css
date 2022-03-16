@@ -5,7 +5,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-/*noinspection CssUnresolvedCustomProperty*/
 .codeBlockContainer {
   margin-bottom: var(--ifm-leading);
   border-radius: var(--ifm-global-radius);
@@ -14,11 +13,10 @@
 
 .codeBlockContent {
   position: relative;
-  /*rtl:ignore*/
+  /* rtl:ignore */
   direction: ltr;
 }
 
-/*noinspection CssUnresolvedCustomProperty*/
 .codeBlockTitle {
   border-bottom: 1px solid var(--ifm-color-emphasis-300);
   font-size: var(--ifm-code-font-size);
@@ -28,21 +26,24 @@
   border-top-right-radius: var(--ifm-global-radius);
 }
 
-.codeBlockTitle + .codeBlockContent .codeBlock {
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-}
-
-/*noinspection CssUnresolvedCustomProperty*/
 .codeBlock {
   margin: 0;
   padding: 0;
   border-radius: var(--ifm-global-radius);
 }
 
-/*noinspection CssUnresolvedCustomProperty*/
+.codeBlockTitle + .codeBlockContent .codeBlock {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.codeBlockStandalone {
+  padding: 0;
+  border-radius: var(--ifm-global-radius);
+}
+
 .copyButton {
-  background: rgba(0, 0, 0, 0.3);
+  background: rgb(0 0 0 / 30%);
   border-radius: var(--ifm-global-radius);
   color: var(--ifm-color-white);
   opacity: 0;
@@ -54,16 +55,15 @@
   transition: opacity 200ms ease-in-out;
 }
 
-.codeBlockTitle:hover + .codeBlockContent .copyButton,
+.copyButton:focus,
 .codeBlockContent:hover > .copyButton,
-.copyButton:focus {
+.codeBlockTitle:hover + .codeBlockContent .copyButton {
   opacity: 1;
 }
 
-/*noinspection CssUnresolvedCustomProperty*/
 .codeBlockLines {
   font: inherit;
-  /*rtl:ignore*/
+  /* rtl:ignore */
   float: left;
   min-width: 100%;
   padding: var(--ifm-pre-padding);

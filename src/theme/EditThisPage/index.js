@@ -17,7 +17,7 @@ export default function EditThisPage({editUrl}) {
       target="_blank"
       rel="noreferrer noopener"
       className={ThemeClassNames.common.editThisPage}>
-      <IconEdit/>
+      <IconEdit />
       <Translate
         id="theme.common.editThisPage"
         description="编辑当前页面的链接标签">

@@ -1,6 +1,9 @@
 // @ts-check
 // Note: 类型注释允许类型检查和 IDE 自动完成
 
+const lightCodeTheme = require('prism-react-renderer/themes/github');
+const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: ":D",
