@@ -8,8 +8,8 @@
 
 ![statistics](https://github-readme-stats.vercel.app/api?username=danyow&include_all_commits=true)
 
-[Vercel site](https://danyow.vercel.app/)
+[Vercel 站点](https://danyow.vercel.app/)
 
-[Netlify site](https://danyow.netlify.app/)
+[Netlify 站点](https://danyow.netlify.app/)
 
-[Gitee pages](https://danyow.gitee.io/)
+[Gitee 站点](https://danyow.gitee.io/)
