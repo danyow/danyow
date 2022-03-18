@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://danyow.cn/blog</id>
     <title>:D Blog</title>
-    <updated>2022-03-17T10:05:16.000Z</updated>
+    <updated>2022-03-18T03:49:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://danyow.cn/blog"/>
     <subtitle>:D Blog</subtitle>
@@ -11,7 +11,7 @@
         <title type="html"><![CDATA[笔记]]></title>
         <id>/2021/note</id>
         <link href="https://danyow.cn/blog/2021/note"/>
-        <updated>2022-03-17T10:05:16.000Z</updated>
+        <updated>2022-03-18T03:49:00.000Z</updated>
         <summary type="html"><![CDATA[Windows]]></summary>
         <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_loeA" id="windows">Windows<a class="hash-link" href="#windows" title="标题的直接链接">​</a></h2><h3 class="anchor anchorWithStickyNavbar_loeA" id="查看端口被占用">查看端口被占用<a class="hash-link" href="#查看端口被占用" title="标题的直接链接">​</a></h3><p><code>netstat –ano</code></p><p><code>netstat</code></p>]]></content>
     </entry>
