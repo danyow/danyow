@@ -120,17 +120,17 @@ const config = {
           },
           {
             type: "doc",
-            docId: "lua",
+            docId: "learn",
             docsPluginId: "lua",
             position: "left",
-            label: "lua",
+            label: "Lua",
           },
           {
             type: "doc",
-            docId: "unity",
+            docId: "glossary",
             docsPluginId: "unity",
             position: "left",
-            label: "unity",
+            label: "Unity",
           },
           {
             to: "/blog",

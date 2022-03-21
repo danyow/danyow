@@ -3,6 +3,7 @@
 
 # 生产
 /build
+/scripts_build
 
 # 生成的文件
 .docusaurus

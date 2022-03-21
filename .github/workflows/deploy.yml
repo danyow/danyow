@@ -9,11 +9,22 @@ jobs:
     name: 部署到GitHub
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - name: 检出代码
+        uses: actions/checkout@v3
+      - name: 设置 node 版本
+        uses: actions/setup-node@v3
         with:
-          node-version: 14.x
+          node-version: '16'
           cache: yarn
+      - name: 配置环境
+        run: |
+          yarn install
+      - name: 运行脚本生成unity文档
+        run: |
+          node scripts/main.js
+      - name: 查看生成结果
+        run: |
+          tree
       - name: 构建网站
         env:
           CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
