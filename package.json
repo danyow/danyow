@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "generate": "node scripts/main.js",
     "docusaurus": "node --max-old-space-size=8192 node_modules/@docusaurus/core/bin/docusaurus.mjs",
     "start": "node --max-old-space-size=8192 node_modules/@docusaurus/core/bin/docusaurus.mjs start",
     "build": "node --max-old-space-size=8192 node_modules/@docusaurus/core/bin/docusaurus.mjs build",

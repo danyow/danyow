@@ -8,6 +8,7 @@ jobs:
   deploy:
     name: 部署到GitHub
     runs-on: ubuntu-latest
+
     steps:
       - name: 检出代码
         uses: actions/checkout@v3
@@ -19,17 +20,18 @@ jobs:
       - name: 配置环境
         run: |
           yarn install
-      - name: 运行脚本生成unity文档
-        run: |
-          node scripts/main.js
-      - name: 查看生成结果
-        run: |
-          tree
+#      - name: 运行脚本生成unity文档
+#        run: |
+#
+#      - name: 查看生成结果
+#        run: |
+#          tree
       - name: 构建网站
         env:
           CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
         # 本地化 crowdin-udb
         run: |
+          yarn generate
           yarn install --frozen-lockfile
           yarn build
 
