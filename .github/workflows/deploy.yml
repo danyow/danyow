@@ -32,7 +32,6 @@ jobs:
         # 本地化 crowdin-udb
         run: |
           yarn generate
-          yarn install --frozen-lockfile
           yarn build
 
       # 目前较为流行部署到GitHubPages 的Action：
