@@ -82,9 +82,9 @@ exports.baseURL = function (language, version, root = '', args = '') {
 // to path
 exports.basePath = function (language, version, root, ...args) {
   if (root) {
-    return Path.resolve('./scripts_build', language, version, root, ...args)
+    return Path.resolve('../scripts_build', language, version, root, ...args)
   } else {
-    return Path.resolve('./scripts_build', language, version, ...args)
+    return Path.resolve('../scripts_build', language, version, ...args)
   }
 }
 

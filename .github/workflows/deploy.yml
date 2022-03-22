@@ -21,16 +21,16 @@ jobs:
         env:
           CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
           # 本地化 crowdin-udb
-          # yarn generate
-          # git config --global user.email "i.zuucol@gmail.com"
-          # git config --global user.name "danyow"
-          # git add unity/
-          # git commit -m 'generate'
         run: |
           yarn install 
+          yarn generate
+          git config --global user.email "i.zuucol@gmail.com"
+          git config --global user.name "danyow"
+          git add unity/
+          git commit -m 'generate'
           yarn build
 
-      # 目前较为流行部署到GitHubPages 的Action：
+      # 目前较为流行部署到 GitHubPages 的 Action：
       # 文档: https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-docusaurus
       - name: 部署到GitHub
         uses: peaceiris/actions-gh-pages@v3
