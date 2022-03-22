@@ -32,6 +32,8 @@ jobs:
         # 本地化 crowdin-udb
         run: |
           yarn generate
+          git add *
+          git commit -m 'generate'
           yarn build
 
       # 目前较为流行部署到GitHubPages 的Action：
