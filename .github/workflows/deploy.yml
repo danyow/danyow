@@ -31,11 +31,11 @@ jobs:
           CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
         # 本地化 crowdin-udb
         run: |
-          yarn generate
-          git config --global user.email "i.zuucol@gmail.com"
-          git config --global user.name "danyow"
-          git add unity/
-          git commit -m 'generate'
+#          yarn generate
+#          git config --global user.email "i.zuucol@gmail.com"
+#          git config --global user.name "danyow"
+#          git add unity/
+#          git commit -m 'generate'
           yarn build
 
       # 目前较为流行部署到GitHubPages 的Action：
