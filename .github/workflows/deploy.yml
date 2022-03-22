@@ -32,7 +32,7 @@ jobs:
         # 本地化 crowdin-udb
         run: |
           yarn generate
-          git add *
+          git add unity/
           git commit -m 'generate'
           yarn build
 
