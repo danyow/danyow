@@ -1,19 +1,25 @@
 // noinspection DuplicatedCode
 
 /**
- * 获取并整理 GitHub Star 仓库列表，生成分类 Markdown 文档。
- * 使用方式：GITHUB_TOKEN=<token> node scripts/stars.js
+ * 获取并整理「danyow 在 GitHub 上 star 的他人仓库」，生成分类 Markdown 文档。
+ *
+ * 分类维度：
+ *   1. 按编程语言（GitHub 自动检测的主语言）
+ *   2. 按 GitHub Topics（仓库作者打的标签）
+ *
+ * 使用方式：GITHUB_TOKEN=<personal_access_token> node scripts/stars.js
  */
 
 const https = require('https')
 const fs = require('fs')
 const path = require('path')
 
-const USERNAME = 'danyow'
 const OUTPUT_FILE = path.resolve(__dirname, '../note/stars.md')
 
 /**
- * 获取指定页的 Star 仓库列表
+ * 使用 GitHub REST API 获取指定页的 Star 仓库列表。
+ * 使用认证端点 /user/starred，返回当前 token 用户所 star 的全部仓库
+ * （即 danyow star 的其他人的仓库）。
  */
 function fetchPage(page, token, callback) {
   const headers = {
@@ -24,9 +30,10 @@ function fetchPage(page, token, callback) {
     headers['Authorization'] = 'Bearer ' + token
   }
 
+  // /user/starred — 认证用户自己 star 的仓库（均为他人创建的仓库）
   const options = {
     hostname: 'api.github.com',
-    path: '/users/' + USERNAME + '/starred?per_page=100&page=' + page,
+    path: '/user/starred?per_page=100&page=' + page,
     headers: headers,
   }
 
@@ -85,9 +92,8 @@ function fetchAllStars(callback) {
 /**
  * 按编程语言分类
  */
-function categorize(repos) {
+function categorizeByLanguage(repos) {
   const categories = {}
-
   for (const repo of repos) {
     const lang = repo.language || '其他'
     if (!categories[lang]) {
@@ -95,50 +101,115 @@ function categorize(repos) {
     }
     categories[lang].push(repo)
   }
-
-  // 每个分类内按 Star 数降序排列
   for (const lang in categories) {
     categories[lang].sort(function (a, b) {
       return b.stargazers_count - a.stargazers_count
     })
   }
-
   return categories
 }
 
 /**
- * 生成 Markdown 文档
+ * 按 GitHub Topics 分类（一个仓库可出现在多个话题下）
  */
-function generateMarkdown(repos) {
-  const categories = categorize(repos)
-  const date = new Date().toISOString().split('T')[0]
+function categorizeByTopic(repos) {
+  const categories = {}
+  const addedToTopic = {}
+  for (const repo of repos) {
+    const topics = repo.topics && repo.topics.length > 0 ? repo.topics : ['未分类']
+    for (const topic of topics) {
+      if (!categories[topic]) {
+        categories[topic] = []
+        addedToTopic[topic] = new Set()
+      }
+      if (!addedToTopic[topic].has(repo.full_name)) {
+        addedToTopic[topic].add(repo.full_name)
+        categories[topic].push(repo)
+      }
+    }
+  }
+  for (const topic in categories) {
+    categories[topic].sort(function (a, b) {
+      return b.stargazers_count - a.stargazers_count
+    })
+  }
+  return categories
+}
 
-  let md = '# ⭐ Star 列表\n\n'
-  md += '> 最后更新: ' + date + '，共 **' + repos.length + '** 个仓库\n\n'
-
-  // 按 Star 数对语言排序（多的在前）
-  const langs = Object.keys(categories).sort(function (a, b) {
+/**
+ * 将分类对象按「分类内仓库数量从多到少」排序，返回排好序的键数组
+ */
+function sortedKeys(categories) {
+  return Object.keys(categories).sort(function (a, b) {
     return categories[b].length - categories[a].length
   })
+}
 
-  // 目录
-  md += '## 目录\n\n'
-  for (const lang of langs) {
-    const anchor = lang.toLowerCase().replace(/\+/g, 'p').replace(/#/g, 'sharp').replace(/[\s]+/g, '-').replace(/[^\w\u4e00-\u9fa5-]/g, '')
-    md += '- [' + lang + '](#' + anchor + ') (' + categories[lang].length + ')\n'
+/**
+ * 将语言/话题名称转换为 Markdown 锚点
+ */
+function toAnchor(name) {
+  return name
+    .toLowerCase()
+    .replace(/\+/g, 'p')
+    .replace(/#/g, 'sharp')
+    .replace(/[\s]+/g, '-')
+    .replace(/[^\w\u4e00-\u9fa5-]/g, '')
+}
+
+/**
+ * 生成一个分类表格块
+ */
+function renderTable(repos) {
+  let md = '| 仓库 | 描述 | ⭐ |\n'
+  md += '| --- | --- | ---: |\n'
+  for (const repo of repos) {
+    const desc = (repo.description || '').replace(/\\/g, '\\\\').replace(/\|/g, '\\|')
+    md += '| [' + repo.full_name + '](' + repo.html_url + ') | ' + desc + ' | ' + repo.stargazers_count + ' |\n'
+  }
+  return md + '\n'
+}
+
+/**
+ * 生成完整 Markdown 文档（按语言 + 按 Topic 两个维度）
+ */
+function generateMarkdown(repos) {
+  const date = new Date().toISOString().split('T')[0]
+  const byLang = categorizeByLanguage(repos)
+  const byTopic = categorizeByTopic(repos)
+  const langKeys = sortedKeys(byLang)
+  const topicKeys = sortedKeys(byTopic)
+
+  let md = '# ⭐ 我 Star 的仓库\n\n'
+  md += '> 这里收录了 [danyow](https://github.com/danyow) **star 的他人仓库**，按编程语言和 GitHub Topics 两个维度分类。\n'
+  md += '>\n'
+  md += '> 最后更新: ' + date + '，共 **' + repos.length + '** 个仓库。\n'
+  md += '> 此文件由 [GitHub Actions](https://github.com/danyow/danyow/actions/workflows/stars.yml) 自动生成，请勿手动编辑。\n\n'
+
+  // ── 按语言分类 ──────────────────────────────────────────────────────────────
+  md += '## 按编程语言分类\n\n'
+  for (const lang of langKeys) {
+    const anchor = toAnchor(lang)
+    md += '- [' + lang + '](#' + anchor + ') (' + byLang[lang].length + ')\n'
   }
   md += '\n'
+  for (const lang of langKeys) {
+    md += '### ' + lang + '\n\n'
+    md += renderTable(byLang[lang])
+  }
 
-  // 各分类
-  for (const lang of langs) {
-    md += '## ' + lang + '\n\n'
-    md += '| 仓库 | 描述 | ⭐ |\n'
-    md += '| --- | --- | ---: |\n'
-    for (const repo of categories[lang]) {
-      const desc = (repo.description || '').replace(/\\/g, '\\\\').replace(/\|/g, '\\|')
-      md += '| [' + repo.full_name + '](' + repo.html_url + ') | ' + desc + ' | ' + repo.stargazers_count + ' |\n'
-    }
-    md += '\n'
+  // ── 按 Topic 分类 ────────────────────────────────────────────────────────────
+  md += '## 按 Topics 分类\n\n'
+  // 只列出出现 ≥ 2 次的 topic，避免噪音太多
+  const popularTopics = topicKeys.filter(function (t) { return byTopic[t].length >= 2 })
+  for (const topic of popularTopics) {
+    const anchor = toAnchor(topic)
+    md += '- [' + topic + '](#' + anchor + ') (' + byTopic[topic].length + ')\n'
+  }
+  md += '\n'
+  for (const topic of popularTopics) {
+    md += '### ' + topic + '\n\n'
+    md += renderTable(byTopic[topic])
   }
 
   return md
@@ -151,7 +222,7 @@ fetchAllStars(function (err, repos) {
     process.exit(1)
   }
 
-  console.log('共获取 ' + repos.length + ' 个 Star 仓库')
+  console.log('共获取 ' + repos.length + ' 个他人的 Star 仓库')
 
   const md = generateMarkdown(repos)
 
@@ -163,3 +234,4 @@ fetchAllStars(function (err, repos) {
   fs.writeFileSync(OUTPUT_FILE, md, 'utf-8')
   console.log('已写入: ' + OUTPUT_FILE)
 })
+
