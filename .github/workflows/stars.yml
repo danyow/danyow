@@ -1,0 +1,38 @@
+name: 整理 Star 仓库
+
+on:
+  schedule:
+    - cron: '0 0 1 * *'  # 每月1日 UTC 00:00 运行
+  workflow_dispatch:      # 允许手动触发
+
+permissions:
+  contents: write
+
+jobs:
+  stars:
+    name: 整理 Star 仓库
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v3
+
+      - name: 设置 Node 版本
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - name: 生成 Star 列表
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
+        run: node scripts/stars.js
+
+      - name: 提交更改
+        run: |
+          git config --global user.email "i.zuucol@gmail.com"
+          git config --global user.name "danyow"
+          git add note/stars.md
+          git diff --staged --quiet || git commit -m '更新 Star 列表'
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
