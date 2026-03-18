@@ -10,7 +10,7 @@ const config = {
   title: ":D",
   tagline: "O ever youthful, O ever weeping",
   url: "https://danyow.cn",
-  baseUrl: "/",
+  baseUrl: "/danyow/",
   onBrokenLinks: "ignore",
   onDuplicateRoutes: "ignore",
   favicon: "img/favicon.ico",

@@ -45,4 +45,3 @@ jobs:
           # 您可以使用自己的用户凭据替换它们。
           user_name: github-actions[bot]
           user_email: 41898282+github-actions[bot]@users.noreply.github.com
-          cname: danyow.cn
