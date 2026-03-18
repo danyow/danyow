@@ -586,18 +586,12 @@ function handleMarkdown(complexList, handleCallback) {
       line = line.replaceAll(/^\[\d*?\]: (.+)/g, function (lineRep, lineReference) {
         // 是 链接（含 http://ip:port/... 等占位符形式的 URL）
         if (lineReference.match(/^https?:\/\//)) {
-          // TODO: 对同类型的链接
-          // if (ref.includes('docs.unity3d.com')) {
-          //   if (ref.includes('ScriptReference')) {
-          //     console.log('是脚本链接', ref)
-          //   } else if (ref.includes('Manual')) {
-          //     console.log('是手册链接', ref)
-          //   } else {
-          //     console.log('是其他链接', ref)
-          //   }
-          // } else {
-          //   console.log('不是文档', ref)
-          // }
+          // 截断 URL 中第一个非法字符（中文、空格等）之后的内容，
+          // 防止 turndown 将裸文本 URL 后的中文描述错误拼接进引用链接 URL。
+          lineRep = lineRep.replaceAll(lineReference, function () {
+            // 取 URL 中第一个空白或中文/全角字符之前的部分
+            return lineReference.replace(/[\s\u00ff-\uffff].*$/, '')
+          })
         } else {
           // 预先处理
           let newReference = lineReference
