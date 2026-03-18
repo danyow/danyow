@@ -1,0 +1,1025 @@
+<!doctype html>
+<html lang="zh" dir="ltr" class="docs-wrapper plugin-docs plugin-id-unity docs-version-current docs-doc-page docs-doc-id-platform-specific/android/android-getting-started/class-PlayerSettingsAndroid" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.9.2">
+<title data-rh="true">Android Player 设置 | :D</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://danyow.cn/unity/android-getting-started/class-player-settings-android"><meta data-rh="true" property="og:locale" content="zh"><meta data-rh="true" name="docusaurus_locale" content="zh"><meta data-rh="true" name="docsearch:language" content="zh"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-unity-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-unity-current"><meta data-rh="true" property="og:title" content="Android Player 设置 | :D"><meta data-rh="true" name="description" content="This page details the Player Settings for the Android platform. For a description of the general Player settings, see Player Settings."><meta data-rh="true" property="og:description" content="This page details the Player Settings for the Android platform. For a description of the general Player settings, see Player Settings."><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://danyow.cn/unity/android-getting-started/class-player-settings-android"><link data-rh="true" rel="alternate" href="https://danyow.cn/unity/android-getting-started/class-player-settings-android" hreflang="zh"><link data-rh="true" rel="alternate" href="https://danyow.cn/unity/android-getting-started/class-player-settings-android" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"平台开发","item":"https://danyow.cn/unity/platform-specific"},{"@type":"ListItem","position":2,"name":"Android","item":"https://danyow.cn/unity/android"},{"@type":"ListItem","position":3,"name":"Getting started with Android","item":"https://danyow.cn/unity/android-getting-started"},{"@type":"ListItem","position":4,"name":"Android Player 设置","item":"https://danyow.cn/unity/android-getting-started/class-player-settings-android"}]}</script><link rel="alternate" type="application/rss+xml" href="/blog/rss.xml" title=":D RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/blog/atom.xml" title=":D Atom Feed"><link rel="stylesheet" href="/assets/css/styles.640272bb.css">
+<script src="/assets/js/runtime~main.50b7b83d.js" defer="defer"></script>
+<script src="/assets/js/main.ca102e2d.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/img/logo.svg"><div role="region" aria-label="跳到主要内容"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">跳到主要内容</a></div><nav aria-label="主导航" class="theme-layout-navbar navbar navbar--fixed-top navbar--primary"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="切换导航栏" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><b class="navbar__title text--truncate">:D</b></a><a class="navbar__item navbar__link" href="/note/itinerary">笔记</a><a class="navbar__item navbar__link" href="/lua/learn">Lua</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/unity/Glossary">Unity</a><a class="navbar__item navbar__link" href="/blog">博客</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/danyow/danyow" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link header-github-link" aria-label="GitHub repository"></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search searchBarContainer_NW3z" dir="ltr"><input placeholder="搜索" aria-label="Search" class="navbar__search-input searchInput_YFbd" value=""><div class="loadingRing_RJI3 searchBarLoadingRing_YnHq"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="回到顶部" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="文档侧边栏" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/animation-section"><span title="动画" class="categoryLinkLabel_W154">动画</span></a><button aria-label="展开侧边栏分类 &#x27;动画&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/asset-store"><span title="Unity Asset Store" class="categoryLinkLabel_W154">Unity Asset Store</span></a><button aria-label="展开侧边栏分类 &#x27;Unity Asset Store&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/asset-workflow"><span title="资源工作流程" class="categoryLinkLabel_W154">资源工作流程</span></a><button aria-label="展开侧边栏分类 &#x27;资源工作流程&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/audio"><span title="音频" class="categoryLinkLabel_W154">音频</span></a><button aria-label="展开侧边栏分类 &#x27;音频&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/creating-environments"><span title="World building" class="categoryLinkLabel_W154">World building</span></a><button aria-label="展开侧边栏分类 &#x27;World building&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/unity/Glossary"><span title="术语表" class="linkLabel_WmDU">术语表</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/graphics"><span title="图形" class="categoryLinkLabel_W154">图形</span></a><button aria-label="展开侧边栏分类 &#x27;图形&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/input"><span title="输入" class="categoryLinkLabel_W154">输入</span></a><button aria-label="展开侧边栏分类 &#x27;输入&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/legacy-topics"><span title="旧版主题" class="categoryLinkLabel_W154">旧版主题</span></a><button aria-label="展开侧边栏分类 &#x27;旧版主题&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/navigation"><span title="导航和寻路" class="categoryLinkLabel_W154">导航和寻路</span></a><button aria-label="展开侧边栏分类 &#x27;导航和寻路&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/packages-list"><span title="Packages and feature sets" class="categoryLinkLabel_W154">Packages and feature sets</span></a><button aria-label="展开侧边栏分类 &#x27;Packages and feature sets&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/physics-section"><span title="物理系统" class="categoryLinkLabel_W154">物理系统</span></a><button aria-label="展开侧边栏分类 &#x27;物理系统&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" href="/unity/platform-specific"><span title="平台开发" class="categoryLinkLabel_W154">平台开发</span></a><button aria-label="折叠侧边栏分类 &#x27;平台开发&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" tabindex="0" href="/unity/android"><span title="Android" class="categoryLinkLabel_W154">Android</span></a><button aria-label="折叠侧边栏分类 &#x27;Android&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/android-building-and-delivering"><span title="Building and delivering for Android" class="categoryLinkLabel_W154">Building and delivering for Android</span></a><button aria-label="展开侧边栏分类 &#x27;Building and delivering for Android&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/android-chrome-os-introducing"><span title="Chrome OS" class="categoryLinkLabel_W154">Chrome OS</span></a><button aria-label="展开侧边栏分类 &#x27;Chrome OS&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/android-developing"><span title="Developing for Android" class="categoryLinkLabel_W154">Developing for Android</span></a><button aria-label="展开侧边栏分类 &#x27;Developing for Android&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" tabindex="0" href="/unity/android-getting-started"><span title="Getting started with Android" class="categoryLinkLabel_W154">Getting started with Android</span></a><button aria-label="折叠侧边栏分类 &#x27;Getting started with Android&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/android-keystore"><span title="Android keystores" class="categoryLinkLabel_W154">Android keystores</span></a><button aria-label="展开侧边栏分类 &#x27;Android keystores&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/unity/android-getting-started/android-sdksetup"><span title="Android 环境设置" class="linkLabel_WmDU">Android 环境设置</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/unity/android-getting-started/class-player-settings-android"><span title="Android Player 设置" class="linkLabel_WmDU">Android Player 设置</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/android-introducing"><span title="Introducing Android" class="categoryLinkLabel_W154">Introducing Android</span></a><button aria-label="展开侧边栏分类 &#x27;Introducing Android&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/apple-mac"><span title="macOS" class="categoryLinkLabel_W154">macOS</span></a><button aria-label="展开侧边栏分类 &#x27;macOS&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/unity/platform-specific/deep-linking"><span title="Deep linking" class="linkLabel_WmDU">Deep linking</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/iphone"><span title="iOS" class="categoryLinkLabel_W154">iOS</span></a><button aria-label="展开侧边栏分类 &#x27;iOS&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/linux"><span title="Linux" class="categoryLinkLabel_W154">Linux</span></a><button aria-label="展开侧边栏分类 &#x27;Linux&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/tv-os-introducing"><span title="tvOS" class="categoryLinkLabel_W154">tvOS</span></a><button aria-label="展开侧边栏分类 &#x27;tvOS&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/unity/platform-specific/unityasa-library"><span title="将“Unity 用作库”用于其他应用程序" class="linkLabel_WmDU">将“Unity 用作库”用于其他应用程序</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/webgl"><span title="WebGL" class="categoryLinkLabel_W154">WebGL</span></a><button aria-label="展开侧边栏分类 &#x27;WebGL&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/windows"><span title="Windows" class="categoryLinkLabel_W154">Windows</span></a><button aria-label="展开侧边栏分类 &#x27;Windows&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/windows-store"><span title="Universal Windows Platform" class="categoryLinkLabel_W154">Universal Windows Platform</span></a><button aria-label="展开侧边栏分类 &#x27;Universal Windows Platform&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/unity/platform-specific/xcode-frame-debugger-integration"><span title="Xcode frame debugger Unity integration" class="linkLabel_WmDU">Xcode frame debugger Unity integration</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/scripting-section"><span title="脚本" class="categoryLinkLabel_W154">脚本</span></a><button aria-label="展开侧边栏分类 &#x27;脚本&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/search-overview"><span title="Unity Search" class="categoryLinkLabel_W154">Unity Search</span></a><button aria-label="展开侧边栏分类 &#x27;Unity Search&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/uitoolkits"><span title="Create user interfaces (UI)" class="categoryLinkLabel_W154">Create user interfaces (UI)</span></a><button aria-label="展开侧边栏分类 &#x27;Create user interfaces (UI)&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/unet"><span title="多玩家和联网" class="categoryLinkLabel_W154">多玩家和联网</span></a><button aria-label="展开侧边栏分类 &#x27;多玩家和联网&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/unity/unity-manual"><span title="Unity User Manual 2022.1" class="linkLabel_WmDU">Unity User Manual 2022.1</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/unity-overview"><span title="在 Unity 中操作" class="categoryLinkLabel_W154">在 Unity 中操作</span></a><button aria-label="展开侧边栏分类 &#x27;在 Unity 中操作&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/unity-services"><span title="Unity 服务" class="categoryLinkLabel_W154">Unity 服务</span></a><button aria-label="展开侧边栏分类 &#x27;Unity 服务&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/unity2d"><span title="2D" class="categoryLinkLabel_W154">2D</span></a><button aria-label="展开侧边栏分类 &#x27;2D&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/video-player"><span title="视频概述" class="categoryLinkLabel_W154">视频概述</span></a><button aria-label="展开侧边栏分类 &#x27;视频概述&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/unity/WhatsNew20221"><span title="New in Unity 2022.1" class="linkLabel_WmDU">New in Unity 2022.1</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/xr"><span title="XR" class="categoryLinkLabel_W154">XR</span></a><button aria-label="展开侧边栏分类 &#x27;XR&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="页面路径"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="主页面" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/unity/platform-specific"><span>平台开发</span></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/unity/android"><span>Android</span></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/unity/android-getting-started"><span>Getting started with Android</span></a></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Android Player 设置</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>Android Player 设置</h1></header>
+<p>This page details the Player Settings for the Android platform. For a description of the general Player settings, see <a class="" href="/unity/class-player-settings">Player Settings</a>.</p>
+<p><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/class-PlayerSettingsAndroid.png" alt="Player Settings for Android." class="img_ev3q"></p>
+<p>Player Settings for Android.</p>
+<p>有关属性的描述根据 Player UI 中的相应部分进行分组：</p>
+<ul>
+<li class=""><a href="#icon" class="">Icon</a></li>
+<li class=""><a href="#resolution-and-presentation" class="">Resolution and Presentation</a></li>
+<li class=""><a href="#splash-image" class="">Splash Image</a></li>
+<li class=""><a href="#other-settings" class="">Other Settings</a></li>
+<li class=""><a href="#publishing-settings" class="">Publishing Settings</a></li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="icon">Icon<a href="#icon" class="hash-link" aria-label="Icon的直接链接" title="Icon的直接链接" translate="no">​</a></h2>
+<p>Use the  <strong>Icon</strong>  section to specify icons to represent your application on the device.</p>
+<p><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/PlayerSetAndroidIcon.png" alt="Icon settings for Android." class="img_ev3q"></p>
+<p>Icon settings for Android.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong>设置</strong></th><th><strong>描述</strong></th></tr></thead><tbody><tr><td><strong>Adaptive</strong></td><td>Specify textures of various sizes to represent your application on devices running Android 8.0 (API level 26) or higher.</td></tr><tr><td><strong>Round</strong></td><td>Specify textures of various sizes to represent your application on devices running Android 7.1 (API level 25) or higher.</td></tr><tr><td><strong>Legacy</strong></td><td>Specify textures of various sizes to represent your application on devices running versions earlier than Android 7.1 (API level 25).</td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="resolution-and-presentation">Resolution and Presentation<a href="#resolution-and-presentation" class="hash-link" aria-label="Resolution and Presentation的直接链接" title="Resolution and Presentation的直接链接" translate="no">​</a></h2>
+<p>Use the  <strong>Resolution and Presentation</strong>  section to customize aspects of the screen’s appearance.</p>
+<p><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/PlayerSetAndroidResPres.png" alt="Resolution and Presentation settings for Android." class="img_ev3q"></p>
+<p>Resolution and Presentation settings for Android.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong>设置</strong></th><th><strong>描述</strong></th></tr></thead><tbody><tr><td><strong>Fullscreen Mode</strong></td><td>Specifies how the window appears on the device. This sets the default window mode at startup.</td></tr><tr><td>-&gt; <em>Fullscreen Window</em></td><td>The application window fills the full-screen native resolution of the device. To fill the full-screen window, Unity scales the application contents.  <strong>Resolution Scaling Mode</strong>  controls how Unity scales the contents. In this mode, the navigation bar is always hidden.</td></tr><tr><td>-&gt; <em>Windowed</em></td><td>The application uses a standard, non-full-screen, movable window. The size of the window depends on the application’s resolution. In this mode, the window is resizable by default. To disable this, disable <a href="#resizable-window" class="">Resizable Window</a>.</td></tr><tr><td><strong>Resizable Window</strong></td><td>Indicates whether the user can resize the application’s window.<br>This setting enables multi-window capabilities in your application on Android phones and tablets. For more information, see <a href="https://developer.android.com/guide/topics/ui/multi-window" target="_blank" rel="noopener noreferrer" class="">Google’s developer documentation</a>.</td></tr><tr><td><strong>Default Window Width</strong></td><td>The default width of the application window in pixels. This option is only available if the  <strong>Fullscreen Mode</strong>  is set to  <strong>Windowed</strong> .</td></tr><tr><td><strong>Default Window Height</strong></td><td>The default height of the application window in pixels. This option is only available if the  <strong>Fullscreen Mode</strong>  is set to  <strong>Windowed</strong> .</td></tr><tr><td><strong>Minimum Window Width</strong></td><td>The minimum width of the application window in pixels. This option is only available if the  <strong>Fullscreen Mode</strong>  is set to  <strong>Windowed</strong> .</td></tr><tr><td><strong>Minimum Window Height</strong></td><td>The minimum height of the application window in pixels. This option is only available if the  <strong>Fullscreen Mode</strong>  is set to  <strong>Windowed</strong> .</td></tr><tr><td><strong>Hide Navigation Bar</strong></td><td>Indicates whether to hide the navigation bar that appears at the top of the window.</td></tr><tr><td><strong>Render outside safe area</strong></td><td>Indicates whether the application should use all available screen space to render, including areas of the display that are cut out (notched). For more information, see Android’s <a href="https://developer.android.com/guide/topics/display-cutout" target="_blank" rel="noopener noreferrer" class="">display cutout support</a> documentation.</td></tr><tr><td><strong>Optimized Frame Pacing</strong></td><td>Indicates whether Unity should evenly distribute frames for less variance in framerate. Enable this option to create a smoother experience.</td></tr></tbody></table>
+<p>Other  <strong>Resolution and Presentation</strong>  settings are grouped under the following sections:</p>
+<ul>
+<li class=""><a href="#resolution-scaling" class="">Resolution Scaling</a></li>
+<li class=""><a href="#supported-aspect-ratio" class="">Supported Aspect Ratio</a></li>
+<li class=""><a href="#orientation" class="">Orientation</a></li>
+<li class=""><a href="#allowed-orientations-for-auto-rotation" class="">Allowed Orientations for Auto Rotation</a></li>
+<li class=""><a href="#other" class="">Other</a></li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="resolution-scaling">Resolution Scaling<a href="#resolution-scaling" class="hash-link" aria-label="Resolution Scaling的直接链接" title="Resolution Scaling的直接链接" translate="no">​</a></h3>
+<p>Use the  <strong>Resolution Scaling</strong>  section to customize settings relating to screen resolution scaling. Using a resolution lower than the device’s native resolution can improve performance and battery life.</p>
+<p><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/PlayerSetAndroidResPres-Scaling.png" alt="Resolution Scaling settings for Android." class="img_ev3q"></p>
+<p>Resolution Scaling settings for Android.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong>设置</strong></th><th><strong>描述</strong></th></tr></thead><tbody><tr><td><strong>Resolution Scaling Mode</strong></td><td>Specifies whether and how the application scales its resolution. You can set the scaling to be equal to or lower than the native screen resolution. Using a lower resolution can improve performance and battery life.</td></tr><tr><td>-&gt; <em>Disabled</em></td><td>Doesn’t apply resolution scaling and the application renders to the device’s native screen resolution.</td></tr><tr><td>-&gt; <em>FixedDPI</em></td><td>Applies resolution scaling using a target API. Use this to optimize performance and battery life or target a specific DPI setting.</td></tr><tr><td>-&gt; <em>Letterboxed</em></td><td>Adds black bars to the rendered output so the content doesn’t stretch. This process is called <a href="https://en.wikipedia.org/wiki/Letterboxing_(filming)" target="_blank" rel="noopener noreferrer" class="">letterboxing</a>.</td></tr><tr><td><strong>Target DPI</strong></td><td>The resolution of the application. If the device’s native screen DPI is higher than this value, Unity downscales the application’s resolution to match this setting. To calculate the scale, Unity uses the following:<br><code>min(Target DPI * Factor / Screen DPI, 1)</code><br>Where  <strong>Factor</strong>  is the  <strong>Resolution Scaling Fixed DPI Factor</strong>  from <a class="" href="/unity/comp-manager-group/class-quality-settings">Quality settings</a>. <strong>Note:</strong>  This option only appears when you set  <strong>Resolution Scaling Mode</strong>  to  <strong>Fixed DPI</strong> .</td></tr><tr><td><strong>Reset resolution on window resize</strong></td><td>Indicates whether to set the screen resolution to the new native window size when the native window size changes. If you set  <strong>Resolution Scaling Mode</strong>  to  <strong>Fixed DPI</strong> , Unity recalculates the resolution based on  <strong>Fixed DPI</strong>  property.</td></tr><tr><td><strong>Blit Type</strong></td><td>Controls whether to use a blit to render the final image to the screen. Using a blit is compatible with most devices but is usually slower than not using a blit.</td></tr><tr><td>-&gt; <em>Always</em></td><td>Unity renders to an offscreen buffer and then uses a blit to copy the contents of the buffer to the device’s framebuffer. This is compatible with most devices but is usually slower than not using blit.</td></tr><tr><td>-&gt; <em>Never</em></td><td>Unity renders to the framebuffer provided by the device’s operating system. If this fails, the application prints a one-time warning to the device log. This is usually faster than using blit, but it isn’t compatible with all devices.</td></tr><tr><td>-&gt; <em>Auto</em></td><td>Unity renders to the framebuffer provided by the device’s operating system if possible. If this fails, Unity prints a warning to the device console and uses a blit to render the final image to the screen.</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="supported-aspect-ratio">Supported Aspect Ratio<a href="#supported-aspect-ratio" class="hash-link" aria-label="Supported Aspect Ratio的直接链接" title="Supported Aspect Ratio的直接链接" translate="no">​</a></h3>
+<p>Use the  <strong>Supported Aspect Ratio</strong>  section to customize settings relating to which device aspect ratios to support.</p>
+<p><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/PlayerSetAndroidResPres-Aspect.png" alt="Resolution Scaling settings for Android." class="img_ev3q"></p>
+<p>Resolution Scaling settings for Android.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong>设置</strong></th><th><strong>描述</strong></th></tr></thead><tbody><tr><td><strong>Aspect Ratio Mode</strong></td><td>Specifies the largest aspect ratio the application supports. If the device’s aspect ratio is greater than this aspect ratio, Unity uses this aspect ratio for the application and adds black bars so the application doesn’t stretch..</td></tr><tr><td>-&gt; <em>Legacy Wide Screen (1.86)</em></td><td>The application supports aspect ratios up to Android’s legacy wide-screen aspect ratio.</td></tr><tr><td>-&gt; <em>Native Aspect Ratio</em></td><td>The application supports aspect ratios up to Android’s native aspect ratio.</td></tr><tr><td>-&gt; <em>Custom</em></td><td>The application supports aspect ratios up to the aspect ratio you set in  <strong>Up To</strong> .</td></tr><tr><td>   <strong>Up To</strong></td><td>The custom maximum aspect ratio.<br><br>This setting only appears when you set  <strong>Aspect Ratio Mode</strong>  to  <strong>Custom</strong> .</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="orientation">Orientation<a href="#orientation" class="hash-link" aria-label="Orientation的直接链接" title="Orientation的直接链接" translate="no">​</a></h3>
+<p>Use the  <strong>Orientation</strong>  section to customize settings relating to the orientation of the application on the device.</p>
+<p><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/PlayerSetAndroidResPresOri.png" alt="Orientation settings for Android." class="img_ev3q"></p>
+<p>Orientation settings for Android.</p>
+<p>从  <strong>Default Orientation</strong>  下拉菜单中选择游戏的屏幕方向：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong>设置</strong></th><th><strong>描述</strong></th></tr></thead><tbody><tr><td><strong>Default Orientation</strong></td><td>Specifies the screen orientation the application uses.<br><br> <strong>Note</strong> : Unity shares the value you set for this setting between Android and iOS.</td></tr><tr><td>-&gt; <em>Portrait</em></td><td>The application uses portrait screen orientation where the bottom of the application’s window aligns with the bottom of the device’s screen.</td></tr><tr><td>-&gt; <em>Portrait Upside Down</em></td><td>The application uses portrait screen orientation where the bottom of the application’s window aligns with the top of the device’s screen.</td></tr><tr><td>-&gt; <em>Landscape Right</em></td><td>The application uses landscape screen orientation where the right side of the application’s window aligns with the bottom of the device’s screen.</td></tr><tr><td>-&gt; <em>Landscape Left</em></td><td>The application uses landscape screen orientation where the right side of the application’s window aligns with the top of the device’s screen.</td></tr><tr><td>-&gt; <em>Auto Rotation</em></td><td>The screen can rotate to any of the orientations you specify in the <a href="#allowed-orientations-for-auto-rotation" class="">Allowed Orientations for Auto Rotation</a> section.</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="allowed-orientations-for-auto-rotation">Allowed Orientations for Auto Rotation<a href="#allowed-orientations-for-auto-rotation" class="hash-link" aria-label="Allowed Orientations for Auto Rotation的直接链接" title="Allowed Orientations for Auto Rotation的直接链接" translate="no">​</a></h3>
+<p>Use the  <strong>Allowed Orientations for Auto Rotation</strong>  section to specify which orientations the application supports when you set  <strong>Default Orientation</strong>  to  <strong>Auto Rotation</strong> . This is useful, for example, to lock the application to landscape orientation but allow the user to switch between landscape left and landscape right.</p>
+<p>This section only appears when you set  <strong>Default Orientation</strong>  to  <strong>Auto Rotation</strong> .</p>
+<p><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/PlayerSetiOSResPresOriSupp.png" alt="Allowed Orientations for Auto Rotation settings for Android." class="img_ev3q"></p>
+<p>Allowed Orientations for Auto Rotation settings for Android.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong>设置</strong></th><th><strong>描述</strong></th></tr></thead><tbody><tr><td><strong>Portrait</strong></td><td>Indicates whether the application supports portrait screen orientation where the bottom of the application’s window aligns with the bottom of the device’s screen.</td></tr><tr><td><strong>Portrait Upside Down</strong></td><td>Indicates whether the application supports portrait screen orientation where the bottom of the application’s window aligns with the top of the device’s screen.</td></tr><tr><td><strong>Landscape Right</strong></td><td>Indicates whether the application supports landscape screen orientation where the right side of the application’s window aligns with the bottom of the device’s screen.</td></tr><tr><td><strong>Landscape Left</strong></td><td>Indicates whether the application supports landscape screen orientation where the right side of the application’s window aligns with the top of the device’s screen.</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="other">Other<a href="#other" class="hash-link" aria-label="Other的直接链接" title="Other的直接链接" translate="no">​</a></h3>
+<p>The Resolution and Presentation section also contains the following general settings.</p>
+<p><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/PlayerSettingAndroidResPres-Other.png" alt="Other resolution and presentation settings for Android." class="img_ev3q"></p>
+<p>Other resolution and presentation settings for Android.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong>设置</strong></th><th><strong>描述</strong></th></tr></thead><tbody><tr><td><strong>Use 32-bit Display Buffer</strong></td><td>Indicates whether the display buffer holds 32-bit color values instead of 16-bit color values. Enable this setting if you see banding, or need alpha values in <a class="" href="/unity/visual-effects/post-processing-overview">post-processing effects</a>. Some post-processing effects require this because they create <a class="" href="/unity/textures/class-render-texture">Render Textures</a> in the same format as the display buffer.</td></tr><tr><td><strong>Disable Depth and Stencil</strong></td><td>Indicates whether to disable depth and stencil buffers.</td></tr><tr><td><strong>Render Over Native UI</strong></td><td>Indicates whether to render on top of native UI on Android or iOS. For this setting to take effect, set your Camera’s  <strong>Clear Flags</strong>  to use a solid color with an alpha value lower than 1.</td></tr><tr><td><strong>Show Loading Indicator</strong></td><td>Specifies if and how the loading indicator appears.</td></tr><tr><td>-&gt; <em>Don’t Show</em></td><td>The loading indicator doesn’t appear.</td></tr><tr><td>-&gt; <em>Large</em></td><td>A large loading indicator appears.</td></tr><tr><td>-&gt; <em>Inversed Large</em></td><td>A large loading indicator appears with inversed color.</td></tr><tr><td>-&gt; <em>Small</em></td><td>A small loading indicator appears.</td></tr><tr><td>-&gt; <em>Inversed Small</em></td><td>A small loading indicator appears with inversed color.</td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="splash-image">Splash Image<a href="#splash-image" class="hash-link" aria-label="Splash Image的直接链接" title="Splash Image的直接链接" translate="no">​</a></h2>
+<p>Use the  <strong>Virtual Reality Splash Image</strong>  setting to select a custom splash image for <a class="" href="/unity/xr">Virtual Reality</a> displays. For information on common Splash Screen settings, see <a class="" href="/unity/class-player-settings/class-player-settings-splash-screen">Splash Screen</a>.</p>
+<p><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/PlayerSetAndroidSplash.png" alt="Splash screen settings for virtual reality." class="img_ev3q"></p>
+<p>Splash screen settings for virtual reality.</p>
+<p>以下是通用 Splash Screen 设置，可以设置特定于 Android 的  <strong>Static Splash Image</strong>  选项。</p>
+<p><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/PlayerSetAndroidSplashStory.png" alt="Splash screen settings for Android." class="img_ev3q"></p>
+<p>Splash screen settings for Android.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong>设置</strong></th><th><strong>描述</strong></th></tr></thead><tbody><tr><td><strong>Image</strong></td><td>Specifies the texture that the application uses for the Android splash screen. The standard size for the splash screen image is 320x480.</td></tr><tr><td><strong>Scaling</strong></td><td>Specifies how to scale the splash image to fit the devic’es screen.</td></tr><tr><td>-&gt; <em>Center (only scale down</em></td><td>Draws the image at its native size unless it’s too large, in which case Unity scales the image down to fit.</td></tr><tr><td>-&gt; <em>Scale to Fit (letter-boxed)</em></td><td>Scales the image so that the longer dimension fits the screen size exactly. Unity fills in the empty space around the sides in the shorter dimension in black.</td></tr><tr><td>-&gt; <em>Scale to Fill (cropped)</em></td><td>Scales the image so that the shorter dimension fits the screen size exactly. Unity crops the image in the longer dimension.</td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="other-settings">Other Settings<a href="#other-settings" class="hash-link" aria-label="Other Settings的直接链接" title="Other Settings的直接链接" translate="no">​</a></h2>
+<p>此部分可以自定义一系列选项，这些选项分为以下几组：</p>
+<ul>
+<li class=""><a href="#%E6%B8%B2%E6%9F%93" class="">Rendering</a></li>
+<li class=""><a href="#vulkan-settings" class="">Vulkan Settings</a></li>
+<li class=""><a href="#identification" class="">Identification</a></li>
+<li class=""><a href="#%E9%85%8D%E7%BD%AE" class="">Configuration</a></li>
+<li class=""><a href="#shader-variant-loading" class="">Shader Variant Loading</a></li>
+<li class=""><a href="#script-compilation" class="">Script Compilation</a></li>
+<li class=""><a href="#optimization" class="">Optimization</a></li>
+<li class=""><a href="#logging" class="">Logging</a></li>
+<li class=""><a href="#legacy" class="">Legacy</a></li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="渲染">渲染<a href="#渲染" class="hash-link" aria-label="渲染的直接链接" title="渲染的直接链接" translate="no">​</a></h3>
+<p>使用这些设置可自定义 Unity 针对 Android 平台渲染游戏的方式。</p>
+<p><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/PlayerSetAndroidRender.png" alt="Android 平台的 Rendering 设置" class="img_ev3q"></p>
+<p>Android 平台的 Rendering 设置</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong>设置</strong></th><th><strong>功能</strong></th></tr></thead><tbody><tr><td><strong>Color Space</strong></td><td>选择应该用于渲染的颜色空间，选项为：_Gamma_ 或 <em>Linear</em>。<br>请参阅<a class="" href="/unity/linear-lighting">线性渲染概述</a>以了解这两者之间的区别。</td></tr><tr><td><strong>Auto Graphics API</strong></td><td>禁用此选项可手动设置图形 API。此选项在默认情况下为启用状态，并包含  <strong>Metal</strong> 。</td></tr><tr><td><strong>Color Gamut</strong></td><td>可以为 iOS 平台添加或删除<a href="https://en.wikipedia.org/wiki/Gamut" target="_blank" rel="noopener noreferrer" class="">色域</a>以用于渲染。单击加号 (+) 图标查看可用色域的列表。色域定义了给定设备（如监视器或屏幕）可以使用的所有颜色范围。sRGB 色域是默认色域（也是必需色域）。<br>如果目标设备是具备宽色域显示屏的新款 tvOS 设备，请使用 <em>DisplayP3</em> 充分利用显示能力。对于旧设备，使用 <em>Metal Editor Support</em> 作为后备选项。</td></tr><tr><td><strong>Multithreaded Rendering</strong></td><td>启用此选项可使用多线程渲染。仅 Metal 支持此功能。</td></tr><tr><td><strong>Static Batching</strong></td><td>启用此选项可使用静态批处理。</td></tr><tr><td><strong>Dynamic Batching</strong></td><td>选中此复选框可在构建中使用<a class="" href="/unity/draw-call-batching">动态批处理</a>（默认情况下启用）。</td></tr><tr><td><strong>Compute Skinning</strong></td><td>启用此选项可使用 DX11/ES3 GPU 计算蒙皮，这样可以释放 CPU 资源。</td></tr><tr><td><strong>Graphics Jobs (Experimental)</strong></td><td>启用此选项可指示 Unity 将图形任务（渲染循环）卸载到在其他 CPU 核心上运行的工作线程。此功能旨在减少主线程上 <code>Camera.Render</code> 所花费的时间，该时间通常成为瓶颈。<br> <strong>注意：</strong> 此功能是实验性的。此功能可能无法为项目带来性能提升，并可能引入新的崩溃。</td></tr><tr><td><strong>Texture compression format</strong></td><td>Choose between ASTC, ETC2 and ETC (ETC1 for RGB, ETC2 for RGBA). See <a class="" href="/unity/texture-compression-formats/class-texture-importer-override#android">texture compression format overview</a> for more information on how to pick the right format.<br>See <a class="" href="/unity/android-introducing/android-requirements-and-compatibility#%E7%BA%B9%E7%90%86%E5%8E%8B%E7%BC%A9">Texture compression settings</a> for more details on how this interacts with the texture compression setting in the <a class="" href="/unity/android-building-and-delivering/android-build-settings">Build Settings</a>.</td></tr><tr><td><strong>Normal Map Encoding</strong></td><td>选择 <em>XYZ</em> 或 *DXT5nm 样式_对法线贴图编码进行设置。此设置影响用于法线贴图的编码方案和压缩格式。*DXT5nm 样式_的法线贴图质量更高，但在着色器中解码成本更高。</td></tr><tr><td><strong>Lightmap Encoding</strong></td><td>选择 <em>Low Quality</em>、<em>Normal Quality</em> 或 <em>High Quality</em> 来设置光照贴图编码。此设置影响光照贴图的编码方案和压缩格式。</td></tr><tr><td><strong>HDR Cubemap Encoding</strong></td><td>Choose <em>Low Quality</em>, <em>Normal Quality</em>, or <em>High Quality</em> to set the HDR Cubemap encoding. This setting affects the encoding scheme and compression format of the HDR Cubemaps.</td></tr><tr><td><strong>Lightmap Streaming Enabled</strong></td><td>Whether to use <a class="" href="/unity/texture-mipmaps/texture-streaming">Mipmap Streaming</a> for lightmaps. Unity applies this setting to all lightmaps when it generates them.<br> <strong>Note:</strong>  To use this setting, you must enable the <a class="" href="/unity/comp-manager-group/class-quality-settings">Texture Streaming Quality</a> setting.</td></tr><tr><td><strong>Streaming Priority</strong></td><td>Set the priority for all lightmaps in the <a class="" href="/unity/texture-mipmaps/texture-streaming">Mipmap Streaming system</a>. Unity applies this setting to all lightmaps when it generates them.<br>Positive numbers give higher priority. Valid values range from –128 to 127.</td></tr><tr><td><strong>Enable Frame Timing Stats</strong></td><td>启用此选项可收集 CPU/GPU 帧时序统计信息。</td></tr><tr><td><strong>Virtual Texturing</strong></td><td>Indicates whether to enable <a class="" href="/unity/svt-streaming-virtual-texturing">Virtual Texturing</a>.<br> <strong>Note</strong> : Virtual Texturing isn’t compatible with Android.</td></tr><tr><td><strong>Shader precision model</strong></td><td>Controls the default precision of samplers used in shaders. See <a class="" href="/unity/sl-shader-programs/sl-data-types-and-precision#%E7%BA%B9%E7%90%86-%E9%87%87%E6%A0%B7%E5%99%A8%E7%B1%BB%E5%9E%8B">Shader data types and precision</a> for more details.</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="vulkan-settings">Vulkan Settings<a href="#vulkan-settings" class="hash-link" aria-label="Vulkan Settings的直接链接" title="Vulkan Settings的直接链接" translate="no">​</a></h3>
+<p><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/player-settings-other-vulkan-settings-android.png" alt="Vulkan Player settings for the Android platform" class="img_ev3q"></p>
+<p>Vulkan Player settings for the Android platform</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong>Property</strong></th><th><strong>Description</strong></th></tr></thead><tbody><tr><td><strong>SRGB Write Mode</strong></td><td>Enable this option to allow <code>Graphics.SetSRGBWrite()</code> renderer to toggle the sRGB write mode during runtime. That is, if you want to temporarily turn off Linear-to-sRGB write color conversion, you can use this property to achieve that. Enabling this has a negative impact on performance on mobile tile-based GPUs; therefore, do NOT enable this for mobile.</td></tr><tr><td><strong>Number of swapchain buffers</strong></td><td>Set this option to 2 for double-buffering, or 3 for triple-buffering to use with Vulkan renderer. This setting may help with latency on some platforms, but in most cases you should not change this from the default value of 3. Double-buffering might have a negative impact on performance. Do not use this setting on Android.</td></tr><tr><td><strong>Acquire swapchain image late as possible</strong></td><td>If enabled, Vulkan delays acquiring the backbuffer until after it renders the frame to an offscreen image. Vulkan uses a staging image to achieve this. Enabling this setting causes an extra blit when presenting the backbuffer. This setting, in combination with double-buffering, can improve performance. However, it also can cause performance issues because the additional blit takes up bandwidth.</td></tr><tr><td><strong>Recycle command buffers</strong></td><td>Indicates whether to recycle or free <a href="https://docs.unity3d.com/cn/2022.1/ScriptReference/Rendering.CommandBuffer.html" target="_blank" rel="noopener noreferrer" class="">CommandBuffers</a> after Unity executes them.</td></tr><tr><td><strong>Apply display rotation during rendering</strong></td><td>Enable this to perform all rendering in the native orientation of the display. This has a performance benefit on many devices. For more information, see documentation on <a class="" href="/unity/android-graphics/vulkan-swapchain-pre-rotation">Framebuffer orientation</a>.</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="identification">Identification<a href="#identification" class="hash-link" aria-label="Identification的直接链接" title="Identification的直接链接" translate="no">​</a></h3>
+<p><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/PlayerSetAndroidIdentification.png" alt="Android 平台的 Identification 设置" class="img_ev3q"></p>
+<p>Android 平台的 Identification 设置</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong>属性</strong></th><th><strong>功能</strong></th></tr></thead><tbody><tr><td><strong>Override Default Package Name</strong></td><td>Indicates whether to override the default package name for your application.<br> <strong>Note:</strong>  This setting affects macOS, iOS, tvOS, and Android.</td></tr><tr><td>   <strong>Package Name</strong></td><td>Set the application ID, which uniquely identifies your app on the device and in Google Play Store. The application ID must follow the convention <code>com.YourCompanyName.YourProductName</code> and must contain only alphanumeric and underscore characters. Each segment must start with an alphabetical character. For more information, see <a href="https://developer.android.com/studio/build/configure-app-module#set-application-id" target="_blank" rel="noopener noreferrer" class="">Set the application ID</a>.<br> <strong>Important</strong> : Unity automatically removes any invalid characters you type.<br>To set this property, enable  <strong>Override Default Package Name</strong> .</td></tr><tr><td><strong>Version</strong></td><td>输入捆绑包的构建版本号，用于标识捆绑包的迭代（已发布或未发布）。版本以通用格式指定，该格式包含以点号分隔的数字的字符串（例如，4.3.2）。（在 iOS 和 Android 之间共享。）</td></tr><tr><td><strong>Bundle Version Code</strong></td><td>内部版本号。此数字仅用于确定一个版本是否比另一个版本更新，数字更大表示版本越新。这不是向用户显示的版本号；向用户显示的版本号由 <code>versionName</code> 属性设置。该值必须设置为整数，例如“100”。您可以根据需要定义，只要每个后续版本具有更高的数字即可。<br><br>例如，它可以是构建版本号。或者，可以通过在低 16 位和高 16 位分别编码“x”和“y”将“x.y”格式的版本号转换为整数。或者，每次发布新版本时，只需将数字加一。<br><br>如果启用了  <strong>Split APKs by target architecture</strong> ，请将此数字保持在 100000 以下。每个 APK 必须具有唯一的版本代码，因此 Unity 为 ARMv7 添加 100000，为 ARM64 添加 200000。</td></tr><tr><td><strong>Minimum API Level</strong></td><td>运行应用程序所需的最低 Android 版本（API 级别）。</td></tr><tr><td><strong>Target API Level</strong></td><td>编译应用程序针对的目标 Android 版本（API 级别）。</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="配置">配置<a href="#配置" class="hash-link" aria-label="配置的直接链接" title="配置的直接链接" translate="no">​</a></h3>
+<p><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/PlayerSetAndroidConfiguration.png" alt="Android 平台的 Configuration 设置" class="img_ev3q"></p>
+<p>Android 平台的 Configuration 设置</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong>Property</strong></th><th><strong>Description</strong></th></tr></thead><tbody><tr><td><strong>Scripting Backend</strong></td><td>Choose the scripting backend you want to use. The scripting backend determines how Unity compiles and executes C# code in your Project.</td></tr><tr><td>-&gt; <em>Mono</em></td><td>Compiles C# code into .NET Common Intermediate Language (CIL) and executes that CIL using a Common Language Runtime. For more information, see <a class="" href="/unity/scripting-backends/mono">Mono</a>.</td></tr><tr><td>-&gt; <em>IL2CPP</em></td><td>Compiles C# code into CIL, converts the CIL to C++ and then compiles that C++ into native machine code, which executes directly at run time. See <a class="" href="/unity/il2cpp">IL2CPP</a> for more information.</td></tr><tr><td><strong>API Compatibility Level</strong></td><td>Choose which .NET APIs you can use in your project. This setting can affect compatibility with third-party libraries. However, it has no effect on Editor-specific code (code in an Editor directory, or within an Editor-specific Assembly Definition).<br><br> <strong>Tip:</strong>  If you are having problems with a third-party assembly, you can try the suggestion in the <a href="#api-compatibility-level" class="">API Compatibility Level</a> section below.</td></tr><tr><td>-&gt; <em>.Net 2.0</em></td><td>.Net 2.0 libraries. Maximum .net compatibility, biggest file sizes. Part of the deprecated .NET 3.5 runtime.</td></tr><tr><td>-&gt; <em>.Net 2.0 Subset</em></td><td>Subset of full .net compatibility, smaller file sizes. Part of the deprecated .NET 3.5 runtime.</td></tr><tr><td>-&gt; <em>.Net Standard 2.0</em></td><td>Compatible with <a href="https://docs.microsoft.com/en-us/dotnet/standard/net-standard" target="_blank" rel="noopener noreferrer" class="">.NET Standard 2.0</a>. Produces smaller builds and has full cross-platform support.</td></tr><tr><td>-&gt; <em>.Net 4.x</em></td><td>Compatible with the .NET Framework 4 (which includes everything in the .NET Standard 2.0 profile as well as additional APIs). Choose this option when using libraries that access APIs not included in .NET Standard 2.0. Produces larger builds and any additional APIs available are not necessarily supported on all platforms. See <a class="" href="/unity/overview-of-dot-net-in-unity/dotnet-profile-assemblies">Referencing additional class library assemblies</a> for more information.</td></tr><tr><td><strong>C++ Compiler Configuration</strong></td><td>Choose the C++ compiler configuration used when compiling IL2CPP generated code.<br> <strong>Note:</strong>  This property is disabled unless  <strong>Scripting Backend</strong>  is set to <em>IL2CPP</em>.</td></tr><tr><td><strong>Use incremental GC</strong></td><td>Uses the incremental garbage collector, which spreads garbage collection over several frames to reduce garbage collection-related spikes in frame duration. For more information, see <a class="" href="/unity/performance-memory-overview/performance-managed-memory">Automatic Memory Management</a>.</td></tr><tr><td><strong>Assembly Version Validation</strong></td><td>Indicates whether Mono validates types from a <a href="https://docs.microsoft.com/en-us/dotnet/standard/assembly/strong-named" target="_blank" rel="noopener noreferrer" class="">strongly-named</a> assembly.</td></tr><tr><td><strong>Allow downloads over HTTP</strong></td><td>Indicates whether to allow downloading content over HTTP. The options are  <strong>Not allowed</strong> ,  <strong>Allowed in Development builds only</strong> , and  <strong>Always allowed</strong> . The default option is  <strong>Not allowed</strong>  due to the recommended protocol being HTTPS, which is more secure.</td></tr><tr><td><strong>Mute Other Audio Sources</strong></td><td>Enable this option if you want your Unity application to stop Audio from applications running in the background. Otherwise, Audio from background applications continues to play alongside your Unity application.</td></tr><tr><td><strong>Target Architectures</strong></td><td>Select which CPUs you want to allow the application to run on (32-bit ARM, 64-bit ARM, 32-bit x86, and 64-bit x86–64). <br> <strong>Note</strong> : Running Android apps in a 64-bit environment has performance benefits and 64-bit apps can address more than 4 GB of memory space.</td></tr><tr><td><strong>Split APKs by target architecture (Experimental)</strong></td><td>Enable this option to create a separate APK for each CPU architecture selected in  <strong>Target Architectures</strong> . This makes download size smaller for Google Play Store users. This is primarily a Google Play store feature and may not work in other stores. For more details, refer to <a href="https://developer.android.com/google/play/publishing/multiple-apks.html" target="_blank" rel="noopener noreferrer" class="">Multiple APK Support</a>.</td></tr><tr><td><strong>Target Devices</strong></td><td>Specifies the target devices on which the APK is allowed to run.</td></tr><tr><td>-&gt; <em>All Devices</em></td><td>The APK is allowed to run on all Android and Chrome OS devices.</td></tr><tr><td>-&gt; <em>Phones and Tablets Only</em></td><td>The APK is allowed to run on Android phones and tablets, but not on Chrome OS devices.</td></tr><tr><td>-&gt; <em>Chrome OS Devices Only</em></td><td>The APK is allowed to run on Chrome OS devices, but not on Android phones or tablets.</td></tr><tr><td><strong>Install Location</strong></td><td>Specifies application install location on the device (for detailed information, refer to <a href="http://developer.android.com/guide/appendix/install-location.html" target="_blank" rel="noopener noreferrer" class="">Android Developer documentation on install locations</a>.</td></tr><tr><td>-&gt; <em>Automatic</em></td><td>Let the operating system decide. User will be able to move the app back and forth.</td></tr><tr><td>-&gt; <em>Prefer External</em></td><td>Install the application to external storage (SD card) if possible. The operating system doesn’t guarantee it; if not possible, the app will be installed to internal memory.</td></tr><tr><td>-&gt; <em>Force Internal</em></td><td>Force the application to be installed to internal memory. The user will be unable to move the app to external storage.</td></tr><tr><td><strong>Internet Access</strong></td><td>Choose whether to always add the networking (<code>INTERNET</code>) permission to the <a class="" href="/unity/android-introducing/android-manifest">Android App Manifest</a>, even if you are not using any networking APIs. Set to <em>Require</em> by default for development builds.</td></tr><tr><td>-&gt; <em>Auto</em></td><td>Only add the internet access permission if you are using a networking API.</td></tr><tr><td>-&gt; <em>Require</em></td><td>Always add the internet access permission.</td></tr><tr><td><strong>Write Permission</strong></td><td>Choose whether to enable write access to the external storage (such as the SD card) and add a corresponding permission to the Android App Manifest. Set to <em>External(SDCard)</em> by default for development builds.</td></tr><tr><td>-&gt; <em>Internal</em></td><td>Only grant write permission to internal storage.</td></tr><tr><td>-&gt; <em>External(SDCard)</em></td><td>Enable write permission to external storage.</td></tr><tr><td><strong>Filter Touches When Obscured</strong></td><td>Enable this option to discard touches received when another visible window is covering the Unity application. This is to prevent tapjacking.</td></tr><tr><td><strong>Sustained Performance Mode</strong></td><td>Enable this option to set a predictable and consistent level of device performance over longer periods of time, without thermal throttling. Overall performance might be lower when this setting is enabled. Based on the <a href="https://developer.android.com/about/versions/nougat/android-7.0.html#sustained_performance_api" target="_blank" rel="noopener noreferrer" class="">Android Sustained Performance API</a>.</td></tr><tr><td><strong>Maximum Java Heap Size</strong></td><td>Set the maximum Java heap size to user for building (in megabytes). Defaults to 4096.</td></tr><tr><td><strong>Low Accuracy Location</strong></td><td>Enable this option to use low accuracy values with Android location APIs instead.</td></tr><tr><td><strong>Chrome OS Input Emulation</strong></td><td>Chrome OS’s default behaviour is to convert mouse and touchpad input events into touchscreen input events. Un-check this setting to disable the default behavior.</td></tr><tr><td><strong>Android TV Compatibility</strong></td><td>Enable this option to mark the application as Android TV compatible.</td></tr><tr><td>   <strong>Android Game</strong></td><td>Enable this option to mark the output package (APK) as a game rather than a regular application.</td></tr><tr><td>   <strong>Android Gamepad Support Level</strong></td><td>Choose the level of support your application offers for a gamepad. The options are  <strong>Works with D-Pad</strong> ,  <strong>Supports Gamepad</strong> , and  <strong>Requires Gamepad</strong> .</td></tr><tr><td><strong>Warn about App Bundle size</strong></td><td>Enable this option to receive a warning when the size of the <a href="https://developer.android.com/platform/technology/app-bundle" target="_blank" rel="noopener noreferrer" class="">Android App Bundle</a> exceeds a certain threshold. This option is selected by default and you can only configure it if you enable the  <strong>Build App Bundle (Google Play)</strong>  option in the <a class="" href="/unity/android-building-and-delivering/android-build-settings">Build settings</a>.</td></tr><tr><td>   <strong>App Bundle size threshold</strong></td><td>Enter a size in Mb. When your App Bundle exceeds this size, Unity will display a warning.</td></tr><tr><td><strong>Active Input Handling</strong></td><td>Chooses how to handle input from users.</td></tr><tr><td>-&gt; <em>Input Manager (old)</em></td><td>Use the default <a class="" href="/unity/input/class-input-manager">Input</a> window.</td></tr><tr><td>-&gt; <em>Input System (Preview)</em></td><td>Use the newer <a href="https://docs.unity3d.com/cn/2022.1/ScriptReference/Input.html" target="_blank" rel="noopener noreferrer" class="">Input</a> system. The Input System is provided as a preview package for this release. To try a preview of the Input System, install the <a href="https://github.com/Unity-Technologies/InputSystem" target="_blank" rel="noopener noreferrer" class="">InputSystem package</a>.</td></tr><tr><td>-&gt; <em>Both</em></td><td>Use both systems side by side.</td></tr></tbody></table>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="shader-variant-loading">Shader Variant Loading<a href="#shader-variant-loading" class="hash-link" aria-label="Shader Variant Loading的直接链接" title="Shader Variant Loading的直接链接" translate="no">​</a></h4>
+<p>Use these settings to control how much memory shaders use at runtime.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong>设置</strong></th><th><strong>功能</strong></th></tr></thead><tbody><tr><td><strong>Default chunk size (MB)</strong></td><td>Sets the maximum size of compressed shader variant data chunks Unity stores in your built application for all platforms. The default is <code>16</code>. See <a class="" href="/unity/shaders-overview/shader-loading#control-how-much-memory-shaders-use">Shader loading</a> for more information.</td></tr><tr><td><strong>Default chunk count</strong></td><td>Sets the default limit on how many decompressed chunks Unity keeps in memory on all platforms. The default is <code>0</code>, which means there’s no limit.</td></tr><tr><td><strong>Override</strong></td><td>Enables overriding  <strong>Default chunk size</strong>  and  <strong>Default chunk count</strong>  for this build target.</td></tr><tr><td><strong>Chunk size (MB)</strong></td><td>Overrides the value of  <strong>Default chunk size (MB)</strong>  on this build target.</td></tr><tr><td><strong>Chunk count</strong></td><td>Overrides the value of  <strong>Default chunk count</strong>  on this build target.</td></tr></tbody></table>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="api-compatibility-level">API Compatibility Level<a href="#api-compatibility-level" class="hash-link" aria-label="API Compatibility Level的直接链接" title="API Compatibility Level的直接链接" translate="no">​</a></h4>
+<p>You can choose your mono API compatibility level for all targets. Sometimes a 3rd-party .NET library uses functionality that’s outside of your .NET compatibility level. To understand what’s going on in such cases, and how to best fix it, try following these suggestions:</p>
+<ol>
+<li class="">Install <a href="https://www.microsoft.com/en-us/p/ilspy/9mxfbkfvsq13?cid=msft_web_chart&amp;activetab=pivot:overviewtab" target="_blank" rel="noopener noreferrer" class="">ILSpy</a> for Windows.</li>
+<li class="">Drag the .NET assemblies for the API compatibility level that you are having issues with into ILSpy. You can find these under <code>Frameworks/Mono/lib/mono/YOURSUBSET/</code>.</li>
+<li class="">拖入第三方程序集。</li>
+<li class="">右键单击第三方程序集并选择  <strong>Analyze</strong> 。</li>
+<li class="">在分析报告中，检查  <strong>Depends on</strong>  部分。此报告以红色突出显示第三方程序集所依赖的但在您选择的 .NET 兼容性级别中不可用的任何内容。</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="script-compilation">Script Compilation<a href="#script-compilation" class="hash-link" aria-label="Script Compilation的直接链接" title="Script Compilation的直接链接" translate="no">​</a></h3>
+<p><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/ProjectSettingsScriptCompilation.png" alt="Android 平台的脚本编译设置" class="img_ev3q"></p>
+<p>Android 平台的脚本编译设置</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong>属性</strong></th><th><strong>描述</strong></th></tr></thead><tbody><tr><td><strong>Scripting Define Symbols</strong></td><td>Sets custom compilation flags. <br><br> For more details, see <a class="" href="/unity/platform-dependent-compilation">Platform dependent compilation</a>.</td></tr><tr><td><strong>Additional Compiler Arguments</strong></td><td>Adds entries to this list to pass additional arguments to the Roslyn compiler. Use one new entry for each additional argument.<br>To create a new entry, click  <strong>Add</strong>  ( <strong>+</strong> ). To remove an entry, click  <strong>Remove</strong>  ( <strong>-</strong> ).<br><br>When you have added all desired arguments, click  <strong>Apply</strong>  to include your additional arguments in future compilations. Click  <strong>Revert</strong>  to reset this list to the most recent applied state.</td></tr><tr><td><strong>Suppress Common Warnings</strong></td><td>Indicates whether to display the C# warnings <a href="https://docs.microsoft.com/en-us/dotnet/csharp/misc/cs0169" target="_blank" rel="noopener noreferrer" class="">CS0169</a> and <a href="https://docs.microsoft.com/en-us/dotnet/csharp/misc/CS0649" target="_blank" rel="noopener noreferrer" class="">CS0649</a>.</td></tr><tr><td><strong>Allow ‘unsafe’ Code</strong></td><td>Enables support for compiling <a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/unsafe" target="_blank" rel="noopener noreferrer" class="">‘unsafe’ C# code</a> in a pre-defined assembly (for example, <code>Assembly-CSharp.dll</code>). <br>For Assembly Definition Files (<code>.asmdef</code>), click on one of your <code>.asmdef</code> files and enable the option in the Inspector window that appears.</td></tr><tr><td><strong>Use Deterministic Compilation</strong></td><td>Indicates whether to prevent compilation with the -deterministic C# flag. With this setting enabled, compiled assemblies are byte-for-byte identical each time they are compiled.<br><br>For more information, see Microsoft’s <a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/compiler-options/deterministic-compiler-option" target="_blank" rel="noopener noreferrer" class="">deterministic compiler option</a>.</td></tr><tr><td><strong>Enable Roslyn Analyzers</strong></td><td>Indicates whether to compile user-written scripts without Roslyn analyzer DLLs that might be present in your project.</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="optimization">Optimization<a href="#optimization" class="hash-link" aria-label="Optimization的直接链接" title="Optimization的直接链接" translate="no">​</a></h3>
+<p><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/PlayerSetAndroidOptimization.png" alt="Android 平台的 Optimization 设置" class="img_ev3q"></p>
+<p>Android 平台的 Optimization 设置</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong>Property</strong></th><th><strong>Description</strong></th></tr></thead><tbody><tr><td><strong>Prebake Collision Meshes</strong></td><td>Adds collision data to <a class="" href="/unity/mesh/class-mesh">Meshes</a> at build time.</td></tr><tr><td><strong>Keep Loaded Shaders Alive</strong></td><td>Indicates whether to prevent shaders from being unloaded. <br><br>For more information, see <a class="" href="/unity/shaders-overview/shader-loading">Shader Loading</a>.</td></tr><tr><td><strong>Preloaded Assets</strong></td><td>Sets an array of Assets for the player to load on startup. <br>To add new Assets, increase the value of the  <strong>Size</strong>  property and then set a reference to the Asset to load in the new  <strong>Element</strong>  box that appears.</td></tr><tr><td><strong>AOT compilation options</strong></td><td>Additional options for Ahead of Time (AOT) compilation. This helps <a class="" href="/unity/iphone-performance/iphone-player-size-optimization">optimize the size of the built iOS player</a>.</td></tr><tr><td><strong>Strip Engine Code</strong></td><td>Enable this option if you want the Unity Linker tool to remove code for Unity Engine features that your Project doesn’t use. This setting is only available with the IL2CPP scripting backend.<br><br>Most apps don’t use every available DLL. This option strips out DLLs that your app doesn’t use to reduce the size of the built Player. If your app is using one or more classes that would normally be stripped out under your current settings, Unity displays a debug message when you try to build the app.</td></tr><tr><td><strong>Managed Stripping Level</strong></td><td>Chooses how aggressively Unity strips unused managed (C#) code. The options are  <strong>Minimal</strong> ,  <strong>Low</strong> ,  <strong>Medium</strong> , and  <strong>High</strong> . <br>When Unity builds your app, the Unity Linker process can strip unused code from the managed DLLs your Project uses. Stripping code can make the resulting executable significantly smaller, but can sometimes accidentally remove code that’s in use. <br><br>For more information about these options and bytecode stripping with IL2CPP, see <a href="https://docs.unity3d.com/cn/2022.1/ScriptReference/ManagedStrippingLevel.html" target="_blank" rel="noopener noreferrer" class="">ManagedStrippingLevel</a>.</td></tr><tr><td><strong>Enable Internal profiler (Deprecated)</strong></td><td>Enable this option to get the profiler data from your device in the Android SDK’s <a href="https://developer.android.com/studio/command-line/logcat.html" target="_blank" rel="noopener noreferrer" class="">adblogcat</a> output while testing your projects. This is only available in development builds.</td></tr><tr><td><strong>Vertex Compression</strong></td><td>Sets vertex compression per channel. This affects all the meshes in your project. <br>Typically, Vertex Compression is used to reduce the size of mesh data in memory, reduce file size, and improve GPU performance. <br><br>For more information on how to configure vertex compression and limitations of this setting, see <a class="" href="/unity/mesh/mesh-compression">Compressing mesh data</a>.</td></tr><tr><td><strong>Optimize Mesh Data</strong></td><td>Enable this option to strip unused vertex attributes from the mesh used in a build. This option reduces the amount of data in the mesh, which can help reduce build size, loading times, and runtime memory usage. <br><br>  <strong>Warning:</strong>  If you have this setting enabled, you should remember to not change material or shader settings at runtime. <br><br> See <a href="https://docs.unity3d.com/cn/2022.1/Manual/PlayerSettings-stripUnusedMeshComponents.html" target="_blank" rel="noopener noreferrer" class="">PlayerSettings.stripUnusedMeshComponents</a> for more information.</td></tr><tr><td><strong>Texture MipMap Stripping</strong></td><td>Enables mipmap stripping for all platforms. This strips unused mipmaps from Textures at build time. Unity determines unused mipmaps by comparing the value of the mipmap against the  <strong>Quality Settings</strong>  for the current platform. If a mipmap value is excluded from every  <strong>Quality Setting</strong>  for the current platform, then Unity strips those mipmaps from the build at build time. If <a href="https://docs.unity3d.com/cn/2022.1/Manual/QualitySettings-masterTextureLimit.html" target="_blank" rel="noopener noreferrer" class="">QualitySettings.masterTextureLimit</a> is set to a mipmap value that has been stripped, Unity will set the value to the closest mipmap value that has not been stripped.</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="logging">Logging<a href="#logging" class="hash-link" aria-label="Logging的直接链接" title="Logging的直接链接" translate="no">​</a></h3>
+<p>选择在特定上下文中允许的日志记录类型。</p>
+<p><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/PlayerSetPCOther-Logging.png" alt="Android 平台的 Logging 设置" class="img_ev3q"></p>
+<p>Android 平台的 Logging 设置</p>
+<ul>
+<li class="">Select your preferred stack trace method by enabling the option that corresponds to each Log Type ( <strong>Error</strong> ,  <strong>Assert</strong> ,  <strong>Warning</strong> ,  <strong>Log</strong> , and  <strong>Exception</strong> ) based on the type of logging you require. For example: <br>
+<ul>
+<li class=""><strong>ScriptOnly</strong> : Logs only when running scripts.<br></li>
+<li class=""><strong>Full</strong> : Logs all the time. <br></li>
+<li class=""><strong>None</strong> : No logs are ever recorded. <br></li>
+</ul>
+</li>
+</ul>
+<p>See <a class="" href="/unity/scripting-setting-up/stack-trace">stack trace logging</a> for more information.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="legacy">Legacy<a href="#legacy" class="hash-link" aria-label="Legacy的直接链接" title="Legacy的直接链接" translate="no">​</a></h3>
+<p>启用  <strong>Clamp BlendShapes (Deprecated)</strong>  选项可在 <a class="" href="/unity/comp-mesh-group/class-skinned-mesh-renderer">SkinnedMeshRenderers</a> 中钳制混合形状权重的范围。</p>
+<p><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/PlayerSetPCOther-Legacy.png" alt="Android 平台的 Legacy 设置" class="img_ev3q"></p>
+<p>Android 平台的 Legacy 设置</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="publishing-settings">Publishing Settings<a href="#publishing-settings" class="hash-link" aria-label="Publishing Settings的直接链接" title="Publishing Settings的直接链接" translate="no">​</a></h2>
+<p>使用 Publishing Settings 可配置 Unity 构建 Android 应用程序的方式。 若要打开 Publishing Settings，请转到  <strong>Edit</strong>  &gt;  <strong>Project Settings</strong> ，选择  <strong>Player</strong> ，选择  <strong>Android</strong>  图标，然后打开  <strong>Publishing Settings</strong>  面板。</p>
+<p>此部分介绍 Publishing Settings 面板的不同部分及其功能。这些资源包括：</p>
+<ul>
+<li class=""><a href="#project-keystore" class="">Project Keystore</a></li>
+<li class=""><a href="#project-key" class="">Project Key</a></li>
+<li class=""><a href="#build" class="">Build</a></li>
+<li class=""><a href="#minify" class="">Minify</a></li>
+<li class=""><a href="#split-application-binary" class="">Split Application Binary</a></li>
+</ul>
+<p><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/Android-publishing-page.png" alt="Android 发布面板" class="img_ev3q"></p>
+<p>Android 发布面板</p>
+<p><strong>注意</strong> ：出于安全原因，Unity 不会保存密钥库或项目密钥密码。</p>
+<p>使用 Keystore Manager 窗口可创建、配置和加载密钥和密钥库。 可以从 Keystore Manager 或主 Android 发布面板加载现有密钥库和密钥。如果选择从 Keystore Manager 内部加载这些内容，则 Unity 会自动填充 Project Keystore 和 Project Key 字段。 有关更多信息，请参阅 <a class="" href="/unity/android-keystore/android-keystore-manager">Keystore Manager</a> 的相关文档。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="project-keystore">Project Keystore<a href="#project-keystore" class="hash-link" aria-label="Project Keystore的直接链接" title="Project Keystore的直接链接" translate="no">​</a></h3>
+<p>密钥库是用于保存签名密钥来实现应用程序安全性的容器。有关详细信息，请参阅 Android 开发者文档：<a href="https://developer.android.com/training/articles/keystore" target="_blank" rel="noopener noreferrer" class="">Android 密钥库系统</a>。</p>
+<p>使用  <strong>Project Keystore</strong>  设置可选择用于打开的项目的密钥库。加载密钥库时，Unity 会加载该密钥库中的所有密钥。 若要在打开的项目中加载和使用现有密钥库，请执行以下操作：</p>
+<ol>
+<li class="">启用  <strong>Custom Keystore</strong> 。</li>
+<li class="">打开  <strong>Select</strong>  下拉列表，选择  <strong>Browse</strong> ，然后从文件系统中选择密钥库。</li>
+<li class="">输入 <strong>您的密钥库密码</strong> 。</li>
+</ol>
+<p>如果没有现有密钥库，请将  <strong>Custom Keystore</strong>  保留为禁用状态。</p>
+<p>Unity 使用调试密钥库对应用程序进行签名。 调试密钥库是一种工作密钥库。通过它可以对应用程序进行签名并在本地进行测试。但是，应用商店会拒绝以这种方式签名的应用程序。这是因为应用商店无法使用调试密钥库验证应用程序的有效性和所有权。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong>属性</strong></th><th><strong>描述</strong></th></tr></thead><tbody><tr><td><strong>Custom Keystore</strong></td><td>启用  <strong>Custom Keystore</strong>  可加载和使用现有密钥库。</td></tr><tr><td><strong>Select</strong></td><td>When  <strong>Custom Keystore</strong>  is enabled, use this to select the keystore you want to use. The keystores below the partition in the  <strong>Select</strong>  dropdown are stored in a predefined dedicated location. For more details, see <a class="" href="/unity/android-keystore/android-keystore-create#choose-the-keystore-location">Choose the keystore location</a>.</td></tr><tr><td><strong>路径</strong></td><td>无需输入密钥库路径。Unity 会基于所选择的密钥库提供此路径。</td></tr><tr><td><strong>Password</strong></td><td>输入密钥库密码以加载所选的密钥库。</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="project-key">Project Key<a href="#project-key" class="hash-link" aria-label="Project Key的直接链接" title="Project Key的直接链接" translate="no">​</a></h3>
+<p>加载密钥库时，Unity 会加载该密钥库中的所有密钥。使用  <strong>Project Key</strong>  设置可从该密钥库中选择一个密钥以用作打开的项目的活动密钥。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong>属性</strong></th><th><strong>描述</strong></th></tr></thead><tbody><tr><td><strong>Alias</strong></td><td>选择要用于打开的项目的密钥。</td></tr><tr><td><strong>Password</strong></td><td>输入密钥密码。</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="build">Build<a href="#build" class="hash-link" aria-label="Build的直接链接" title="Build的直接链接" translate="no">​</a></h3>
+<p>By default, Unity builds your application with the manifest files, Gradle templates and Proguard files provided with the Unity installation. Use the  <strong>Build</strong>  section of the Android Publishing Settings to change these.</p>
+<p>To use a custom manifest file, Gradle template or Proguard file:</p>
+<ol>
+<li class="">启用相应的复选框。Unity 会在项目中创建一个默认文件，文件位置会出现在复选框下方。</li>
+<li class="">打开新文件并进行更改。</li>
+<li class="">保存对此文件的更改。Unity 下次构建应用程序时会自动使用保存到此文件的更改。</li>
+</ol>
+<p>Build 部分中的设置仅适用于当前项目的构建过程。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong>属性</strong></th><th><strong>描述</strong></th></tr></thead><tbody><tr><td><strong>Custom Main Manifest</strong></td><td>Customizable version of the Android <code>LibraryManifest.xml</code> file. This file contains important metadata about your Android application. For more information about the responsibilities of the Main/Unity Library Manifest see <a class="" href="/unity/android-introducing/android-library-manifest">Unity Library Manifest</a>.</td></tr><tr><td><strong>Custom Unity Launcher Manifest</strong></td><td>Customizable version of the Android <code>LauncherManifest.xml</code> file. This file contains important metadata about your Android application’s launcher. For more information about the responsibilities of the Unity Launcher Manifest see <a class="" href="/unity/android-introducing/android-launcher-manifest">Unity Launcher Manifest</a>.</td></tr><tr><td><strong>Custom Main Gradle Template</strong></td><td>Customizable version of the <code>mainTemplate.gradle</code> file. This file contains information on how to build your Android application as a library. For more information see documentation on <a class="" href="/unity/android-introducing/android-gradle-overview">Gradle project files</a>.</td></tr><tr><td><strong>Custom Launcher Gradle Template</strong></td><td>Customizable version of the <code>launcherTemplate.gradle_</code> file. This file contains instructions on how to build your Android application. For more information see documentation on <a class="" href="/unity/android-introducing/android-gradle-overview">Gradle project files</a>.</td></tr><tr><td><strong>Custom Base Gradle Template</strong></td><td>Customizable version of the <code>baseProjectTemplate.gradle</code> file. This file contains configuration that is shared between all other templates and Gradle projects. For more information see documentation on <a class="" href="/unity/android-introducing/android-gradle-overview">Gradle project files</a>.</td></tr><tr><td><strong>Custom Gradle Properties Template</strong></td><td>Customizable version of the <code>gradle.properties</code> file. This file contains configuration settings for the Gradle build environment. This includes: <br>• The JVM (Java Virtual Machine) memory configuration. <br>• A property to allow Gradle to build using multiple JVMs.<br>• A property for choosing the tool to do the minification. <br>• A property to not compress native libs when building an app bundle.</td></tr><tr><td><strong>Custom Proguard File</strong></td><td>Customizable version of the proguard.txt file. This file contains configuration settings for the minification process. If minification removes some Java code which should be kept, you should add a rule to keep that code in this file. For more information see documentation on <a href="#minify" class="">Minification</a>.</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="minify">Minify<a href="#minify" class="hash-link" aria-label="Minify的直接链接" title="Minify的直接链接" translate="no">​</a></h3>
+<p>缩小是一种缩减、混淆和优化应用程序代码的过程。它可以减小代码大小并使代码更难以反汇编。使用 Minify 设置可定义 Unity 应何时以及如何将缩小应用于构建。</p>
+<p>在大多数情况下，仅将缩小应用于发布构建（而不是调试构建）是一种很好的做法。这是因为缩小需要时间，可能会使构建速度变慢。由于代码经过优化，它还会使调试更加复杂。</p>
+<p>Minify 部分中的设置仅适用于当前项目的构建过程。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong>属性</strong></th><th><strong>描述</strong></th></tr></thead><tbody><tr><td><strong>Use R8</strong></td><td>默认情况下，Unity 使用 Proguard 进行缩小。启用此复选框可改为使用 R8。</td></tr><tr><td><strong>Release</strong></td><td>如果希望 Unity 在发布构建中缩小应用程序的代码，请启用此复选框。</td></tr><tr><td><strong>Debug</strong></td><td>如果希望 Unity 在调试构建中缩小应用程序的代码，请启用此复选框。</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="split-application-binary">Split Application Binary<a href="#split-application-binary" class="hash-link" aria-label="Split Application Binary的直接链接" title="Split Application Binary的直接链接" translate="no">​</a></h3>
+<p>启用  <strong>Split Application Binary</strong>  选项可将输出包拆分为主包 (APK) 和扩展包 (OBB) 包。如果要发布大于 100 MB 的应用程序，则 Google Play 应用商店需要此功能。</p>
+<br>
+<hr>
+<ul>
+<li class="">5.5 版中的更新功能</li>
+<li class="">在 2017.3 版中添加了  <strong>Sustained Performance Mode</strong>  属性</li>
+<li class="">在 2018.1 版中添加了 .NET 4.x 运行时</li>
+<li class="">在 2018.2 版中添加了 Android  <strong>Multiple APK</strong>  功能</li>
+<li class="">在 <a href="https://docs.unity3d.com/2019.1/Documentation/Manual/30_search.html?q=newin20191" target="_blank" rel="noopener noreferrer" class="">2019.1</a> 中为 Android 添加了 OpenGL ES 3.2 支持 NewIn20191</li>
+<li class="">在 Unity 2019.1 中添加了输入系统预览</li>
+<li class="">在 Unity 2019.1 中添加了  <strong>Render outside safe area</strong></li>
+<li class="">在 Unity 2019.2 中添加了 Warn about App Bundle size 选项</li>
+<li class="">在 Unity 2019.3 将 GPU Skinning 重命名为 Compute Skinning</li>
+<li class="">在 Unity <a href="https://docs.unity3d.com/cn/2022.1/Manual/30_search.html?q=newin20193" target="_blank" rel="noopener noreferrer" class="">2019.3</a> 中删除了 Vuforia</li>
+<li class="">在 Unity <a href="https://docs.unity3d.com/cn/2022.1/Manual/30_search.html?q=newin20193" target="_blank" rel="noopener noreferrer" class="">2019.3</a> 中已弃用对内置 XR SDK 的支持。NewIn20193</li>
+<li class="">Updated for Texture compression format</li>
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/danyow/danyow/edit/main/unity/unity/platform-specific/android/android-getting-started/class-player-settings-android.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>编辑此页</a></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">最后<!-- -->由 <b>danyow</b> <!-- -->于 <b><time datetime="2026-03-18T07:23:55.000Z" itemprop="dateModified">2026年3月18日</time></b> <!-- -->更新</span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="文件选项卡"><a class="pagination-nav__link pagination-nav__link--prev" href="/unity/android-getting-started/android-sdksetup"><div class="pagination-nav__sublabel">上一页</div><div class="pagination-nav__label">Android 环境设置</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/unity/android-introducing"><div class="pagination-nav__sublabel">下一页</div><div class="pagination-nav__label">Introducing Android</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#icon" class="table-of-contents__link toc-highlight">Icon</a></li><li><a href="#resolution-and-presentation" class="table-of-contents__link toc-highlight">Resolution and Presentation</a><ul><li><a href="#resolution-scaling" class="table-of-contents__link toc-highlight">Resolution Scaling</a></li><li><a href="#supported-aspect-ratio" class="table-of-contents__link toc-highlight">Supported Aspect Ratio</a></li><li><a href="#orientation" class="table-of-contents__link toc-highlight">Orientation</a></li><li><a href="#allowed-orientations-for-auto-rotation" class="table-of-contents__link toc-highlight">Allowed Orientations for Auto Rotation</a></li><li><a href="#other" class="table-of-contents__link toc-highlight">Other</a></li></ul></li><li><a href="#splash-image" class="table-of-contents__link toc-highlight">Splash Image</a></li><li><a href="#other-settings" class="table-of-contents__link toc-highlight">Other Settings</a><ul><li><a href="#渲染" class="table-of-contents__link toc-highlight">渲染</a></li><li><a href="#vulkan-settings" class="table-of-contents__link toc-highlight">Vulkan Settings</a></li><li><a href="#identification" class="table-of-contents__link toc-highlight">Identification</a></li><li><a href="#配置" class="table-of-contents__link toc-highlight">配置</a></li><li><a href="#script-compilation" class="table-of-contents__link toc-highlight">Script Compilation</a></li><li><a href="#optimization" class="table-of-contents__link toc-highlight">Optimization</a></li><li><a href="#logging" class="table-of-contents__link toc-highlight">Logging</a></li><li><a href="#legacy" class="table-of-contents__link toc-highlight">Legacy</a></li></ul></li><li><a href="#publishing-settings" class="table-of-contents__link toc-highlight">Publishing Settings</a><ul><li><a href="#project-keystore" class="table-of-contents__link toc-highlight">Project Keystore</a></li><li><a href="#project-key" class="table-of-contents__link toc-highlight">Project Key</a></li><li><a href="#build" class="table-of-contents__link toc-highlight">Build</a></li><li><a href="#minify" class="table-of-contents__link toc-highlight">Minify</a></li><li><a href="#split-application-binary" class="table-of-contents__link toc-highlight">Split Application Binary</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="margin-bottom--sm"><img src="/img/logo.svg" class="footer__logo themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/logo.svg" class="footer__logo themedComponent_mlkZ themedComponent--dark_xIcU"></div><div class="footer__copyright">© 2026 danyow, Inc. 使用 Docusaurus 构建。</div></div></div></footer></div>
+</body>
+</html>

@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="zh" dir="ltr" class="docs-wrapper plugin-docs plugin-id-unity docs-version-current docs-doc-page docs-doc-id-unity-overview/analysis/profiler/profiler-markers" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.9.2">
+<title data-rh="true">常见性能分析器标记 | :D</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://danyow.cn/unity/profiler/profiler-markers"><meta data-rh="true" property="og:locale" content="zh"><meta data-rh="true" name="docusaurus_locale" content="zh"><meta data-rh="true" name="docsearch:language" content="zh"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-unity-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-unity-current"><meta data-rh="true" property="og:title" content="常见性能分析器标记 | :D"><meta data-rh="true" name="description" content="Unity 的代码配备了大量性能分析器标记，可用于深入了解应用程序中占用时间的内容。下表说明了一些常见标记的作用："><meta data-rh="true" property="og:description" content="Unity 的代码配备了大量性能分析器标记，可用于深入了解应用程序中占用时间的内容。下表说明了一些常见标记的作用："><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://danyow.cn/unity/profiler/profiler-markers"><link data-rh="true" rel="alternate" href="https://danyow.cn/unity/profiler/profiler-markers" hreflang="zh"><link data-rh="true" rel="alternate" href="https://danyow.cn/unity/profiler/profiler-markers" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"在 Unity 中操作","item":"https://danyow.cn/unity/unity-overview"},{"@type":"ListItem","position":2,"name":"分析","item":"https://danyow.cn/unity/analysis"},{"@type":"ListItem","position":3,"name":"性能分析器概述","item":"https://danyow.cn/unity/profiler"},{"@type":"ListItem","position":4,"name":"常见性能分析器标记","item":"https://danyow.cn/unity/profiler/profiler-markers"}]}</script><link rel="alternate" type="application/rss+xml" href="/blog/rss.xml" title=":D RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/blog/atom.xml" title=":D Atom Feed"><link rel="stylesheet" href="/assets/css/styles.640272bb.css">
+<script src="/assets/js/runtime~main.50b7b83d.js" defer="defer"></script>
+<script src="/assets/js/main.ca102e2d.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/img/logo.svg"><div role="region" aria-label="跳到主要内容"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">跳到主要内容</a></div><nav aria-label="主导航" class="theme-layout-navbar navbar navbar--fixed-top navbar--primary"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="切换导航栏" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><b class="navbar__title text--truncate">:D</b></a><a class="navbar__item navbar__link" href="/note/itinerary">笔记</a><a class="navbar__item navbar__link" href="/lua/learn">Lua</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/unity/Glossary">Unity</a><a class="navbar__item navbar__link" href="/blog">博客</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/danyow/danyow" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link header-github-link" aria-label="GitHub repository"></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search searchBarContainer_NW3z" dir="ltr"><input placeholder="搜索" aria-label="Search" class="navbar__search-input searchInput_YFbd" value=""><div class="loadingRing_RJI3 searchBarLoadingRing_YnHq"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="回到顶部" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="文档侧边栏" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/animation-section"><span title="动画" class="categoryLinkLabel_W154">动画</span></a><button aria-label="展开侧边栏分类 &#x27;动画&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/asset-store"><span title="Unity Asset Store" class="categoryLinkLabel_W154">Unity Asset Store</span></a><button aria-label="展开侧边栏分类 &#x27;Unity Asset Store&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/asset-workflow"><span title="资源工作流程" class="categoryLinkLabel_W154">资源工作流程</span></a><button aria-label="展开侧边栏分类 &#x27;资源工作流程&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/audio"><span title="音频" class="categoryLinkLabel_W154">音频</span></a><button aria-label="展开侧边栏分类 &#x27;音频&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/creating-environments"><span title="World building" class="categoryLinkLabel_W154">World building</span></a><button aria-label="展开侧边栏分类 &#x27;World building&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/unity/Glossary"><span title="术语表" class="linkLabel_WmDU">术语表</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/graphics"><span title="图形" class="categoryLinkLabel_W154">图形</span></a><button aria-label="展开侧边栏分类 &#x27;图形&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/input"><span title="输入" class="categoryLinkLabel_W154">输入</span></a><button aria-label="展开侧边栏分类 &#x27;输入&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/legacy-topics"><span title="旧版主题" class="categoryLinkLabel_W154">旧版主题</span></a><button aria-label="展开侧边栏分类 &#x27;旧版主题&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/navigation"><span title="导航和寻路" class="categoryLinkLabel_W154">导航和寻路</span></a><button aria-label="展开侧边栏分类 &#x27;导航和寻路&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/packages-list"><span title="Packages and feature sets" class="categoryLinkLabel_W154">Packages and feature sets</span></a><button aria-label="展开侧边栏分类 &#x27;Packages and feature sets&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/physics-section"><span title="物理系统" class="categoryLinkLabel_W154">物理系统</span></a><button aria-label="展开侧边栏分类 &#x27;物理系统&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/platform-specific"><span title="平台开发" class="categoryLinkLabel_W154">平台开发</span></a><button aria-label="展开侧边栏分类 &#x27;平台开发&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/scripting-section"><span title="脚本" class="categoryLinkLabel_W154">脚本</span></a><button aria-label="展开侧边栏分类 &#x27;脚本&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/search-overview"><span title="Unity Search" class="categoryLinkLabel_W154">Unity Search</span></a><button aria-label="展开侧边栏分类 &#x27;Unity Search&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/uitoolkits"><span title="Create user interfaces (UI)" class="categoryLinkLabel_W154">Create user interfaces (UI)</span></a><button aria-label="展开侧边栏分类 &#x27;Create user interfaces (UI)&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/unet"><span title="多玩家和联网" class="categoryLinkLabel_W154">多玩家和联网</span></a><button aria-label="展开侧边栏分类 &#x27;多玩家和联网&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/unity/unity-manual"><span title="Unity User Manual 2022.1" class="linkLabel_WmDU">Unity User Manual 2022.1</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" href="/unity/unity-overview"><span title="在 Unity 中操作" class="categoryLinkLabel_W154">在 Unity 中操作</span></a><button aria-label="折叠侧边栏分类 &#x27;在 Unity 中操作&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" tabindex="0" href="/unity/analysis"><span title="分析" class="categoryLinkLabel_W154">分析</span></a><button aria-label="折叠侧边栏分类 &#x27;分析&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/unity/analysis/async-read-manager-metrics"><span title="资源加载指标" class="linkLabel_WmDU">资源加载指标</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/best-practice-understanding-performance-in-unity"><span title="了解 Unity 中的优化" class="categoryLinkLabel_W154">了解 Unity 中的优化</span></a><button aria-label="展开侧边栏分类 &#x27;了解 Unity 中的优化&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/unity/analysis/log-files"><span title="Log files" class="linkLabel_WmDU">Log files</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/performance-memory-overview"><span title="Memory in Unity" class="categoryLinkLabel_W154">Memory in Unity</span></a><button aria-label="展开侧边栏分类 &#x27;Memory in Unity&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/performance-profiling-tools"><span title="Profiling tools" class="categoryLinkLabel_W154">Profiling tools</span></a><button aria-label="展开侧边栏分类 &#x27;Profiling tools&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" tabindex="0" href="/unity/profiler"><span title="性能分析器概述" class="categoryLinkLabel_W154">性能分析器概述</span></a><button aria-label="折叠侧边栏分类 &#x27;性能分析器概述&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/unity/profiler/low-level-native-plugin-profiler"><span title="低级原生插件 Profiler API" class="linkLabel_WmDU">低级原生插件 Profiler API</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/profiler-customizing"><span title="Customizing the Profiler" class="categoryLinkLabel_W154">Customizing the Profiler</span></a><button aria-label="展开侧边栏分类 &#x27;Customizing the Profiler&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/unity/profiler/profiler-markers"><span title="常见性能分析器标记" class="linkLabel_WmDU">常见性能分析器标记</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/unity/profiler/profiler-profiling-applications"><span title="应用程序性能分析" class="linkLabel_WmDU">应用程序性能分析</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/profiler-window"><span title="Profiler 窗口" class="categoryLinkLabel_W154">Profiler 窗口</span></a><button aria-label="展开侧边栏分类 &#x27;Profiler 窗口&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li></ul></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/creating-gameplay"><span title="Create Gameplay" class="categoryLinkLabel_W154">Create Gameplay</span></a><button aria-label="展开侧边栏分类 &#x27;Create Gameplay&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/editor-features"><span title="编辑器功能" class="categoryLinkLabel_W154">编辑器功能</span></a><button aria-label="展开侧边栏分类 &#x27;编辑器功能&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/getting-started-installing-unity"><span title="安装 Unity" class="categoryLinkLabel_W154">安装 Unity</span></a><button aria-label="展开侧边栏分类 &#x27;安装 Unity&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/quickstart-guides"><span title="Quickstart guides" class="categoryLinkLabel_W154">Quickstart guides</span></a><button aria-label="展开侧边栏分类 &#x27;Quickstart guides&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/upgrade-guides"><span title="升级 Unity" class="categoryLinkLabel_W154">升级 Unity</span></a><button aria-label="展开侧边栏分类 &#x27;升级 Unity&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/using-the-editor"><span title="Unity 的界面" class="categoryLinkLabel_W154">Unity 的界面</span></a><button aria-label="展开侧边栏分类 &#x27;Unity 的界面&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/unity-services"><span title="Unity 服务" class="categoryLinkLabel_W154">Unity 服务</span></a><button aria-label="展开侧边栏分类 &#x27;Unity 服务&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/unity2d"><span title="2D" class="categoryLinkLabel_W154">2D</span></a><button aria-label="展开侧边栏分类 &#x27;2D&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/video-player"><span title="视频概述" class="categoryLinkLabel_W154">视频概述</span></a><button aria-label="展开侧边栏分类 &#x27;视频概述&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/unity/WhatsNew20221"><span title="New in Unity 2022.1" class="linkLabel_WmDU">New in Unity 2022.1</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/xr"><span title="XR" class="categoryLinkLabel_W154">XR</span></a><button aria-label="展开侧边栏分类 &#x27;XR&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="页面路径"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="主页面" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/unity/unity-overview"><span>在 Unity 中操作</span></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/unity/analysis"><span>分析</span></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/unity/profiler"><span>性能分析器概述</span></a></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">常见性能分析器标记</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>常见性能分析器标记</h1></header>
+<p>Unity 的代码配备了大量性能分析器标记，可用于深入了解应用程序中占用时间的内容。下表说明了一些常见标记的作用：</p>
+<ul>
+<li class=""><a href="#%E4%B8%BB%E7%BA%BF%E7%A8%8B%E5%9F%BA%E7%A1%80%E6%A0%87%E8%AE%B0" class="">主线程基础标记</a></li>
+<li class=""><a href="#%E8%84%9A%E6%9C%AC%E6%9B%B4%E6%96%B0%E6%A0%87%E8%AE%B0" class="">脚本更新标记</a></li>
+<li class=""><a href="#%E6%B8%B2%E6%9F%93%E5%92%8C-vsync-%E6%A0%87%E8%AE%B0" class="">渲染和 VSync 标记</a></li>
+<li class=""><a href="#%E5%90%8E%E7%AB%AF%E8%84%9A%E6%9C%AC%E6%A0%87%E8%AE%B0" class="">后端脚本标记</a></li>
+<li class=""><a href="#%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%A0%87%E8%AE%B0" class="">多线程标记</a></li>
+<li class=""><a href="#%E7%89%A9%E7%90%86%E6%A0%87%E8%AE%B0" class="">物理标记</a></li>
+<li class=""><a href="#%E6%80%A7%E8%83%BD%E8%AD%A6%E5%91%8A" class="">性能警告</a></li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="主线程基础标记">主线程基础标记<a href="#主线程基础标记" class="hash-link" aria-label="主线程基础标记的直接链接" title="主线程基础标记的直接链接" translate="no">​</a></h2>
+<p>主线程基础标记可清晰区分在应用程序上花费的时间与在编辑器和性能分析器活动中花费的时间。<a href="https://docs.unity3d.com/cn/2022.1/ScriptReference/Unity.Profiling.ProfilerRecorder.html" target="_blank" rel="noopener noreferrer" class="">ProfilerRecorder</a> 也可以使用这些标记来获取主线程上帧的时间使用情况。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong>标记</strong></th><th><strong>功能</strong></th></tr></thead><tbody><tr><td><strong>PlayerLoop</strong></td><td>包含源自应用程序主循环的所有样本。如果播放器以活跃运行模式在编辑器中运行时，目标是编辑器而不是运行模式，则 PlayerLoop 样本会嵌套在 EditorLoop 下。</td></tr><tr><td><strong>EditorLoop</strong> <br><em>（仅限编辑器的标记）</em></td><td>包含源自编辑器主循环的所有样本。仅当在 Editor 中对播放器进行性能分析时才会出现此样本。使用性能分析器将运行模式作为目标时，EditorLoop 样本会显示渲染和运行包含播放器的编辑器所花费的时间。<br><br>性能分析器不会在 EditorLoop 标记下记录任何进一步的详细数据。这是因为性能分析器在对运行模式进行性能分析时，编辑器代码发出的样本会产生大量性能分析开销。<br><br>Unity 将来自 EditorLoop 标记的任何样本都在 <a class="" href="/unity/profiler-window/profiler-cpu#%E5%9B%BE%E8%A1%A8%E7%B1%BB%E5%88%AB">CPU 分析器模块图表</a>中分类为  <strong>Others</strong> 。因此，EditorLoop 样本通常是该类别的最大贡献者。如果想了解编辑器在这段时间内的操作，并且还想获得有关  <strong>Others</strong>  类别的其他贡献者的更详细细分，请<a class="" href="/unity/profiler/profiler-profiling-applications">将性能分析器目标更改为编辑器</a>。<br><br>将性能分析器的目标切换为 <strong>编辑器</strong> 会更改性能分析器在 CPU 性能分析器模块的详细信息面板中显示的内容，以及 CPU 性能分析器模块图表中的类别细分。这是因为之前隐藏在 EditorLoop 样本下的样本随后会归类到其各自的类别中。</td></tr><tr><td><strong>Profiler.CollectEditorStats</strong> <br><em>（仅限编辑器的标记）</em></td><td>包含与收集不同活跃性能分析器模块的统计信息有关的任何样本。<br><br>嵌套在 Profiler.CollectGlobalStats 标记下的样本指示播放器在收集特定模块的统计信息时产生的开销量。所有其他子样本仅反映它们在编辑器中的效果。<br><br>要消除特定模块产生的开销，请关闭模块的图表，或调用 Profiler.SetAreaEnabled。<br><br> <strong>注意：</strong> 使用内置计数器的自定义性能分析器模块会启用内置计数器的区域（即使它所属的模块已禁用）。要防止性能分析器收集这些统计信息和产生收集开销，请确保禁用内置性能分析器模块和自定义性能分析器模块。</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="仅限编辑器的标记">仅限编辑器的标记<a href="#仅限编辑器的标记" class="hash-link" aria-label="仅限编辑器的标记的直接链接" title="仅限编辑器的标记的直接链接" translate="no">​</a></h3>
+<p>某些标记仅当在 Unity 编辑器中进行性能分析时才会出现。这些标记不会出现在与播放器相关的活动中，仅与编辑器活动相关。仅限编辑器的标记包括如下的安全性检查：GetComponentNullErrorWrapper（有助于确定 null 组件使用情况）、CheckConsistency（验证对象设置）、CheckAllowDestructionRecursive（损坏检查）以及预制件相关活动。</p>
+<p>默认情况下，在 CPU 性能分析器模块的  <strong>Hierarchy</strong>  视图中，带有仅限编辑器的标记的样本栈会进行折叠并命名为 <code>EditorOnly [SampleName]</code>。虽然这些样本栈或其子样本可能会导致托管分配，从而导致触发垃圾收集，但它们在折叠时不会影响其父样本的 GC.Alloc 值。</p>
+<p>要更改默认行为，请单击模块详细信息面板右上角，选择上下文菜单，然后禁用 <a class="" href="/unity/profiler-window/profiler-cpu#hierarchy-%E5%92%8C-raw-hierarchy-%E8%A7%86%E5%9B%BE">Collapse EditorOnly Samples</a> 设置。完成此操作后，可以展开样本并将其 GC.Alloc 值贡献给所属标记。</p>
+<p>此选项不影响  <strong>Timeline</strong>  视图，并且样本及其子项显示为展开状态。通常可以忽略带有这些标记的样本，因为它们与仅限编辑器的活动相关，对减少托管分配没有任何影响。但是，如果在它们对运行模式的性能影响方面遇到严重问题，则它们可用于调查。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="脚本更新标记">脚本更新标记<a href="#脚本更新标记" class="hash-link" aria-label="脚本更新标记的直接链接" title="脚本更新标记的直接链接" translate="no">​</a></h2>
+<p>除非使用<a class="" href="/unity/job-system">作业系统</a>，否则大多数脚本代码都嵌套在以下标记下面。有关作业系统样本的信息，请参阅本页面的<a href="#%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%A0%87%E8%AE%B0" class="">多线程标记</a>部分。</p>
+<p>有关 Unity 更新循环的更多详细信息，请参阅<a href="https://docs.unity3d.com/Manual/ExecutionOrder.html" target="_blank" rel="noopener noreferrer" class="">事件函数执行顺序</a>相关文档。如果已通过 <a href="https://docs.unity3d.com/ScriptReference/LowLevel.PlayerLoop.SetPlayerLoop.html" target="_blank" rel="noopener noreferrer" class="">PlayerLoop.SetPlayerLoop</a> 将自己的回调插入到<a href="https://docs.unity3d.com/ScriptReference/LowLevel.PlayerLoop.html" target="_blank" rel="noopener noreferrer" class="">播放器循环</a>中，则脚本更新样本会出现在相应的主 PlayerLoopSystem 标记下（如果作为子系统进入，或者如果自行直接进入主循环中）。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong>标记</strong></th><th><strong>功能</strong></th></tr></thead><tbody><tr><td><strong>BehaviourUpdate</strong></td><td>包含 <a href="https://docs.unity3d.com/cn/2022.1/ScriptReference/MonoBehaviour.Update.html" target="_blank" rel="noopener noreferrer" class="">MonoBehaviour.Update</a> 方法的所有样本。</td></tr><tr><td><strong>CoroutinesDelayedCalls</strong></td><td>包含首次生成后的所有<a href="https://docs.unity3d.com/cn/2022.1/ScriptReference/Coroutine.html" target="_blank" rel="noopener noreferrer" class="">协程</a>样本。</td></tr><tr><td><strong>FixedBehaviourUpdate</strong></td><td>Contains all samples of <a href="https://docs.unity3d.com/cn/2022.1/ScriptReference/MonoBehaviour.FixedUpdate.html" target="_blank" rel="noopener noreferrer" class="">Monobehaviour.FixedUpdate</a> methods.</td></tr><tr><td><strong>PreLateUpdate.ScriptRunBehaviourLateUpdate</strong></td><td>包含 <a href="https://docs.unity3d.com/cn/2022.1/ScriptReference/MonoBehaviour.LateUpdate.html" target="_blank" rel="noopener noreferrer" class="">Monobehaviour.LateUpdate</a> 方法的所有样本。</td></tr><tr><td><strong>Update.ScriptRunBehaviourUpdate</strong></td><td>包含所有 <a href="https://docs.unity3d.com/cn/2022.1/ScriptReference/MonoBehaviour.Update.html" target="_blank" rel="noopener noreferrer" class="">MonoBehaviour.Update</a> 和<a href="https://docs.unity3d.com/cn/2022.1/ScriptReference/Coroutine.html" target="_blank" rel="noopener noreferrer" class="">协程</a>样本。</td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="渲染和-vsync-标记">渲染和 VSync 标记<a href="#渲染和-vsync-标记" class="hash-link" aria-label="渲染和 VSync 标记的直接链接" title="渲染和 VSync 标记的直接链接" translate="no">​</a></h2>
+<p>这些标记包含 CPU 在其中花时间来处理 GPU 的数据，或者可能在其中等待 GPU 完成的样本。如果 <a class="" href="/unity/profiler-window/profiler-gpu">GPU 性能分析器模块</a>不可用或者增加过多开销，则性能分析器模块详细信息面板中的工具栏不会显示此信息。这些标记下的样本可用于很好地了解应用程序是 CPU 密集型还是 GPU 密集型。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong>标记</strong></th><th><strong>功能</strong></th></tr></thead><tbody><tr><td><strong>WaitForTargetFPS</strong></td><td>指示应用程序等待 <a href="https://docs.unity3d.com/cn/2022.1/Manual/Application-targetFrameRate.html" target="_blank" rel="noopener noreferrer" class="">Application.targetFrameRate</a> 指定的目标 FPS 所花费的时间量。<br><br>如果样本是 Gfx.WaitForPresentOnGfxThread 的子样本，则指示应用程序等待 GPU 所花费的时间量。例如，这可能是 GPU 等待下一个 VSync 所花费的时间（如果在 <a href="https://docs.unity3d.com/cn/2022.1/Manual/QualitySettings-vSyncCount.html" target="_blank" rel="noopener noreferrer" class="">QualitySettings.vSyncCount</a> 中进行了配置，或者如果在目标平台上强制实施了 vSync）。但是，如果 GPU 尚未完成帧计算，也会发出带有此标记的样本。<br><br>要确定导致带有此标记的样本使用大量时间的原因，请切换到 <a class="" href="/unity/profiler-window/profiler-cpu#timeline-%E8%A7%86%E5%9B%BE">CPU 性能分析器模块中的 Timeline 视图</a>。在此视图中，可以检查渲染线程上发生的情况，以及在当前帧中结束的此样本与在周围帧中结束的相同样本之间所经过的时间量。<br><br>如果持续时间大于应用程序帧时间（基于目标帧速率或 vSync），则帧渲染或计算时间过长。如果是这种情况，请调查渲染线程，并查看相对于它为做好准备和向 GPU 发出命令而进行的其他工作，它在 Gfx.PresentFrame 方面花费的时间量。如果渲染线程在 Gfx.PresentFrame 方面花费了大量时间，则渲染工作是 GPU 密集型。如果渲染线程的时间花费在准备命令上，则应用程序是 CPU 密集型。<br><br>要了解要关注的内容，如果应用程序是 GPU 密集型，请使用 Unity 性能分析器或平台性能分析器对 GPU 工作进行性能分析。有关更多信息，请参阅有关如何<a href="https://docs.unity3d.com/Manual/OptimizingGraphicsPerformance.html" target="_blank" rel="noopener noreferrer" class="">优化图形性能</a>的用户手册文档。<br><br> <strong>注意：</strong> 编辑器不在 GPU 上进行 VSync，而是使用 WaitForTargetFPS 模拟 VSync 的延迟。某些平台（尤其是 Android 和 iOS）强制执行 VSync 或默认帧率上限为 30 或 60。</td></tr><tr><td><strong>Gfx.PresentFrame</strong></td><td>表示应用程序在等待 GPU 渲染和呈现帧方面花费的时间，其中包括等待 VSync 的时间。<br><br>主线程上带有 WaitForTargetFPS 标记的样本会显示等待 VSync 所花费的时间量。</td></tr><tr><td><strong>Gfx.ProcessCommands</strong></td><td>包含对渲染线程上渲染命令的所有处理。应用程序可能会花费此处理时间的一部分来等待 VSync 或主线程的新命令；可通过子样本 Gfx.WaitForPresentOnGfxThread 来了解此内容。</td></tr><tr><td><strong>Gfx.WaitForCommands</strong></td><td>指示渲染线程已准备好接受新命令。如果看到此标记，则可能指示主线程上存在瓶颈。</td></tr><tr><td><code>&amp;lt;GraphicsAPIName&amp;gt;.WaitForLastPresent</code> e.g.<br> <strong>GfxDeviceD3D11.WaitForLastPresent</strong> <br> <strong>GfxDeviceD3D12.WaitForLastPresent</strong> <br> <strong>GfxDeviceMetal.WaitForLastPresent</strong></td><td>当主线程等待 GPU 将帧号翻转到屏幕 (Time.frameCount - QualitySettings.maxQueuedFrames + 1`) 时，会出现带有此标记的样本。这意味着如果 QualitySettings.maxQueuedFrames 大于 1，则此时间用于等待 GPU 翻转应用程序在前一个主线程帧中请求渲染的帧。<br><br>有关此样本的更多详细信息以及 Unity 的帧管线概述，请参阅 <a href="https://blogs.unity3d.com/2020/10/01/fixing-time-deltatime-in-unity-2020-2-for-smoother-gameplay-what-did-it-take/" target="_blank" rel="noopener noreferrer" class="">Unity 关于修复 Delta Time 的博客文章</a>。</td></tr><tr><td><strong>Gfx.WaitForPresentOnGfxThread</strong></td><td>指示主线程已准备好开始渲染下一帧，但是渲染线程未结束对于 GPU 呈现该帧的等待。这可能表明应用程序是 GPU 密集型。要查看渲染线程同时在哪些方面花费时间，请查看 <a class="" href="/unity/profiler-window/profiler-cpu#timeline-%E8%A7%86%E5%9B%BE">CPU 性能分析器模块的 Timeline 视图</a>。<br><br>如果渲染线程将时间花费在 Camera.Render 中，则表示应用程序为 CPU 密集型并且可能花费太多时间向 GPU 发送绘制调用或纹理。<br><br>如果渲染线程将时间花费在 Gfx.PresentFrame 中，则表示应用程序是 GPU 密集型，或者可能在等待 GPU 上的 VSync。Gfx.WaitForPresentOnGfxThread 的 WaitForTargetFPS 子样本可以指示应用程序用于等待 VSync 的呈现阶段的一段时间。呈现阶段是从 Unity 指示图形 API 交换缓冲区到此操作完成时间之间的一段时间。</td></tr><tr><td><strong>Gfx.WaitForRenderThread</strong></td><td>指示主线程正在等待渲染线程处理位于命令流中的所有命令。带有此标记的样本仅出现在多线程渲染中。</td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="后端脚本标记">后端脚本标记<a href="#后端脚本标记" class="hash-link" aria-label="后端脚本标记的直接链接" title="后端脚本标记的直接链接" translate="no">​</a></h2>
+<p>这些样本突出显示 Mono 或 IL2CPP 脚本后端活动，对于垃圾收集和分配问题的故障排除非常有用。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong>标记</strong></th><th><strong>功能</strong></th></tr></thead><tbody><tr><td><strong>GC.Alloc</strong></td><td>表示托管堆（包含受自动垃圾回收影响的托管分配）中的分配。要减少应用程序在自动垃圾收集方面所花费的时间，应该尽量减少这些类型的样本。</td></tr><tr><td><strong>GC.Collect</strong></td><td>Represents samples that relate to garbage collection. Whenever Unity needs to perform garbage collection, it stops running your program code and only resumes normal execution when the garbage collector has finished all its work.  <strong>Note:</strong>  If you have enabled <a class="" href="/unity/performance-garbage-collector/performance-incremental-garbage-collection">Incremental Garbage Collection</a> the garbage collector might not finish its work in a single frame.<br><br>This interruption might cause delays in the execution of your application that last anywhere from less than one millisecond to hundreds of milliseconds. This depends on how much memory the garbage collector needs to process and the platform your application is running on. For more information, see the documentation on <a class="" href="/unity/performance-memory-overview/performance-managed-memory">Understanding automatic memory management</a>.</td></tr><tr><td><strong>Mono.JIT</strong> <br><em>仅限 Mono</em></td><td>包含与脚本方法的即时编译相关的样本。当函数首次执行时，Mono 会编译它，Mono.JIT 表示此编译开销。</td></tr><tr><td><strong>UnsafeUtility.Malloc</strong></td><td>包含调用 UnsafeUtility.Malloc 以分配非托管内存的样本。虽然垃圾回收器不跟踪此内存，但分配内存可能会产生显著性能影响（随此样本出现）。要调查此调用的源，可以在 Profiler 窗口中为此标记启用<a class="" href="/unity/profiler-window/profiler-cpu#%E8%B0%83%E7%94%A8%E6%A0%88">调用栈</a>记录。</td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="多线程标记">多线程标记<a href="#多线程标记" class="hash-link" aria-label="多线程标记的直接链接" title="多线程标记的直接链接" translate="no">​</a></h2>
+<p>这些标记包含的样本不测量消耗的 CPU 周期，而是突出显示与线程同步和作业系统相关的信息。查看这些样本时，使用 CPU 性能分析器模块的 <a class="" href="/unity/profiler-window/profiler-cpu#timeline-%E8%A7%86%E5%9B%BE">Timeline 视图</a>可以检查其他线程上同时发生的操作。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong>标记</strong></th><th><strong>功能</strong></th></tr></thead><tbody><tr><td><strong>Idle</strong></td><td>包含指示工作线程处于非活动状态的时间长度的样本。工作线程在作业系统不使用它的任何时间都处于非活动状态，会进入等待模式以等待信号标。<br><br>Idle 样本之间的小间隙通常发生在作业系统唤醒它们时（例如用于安排新作业）。较长的间隙可能指示尚未检测的本机作业在线程上运行。</td></tr><tr><td><strong>JobHandle.Complete</strong></td><td>包含指示作业同步点何时发生的样本。同步点可能会对应用程序产生性能影响，并可能会干扰多线程作业代码的执行。要更容易找到同步点发生的确切位置，请为此样本启用<a class="" href="/unity/profiler-window/profiler-cpu#%E8%B0%83%E7%94%A8%E6%A0%88">调用栈</a>记录。在 CPU 性能分析器模块的  <strong>Timeline</strong>  视图中，可以启用 <a class="" href="/unity/profiler-window/profiler-cpu#flow-events">Flow Events</a> 以查看此时完成的作业。</td></tr><tr><td><strong>Semaphore.WaitForSignal</strong></td><td>包含描述线程上的同步点的样本。要找出所等待的线程，请在 Timeline 视图中查看在此线程之前不久结束的所有样本。</td></tr><tr><td><strong>WaitForJobGroupID</strong></td><td>触发了 JobHandle 上的同步栅栏 (Sync Fence)。这可能导致<a href="https://docs.unity3d.com/cn/2022.1/ScriptReference/Unity.Jobs.IJobParallelFor.html" target="_blank" rel="noopener noreferrer" class="">工作窃取</a>。一个工作线程完成工作，然后等待其他工作线程完成工作时，就会发生工作窃取。这些显示为在此标记下执行的作业样本。“被窃取”的作业不一定是所等待的作业。</td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="物理标记">物理标记<a href="#物理标记" class="hash-link" aria-label="物理标记的直接链接" title="物理标记的直接链接" translate="no">​</a></h2>
+<p>下表概括了一些高级物理性能分析器标记。<a href="https://docs.unity3d.com/cn/2022.1/ScriptReference/MonoBehaviour.FixedUpdate.html" target="_blank" rel="noopener noreferrer" class="">FixedUpdate</a> 会调用所有这些测量。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong>标记</strong></th><th><strong>功能</strong></th></tr></thead><tbody><tr><td><strong>Physics.FetchResults</strong></td><td>包含从物理引擎收集物理模拟结果的样本，例如接触流、触发器重叠和关节断裂事件。</td></tr><tr><td><strong>Physics.Interpolation</strong></td><td>包含测量 Physics.Interpolation 方法的执行时间的样本。此方法管理应用程序中所有物理对象的位置和旋转的插值。</td></tr><tr><td><strong>Physics.Processing</strong></td><td>包含花费时间等待主线程直到物理模拟在所有线程上完成的样本。如果应用程序在 Physics.Processing 方面花费大量时间，但是在场景中只有几个与物理相关的游戏对象，这可能指示工作线程由于工作窃取而拾取了其他系统任务并报告为物理。这是因为在等待期间，主线程会从高优先级队列中拾取作业。</td></tr><tr><td><strong>Physics.ProcessingCloth</strong></td><td>包含测量 Physics.ProcessingCloth 方法的执行时间的样本。此方法处理所有布料物理作业。展开此样本可显示物理引擎内部完成的工作的低级细节。</td></tr><tr><td><strong>Physics.ProcessReports</strong></td><td>包含与通过回调（如 OnTriggerEnter）将物理数据转发到脚本所花费的时间相对应的样本。 <strong>注意：</strong> 这些样本不计算所需的数据，因为它们已经在 FetchResults 期间做好准备。<br><br>有四个不同的子阶段：</td></tr><tr><td>-&gt;  <strong>Physics.Contacts</strong></td><td>包含测量 Physics.Contacts 的执行时间的样本。这会处理 OnCollisionEnter、OnCollisionExit 和 OnCollisionStay 事件。</td></tr><tr><td>-&gt;  <strong>Physics.JointBreaks</strong></td><td>包含测量 Physics.JointBreaks 的执行时间的样本。这会处理与受损关节相关的更新和消息。</td></tr><tr><td>-&gt;  <strong>Physics.TriggerEnterExits</strong></td><td>包含测量 Physics.TriggerEnterExits 的执行时间的样本。这会处理 OnTriggerEnter 和 OnTriggerExit 事件。</td></tr><tr><td>-&gt;  <strong>Physics.TriggerStays</strong></td><td>包含测量 Physics.TriggerStays 的执行时间的样本。这会处理 OnTriggerStay 事件。</td></tr><tr><td><strong>Physics.Simulate</strong></td><td>包含测量为 <a href="https://docs.unity3d.com/cn/2022.1/ScriptReference/Physics.Simulate.html" target="_blank" rel="noopener noreferrer" class="">Physics.Simulate</a> 方法处理先决条件所花费的时间量的样本。此方法指示物理引擎运行其模拟，这会更新当前物理的状态。</td></tr><tr><td><strong>Physics.UpdateBodies</strong></td><td>包含更新所有物理体的位置和旋转的样本。对于每个具有刚体组件的游戏对象，带有此标记的样本会从物理引擎读取姿势并将其写入变换组件。</td></tr><tr><td><strong>Physics.UpdateCloth</strong></td><td>包含测量 Physics.UpdateCloth 方法的执行时间的样本。此方法处理与布料及其蒙皮网格相关的更新。</td></tr></tbody></table>
+<p>有关脚本生命周期及脚本生命周期内的一般样本的更多信息，请参阅<a class="" href="/unity/scripting-concepts/execution-order#%E6%9B%B4%E6%96%B0%E9%A1%BA%E5%BA%8F">事件函数的执行顺序</a>的相关文档。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="性能警告">性能警告<a href="#性能警告" class="hash-link" aria-label="性能警告的直接链接" title="性能警告的直接链接" translate="no">​</a></h2>
+<p>CPU 性能分析器可检测到一些常见性能问题，并发出相关警告。这些警告会显示在 CPU 性能分析器模块的模块详细信息面板 <a class="" href="/unity/profiler-window/profiler-cpu#hierarchy-%E5%92%8C-raw-hierarchy-%E8%A7%86%E5%9B%BE">Hierarchy</a> 视图中的 Warning 列内。</p>
+<p>性能分析器可以检测到在性能至关重要的背景中应避免的某些特定调用。这种情况下会显示警告以及操作对性能产生影响的原因，如下所示：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong>Warning</strong></th><th><strong>描述</strong></th></tr></thead><tbody><tr><td><strong>Animation.DestroyAnimationClip</strong> <br> <strong>Animation.AddClip</strong> <br> <strong>Animation.RemoveClip</strong> <br> <strong>Animation.Clone</strong> <br> <strong>Animation.Deactivate</strong></td><td>指示已触发 RebuildInternalState。RebuildInternalState 是一种操作，它遍历动画组件中每个剪辑的曲线列表，然后将每条曲线重新绑定到游戏对象上某个组件中的值。<br><br>这是一种资源密集型操作，因此应尽可能避免在运行时调用这些方法。</td></tr><tr><td><strong>AssetBundle.asset/allAssets</strong></td><td>指示在 AssetBundle 加载未完成时（AssetBundleRequest.isDone 为 false），Unity 调用了 AssetBundleRequest.assets/allAssets API。这会导致主线程卡顿并等待加载操作完成。</td></tr><tr><td><strong>AsyncUploadManager.AsyncBufferResized</strong> <br> <strong>AsyncUploadManager.AsyncBufferDelete</strong></td><td>指示用于将数据上传到 GPU 的内部缓冲区调整了大小，因为它不够大。这种大小调整比较缓慢，会导致 CPU 活动出现峰值。<br><br>如果可以腾出内存来提前分配较大的大小，则可以避免此警告。<br><br>可以使用<a class="" href="/unity/comp-manager-group/class-quality-settings">质量设置</a>中的  <strong>Async Upload Buffer Size</strong>  设置默认大小。<br><br>AsyncUploadManager.AsyncBufferResized 标记指示新分配的大小，可以将其用作默认缓冲区大小的指南。</td></tr><tr><td><strong>Rigidbody.SetKinematic</strong></td><td>为刚体重新创建非凸面体 MeshCollider。</td></tr></tbody></table></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/danyow/danyow/edit/main/unity/unity/unity-overview/analysis/profiler/profiler-markers.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>编辑此页</a></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">最后<!-- -->由 <b>danyow</b> <!-- -->于 <b><time datetime="2026-03-18T07:23:55.000Z" itemprop="dateModified">2026年3月18日</time></b> <!-- -->更新</span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="文件选项卡"><a class="pagination-nav__link pagination-nav__link--prev" href="/unity/profiler-customizing/profiler-customizing-details-view"><div class="pagination-nav__sublabel">上一页</div><div class="pagination-nav__label">Creating a custom module details panel</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/unity/profiler/profiler-profiling-applications"><div class="pagination-nav__sublabel">下一页</div><div class="pagination-nav__label">应用程序性能分析</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#主线程基础标记" class="table-of-contents__link toc-highlight">主线程基础标记</a><ul><li><a href="#仅限编辑器的标记" class="table-of-contents__link toc-highlight">仅限编辑器的标记</a></li></ul></li><li><a href="#脚本更新标记" class="table-of-contents__link toc-highlight">脚本更新标记</a></li><li><a href="#渲染和-vsync-标记" class="table-of-contents__link toc-highlight">渲染和 VSync 标记</a></li><li><a href="#后端脚本标记" class="table-of-contents__link toc-highlight">后端脚本标记</a></li><li><a href="#多线程标记" class="table-of-contents__link toc-highlight">多线程标记</a></li><li><a href="#物理标记" class="table-of-contents__link toc-highlight">物理标记</a></li><li><a href="#性能警告" class="table-of-contents__link toc-highlight">性能警告</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="margin-bottom--sm"><img src="/img/logo.svg" class="footer__logo themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/logo.svg" class="footer__logo themedComponent_mlkZ themedComponent--dark_xIcU"></div><div class="footer__copyright">© 2026 danyow, Inc. 使用 Docusaurus 构建。</div></div></div></footer></div>
+</body>
+</html>

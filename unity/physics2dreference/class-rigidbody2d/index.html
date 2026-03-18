@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="zh" dir="ltr" class="docs-wrapper plugin-docs plugin-id-unity docs-version-current docs-doc-page docs-doc-id-unity2d/physics2dreference/class-Rigidbody2D" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.9.2">
+<title data-rh="true">2D 刚体 | :D</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://danyow.cn/unity/physics2dreference/class-rigidbody2d"><meta data-rh="true" property="og:locale" content="zh"><meta data-rh="true" name="docusaurus_locale" content="zh"><meta data-rh="true" name="docsearch:language" content="zh"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-unity-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-unity-current"><meta data-rh="true" property="og:title" content="2D 刚体 | :D"><meta data-rh="true" name="description" content="2D 刚体组件将对象置于物理引擎的控制之下。标准刚体组件中的许多熟悉概念都延续到了 2D 刚体；不同之处在于，在 2D 中，对象只能在 XY 平面中移动，并且只能在垂直于该平面的轴上旋转。"><meta data-rh="true" property="og:description" content="2D 刚体组件将对象置于物理引擎的控制之下。标准刚体组件中的许多熟悉概念都延续到了 2D 刚体；不同之处在于，在 2D 中，对象只能在 XY 平面中移动，并且只能在垂直于该平面的轴上旋转。"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://danyow.cn/unity/physics2dreference/class-rigidbody2d"><link data-rh="true" rel="alternate" href="https://danyow.cn/unity/physics2dreference/class-rigidbody2d" hreflang="zh"><link data-rh="true" rel="alternate" href="https://danyow.cn/unity/physics2dreference/class-rigidbody2d" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"2D","item":"https://danyow.cn/unity/unity2d"},{"@type":"ListItem","position":2,"name":"2D 物理系统参考","item":"https://danyow.cn/unity/physics2dreference"},{"@type":"ListItem","position":3,"name":"2D 刚体","item":"https://danyow.cn/unity/physics2dreference/class-rigidbody2d"}]}</script><link rel="alternate" type="application/rss+xml" href="/blog/rss.xml" title=":D RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/blog/atom.xml" title=":D Atom Feed"><link rel="stylesheet" href="/assets/css/styles.640272bb.css">
+<script src="/assets/js/runtime~main.50b7b83d.js" defer="defer"></script>
+<script src="/assets/js/main.ca102e2d.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/img/logo.svg"><div role="region" aria-label="跳到主要内容"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">跳到主要内容</a></div><nav aria-label="主导航" class="theme-layout-navbar navbar navbar--fixed-top navbar--primary"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="切换导航栏" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><b class="navbar__title text--truncate">:D</b></a><a class="navbar__item navbar__link" href="/note/itinerary">笔记</a><a class="navbar__item navbar__link" href="/lua/learn">Lua</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/unity/Glossary">Unity</a><a class="navbar__item navbar__link" href="/blog">博客</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/danyow/danyow" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link header-github-link" aria-label="GitHub repository"></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search searchBarContainer_NW3z" dir="ltr"><input placeholder="搜索" aria-label="Search" class="navbar__search-input searchInput_YFbd" value=""><div class="loadingRing_RJI3 searchBarLoadingRing_YnHq"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="回到顶部" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="文档侧边栏" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/animation-section"><span title="动画" class="categoryLinkLabel_W154">动画</span></a><button aria-label="展开侧边栏分类 &#x27;动画&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/asset-store"><span title="Unity Asset Store" class="categoryLinkLabel_W154">Unity Asset Store</span></a><button aria-label="展开侧边栏分类 &#x27;Unity Asset Store&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/asset-workflow"><span title="资源工作流程" class="categoryLinkLabel_W154">资源工作流程</span></a><button aria-label="展开侧边栏分类 &#x27;资源工作流程&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/audio"><span title="音频" class="categoryLinkLabel_W154">音频</span></a><button aria-label="展开侧边栏分类 &#x27;音频&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/creating-environments"><span title="World building" class="categoryLinkLabel_W154">World building</span></a><button aria-label="展开侧边栏分类 &#x27;World building&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/unity/Glossary"><span title="术语表" class="linkLabel_WmDU">术语表</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/graphics"><span title="图形" class="categoryLinkLabel_W154">图形</span></a><button aria-label="展开侧边栏分类 &#x27;图形&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/input"><span title="输入" class="categoryLinkLabel_W154">输入</span></a><button aria-label="展开侧边栏分类 &#x27;输入&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/legacy-topics"><span title="旧版主题" class="categoryLinkLabel_W154">旧版主题</span></a><button aria-label="展开侧边栏分类 &#x27;旧版主题&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/navigation"><span title="导航和寻路" class="categoryLinkLabel_W154">导航和寻路</span></a><button aria-label="展开侧边栏分类 &#x27;导航和寻路&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/packages-list"><span title="Packages and feature sets" class="categoryLinkLabel_W154">Packages and feature sets</span></a><button aria-label="展开侧边栏分类 &#x27;Packages and feature sets&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/physics-section"><span title="物理系统" class="categoryLinkLabel_W154">物理系统</span></a><button aria-label="展开侧边栏分类 &#x27;物理系统&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/platform-specific"><span title="平台开发" class="categoryLinkLabel_W154">平台开发</span></a><button aria-label="展开侧边栏分类 &#x27;平台开发&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/scripting-section"><span title="脚本" class="categoryLinkLabel_W154">脚本</span></a><button aria-label="展开侧边栏分类 &#x27;脚本&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/search-overview"><span title="Unity Search" class="categoryLinkLabel_W154">Unity Search</span></a><button aria-label="展开侧边栏分类 &#x27;Unity Search&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/uitoolkits"><span title="Create user interfaces (UI)" class="categoryLinkLabel_W154">Create user interfaces (UI)</span></a><button aria-label="展开侧边栏分类 &#x27;Create user interfaces (UI)&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/unet"><span title="多玩家和联网" class="categoryLinkLabel_W154">多玩家和联网</span></a><button aria-label="展开侧边栏分类 &#x27;多玩家和联网&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/unity/unity-manual"><span title="Unity User Manual 2022.1" class="linkLabel_WmDU">Unity User Manual 2022.1</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/unity-overview"><span title="在 Unity 中操作" class="categoryLinkLabel_W154">在 Unity 中操作</span></a><button aria-label="展开侧边栏分类 &#x27;在 Unity 中操作&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/unity-services"><span title="Unity 服务" class="categoryLinkLabel_W154">Unity 服务</span></a><button aria-label="展开侧边栏分类 &#x27;Unity 服务&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" href="/unity/unity2d"><span title="2D" class="categoryLinkLabel_W154">2D</span></a><button aria-label="折叠侧边栏分类 &#x27;2D&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/unity/unity2d/2dsorting"><span title="2D 排序" class="linkLabel_WmDU">2D 排序</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/class-tilemap"><span title="Tilemap" class="categoryLinkLabel_W154">Tilemap</span></a><button aria-label="展开侧边栏分类 &#x27;Tilemap&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" tabindex="0" href="/unity/physics2dreference"><span title="2D 物理系统参考" class="categoryLinkLabel_W154">2D 物理系统参考</span></a><button aria-label="折叠侧边栏分类 &#x27;2D 物理系统参考&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/unity/physics2dreference/class-constant-force2d"><span title="2D 恒定力 (Constant Force 2D)" class="linkLabel_WmDU">2D 恒定力 (Constant Force 2D)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/unity/physics2dreference/class-physics-material2d"><span title="Physics Material 2D" class="linkLabel_WmDU">Physics Material 2D</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/unity/physics2dreference/class-rigidbody2d"><span title="2D 刚体" class="linkLabel_WmDU">2D 刚体</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/collider2d"><span title="2D 碰撞体" class="categoryLinkLabel_W154">2D 碰撞体</span></a><button aria-label="展开侧边栏分类 &#x27;2D 碰撞体&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/effectors2d"><span title="2D 效应器" class="categoryLinkLabel_W154">2D 效应器</span></a><button aria-label="展开侧边栏分类 &#x27;2D 效应器&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/joints2d"><span title="2D 关节" class="categoryLinkLabel_W154">2D 关节</span></a><button aria-label="展开侧边栏分类 &#x27;2D 关节&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/quickstart2d"><span title="2D game development quickstart guide" class="categoryLinkLabel_W154">2D game development quickstart guide</span></a><button aria-label="展开侧边栏分类 &#x27;2D game development quickstart guide&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/sprites"><span title="精灵" class="categoryLinkLabel_W154">精灵</span></a><button aria-label="展开侧边栏分类 &#x27;精灵&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/video-player"><span title="视频概述" class="categoryLinkLabel_W154">视频概述</span></a><button aria-label="展开侧边栏分类 &#x27;视频概述&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/unity/WhatsNew20221"><span title="New in Unity 2022.1" class="linkLabel_WmDU">New in Unity 2022.1</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/xr"><span title="XR" class="categoryLinkLabel_W154">XR</span></a><button aria-label="展开侧边栏分类 &#x27;XR&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="页面路径"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="主页面" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/unity/unity2d"><span>2D</span></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/unity/physics2dreference"><span>2D 物理系统参考</span></a></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">2D 刚体</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>2D 刚体</h1></header>
+<p>2D 刚体组件将对象置于物理引擎的控制之下。标准<a href="http://docs.unity3d.com/Manual/class-Rigidbody.html" target="_blank" rel="noopener noreferrer" class="">刚体</a>组件中的许多熟悉概念都延续到了 2D 刚体；不同之处在于，在 2D 中，对象只能在 XY 平面中移动，并且只能在垂直于该平面的轴上旋转。</p>
+<p><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/Rigidbody2D.png" alt="2D 刚体 (Rigidbody 2D) 组件在 Unity Editor 中的显示情况根据所选的 Body Type 不同而有差异。请参阅以下的 Body Type 以了解更多信息。" class="img_ev3q"></p>
+<p>2D 刚体 (Rigidbody 2D) 组件在 Unity Editor 中的显示情况根据所选的 Body Type 不同而有差异。请参阅以下的 <a href="#body-type" class="">Body Type</a> 以了解更多信息。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="2d-刚体工作原理">2D 刚体工作原理<a href="#2d-刚体工作原理" class="hash-link" aria-label="2D 刚体工作原理的直接链接" title="2D 刚体工作原理的直接链接" translate="no">​</a></h2>
+<p>通常，Unity Editor 的变换组件定义游戏对象（及其子游戏对象）在场景中的定位、旋转和缩放方式。更改变换组件将更新其他组件，这样可以更新渲染对象的位置或碰撞体所在位置之类的属性。2D 物理引擎能够移动碰撞体并使这些碰撞体彼此交互，因此物理引擎需要一种方法将碰撞体的此移动状态传回变换组件。此移动以及与碰撞体的连接便是 2D 刚体组件的用途。</p>
+<p>2D 刚体组件会覆盖变换组件，并将其更新为 2D 刚体定义的位置/旋转。请注意，虽然仍然可以通过自行修改变换组件来覆盖 2D 刚体（因为 Unity 会公开所有组件上的所有属性），但是这样会导致各种问题，例如游戏对象相互穿过或嵌入等问题以及不可预测的移动。</p>
+<p>添加到同一游戏对象或子游戏对象的任何 2D 碰撞体组件都隐式附加到该 2D 刚体。2D 碰撞体附加到 2D 刚体时，两者一起移动。严禁使用变换组件或任何碰撞体偏移来直接移动 2D 碰撞体；而应移动 2D 刚体。这样将提供最佳性能并确保正确的碰撞检测。连接到同一 2D 刚体的多个 2D 碰撞体不会相互碰撞。这意味着可以创建一组碰撞体来有效充当单一复合碰撞体，使所有碰撞体都与 2D 刚体同步移动和旋转。</p>
+<p>设计场景时，可自由使用默认的 2D 刚体并开始附加碰撞体。这些碰撞体可让连接到不同 2D 刚体的所有其他碰撞体相互碰撞。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="提示">提示<a href="#提示" class="hash-link" aria-label="提示的直接链接" title="提示的直接链接" translate="no">​</a></h3>
+<p>添加  <strong>2D 刚体</strong> 后可基于脚本 API 施力，从而让精灵以逼真的方式移动。相应的碰撞体组件也附加到精灵游戏对象时，该组件会受到与其他移动游戏对象的碰撞的影响。通过使用物理系统可以简化许多常见的游戏机制，并以最少编码实现逼真行为。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="body-type">Body Type<a href="#body-type" class="hash-link" aria-label="Body Type的直接链接" title="Body Type的直接链接" translate="no">​</a></h2>
+<p>2D 刚体组件在顶部有一个显示为  <strong>Body Type</strong>  的设置。在此设置中选择的选项会影响组件上可用的其他设置。</p>
+<p><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/Rigidbody2DBodyType.png" alt="Rigidbody2DBodyType.png" class="img_ev3q"></p>
+<p><strong>Body Type</strong>  有三个选项；每个选项定义一种常见和固定的行为。附加到 2D 刚体的 2D 碰撞体将继承 2D 刚体的  <strong>Body Type</strong> 。这三个选项是：</p>
+<ul>
+<li class=""><strong>Dynamic</strong></li>
+<li class=""><strong>Kinematic</strong></li>
+<li class=""><strong>Static</strong></li>
+</ul>
+<p>所选的选项将定义：</p>
+<ul>
+<li class="">移动（位置和旋转）行为</li>
+<li class="">碰撞体相互作用</li>
+</ul>
+<p>请注意，尽管经常将 2D 刚体表述为相互碰撞，但实际上发生碰撞的是每个刚体所连接的 2D 碰撞体。如果没有碰撞体，2D 刚体不能相互碰撞。</p>
+<p>改变 2D 刚体的 Body Type 可能是一个复杂的过程。Body Type 发生变化时，各种与质量相关的内部属性都将立即重新计算，并且在游戏对象的下一个 <a href="https://docs.unity3d.com/cn/2022.1/ScriptReference/MonoBehaviour.FixedUpdate.html" target="_blank" rel="noopener noreferrer" class="">FixedUpdate</a> 期间需要重新估算连接到 2D 刚体的 2D 碰撞体的所有现有触点。根据触点数量以及连接到刚体的 2D 碰撞体数量，更改 Body Type 可能会导致性能变化。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="body-typedynamic">Body Type：Dynamic<a href="#body-typedynamic" class="hash-link" aria-label="Body Type：Dynamic的直接链接" title="Body Type：Dynamic的直接链接" translate="no">​</a></h3>
+<p><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/Rigidbody2D_Dynamic.png" alt="Rigidbody2D_Dynamic.png" class="img_ev3q"></p>
+<p><strong>Dynamic</strong>  类型的 2D 刚体设计为在模拟条件下移动。这种刚体类型具有可用的全套属性（例如有限质量和阻力），并受重力和作用力的影响。Dynamic 刚体类型将与每个其他刚体类型碰撞，是最具互动性的刚体类型。这是需要移动的对象的最常见刚体类型，因此是 2D 刚体的默认刚体类型。此外，由于具有动态性并与周围所有对象互动，因此也是性能成本最高的刚体类型。选择此刚体类型时，所有 2D 刚体属性均可用。</p>
+<p>请勿使用变换组件来设置  <strong>Dynamic</strong>  类型的 2D 刚体的位置或旋转。模拟系统会根据  <strong>Dynamic</strong>  2D 刚体的速度对该刚体重新定位；可以通过脚本施加于刚体的力来直接更改此值，也可以通过碰撞和重力来间接更改此值。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong>属性：</strong></th><th><strong>功能：</strong></th></tr></thead><tbody><tr><td><strong>Body Type</strong></td><td>设置 2D 刚体的组件设置，从而可操纵移动（位置和旋转）行为和 2D 碰撞体交互。<br>选项为： <strong>Dynamic</strong> 、 <strong>Kinematic</strong> 、 <strong>Static</strong></td></tr><tr><td><strong>Material</strong></td><td>使用此属性可为连接到特定父 2D 刚体的所有 2D 碰撞体指定公共材质。<br> <strong>注意：</strong> 2D 碰撞体使用自己的 Material 属性（如果已设置）。如果此处或在 2D 碰撞体中未指定材质，则默认选项为  <strong>None (Physics Material 2D)</strong> 。这种情况下使用可在 <a class="" href="/unity/comp-manager-group/class-physics2dmanager">Physics 2D</a> 窗口中设置的默认材质。<br>2D 碰撞体使用以下优先级顺序来确定要使用的  <strong>Material</strong>  设置：<br>1. 在 2D 碰撞体上指定的 2D 物理材质。<br>2.在附加的 2D 刚体上指定的 2D 物理材质。<br>在 <a class="" href="/unity/comp-manager-group/class-physics2dmanager">Physics 2D</a> 窗口中指定的 2D 物理材质默认材质。<br> <strong>提示：</strong> 使用此设置确保附加到同一  <strong>Static</strong>  Body Type 2D 刚体的所有 2D 碰撞体都可使用同一材质。</td></tr><tr><td><strong>Simulated</strong></td><td>如果希望 2D 刚体以及所有附加的 2D 碰撞体和 2D 关节在运行时与物理模拟系统交互，请启用  <strong>Simulated</strong> （选中复选框）。如果禁用此功能（取消选中复选框），这些组件不会与模拟系统进行交互。请参阅下面的 <a href="#simulated" class="">2D 刚体属性：Simulated</a> 以了解更多详细信息。默认情况下会选中此框。</td></tr><tr><td><strong>Mass</strong></td><td>定义 2D 刚体的质量。如果已选中 Use Auto Mass，此属性将显示灰色。</td></tr><tr><td><strong>Linear Drag</strong></td><td>一种会影响位置移动的阻力系数。</td></tr><tr><td><strong>Angular Drag</strong></td><td>一种会影响旋转移动的阻力系数。</td></tr><tr><td><strong>Gravity Scale</strong></td><td>定义游戏对象受重力影响的程度。</td></tr><tr><td><strong>Collision Detection</strong></td><td>定义如何检测 2D 碰撞体之间的碰撞。</td></tr><tr><td>        Discrete</td><td>将  <strong>Collision Detection</strong>  设置为  <strong>Discrete</strong>  时，具有 2D 刚体和 2D 碰撞体的游戏对象在物理更新期间可以重叠或穿过彼此（如果移动得足够快）。仅会在新位置生成碰撞触点。</td></tr><tr><td>        Continuous</td><td><strong>Collision Detection</strong>  设置为  <strong>Continuous</strong>  时，具有 2D 刚体和 2D 碰撞体的游戏对象在更新期间不会穿过彼此。相反，Unity 会计算 2D 碰撞体的第一个影响点，并将游戏对象移动到该点。请注意，此设置比  <strong>Discrete</strong>  耗费更多 CPU 时间。</td></tr><tr><td><strong>Sleeping Mode</strong></td><td>定义游戏对象如何在处于静止状态时“睡眠”以节省处理器时间。</td></tr><tr><td>        Never Sleep</td><td>禁用睡眠（应尽可能避免此设置，否则会影响系统资源）。</td></tr><tr><td>        Start Awake</td><td>游戏对象最初处于唤醒状态。</td></tr><tr><td>        Start Asleep</td><td>游戏对象最初处于睡眠状态，但可以被碰撞唤醒。</td></tr><tr><td><strong>Interpolate</strong></td><td>定义如何在物理更新间隔之间插入游戏对象的移动（运动趋于颠簸状态时很有用）。</td></tr><tr><td>        None</td><td>不应用移动平滑。</td></tr><tr><td>        Interpolate</td><td>根据游戏对象在先前帧中的位置来平滑移动。</td></tr><tr><td>        Extrapolate</td><td>根据游戏对象在下一帧中的估计位置来平滑移动。</td></tr><tr><td><strong>Constraints</strong></td><td>定义对 2D 刚体运动的任何限制。</td></tr><tr><td><strong>Freeze Position</strong></td><td>选择性停止 2D 刚体沿世界 X 和 Y 轴的移动。</td></tr><tr><td><strong>Freeze Rotation</strong></td><td>选择性停止 2D 刚体围绕 Z 轴的旋转。</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="body-typekinematic">Body Type：Kinematic<a href="#body-typekinematic" class="hash-link" aria-label="Body Type：Kinematic的直接链接" title="Body Type：Kinematic的直接链接" translate="no">​</a></h3>
+<p><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/Rigidbody2D_Kinematic.png" alt="Rigidbody2D_Kinematic.png" class="img_ev3q"></p>
+<p><strong>Kinematic</strong>  类型的 2D 刚体设计为在模拟条件下移动，但是仅在非常明确的用户控制下进行。虽然  <strong>Dynamic</strong>  2D 刚体受重力和作用力的影响，但  <strong>Kinematic</strong>  2D 刚体并不会受此影响。因此，Kinematic 2D 刚体的速度很快，与  <strong>Dynamic</strong>  2D 刚体相比，对系统资源的需求更低。 <strong>Kinematic</strong>  2D 刚体按设计应通过 <a href="http://docs.unity3d.com/ScriptReference/Rigidbody2D.MovePosition.html" target="_blank" rel="noopener noreferrer" class="">Rigidbody2D.MovePosition</a> 或 <a href="http://docs.unity3d.com/ScriptReference/Rigidbody2D.MoveRotation.html" target="_blank" rel="noopener noreferrer" class="">Rigidbody2D.MoveRotation</a> 进行显式重定位。应使用物理查询来检测碰撞，并通过脚本确定 2D 刚体应该移动的位置和方式。</p>
+<p><strong>Kinematic</strong>  2D 刚体仍然通过速度移动，但是此速度不受作用力和重力的影响。 <strong>Kinematic</strong>  2D 刚体不会与其他  <strong>Kinematic</strong>  2D 刚体和  <strong>Static</strong>  2D 刚体碰撞，只会与  <strong>Dynamic</strong>  2D 刚体碰撞。与  <strong>Static</strong>  2D 刚体（见下文）相似， <strong>Kinematic</strong>  2D 刚体在碰撞期间的行为类似于不可移动的对象（就像具有无限质量）。选择此刚体类型时，与质量相关的属性将不可用。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong>属性：</strong></th><th><strong>功能：</strong></th></tr></thead><tbody><tr><td><strong>Body Type</strong></td><td>设置 2D 刚体的组件设置，从而可操纵移动（位置和旋转）行为和 2D 碰撞体交互。<br>选项为： <strong>Dynamic</strong> 、 <strong>Kinematic</strong> 、 <strong>Static</strong></td></tr><tr><td><strong>Material</strong></td><td>使用此属性可为连接到特定父 2D 刚体的所有 2D 碰撞体指定公共材质。<br> <strong>注意：</strong> 2D 碰撞体使用自己的 Material 属性（如果已设置）。如果此处或在 2D 碰撞体中未指定材质，则默认选项为  <strong>None (Physics Material 2D)</strong> 。这种情况下使用可在 <a class="" href="/unity/comp-manager-group/class-physics2dmanager">Physics 2D</a> 窗口中设置的默认材质。<br>2D 碰撞体使用以下优先级顺序来确定要使用的  <strong>Material</strong>  设置：<br>1. 在 2D 碰撞体上指定的 2D 物理材质。<br>2.在附加的 2D 刚体上指定的 2D 物理材质。<br>在 <a class="" href="/unity/comp-manager-group/class-physics2dmanager">Physics 2D</a> 窗口中指定的 2D 物理材质默认材质。<br> <strong>提示：</strong> 使用此设置确保附加到同一  <strong>Static</strong>  Body Type 2D 刚体的所有 2D 碰撞体都可使用同一材质。</td></tr><tr><td><strong>Simulated</strong></td><td>如果希望 2D 刚体以及所有附加的 2D 碰撞体和 2D 关节在运行时与物理模拟系统交互，请启用  <strong>Simulated</strong> （选中复选框）。如果禁用此功能（取消选中复选框），这些组件不会与模拟系统进行交互。请参阅下面的 <a href="#simulated" class="">2D 刚体属性：Simulated</a> 以了解更多详细信息。默认情况下会选中此框。</td></tr><tr><td><strong>Collision Detection</strong></td><td>定义如何检测 2D 碰撞体之间的碰撞。</td></tr><tr><td>        Discrete</td><td>将  <strong>Collision Detection</strong>  设置为  <strong>Discrete</strong>  时，具有 2D 刚体和 2D 碰撞体的游戏对象在物理更新期间可以重叠或穿过彼此（如果移动得足够快）。仅会在新位置生成碰撞触点。</td></tr><tr><td>        Continuous</td><td><strong>Collision Detection</strong>  设置为  <strong>Continuous</strong>  时，具有 2D 刚体和 2D 碰撞体的游戏对象在更新期间不会穿过彼此。相反，Unity 会计算 2D 碰撞体的第一个影响点，并将游戏对象移动到该点。请注意，此设置比  <strong>Discrete</strong>  耗费更多 CPU 时间。</td></tr><tr><td><strong>Sleeping Mode</strong></td><td>定义游戏对象如何在处于静止状态时“睡眠”以节省处理器时间。</td></tr><tr><td>        Never Sleep</td><td>禁用睡眠（应尽可能避免此设置，否则会影响系统资源）。</td></tr><tr><td>        Start Awake</td><td>游戏对象最初处于唤醒状态。</td></tr><tr><td>        Start Asleep</td><td>游戏对象最初处于睡眠状态，但可以被碰撞唤醒。</td></tr><tr><td><strong>Interpolate</strong></td><td>定义如何在物理更新间隔之间插入游戏对象的移动（运动趋于颠簸状态时很有用）。</td></tr><tr><td>        None</td><td>不应用移动平滑。</td></tr><tr><td>        Interpolate</td><td>根据游戏对象在先前帧中的位置来平滑移动。</td></tr><tr><td>        Extrapolate</td><td>根据游戏对象在下一帧中的估计位置来平滑移动。</td></tr><tr><td><strong>Constraints</strong></td><td>定义对 2D 刚体运动的任何限制。</td></tr><tr><td>        Freeze Position</td><td>选择性停止 2D 刚体沿世界 x 和 y 轴的移动。</td></tr><tr><td>        Freeze Rotation</td><td>选择性停止 2D 刚体围绕世界 z 轴的旋转。</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="body-typestatic">Body Type：Static<a href="#body-typestatic" class="hash-link" aria-label="Body Type：Static的直接链接" title="Body Type：Static的直接链接" translate="no">​</a></h3>
+<p><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/Rigidbody2D_Static.png" alt="Rigidbody2D_Static.png" class="img_ev3q"></p>
+<p><strong>Static</strong>  2D 刚体设计为在模拟条件下完全不动；如果任何对象与  <strong>Static</strong>  2D 刚体碰撞，此类型刚体的行为类似于不可移动的对象（就像具有无限质量）。此刚体类型也是使用资源最少的刚体类型。 <strong>Static</strong>  刚体只能与  <strong>Dynamic</strong>  2D 刚体碰撞。不支持两个  <strong>Static</strong>  2D 刚体进行碰撞，因为这种刚体不是为了移动而设计的。</p>
+<p>此刚体类型只有极其有限的属性集。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong>属性：</strong></th><th><strong>功能：</strong></th></tr></thead><tbody><tr><td><strong>Body Type</strong></td><td>设置 2D 刚体的组件设置，从而可操纵移动（位置和旋转）行为和 2D 碰撞体交互。<br>选项为： <strong>Dynamic</strong> 、 <strong>Kinematic</strong> 、 <strong>Static</strong></td></tr><tr><td><strong>Material</strong></td><td>使用此属性可为连接到特定父 2D 刚体的所有 2D 碰撞体指定公共材质。<br> <strong>注意：</strong> 2D 碰撞体使用自己的 Material 属性（如果已设置）。如果此处或在 2D 碰撞体中未指定材质，则默认选项为  <strong>None (Physics Material 2D)</strong> 。这种情况下使用可在 <a class="" href="/unity/comp-manager-group/class-physics2dmanager">Physics 2D</a> 窗口中设置的默认材质。<br>2D 碰撞体使用以下优先级顺序来确定要使用的  <strong>Material</strong>  设置：<br>1. 在 2D 碰撞体上指定的 2D 物理材质。<br>2.在附加的 2D 刚体上指定的 2D 物理材质。<br>在 <a class="" href="/unity/comp-manager-group/class-physics2dmanager">Physics 2D</a> 窗口中指定的 2D 物理材质默认材质。<br> <strong>提示：</strong> 使用此设置确保附加到同一  <strong>Static</strong>  Body Type 2D 刚体的所有 2D 碰撞体都可使用同一材质。</td></tr><tr><td><strong>Simulated</strong></td><td>如果希望 2D 刚体以及所有附加的 2D 碰撞体和 2D 关节在运行时与物理模拟系统交互，请启用  <strong>Simulated</strong> （选中复选框）。如果禁用此功能（取消选中复选框），这些组件不会与模拟系统进行交互。请参阅下面的 <a href="#simulated" class="">2D 刚体属性：Simulated</a> 以了解更多详细信息。默认情况下会选中此框。</td></tr></tbody></table>
+<p>可通过两种方法将 2D 刚体标记为  <strong>Static</strong> ：</p>
+<ol>
+<li class="">
+<p>对于具有 2D 碰撞体组件的游戏对象，不附加任何 2D 刚体组件。所有此类 2D 碰撞体在内部均视为已附加到单个隐藏的  <strong>Static</strong>  2D 刚体组件。</p>
+</li>
+<li class="">
+<p>对于需要附加 2D 刚体的游戏对象，将此 2D 刚体设置为  <strong>Static</strong> 。</p>
+</li>
+</ol>
+<p>方法 1 是创建  <strong>Static</strong>  2D 碰撞体的快速方法。创建大量  <strong>Static</strong>  2D 碰撞体时，不为具有 2D 碰撞体的每个游戏对象添加 2D 刚体是比较容易实现的。</p>
+<p>方法 2 用于提高性能。如果需要在运行时移动或重新配置  <strong>Static</strong>  2D 碰撞体，该碰撞体具有自己的 2D 刚体时完成这些操作会更快。如果需要在运行时移动或重新配置一组 2D 碰撞体，则将这些碰撞体全部设为一个标记为  <strong>Static</strong>  的父 2D 刚体的子代会比单独移动每个游戏对象更快。</p>
+<p><strong>注意：</strong> 如上所述， <strong>Static</strong>  2D 刚体设计为不移动，因此不会考虑相交的两个  <strong>Static</strong>  2D 刚体对象之间的碰撞。然而，如果  <strong>Static</strong>  2D 刚体和  <strong>Kinematic</strong>  2D 刚体的其中一个 2D 碰撞体设置为触发器，两者就会交互作用。此外，还有一个功能可改变  <strong>Kinematic</strong>  刚体的交互对象（请参阅下文的 <a href="#use-full-kinematic-contacts" class="">Use Full Kinematic Contacts</a>）。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="2d-刚体属性">2D 刚体属性<a href="#2d-刚体属性" class="hash-link" aria-label="2D 刚体属性的直接链接" title="2D 刚体属性的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="simulated">Simulated<a href="#simulated" class="hash-link" aria-label="Simulated的直接链接" title="Simulated的直接链接" translate="no">​</a></h3>
+<p>使用  <strong>Simulated</strong>  属性可停止（取消选中）和启动（检查）2D 刚体以及任何附加的 2D 碰撞体和 2D 关节与 2D 物理模拟系统之间的交互。与启用或禁用单个 2D 碰撞体和 2D 关节组件相比，对此属性进行更改将在内存和处理器方面具有更高的效率。</p>
+<p>选中  <strong>Simulated</strong>  框时，出现以下情况：</p>
+<ul>
+<li class="">2D 刚体通过模拟系统进行移动（施加重力和物理作用力）</li>
+<li class="">所有附加的 2D 碰撞体都会继续产生新的触点并不断重新估算触点</li>
+<li class="">所有附加的 2D 关节都经过模拟并约束附加的 2D 刚体</li>
+<li class="">2D 刚体、2D 碰撞体和 2D 关节的所有内部物理对象都保留在内存中</li>
+</ul>
+<p>取消选中  <strong>Simulated</strong>  框时，出现以下情况：</p>
+<ul>
+<li class="">2D 刚体不通过模拟系统进行移动（不施加重力和物理作用力）</li>
+<li class="">2D 刚体不会产生新触点，并会销毁所有附加的 2D 碰撞体触点</li>
+<li class="">所有附加的 2D 关节都不会经过模拟，也不会约束任何附加的 2D 刚体</li>
+<li class="">2D 刚体、2D 碰撞体和 2D 关节的所有内部物理对象都留在内存中</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="为什么取消选中-simulated-比单个组件控制更高效">为什么取消选中 Simulated 比单个组件控制更高效？<a href="#为什么取消选中-simulated-比单个组件控制更高效" class="hash-link" aria-label="为什么取消选中 Simulated 比单个组件控制更高效？的直接链接" title="为什么取消选中 Simulated 比单个组件控制更高效？的直接链接" translate="no">​</a></h4>
+<p>在 2D 物理模拟中，2D 刚体组件会控制附加的 2D 碰撞体组件的位置和旋转，并允许 2D 关节组件将这些位置和旋转用作锚点。2D 碰撞体会随着附加的 2D 刚体的移动而移动。然后，2D 碰撞体会计算与附加到其他 2D 刚体的其他 2D 碰撞体的触点。2D 关节还会约束 2D 刚体的位置和旋转。所有这些操作都会耗费模拟时间。</p>
+<p>可通过单独启用和禁用组件来停止和启动 2D 物理模拟的各个元素。在 2D 碰撞体和 2D 关节组件上都可以执行此操作。但是，启用和禁用物理模拟的各个元素会带来内存使用和处理器处理成本。禁用模拟元素时，2D 物理引擎不会生成需要模拟的基于物理的任何内部对象。启用模拟元素时，2D 物理引擎会生成需要模拟的基于物理的内部对象。启用和禁用 2D 物理模拟组件意味着必须创建和销毁内部游戏对象和基于物理的内部组件；禁用模拟比禁用单个组件更容易、更高效。</p>
+<p>注意：取消选中 2D 刚体的  <strong>Simulated</strong>  选项时，附加的所有 2D 碰撞体都会有效“隐形”，即：无法被任何物理查询（例如 <a href="https://docs.unity3d.com/cn/2022.1/ScriptReference/Physics.Raycast.html" target="_blank" rel="noopener noreferrer" class="">Physics.Raycast</a>）检测到。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="use-full-kinematic-contacts">Use Full Kinematic Contacts<a href="#use-full-kinematic-contacts" class="hash-link" aria-label="Use Full Kinematic Contacts的直接链接" title="Use Full Kinematic Contacts的直接链接" translate="no">​</a></h3>
+<p>如果希望  <strong>Kinematic</strong>  2D 刚体与所有 2D 刚体类型碰撞，请启用此设置（选中复选框）。这种情况下类似于  <strong>Dynamic</strong>  2D 刚体，不同之处在于  <strong>Kinematic</strong>  2D 刚体在接触另一 2D 刚体时不会被物理引擎移动，而会充当一个具有无限质量的不可移动对象。</p>
+<p>禁用（取消选中）此设置时， <strong>Kinematic</strong>  2D 刚体仅与  <strong>Dynamic</strong>  2D 刚体碰撞，不会与其他  <strong>Kinematic</strong>  2D 刚体或  <strong>Static</strong>  2D 刚体碰撞（请注意触发碰撞体是此规则的例外情况）。这意味着不会发生碰撞脚本回调（<a href="https://docs.unity3d.com/cn/2022.1/ScriptReference/Collider2D.OnCollisionEnter2D.html" target="_blank" rel="noopener noreferrer" class="">OnCollisionEnter</a>、<a href="https://docs.unity3d.com/cn/2022.1/ScriptReference/Collider2D.OnCollisionStay2D.html" target="_blank" rel="noopener noreferrer" class="">OnCollisionStay</a>、<a href="https://docs.unity3d.com/cn/2022.1/ScriptReference/Collider2D.OnCollisionExit2D.html" target="_blank" rel="noopener noreferrer" class="">OnCollisionExit</a>）。</p>
+<p>使用物理查询（例如 <a href="https://docs.unity3d.com/cn/2022.1/ScriptReference/Physics.Raycast.html" target="_blank" rel="noopener noreferrer" class="">Physics.Raycast</a>）来检测 2D 刚体应该移动的位置和方式时，以及需要多个  <strong>Kinematic</strong>  2D 刚体相互交互时，这可能会很不方便。启用  <strong>Use Full Kinematic Contacts</strong>  即可让  <strong>Kinematic</strong>  2D 刚体组件以此方式交互。</p>
+<p><strong>Use Full Kinematic Contacts</strong>  允许显式控制  <strong>Kinematic</strong>  2D 刚体的位置和旋转，但是仍然允许完全碰撞回调。在需要显式控制所有 2D 刚体的设置中，使用  <strong>Kinematic</strong>  2D 刚体来代替  <strong>Dynamic</strong>  2D 刚体可保留对完全碰撞回调的支持。</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/danyow/danyow/edit/main/unity/unity/unity2d/physics2dreference/class-rigidbody2d.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>编辑此页</a></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">最后<!-- -->由 <b>danyow</b> <!-- -->于 <b><time datetime="2026-03-18T07:23:55.000Z" itemprop="dateModified">2026年3月18日</time></b> <!-- -->更新</span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="文件选项卡"><a class="pagination-nav__link pagination-nav__link--prev" href="/unity/physics2dreference/class-physics-material2d"><div class="pagination-nav__sublabel">上一页</div><div class="pagination-nav__label">Physics Material 2D</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/unity/collider2d"><div class="pagination-nav__sublabel">下一页</div><div class="pagination-nav__label">2D 碰撞体</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#2d-刚体工作原理" class="table-of-contents__link toc-highlight">2D 刚体工作原理</a><ul><li><a href="#提示" class="table-of-contents__link toc-highlight">提示</a></li></ul></li><li><a href="#body-type" class="table-of-contents__link toc-highlight">Body Type</a><ul><li><a href="#body-typedynamic" class="table-of-contents__link toc-highlight">Body Type：Dynamic</a></li><li><a href="#body-typekinematic" class="table-of-contents__link toc-highlight">Body Type：Kinematic</a></li><li><a href="#body-typestatic" class="table-of-contents__link toc-highlight">Body Type：Static</a></li></ul></li><li><a href="#2d-刚体属性" class="table-of-contents__link toc-highlight">2D 刚体属性</a><ul><li><a href="#simulated" class="table-of-contents__link toc-highlight">Simulated</a></li><li><a href="#use-full-kinematic-contacts" class="table-of-contents__link toc-highlight">Use Full Kinematic Contacts</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="margin-bottom--sm"><img src="/img/logo.svg" class="footer__logo themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/logo.svg" class="footer__logo themedComponent_mlkZ themedComponent--dark_xIcU"></div><div class="footer__copyright">© 2026 danyow, Inc. 使用 Docusaurus 构建。</div></div></div></footer></div>
+</body>
+</html>

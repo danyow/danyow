@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="zh" dir="ltr" class="docs-wrapper plugin-docs plugin-id-unity docs-version-current docs-doc-page docs-doc-id-graphics/cameras-overview/class-Camera" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.9.2">
+<title data-rh="true">Camera component | :D</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://danyow.cn/unity/cameras-overview/class-camera"><meta data-rh="true" property="og:locale" content="zh"><meta data-rh="true" name="docusaurus_locale" content="zh"><meta data-rh="true" name="docsearch:language" content="zh"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-unity-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-unity-current"><meta data-rh="true" property="og:title" content="Camera component | :D"><meta data-rh="true" name="description" content="摄像机 是为玩家捕捉和展示世界的设备。通过自定义和操纵摄像机，您可以让自己的游戏呈现出真正的独特性。在场景中可拥有无限数量的摄像机。这些摄像机可设置为以任何顺序在屏幕上任何位置或仅在屏幕的某些部分进行渲染。"><meta data-rh="true" property="og:description" content="摄像机 是为玩家捕捉和展示世界的设备。通过自定义和操纵摄像机，您可以让自己的游戏呈现出真正的独特性。在场景中可拥有无限数量的摄像机。这些摄像机可设置为以任何顺序在屏幕上任何位置或仅在屏幕的某些部分进行渲染。"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://danyow.cn/unity/cameras-overview/class-camera"><link data-rh="true" rel="alternate" href="https://danyow.cn/unity/cameras-overview/class-camera" hreflang="zh"><link data-rh="true" rel="alternate" href="https://danyow.cn/unity/cameras-overview/class-camera" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"图形","item":"https://danyow.cn/unity/graphics"},{"@type":"ListItem","position":2,"name":"摄像机","item":"https://danyow.cn/unity/cameras-overview"},{"@type":"ListItem","position":3,"name":"Camera component","item":"https://danyow.cn/unity/cameras-overview/class-camera"}]}</script><link rel="alternate" type="application/rss+xml" href="/blog/rss.xml" title=":D RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/blog/atom.xml" title=":D Atom Feed"><link rel="stylesheet" href="/assets/css/styles.640272bb.css">
+<script src="/assets/js/runtime~main.50b7b83d.js" defer="defer"></script>
+<script src="/assets/js/main.ca102e2d.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/img/logo.svg"><div role="region" aria-label="跳到主要内容"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">跳到主要内容</a></div><nav aria-label="主导航" class="theme-layout-navbar navbar navbar--fixed-top navbar--primary"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="切换导航栏" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><b class="navbar__title text--truncate">:D</b></a><a class="navbar__item navbar__link" href="/note/itinerary">笔记</a><a class="navbar__item navbar__link" href="/lua/learn">Lua</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/unity/Glossary">Unity</a><a class="navbar__item navbar__link" href="/blog">博客</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/danyow/danyow" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link header-github-link" aria-label="GitHub repository"></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search searchBarContainer_NW3z" dir="ltr"><input placeholder="搜索" aria-label="Search" class="navbar__search-input searchInput_YFbd" value=""><div class="loadingRing_RJI3 searchBarLoadingRing_YnHq"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="回到顶部" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="文档侧边栏" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/animation-section"><span title="动画" class="categoryLinkLabel_W154">动画</span></a><button aria-label="展开侧边栏分类 &#x27;动画&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/asset-store"><span title="Unity Asset Store" class="categoryLinkLabel_W154">Unity Asset Store</span></a><button aria-label="展开侧边栏分类 &#x27;Unity Asset Store&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/asset-workflow"><span title="资源工作流程" class="categoryLinkLabel_W154">资源工作流程</span></a><button aria-label="展开侧边栏分类 &#x27;资源工作流程&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/audio"><span title="音频" class="categoryLinkLabel_W154">音频</span></a><button aria-label="展开侧边栏分类 &#x27;音频&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/creating-environments"><span title="World building" class="categoryLinkLabel_W154">World building</span></a><button aria-label="展开侧边栏分类 &#x27;World building&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/unity/Glossary"><span title="术语表" class="linkLabel_WmDU">术语表</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" href="/unity/graphics"><span title="图形" class="categoryLinkLabel_W154">图形</span></a><button aria-label="折叠侧边栏分类 &#x27;图形&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" tabindex="0" href="/unity/cameras-overview"><span title="摄像机" class="categoryLinkLabel_W154">摄像机</span></a><button aria-label="折叠侧边栏分类 &#x27;摄像机&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/camera-tricks"><span title="Camera Tricks" class="categoryLinkLabel_W154">Camera Tricks</span></a><button aria-label="展开侧边栏分类 &#x27;Camera Tricks&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/unity/cameras-overview/class-camera"><span title="Camera component" class="linkLabel_WmDU">Camera component</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/unity/cameras-overview/culling-group-api"><span title="CullingGroup API" class="linkLabel_WmDU">CullingGroup API</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/unity/cameras-overview/deep-learning-super-sampling"><span title="Deep learning super sampling" class="linkLabel_WmDU">Deep learning super sampling</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/dynamic-resolution"><span title="动态分辨率" class="categoryLinkLabel_W154">动态分辨率</span></a><button aria-label="展开侧边栏分类 &#x27;动态分辨率&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/unity/cameras-overview/multi-display"><span title="多显示" class="linkLabel_WmDU">多显示</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/unity/cameras-overview/multiple-cameras"><span title="使用多个摄像机" class="linkLabel_WmDU">使用多个摄像机</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/occlusion-culling"><span title="遮挡剔除" class="categoryLinkLabel_W154">遮挡剔除</span></a><button aria-label="展开侧边栏分类 &#x27;遮挡剔除&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/unity/cameras-overview/physical-cameras"><span title="使用物理摄像机 (Physical Camera)" class="linkLabel_WmDU">使用物理摄像机 (Physical Camera)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/unity/cameras-overview/sl-camera-depth-texture"><span title="摄像机和深度纹理" class="linkLabel_WmDU">摄像机和深度纹理</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/graphics-apis"><span title="图形 API 支持" class="categoryLinkLabel_W154">图形 API 支持</span></a><button aria-label="展开侧边栏分类 &#x27;图形 API 支持&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/graphics-color"><span title="颜色" class="categoryLinkLabel_W154">颜色</span></a><button aria-label="展开侧边栏分类 &#x27;颜色&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/graphics-performance-profiling"><span title="Graphics performance and profiling" class="categoryLinkLabel_W154">Graphics performance and profiling</span></a><button aria-label="展开侧边栏分类 &#x27;Graphics performance and profiling&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/lighting-overview"><span title="光照" class="categoryLinkLabel_W154">光照</span></a><button aria-label="展开侧边栏分类 &#x27;光照&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/materials"><span title="材质" class="categoryLinkLabel_W154">材质</span></a><button aria-label="展开侧边栏分类 &#x27;材质&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/mesh"><span title="网格" class="categoryLinkLabel_W154">网格</span></a><button aria-label="展开侧边栏分类 &#x27;网格&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/models"><span title="模型" class="categoryLinkLabel_W154">模型</span></a><button aria-label="展开侧边栏分类 &#x27;模型&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/render-pipelines"><span title="渲染管线" class="categoryLinkLabel_W154">渲染管线</span></a><button aria-label="展开侧边栏分类 &#x27;渲染管线&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/shaders"><span title="着色器" class="categoryLinkLabel_W154">着色器</span></a><button aria-label="展开侧边栏分类 &#x27;着色器&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/sky"><span title="天空" class="categoryLinkLabel_W154">天空</span></a><button aria-label="展开侧边栏分类 &#x27;天空&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/textures"><span title="纹理" class="categoryLinkLabel_W154">纹理</span></a><button aria-label="展开侧边栏分类 &#x27;纹理&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/visual-effects"><span title="Visual effects" class="categoryLinkLabel_W154">Visual effects</span></a><button aria-label="展开侧边栏分类 &#x27;Visual effects&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/input"><span title="输入" class="categoryLinkLabel_W154">输入</span></a><button aria-label="展开侧边栏分类 &#x27;输入&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/legacy-topics"><span title="旧版主题" class="categoryLinkLabel_W154">旧版主题</span></a><button aria-label="展开侧边栏分类 &#x27;旧版主题&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/navigation"><span title="导航和寻路" class="categoryLinkLabel_W154">导航和寻路</span></a><button aria-label="展开侧边栏分类 &#x27;导航和寻路&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/packages-list"><span title="Packages and feature sets" class="categoryLinkLabel_W154">Packages and feature sets</span></a><button aria-label="展开侧边栏分类 &#x27;Packages and feature sets&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/physics-section"><span title="物理系统" class="categoryLinkLabel_W154">物理系统</span></a><button aria-label="展开侧边栏分类 &#x27;物理系统&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/platform-specific"><span title="平台开发" class="categoryLinkLabel_W154">平台开发</span></a><button aria-label="展开侧边栏分类 &#x27;平台开发&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/scripting-section"><span title="脚本" class="categoryLinkLabel_W154">脚本</span></a><button aria-label="展开侧边栏分类 &#x27;脚本&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/search-overview"><span title="Unity Search" class="categoryLinkLabel_W154">Unity Search</span></a><button aria-label="展开侧边栏分类 &#x27;Unity Search&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/uitoolkits"><span title="Create user interfaces (UI)" class="categoryLinkLabel_W154">Create user interfaces (UI)</span></a><button aria-label="展开侧边栏分类 &#x27;Create user interfaces (UI)&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/unet"><span title="多玩家和联网" class="categoryLinkLabel_W154">多玩家和联网</span></a><button aria-label="展开侧边栏分类 &#x27;多玩家和联网&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/unity/unity-manual"><span title="Unity User Manual 2022.1" class="linkLabel_WmDU">Unity User Manual 2022.1</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/unity-overview"><span title="在 Unity 中操作" class="categoryLinkLabel_W154">在 Unity 中操作</span></a><button aria-label="展开侧边栏分类 &#x27;在 Unity 中操作&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/unity-services"><span title="Unity 服务" class="categoryLinkLabel_W154">Unity 服务</span></a><button aria-label="展开侧边栏分类 &#x27;Unity 服务&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/unity2d"><span title="2D" class="categoryLinkLabel_W154">2D</span></a><button aria-label="展开侧边栏分类 &#x27;2D&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/video-player"><span title="视频概述" class="categoryLinkLabel_W154">视频概述</span></a><button aria-label="展开侧边栏分类 &#x27;视频概述&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/unity/WhatsNew20221"><span title="New in Unity 2022.1" class="linkLabel_WmDU">New in Unity 2022.1</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/xr"><span title="XR" class="categoryLinkLabel_W154">XR</span></a><button aria-label="展开侧边栏分类 &#x27;XR&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="页面路径"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="主页面" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/unity/graphics"><span>图形</span></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/unity/cameras-overview"><span>摄像机</span></a></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Camera component</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>Camera component</h1></header>
+<p><strong>摄像机</strong> 是为玩家捕捉和展示世界的设备。通过自定义和操纵摄像机，您可以让自己的游戏呈现出真正的独特性。在场景中可拥有无限数量的摄像机。这些摄像机可设置为以任何顺序在屏幕上任何位置或仅在屏幕的某些部分进行渲染。</p>
+<p><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/InspectorCamera35.png" alt="InspectorCamera35.png" class="img_ev3q"></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="camera-inspector-reference">Camera Inspector reference<a href="#camera-inspector-reference" class="hash-link" aria-label="Camera Inspector reference的直接链接" title="Camera Inspector reference的直接链接" translate="no">​</a></h2>
+<p>根据项目使用的<a class="" href="/unity/render-pipelines">渲染管线</a>，Unity 在 Camera Inspector 中显示不同的属性。</p>
+<ul>
+<li class="">如果您的项目使用<a class="" href="/unity/render-pipelines/universal-render-pipeline">通用渲染管线 (URP)</a>，请参阅 <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@latest" target="_blank" rel="noopener noreferrer" class="">URP 包文档微型网站</a>。</li>
+<li class="">如果您的项目使用<a class="" href="/unity/render-pipelines/high-definition-render-pipeline">高清渲染管线 (HDRP)</a>，请参阅 <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest" target="_blank" rel="noopener noreferrer" class="">HDRP 包文档微型网站</a>。</li>
+<li class="">如果您的项目使用<a class="" href="/unity/built-in-render-pipeline">内置渲染管线</a>，Unity 会显示以下属性：</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>*<strong>属性：</strong> *</th><th>*<strong>功能：</strong> *</th></tr></thead><tbody><tr><td><strong>Clear Flags</strong></td><td>确定将清除屏幕的哪些部分。使用多个摄像机来绘制不同游戏元素时，这会很方便。</td></tr><tr><td><strong>Background</strong></td><td>在绘制视图中的所有元素之后但没有天空盒的情况下，应用于剩余屏幕部分的颜色。</td></tr><tr><td><strong>Culling Mask</strong></td><td>包含或忽略要由摄像机渲染的对象层。在检视面板中将层分配到对象。</td></tr><tr><td><strong>Projection</strong></td><td>切换摄像机模拟透视的功能。</td></tr><tr><td>        <em>Perspective</em></td><td>摄像机将以完整透视角度渲染对象。</td></tr><tr><td>        <em>Orthographic</em></td><td>摄像机将均匀渲染对象，没有透视感。 <strong>注意</strong> ：在正交模式下不支持延迟渲染。始终使用前向渲染。</td></tr><tr><td><strong>Size</strong> （选择 Orthographic 时）</td><td>设置为 Orthographic 时摄像机的视口大小。</td></tr><tr><td>        <em>Horizontal</em></td><td>摄像机使用水平视野轴。</td></tr><tr><td>        <em>Vertical</em></td><td>摄像机使用垂直视野轴。</td></tr><tr><td><strong>Field of view</strong> （选择 Perspective 时）</td><td>摄像机视角（以沿着 <strong>FOV Axis</strong>  下拉选单中指定轴的度数为单位）。</td></tr><tr><td><strong>Physical Camera</strong></td><td>勾选此复选框可为此摄像机启用 <a class="" href="/unity/cameras-overview/physical-cameras">Physical Camera</a> 属性。<br><br>启用 Physical Camera 属性后，Unity 将使用模拟真实摄像机属性的属性（ <strong>Focal Length</strong> 、 <strong>Sensor Size</strong>  和  <strong>Lens Shift</strong> ）计算  <strong>Field of View</strong> 。<br><br>在勾选此复选框之前，Physical Camera 属性不会显示在 Inspector 中。</td></tr><tr><td>        <em>Focal Length</em></td><td>设置摄像机传感器和摄像机镜头之间的距离（以毫米为单位）。<br><br>较小的值产生更宽的  <strong>Field of View</strong> ，反之亦然。<br><br>更改此值时，Unity 会相应自动更新  <strong>Field of View</strong>  属性。</td></tr><tr><td>        <em>Sensor Type</em></td><td>指定希望摄像机模拟的真实摄像机格式。从列表中选择所需的格式。<br><br>选择摄像机格式时，Unity 会自动将  <strong>Sensor Size &gt; X</strong>  和  <strong>Y</strong>  属性设置为正确的值。<br><br>如果手动更改  <strong>Sensor Size</strong>  值，Unity 会自动将此属性设置为  <strong>Custom</strong> 。</td></tr><tr><td>        <em>Sensor Size</em></td><td>设置摄像机传感器的大小（以毫米为单位）。<br><br>选择  <strong>Sensor Type</strong>  时，Unity 会自动设置  <strong>X</strong>  和  <strong>Y</strong>  值。如果需要，可以输入自定义值。</td></tr><tr><td>                <em>X</em></td><td>传感器的宽度。</td></tr><tr><td>                <em>Y</em></td><td>传感器的高度。</td></tr><tr><td>        <em>Lens Shift</em></td><td>从中心水平或垂直移动镜头。值是传感器大小的倍数；例如，在 X 轴上平移 0.5 将使传感器偏移其水平大小的一半。<br><br>可使用镜头移位来校正摄像机与拍摄对象成一定角度时发生的失真（例如，平行线会聚）。<br><br>沿任一轴移动镜头均可使摄像机视锥体<a class="" href="/unity/camera-tricks/oblique-frustum">倾斜</a>。</td></tr><tr><td>                <em>X</em></td><td>传感器水平偏移。</td></tr><tr><td>                <em>Y</em></td><td>传感器垂直偏移。</td></tr><tr><td>        <em>Gate Fit</em></td><td>用于更改 <strong>分辨率门</strong> 大小（Game 视图的大小/宽高比）相对于 <strong>胶片门</strong> 大小（物理摄像机传感器的大小/纵横比）的选项。<br><br>有关分辨率门和胶片门的更多信息，请参阅关于<a class="" href="/unity/cameras-overview/physical-cameras">物理摄像机</a>的文档。</td></tr><tr><td>                <em>Vertical</em></td><td>使分辨率门适应胶片门的高度。<br><br>如果传感器宽高比大于 Game 视图宽高比，Unity 会在两侧裁剪渲染的图像。<br><br>如果传感器宽高比小于 Game 视图宽高比，Unity 会在两侧对渲染的图像进行过扫描。<br><br>选择此设置时，更改传感器宽度（ <strong>Sensor Size &gt; X 属性</strong> ）不会影响渲染的图像。</td></tr><tr><td>                <em>Horizontal</em></td><td>使分辨率门适应胶片门的宽度。<br><br>如果传感器宽高比大于 Game 视图宽高比，Unity 会在顶部和底部对渲染的图像进行过扫描。<br><br>如果传感器宽高比小于 Game 视图宽高比，Unity 会在顶部和底部裁剪渲染的图像。<br><br>选择此设置时，更改传感器高度（ <strong>Sensor Size &gt; Y</strong>  属性）不会影响渲染的图像。</td></tr><tr><td>                <em>Fill</em></td><td>使分辨率门适应胶片门的宽度或高度（以较小者为准）。这会裁剪渲染的图像。</td></tr><tr><td>                <em>Overscan</em></td><td>使分辨率门适应胶片门的宽度或高度（以较大者为准）。这会过扫描 (overscan) 渲染的图像。</td></tr><tr><td>                <em>None</em></td><td>忽略分辨率门，仅使用胶片门。这会拉伸渲染的图像以适应 Game 视图宽高比。</td></tr><tr><td><strong>Clipping Planes</strong></td><td>开始和停止渲染位置到摄像机的距离。</td></tr><tr><td>        <em>Near</em></td><td>相对于摄像机的最近绘制点。</td></tr><tr><td>        <em>Far</em></td><td>相对于摄像机的最远绘制点。</td></tr><tr><td><strong>Viewport Rect</strong></td><td>通过四个值指示将在屏幕上绘制此摄像机视图的位置。在视口坐标中测量（值为 0–1）。</td></tr><tr><td>        <em>X</em></td><td>绘制摄像机视图的起始水平位置。</td></tr><tr><td>        <em>Y</em></td><td>绘制摄像机视图的起始垂直位置。</td></tr><tr><td>        *W_（宽度）</td><td>屏幕上摄像机输出的宽度。</td></tr><tr><td><strong>Depth</strong></td><td>摄像机在绘制顺序中的位置。具有更大值的摄像机将绘制在具有更小值的摄像机之上。</td></tr><tr><td><strong>Rendering Path</strong></td><td>定义摄像机将使用的渲染方法的选项。</td></tr><tr><td>        <em>Use Player Settings</em></td><td>此摄像机将使用 Player Settings 中设置的任何渲染路径 (Rendering Path)。</td></tr><tr><td>        <em>Vertex Lit</em></td><td>此摄像机渲染的所有对象都将渲染为顶点光照对象。</td></tr><tr><td>        <em>Forward</em></td><td>每种材质采用一个通道渲染所有对象。</td></tr><tr><td>        <em>Deferred Lighting</em></td><td>将在没有光照的情况下一次性绘制所有对象，然后在渲染队列末尾一起渲染所有对象的光照。 <strong>注意：</strong> <em>如果摄像机的投影模式设置为 Orthographic，则会覆盖该值，并且摄像机将始终使用前向渲染。</em></td></tr><tr><td><strong>Target Texture</strong></td><td>引用将包含摄像机视图输出的<a class="" href="/unity/textures/class-render-texture">渲染纹理</a>。设置此引用将禁用此摄像机的渲染到屏幕功能。</td></tr><tr><td><strong>Occlusion Culling</strong></td><td>为此摄像机启用遮挡剔除 (Occlusion Culling)。遮挡剔除意味着隐藏在其他对象后面的对象不会被渲染，例如，如果对象在墙后面。请参阅<a class="" href="/unity/occlusion-culling">遮挡剔除 (Occlusion Culling)</a> 以了解详细信息。</td></tr><tr><td><strong>Allow HDR</strong></td><td>为此摄像机启用高动态范围渲染。请参阅<a class="" href="/unity/hdr">高动态范围渲染</a>以了解详细信息。</td></tr><tr><td><strong>Allow MSAA</strong></td><td>为此摄像机启用多重采样抗锯齿。</td></tr><tr><td><strong>Allow Dynamic Resolution</strong></td><td>为此摄像机启用动态分辨率渲染。请参阅<a class="" href="/unity/dynamic-resolution">动态分辨率</a>以了解详细信息。</td></tr><tr><td><strong>Target Display</strong></td><td>定义要渲染到的外部设备。值为 1 到 8 之间。</td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="详细信息">详细信息<a href="#详细信息" class="hash-link" aria-label="详细信息的直接链接" title="详细信息的直接链接" translate="no">​</a></h2>
+<p>为了向玩家显示游戏，摄像机至关重要。可对摄像机进行自定义、为其编写脚本或对其进行管控以实现任何可想象的效果。对于拼图游戏，摄像机可保持静态以获得拼图的完整视图。对于第一人称射击游戏，可让摄像机跟随玩家角色，并将其置于角色的视线水平。对于赛车游戏，可能希望让摄像机跟随玩家的车辆。</p>
+<p>可创建多个摄像机，并将每个摄像机分配给不同的 <strong>深度 (Depth)</strong> 。按照从低 <strong>深度</strong> 到高 <strong>深度</strong> 的顺序绘制摄像机。换言之， <strong>深度</strong> 为 2 的摄像机将绘制在深度为 1 的摄像机之上。您可以调整 <strong>Normalized View Port Rectangle</strong>  属性的值，从而调整屏幕上摄像机视图的大小和位置。这样就能创建多种迷你视图，如导弹摄像机、地图视图、后视镜等。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="render-path">Render path<a href="#render-path" class="hash-link" aria-label="Render path的直接链接" title="Render path的直接链接" translate="no">​</a></h3>
+<p>Unity 支持不同的渲染路径。您应该根据自己的游戏内容和目标平台/硬件而选择使用哪一个渲染路径。不同的渲染路径具有不同的功能和性能特征，主要影响光照和阴影。 在  <strong>Player</strong>  设置中选择项目使用的渲染路径。此外，可针对每个摄像机重写渲染路径。</p>
+<p>有关渲染路径的更多信息，请查看<a class="" href="/unity/rendering-paths">渲染路径</a>页面。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="clear-flags">Clear Flags<a href="#clear-flags" class="hash-link" aria-label="Clear Flags的直接链接" title="Clear Flags的直接链接" translate="no">​</a></h3>
+<p>每个摄像机在渲染其视图时都会存储颜色和深度信息。屏幕中未绘制的部分为空，默认情况下将显示天空盒。使用多个摄像机时，每个摄像机都会在缓冲区中存储自己的颜色和深度信息，随着每个摄像机渲染而累积越来越多数据。场景中的任何特定摄像机渲染其视图时，您可以设置  <strong>Clear Flags</strong>  来清除不同的缓冲区信息集合。为此，请选择以下四个选项之一：</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="skybox">Skybox<a href="#skybox" class="hash-link" aria-label="Skybox的直接链接" title="Skybox的直接链接" translate="no">​</a></h4>
+<p>This is the default setting. Any empty portions of the screen will display the current Camera’s skybox. If the current Camera has no skybox set, it will default to the skybox chosen in the <a class="" href="/unity/lighting-overview/lighting-window">Lighting Window</a> (menu:  <strong>Window</strong>  &gt;  <strong>Rendering</strong>  &gt;  <strong>Lighting</strong> ). It will then fall back to the  <strong>Background Color</strong> . Alternatively a <a class="" href="/unity/sky/class-skybox">Skybox component</a> can be added to the camera.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="solid-color">Solid color<a href="#solid-color" class="hash-link" aria-label="Solid color的直接链接" title="Solid color的直接链接" translate="no">​</a></h4>
+<p>屏幕的任何空白部分都将显示当前摄像机的 <strong>背景颜色</strong> 。</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="depth-only">Depth only<a href="#depth-only" class="hash-link" aria-label="Depth only的直接链接" title="Depth only的直接链接" translate="no">​</a></h4>
+<p>如果要绘制玩家的枪支而不使其陷入环境中，请设置一个 <strong>深度 (Depth)</strong>  为 0 的摄像机来绘制环境，并设置另一个 <strong>深度</strong> 为 1 的摄像机来单独绘制武器。将武器摄像机的  <strong>Clear Flags</strong>  设置为  <strong>Depth Only</strong> 。这样将在屏幕上保持环境的图形显示，但丢弃有关每个对象在 3D 空间中所处位置的所有信息。绘制枪支时，不透明部分将完全覆盖所绘制的任何对象（无论枪支与墙壁的接近程度如何）。</p>
+<p><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/Camera-ClearFlags.jpg" alt="清除枪支前面摄像机的深度缓冲区后，最后绘制枪支" class="img_ev3q"></p>
+<p>清除枪支前面摄像机的深度缓冲区后，最后绘制枪支</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="dont-clear">Don’t clear<a href="#dont-clear" class="hash-link" aria-label="Don’t clear的直接链接" title="Don’t clear的直接链接" translate="no">​</a></h4>
+<p>此模式不会清除颜色或深度缓冲区。结果是将每帧绘制在下一帧之上，从而产生涂抹效果。此模式通常不用于游戏，更可能与自定义着色器一起使用。</p>
+<p>请注意，在某些 GPU（主要是移动端 GPU）上，不清除屏幕可能会导致其内容在下一帧中未定义。在某些系统上，屏幕可能包含前一帧图像、纯黑色屏幕或随机有色像素。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="裁剪面-clip-planes">裁剪面 (Clip Planes)<a href="#裁剪面-clip-planes" class="hash-link" aria-label="裁剪面 (Clip Planes)的直接链接" title="裁剪面 (Clip Planes)的直接链接" translate="no">​</a></h3>
+<p><strong>Near</strong>  和  <strong>Far Clip Plane</strong>  属性可确定摄像机视图的开始和结束位置。这些平面垂直于摄像机的方向，并从摄像机位置算起。 <strong>近平面</strong> 是将要渲染的最近位置，而 <strong>远平面</strong> 是最远位置。</p>
+<p>裁剪面还将确定深度缓冲区精度在场景上的分布情况。一般情况下，为了获得更好的精度，应将 <strong>近平面</strong> 尽可能移到远处。</p>
+<p>注意，近裁剪面和远裁剪面以及由摄像机可视角度定义的平面一起描述了通常所知的摄像机_视椎体_。Unity 确保在渲染对象时不会显示完全位于此视椎体之外的对象。这就是所谓的视椎体剔除 (Frustum Culling)。无论您是否在游戏中使用遮挡剔除 (Occlusion Culling)，都会发生视椎体剔除。</p>
+<p>出于性能原因，您可能希望更早剔除小对象。例如，使小石块和碎片不可见的距离可远小于使大型建筑物不可见的距离。为此，可将小对象放入<a class="" href="/unity/layers">单独一层</a>，并使用 <a href="https://docs.unity3d.com/cn/2022.1/Manual/Camera-layerCullDistances.html" target="_blank" rel="noopener noreferrer" class="">Camera.layerCullDistances</a> 脚本函数来设置每层剔除距离。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="剔除遮罩-culling-mask">剔除遮罩 (Culling Mask)<a href="#剔除遮罩-culling-mask" class="hash-link" aria-label="剔除遮罩 (Culling Mask)的直接链接" title="剔除遮罩 (Culling Mask)的直接链接" translate="no">​</a></h3>
+<p>借助 <strong>剔除遮罩</strong> ，可使用层来选择性渲染对象组。可在<a class="" href="/unity/layers">此处</a>找到有关使用层的更多信息。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="标准化视口矩形-normalized-viewport-rectangle">标准化视口矩形 (Normalized Viewport Rectangle)<a href="#标准化视口矩形-normalized-viewport-rectangle" class="hash-link" aria-label="标准化视口矩形 (Normalized Viewport Rectangle)的直接链接" title="标准化视口矩形 (Normalized Viewport Rectangle)的直接链接" translate="no">​</a></h3>
+<p><strong>标准化视口矩形</strong> 专门用于定义将要绘制当前摄像机视图的屏幕特定部分。您可以将地图视图放在屏幕的右下角，或者将导弹尖端视图放置在左上角。通过一些设计工作，即可使用 <strong>视口矩形</strong> 来创建一些独特行为。</p>
+<p>使用 <strong>标准化视口矩形</strong> 可以轻松创建双玩家分屏效果。创建两个摄像机后，将摄像机的 H 值更改为 0.5，然后将玩家 1 的 Y 值设置为 0.5，将玩家 2 的 Y 值设置为 0。这样，就能使玩家 1 的摄像机显示为屏幕的上半部，而玩家 2 的摄像机显示为屏幕的下半部。</p>
+<p><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/Camera-Viewport.jpg" alt="使用标准化视口矩形属性来创建双玩家显示效果" class="img_ev3q"></p>
+<p>使用标准化视口矩形属性来创建双玩家显示效果</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="正交模式-orthographic">正交模式 (Orthographic)<a href="#正交模式-orthographic" class="hash-link" aria-label="正交模式 (Orthographic)的直接链接" title="正交模式 (Orthographic)的直接链接" translate="no">​</a></h3>
+<p>将摄像机标记为 <strong>正交模式</strong> ，就会从摄像机视图移除全部透视。此模式最常用于创建等距视图游戏或 2D 游戏。</p>
+<p>请注意，雾效在正交摄像机模式下均匀渲染，因此可能无法按预期显示。这是因为后透视空间的 Z 坐标用于雾的“深度”。这对于正交摄像机而言并不是严格准确的，但之所以使用该模式，是因为其在渲染过程中有一定的性能优势。</p>
+<p><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/Camera-Non-Ortho-FPS.jpg" alt="透视摄像机。" class="img_ev3q"></p>
+<p>透视摄像机。</p>
+<p><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/Camera-Ortho-FPS.jpg" alt="正交摄像机。对于此处的距离，对象不会变小！" class="img_ev3q"></p>
+<p>正交摄像机。对于此处的距离，对象不会变小！</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="渲染纹理-render-texture">渲染纹理 (Render Texture)<a href="#渲染纹理-render-texture" class="hash-link" aria-label="渲染纹理 (Render Texture)的直接链接" title="渲染纹理 (Render Texture)的直接链接" translate="no">​</a></h3>
+<p>此设置将把摄像机的视图置于<a class="" href="/unity/textures/class-render-texture">纹理</a>上，然后可以将纹理应用于另一对象。如此便可轻松创建运动竞技场视频监视器、监控摄像机和反射等。</p>
+<p><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/Camera-RenderTexture.jpg" alt="用于创建实时竞技场摄像机的渲染纹理" class="img_ev3q"></p>
+<p>用于创建实时竞技场摄像机的渲染纹理</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="目标显示-target-display">目标显示 (Target display)<a href="#目标显示-target-display" class="hash-link" aria-label="目标显示 (Target display)的直接链接" title="目标显示 (Target display)的直接链接" translate="no">​</a></h3>
+<p>一个摄像机最多可以有 8 种目标显示设置。可控制摄像机来渲染最多 8 种显示之一。仅在 PC、Mac 和 Linux 上支持该功能。在 Game 视图中将显示摄像机检视面板 (Camera Inspector) 中选择的显示方式。</p>
+<hr>
+<ul>
+<li class="">2018–10–05 页面已修订</li>
+<li class="">在 Unity 2018.2 中添加了 Physical Camera 选项</li>
+<li class="">在 Unity 2018.3 中添加了 Gate Fit 选项</li>
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/danyow/danyow/edit/main/unity/unity/graphics/cameras-overview/class-camera.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>编辑此页</a></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">最后<!-- -->由 <b>danyow</b> <!-- -->于 <b><time datetime="2026-03-18T07:23:55.000Z" itemprop="dateModified">2026年3月18日</time></b> <!-- -->更新</span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="文件选项卡"><a class="pagination-nav__link pagination-nav__link--prev" href="/unity/camera-tricks/understanding-frustum"><div class="pagination-nav__sublabel">上一页</div><div class="pagination-nav__label">了解视锥体</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/unity/cameras-overview/culling-group-api"><div class="pagination-nav__sublabel">下一页</div><div class="pagination-nav__label">CullingGroup API</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#camera-inspector-reference" class="table-of-contents__link toc-highlight">Camera Inspector reference</a></li><li><a href="#详细信息" class="table-of-contents__link toc-highlight">详细信息</a><ul><li><a href="#render-path" class="table-of-contents__link toc-highlight">Render path</a></li><li><a href="#clear-flags" class="table-of-contents__link toc-highlight">Clear Flags</a></li><li><a href="#裁剪面-clip-planes" class="table-of-contents__link toc-highlight">裁剪面 (Clip Planes)</a></li><li><a href="#剔除遮罩-culling-mask" class="table-of-contents__link toc-highlight">剔除遮罩 (Culling Mask)</a></li><li><a href="#标准化视口矩形-normalized-viewport-rectangle" class="table-of-contents__link toc-highlight">标准化视口矩形 (Normalized Viewport Rectangle)</a></li><li><a href="#正交模式-orthographic" class="table-of-contents__link toc-highlight">正交模式 (Orthographic)</a></li><li><a href="#渲染纹理-render-texture" class="table-of-contents__link toc-highlight">渲染纹理 (Render Texture)</a></li><li><a href="#目标显示-target-display" class="table-of-contents__link toc-highlight">目标显示 (Target display)</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="margin-bottom--sm"><img src="/img/logo.svg" class="footer__logo themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/logo.svg" class="footer__logo themedComponent_mlkZ themedComponent--dark_xIcU"></div><div class="footer__copyright">© 2026 danyow, Inc. 使用 Docusaurus 构建。</div></div></div></footer></div>
+</body>
+</html>

@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="zh" dir="ltr" class="docs-wrapper plugin-docs plugin-id-unity docs-version-current docs-doc-page docs-doc-id-unity-overview/editor-features/version-control/Versioncontrolintegration" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.9.2">
+<title data-rh="true">版本控制集成 | :D</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://danyow.cn/unity/version-control/versioncontrolintegration"><meta data-rh="true" property="og:locale" content="zh"><meta data-rh="true" name="docusaurus_locale" content="zh"><meta data-rh="true" name="docsearch:language" content="zh"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-unity-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-unity-current"><meta data-rh="true" property="og:title" content="版本控制集成 | :D"><meta data-rh="true" name="description" content="Unity has integrations with two version control systems: Perforce and Plastic SCM. To use the version control integrations in Unity, you need to have either a  Perforce  or  Plastic SCM  server set up for your Unity Project."><meta data-rh="true" property="og:description" content="Unity has integrations with two version control systems: Perforce and Plastic SCM. To use the version control integrations in Unity, you need to have either a  Perforce  or  Plastic SCM  server set up for your Unity Project."><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://danyow.cn/unity/version-control/versioncontrolintegration"><link data-rh="true" rel="alternate" href="https://danyow.cn/unity/version-control/versioncontrolintegration" hreflang="zh"><link data-rh="true" rel="alternate" href="https://danyow.cn/unity/version-control/versioncontrolintegration" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"在 Unity 中操作","item":"https://danyow.cn/unity/unity-overview"},{"@type":"ListItem","position":2,"name":"编辑器功能","item":"https://danyow.cn/unity/editor-features"},{"@type":"ListItem","position":3,"name":"版本控制","item":"https://danyow.cn/unity/version-control"},{"@type":"ListItem","position":4,"name":"版本控制集成","item":"https://danyow.cn/unity/version-control/versioncontrolintegration"}]}</script><link rel="alternate" type="application/rss+xml" href="/blog/rss.xml" title=":D RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/blog/atom.xml" title=":D Atom Feed"><link rel="stylesheet" href="/assets/css/styles.640272bb.css">
+<script src="/assets/js/runtime~main.50b7b83d.js" defer="defer"></script>
+<script src="/assets/js/main.ca102e2d.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/img/logo.svg"><div role="region" aria-label="跳到主要内容"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">跳到主要内容</a></div><nav aria-label="主导航" class="theme-layout-navbar navbar navbar--fixed-top navbar--primary"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="切换导航栏" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><b class="navbar__title text--truncate">:D</b></a><a class="navbar__item navbar__link" href="/note/itinerary">笔记</a><a class="navbar__item navbar__link" href="/lua/learn">Lua</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/unity/Glossary">Unity</a><a class="navbar__item navbar__link" href="/blog">博客</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/danyow/danyow" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link header-github-link" aria-label="GitHub repository"></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search searchBarContainer_NW3z" dir="ltr"><input placeholder="搜索" aria-label="Search" class="navbar__search-input searchInput_YFbd" value=""><div class="loadingRing_RJI3 searchBarLoadingRing_YnHq"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="回到顶部" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="文档侧边栏" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/animation-section"><span title="动画" class="categoryLinkLabel_W154">动画</span></a><button aria-label="展开侧边栏分类 &#x27;动画&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/asset-store"><span title="Unity Asset Store" class="categoryLinkLabel_W154">Unity Asset Store</span></a><button aria-label="展开侧边栏分类 &#x27;Unity Asset Store&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/asset-workflow"><span title="资源工作流程" class="categoryLinkLabel_W154">资源工作流程</span></a><button aria-label="展开侧边栏分类 &#x27;资源工作流程&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/audio"><span title="音频" class="categoryLinkLabel_W154">音频</span></a><button aria-label="展开侧边栏分类 &#x27;音频&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/creating-environments"><span title="World building" class="categoryLinkLabel_W154">World building</span></a><button aria-label="展开侧边栏分类 &#x27;World building&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/unity/Glossary"><span title="术语表" class="linkLabel_WmDU">术语表</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/graphics"><span title="图形" class="categoryLinkLabel_W154">图形</span></a><button aria-label="展开侧边栏分类 &#x27;图形&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/input"><span title="输入" class="categoryLinkLabel_W154">输入</span></a><button aria-label="展开侧边栏分类 &#x27;输入&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/legacy-topics"><span title="旧版主题" class="categoryLinkLabel_W154">旧版主题</span></a><button aria-label="展开侧边栏分类 &#x27;旧版主题&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/navigation"><span title="导航和寻路" class="categoryLinkLabel_W154">导航和寻路</span></a><button aria-label="展开侧边栏分类 &#x27;导航和寻路&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/packages-list"><span title="Packages and feature sets" class="categoryLinkLabel_W154">Packages and feature sets</span></a><button aria-label="展开侧边栏分类 &#x27;Packages and feature sets&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/physics-section"><span title="物理系统" class="categoryLinkLabel_W154">物理系统</span></a><button aria-label="展开侧边栏分类 &#x27;物理系统&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/platform-specific"><span title="平台开发" class="categoryLinkLabel_W154">平台开发</span></a><button aria-label="展开侧边栏分类 &#x27;平台开发&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/scripting-section"><span title="脚本" class="categoryLinkLabel_W154">脚本</span></a><button aria-label="展开侧边栏分类 &#x27;脚本&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/search-overview"><span title="Unity Search" class="categoryLinkLabel_W154">Unity Search</span></a><button aria-label="展开侧边栏分类 &#x27;Unity Search&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/uitoolkits"><span title="Create user interfaces (UI)" class="categoryLinkLabel_W154">Create user interfaces (UI)</span></a><button aria-label="展开侧边栏分类 &#x27;Create user interfaces (UI)&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/unet"><span title="多玩家和联网" class="categoryLinkLabel_W154">多玩家和联网</span></a><button aria-label="展开侧边栏分类 &#x27;多玩家和联网&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/unity/unity-manual"><span title="Unity User Manual 2022.1" class="linkLabel_WmDU">Unity User Manual 2022.1</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" href="/unity/unity-overview"><span title="在 Unity 中操作" class="categoryLinkLabel_W154">在 Unity 中操作</span></a><button aria-label="折叠侧边栏分类 &#x27;在 Unity 中操作&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/analysis"><span title="分析" class="categoryLinkLabel_W154">分析</span></a><button aria-label="展开侧边栏分类 &#x27;分析&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/creating-gameplay"><span title="Create Gameplay" class="categoryLinkLabel_W154">Create Gameplay</span></a><button aria-label="展开侧边栏分类 &#x27;Create Gameplay&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" tabindex="0" href="/unity/editor-features"><span title="编辑器功能" class="categoryLinkLabel_W154">编辑器功能</span></a><button aria-label="折叠侧边栏分类 &#x27;编辑器功能&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/unity/editor-features/2dand3dmode-settings"><span title="2D 和 3D 模式设置" class="linkLabel_WmDU">2D 和 3D 模式设置</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/unity/editor-features/build-settings"><span title="Build Settings" class="linkLabel_WmDU">Build Settings</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/command-line-arguments"><span title="命令行参数" class="categoryLinkLabel_W154">命令行参数</span></a><button aria-label="展开侧边栏分类 &#x27;命令行参数&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/comp-manager-group"><span title="Project Settings" class="categoryLinkLabel_W154">Project Settings</span></a><button aria-label="展开侧边栏分类 &#x27;Project Settings&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/unity/editor-features/editor-analytics"><span title="Editor Analytics" class="linkLabel_WmDU">Editor Analytics</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/unity/editor-features/imeinput"><span title="Unity 中的 IME" class="linkLabel_WmDU">Unity 中的 IME</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/unity/editor-features/incremental-build-pipeline"><span title="Incremental build pipeline" class="linkLabel_WmDU">Incremental build pipeline</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/plastic-scmplugin"><span title="Plastic SCM plugin for Unity" class="categoryLinkLabel_W154">Plastic SCM plugin for Unity</span></a><button aria-label="展开侧边栏分类 &#x27;Plastic SCM plugin for Unity&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/unity/editor-features/preferences"><span title="Preferences" class="linkLabel_WmDU">Preferences</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/unity/editor-features/render-doc-integration"><span title="RenderDoc 集成" class="linkLabel_WmDU">RenderDoc 集成</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/unity/editor-features/safe-mode"><span title="安全模式" class="linkLabel_WmDU">安全模式</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/unity/editor-features/shortcuts-manager"><span title="Shortcuts Manager" class="linkLabel_WmDU">Shortcuts Manager</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/text-scene-format"><span title="基于文本的场景文件" class="categoryLinkLabel_W154">基于文本的场景文件</span></a><button aria-label="展开侧边栏分类 &#x27;基于文本的场景文件&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/unity/editor-features/trouble-shooting-editor"><span title="Editor 故障排除" class="linkLabel_WmDU">Editor 故障排除</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/unity/editor-features/version-check"><span title="检查更新" class="linkLabel_WmDU">检查更新</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" tabindex="0" href="/unity/version-control"><span title="版本控制" class="categoryLinkLabel_W154">版本控制</span></a><button aria-label="折叠侧边栏分类 &#x27;版本控制&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/unity/version-control/per-force-integration"><span title="Perforce 集成" class="linkLabel_WmDU">Perforce 集成</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/unity/version-control/versioncontrolintegration"><span title="版本控制集成" class="linkLabel_WmDU">版本控制集成</span></a></li></ul></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/unity/editor-features/visual-studio-integration"><span title="Visual Studio C# 集成" class="linkLabel_WmDU">Visual Studio C# 集成</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/getting-started-installing-unity"><span title="安装 Unity" class="categoryLinkLabel_W154">安装 Unity</span></a><button aria-label="展开侧边栏分类 &#x27;安装 Unity&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/quickstart-guides"><span title="Quickstart guides" class="categoryLinkLabel_W154">Quickstart guides</span></a><button aria-label="展开侧边栏分类 &#x27;Quickstart guides&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/upgrade-guides"><span title="升级 Unity" class="categoryLinkLabel_W154">升级 Unity</span></a><button aria-label="展开侧边栏分类 &#x27;升级 Unity&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/using-the-editor"><span title="Unity 的界面" class="categoryLinkLabel_W154">Unity 的界面</span></a><button aria-label="展开侧边栏分类 &#x27;Unity 的界面&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/unity-services"><span title="Unity 服务" class="categoryLinkLabel_W154">Unity 服务</span></a><button aria-label="展开侧边栏分类 &#x27;Unity 服务&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/unity2d"><span title="2D" class="categoryLinkLabel_W154">2D</span></a><button aria-label="展开侧边栏分类 &#x27;2D&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/video-player"><span title="视频概述" class="categoryLinkLabel_W154">视频概述</span></a><button aria-label="展开侧边栏分类 &#x27;视频概述&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/unity/WhatsNew20221"><span title="New in Unity 2022.1" class="linkLabel_WmDU">New in Unity 2022.1</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/xr"><span title="XR" class="categoryLinkLabel_W154">XR</span></a><button aria-label="展开侧边栏分类 &#x27;XR&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="页面路径"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="主页面" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/unity/unity-overview"><span>在 Unity 中操作</span></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/unity/editor-features"><span>编辑器功能</span></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/unity/version-control"><span>版本控制</span></a></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">版本控制集成</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>版本控制集成</h1></header>
+<p>Unity has integrations with two version control systems: <a class="" href="/unity/version-control/per-force-integration">Perforce</a> and <a class="" href="/unity/plastic-scmplugin">Plastic SCM</a>. To use the <a href="https://unity.com/products/plastic-scm/source-code-management#what-version-control" target="_blank" rel="noopener noreferrer" class="">version control</a> integrations in Unity, you need to have either a  <strong>Perforce</strong>  or  <strong>Plastic SCM</strong>  server set up for your Unity Project.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="在-unity-中设置版本控制">在 Unity 中设置版本控制<a href="#在-unity-中设置版本控制" class="hash-link" aria-label="在 Unity 中设置版本控制的直接链接" title="在 Unity 中设置版本控制的直接链接" translate="no">​</a></h2>
+<p>打开一个 Unity 项目，选择  <strong>Edit &gt; Project Settings</strong> ，然后选择 <strong>Editor</strong>  类别。</p>
+<p><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/EditorVersionControlSettings.png" alt="Unity Editor 中的 Version Control 设置" class="img_ev3q"></p>
+<p>Unity Editor 中的 Version Control 设置</p>
+<p><strong>Version Control</strong>  下面有以下设置：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong>属性</strong></th><th><strong>功能</strong></th></tr></thead><tbody><tr><td><strong>Mode</strong></td><td>选择版本控制模式。</td></tr><tr><td>-&gt; Hidden meta files</td><td>在操作系统的文件资源管理器中隐藏 .meta 文件。无论您选择哪种模式，Unity 都不在 Project 视图中显示 .meta 文件。</td></tr><tr><td>-&gt; Visible meta files</td><td>选择此选项可以使用 Unity 不支持的版本控制系统。这是默认设置。然后您便可以使用您选择的版本控制系统来管理这些资源的源资源和元数据。要了解更多信息，请参阅关于<a class="" href="/unity/plastic-scmplugin/external-version-control-system-support">外部版本控制系统</a>的文档。</td></tr><tr><td>-&gt; Perforce</td><td>如果将 <a href="https://www.perforce.com/" target="_blank" rel="noopener noreferrer" class="">Perforce</a> 用作版本控制系统，请选择此选项。</td></tr><tr><td>-&gt; Plastic SCM</td><td>Select this option if you use <a href="https://unity.com/products/plastic-scm" target="_blank" rel="noopener noreferrer" class="">Plastic SCM</a> as your version control system.</td></tr><tr><td><strong>Username</strong>  <br>（仅限 Perforce）</td><td>输入与您的 Perforce 帐户关联的用户名。</td></tr><tr><td><strong>Password</strong>  <br>（仅限 Perforce）</td><td>输入与您的 Perforce 帐户关联的密码。</td></tr><tr><td><strong>Workspace</strong>  <br>（仅限 Perforce）</td><td>输入您的工作空间（例如 <code>Example_Workspace_1</code>）。</td></tr><tr><td><strong>Server</strong>  <br>（仅限 Perforce）</td><td>输入您的 Unity 项目所在的服务器（例如 localhost:1666）。</td></tr><tr><td><strong>Host</strong>  <br>（仅限 Perforce）</td><td>输入计算机应模拟的主机名（例如 workstation123.perforce.com）</td></tr><tr><td><strong>Log Level</strong></td><td>选择要在 Unity 的控制台日志中接收的版本控制信息量。</td></tr><tr><td>-&gt; Verbose</td><td>Unity 记录与版本控制相关的所有操作。此选项提供了非常详细的日志记录，如果要调试版本控制设置，该选项很有用。</td></tr><tr><td>-&gt; Info</td><td>Unity 记录与版本控制有关的错误、警告和信息。</td></tr><tr><td>-&gt; Notice</td><td>Unity 记录错误和警告。</td></tr><tr><td>-&gt; Fatal</td><td>Unity 仅将致命错误打印到控制台。</td></tr><tr><td><strong>Status</strong></td><td>显示有关版本控制系统的连接状态的信息。如果未连接，请选择  <strong>Connect</strong>  以连接到您已配置的系统。</td></tr><tr><td><strong>Automatic Add</strong></td><td>启用此设置后，当您通过 Editor 或磁盘上的文件夹将文件添加到项目时，Unity 会自动将文件添加到版本控制系统。禁用此设置后，您需要手动将文件添加到版本控制系统。默认情况下会启用此设置。</td></tr><tr><td><strong>Work Offline</strong>  <br>（仅限 Perforce）</td><td>启用此设置可脱机工作。启用此设置后，您需要在 P4V 中协调脱机工作，或在 P4 中使用 reconcile 命令使 Perforce 服务器仓库与您在脱机时所做的工作保持同步。有关更多信息，请参阅<a class="" href="/unity/version-control/per-force-integration">脱机使用 Perforce</a>。</td></tr><tr><td><strong>Allow Async Update</strong>  <br>（仅限 Perforce）</td><td>启用此设置可使用异步版本控制状态查询。启用后，Perforce 将更新文件的版本控制状态，并且不会停止 Unity Editor。当与版本控制服务器的连接存在高延迟时，请使用此设置。<br> <br>  <strong>注意：</strong> 仅状态查询是异步的。Unity 以同步方式执行需更改文件状态或需要了解最新文件状态的操作。</td></tr><tr><td><strong>Overwrite Failed Checkout Assets</strong>  <br>（仅限 Perforce）</td><td>启用此设置后，Unity 将保存无法签出的任何资源。这意味着即使 Perforce 无法签出文件，Unity 也会强制完成保存到文件的过程。默认情况下会启用此选项。如果禁用此设置，则如果 Perforce 无法签出文件，Unity 不会强制保存文件。</td></tr><tr><td><strong>Overlay Icons</strong></td><td>启用此设置可在 Editor 中显示版本控制状态图标。</td></tr><tr><td><strong>Smart Merge</strong></td><td>启用 <a class="" href="/unity/plastic-scmplugin/smart-merge">Smart Merge</a> 可以让 Unity 轻松合并在同一行中有更改的文件。如果多个用户同时在开发同一个项目，此设置将很有用。</td></tr><tr><td>-&gt; Off</td><td>禁用 Smart Merge。</td></tr><tr><td>-&gt; Ask</td><td>启用 Smart Merge，但如果发生冲突，则在合并之前会收到通知。这是默认设置。</td></tr><tr><td>-&gt; Premerge</td><td>自动使用 Smart Merge。</td></tr></tbody></table>
+<p>配置  <strong>Version Control</strong>  设置，然后选择状态区域旁边的  <strong>Connect</strong>  按钮以连接到版本控制系统。Unity 连接到系统后，状态区域将显示  <strong>Connected</strong> 。</p>
+<p>要调整版本控制工具，请打开  <strong>Preferences</strong> ，然后选择 <strong>External Tools</strong>  部分。可以在  <strong>Revision Control Diff/Merge</strong>  下面选择一个新工具。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="在-unity-中使用版本控制">在 Unity 中使用版本控制<a href="#在-unity-中使用版本控制" class="hash-link" aria-label="在 Unity 中使用版本控制的直接链接" title="在 Unity 中使用版本控制的直接链接" translate="no">​</a></h2>
+<p>在将 Editor 设置为与版本控制系统一起使用时，您可以通过 Editor 执行版本控制操作，而不必在版本控制客户端中执行这些操作。为此，请右键单击 Project 视图中的资源。</p>
+<p>版本控制操作根据您使用的版本控制方式而异。下表显示了每种版本控制方式可以使用的操作：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong>版本控制操作</strong></th><th><strong>描述</strong></th><th><strong>Perforce</strong></th><th><strong>Plastic SCM</strong></th></tr></thead><tbody><tr><td><strong>Get Latest</strong></td><td>这将更新计算机上的文件以使这些文件与版本控制系统中的文件匹配。</td><td>是</td><td>否。要获取最新更改并更新文件，需要使用<a href="#%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E7%AA%97%E5%8F%A3" class="">版本控制窗口</a> ( <strong>Window &gt; Asset Management &gt; Version Control</strong> )。</td></tr><tr><td><strong>Submit</strong></td><td>将文件的当前状态提交到版本控制系统。</td><td>是</td><td>是</td></tr><tr><td><strong>Check Out</strong></td><td>允许对文件进行更改。</td><td>是</td><td>是</td></tr><tr><td><strong>Check Out (Other)</strong></td><td>选择是要签出资源及其 .meta 文件，仅签出资源，还是仅签出 .meta 文件。</td><td>是</td><td>否</td></tr><tr><td><strong>Mark Add</strong></td><td>将文件添加到版本控制中。</td><td>是</td><td>是</td></tr><tr><td><strong>Revert</strong></td><td>放弃对打开的已更改文件所做的更改。</td><td>是</td><td>是</td></tr><tr><td><strong>Revert Unchanged</strong></td><td>从先前已签出但尚未修改的文件中删除“已签出”状态。</td><td>是</td><td>是</td></tr><tr><td><strong>Resolve Conflicts</strong></td><td>解决已被多个用户更改的文件的冲突。</td><td>是</td><td>否。冲突出现在版本控制菜单中，但是您需要在 Plastic SCM GUI 中解决冲突。</td></tr><tr><td><strong>Lock</strong></td><td>阻止其他用户提交对文件的更改。</td><td>是</td><td>No. To lock or unlock files in Plastic SCM, you must edit a specific Plastic SCM lock file externally. For more information, see the page on <a class="" href="/unity/plastic-scmplugin">Plastic SCM Integration</a>.</td></tr><tr><td><strong>Unlock</strong></td><td>解锁，并允许任何人提交更改。</td><td>是</td><td>No. To lock or unlock files in Plastic SCM, you must edit a specific Plastic SCM lock file externally. For more information, see the page on <a class="" href="/unity/plastic-scmplugin">Plastic SCM Integration</a>.</td></tr><tr><td><strong>Diff</strong></td><td>比较计算机上的本地文件和服务器上的文件之间的差异。您可以选择仅比较资源文件，或比较资源文件及其 .meta 文件。</td><td>是</td><td>是</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="签出文件">签出文件<a href="#签出文件" class="hash-link" aria-label="签出文件的直接链接" title="签出文件的直接链接" translate="no">​</a></h3>
+<p>在某些版本控制系统（例如 Perforce）中，默认情况下，版本控制文件为只读， 并且要求您在编辑文件之前先将它们签出（除非启用了  <strong>Work offline</strong>  设置）。从 Editor 中处理版本化的资源时，Inspector 将显示用于启用文件编辑的  <strong>Check Out</strong>  按钮。此外，Project Settings Inspector 还具有  <strong>Checkout</strong>  按钮，可用于签出特定的项目设置。</p>
+<p>如果您的自定义 Editor 脚本代码禁用了只读资源的另一个自定义编辑工具的某些部分， 或者如果您要手动写入版本化文件，请使用 <a href="https://docs.unity3d.com/cn/2022.1/ScriptReference/AssetDatabase.IsOpenForEdit.html" target="_blank" rel="noopener noreferrer" class="">AssetDatabase.IsOpenForEdit</a> 和 <a href="https://docs.unity3d.com/cn/2022.1/ScriptReference/AssetDatabase.MakeEditable.html" target="_blank" rel="noopener noreferrer" class="">AssetDatabase.MakeEditable</a> API 检查文件是否可编辑，并执行签出操作。</p>
+<p>版本控制集成还将针对自定义版本控制操作验证逻辑来公开 <a href="https://docs.unity3d.com/cn/2022.1/ScriptReference/VersionControl.Provider.PreCheckoutCallback.html" target="_blank" rel="noopener noreferrer" class="">Provider.PreCheckoutCallback</a> 和 <a href="https://docs.unity3d.com/cn/2022.1/ScriptReference/VersionControl.Provider.PreSubmitCallback.html" target="_blank" rel="noopener noreferrer" class="">Provider.PreSubmitCallback</a> C# 回调。</p>
+<p>Unity 执行 <strong>保存项目 (Save Project)</strong>  操作时，会将您在 Editor 中修改或标记为已修改的所有资源写入磁盘中。然后会根据需要在版本控制中签出资源。即使没有对文件进行实际更改，这也可能导致资源被签出。如果 Editor 脚本在资源上调用 <a href="https://docs.unity3d.com/cn/2022.1/ScriptReference/EditorUtility.SetDirty.html" target="_blank" rel="noopener noreferrer" class="">EditorUtility.SetDirty</a> 但不检查资源是否已修改，通常会发生这种情况。</p>
+<p><strong>注意：</strong> 如果 Unity 无法将更改提交到版本控制客户端（例如，如果服务器关闭或发生许可证问题），它会将更改存储于单独的变更集中。</p>
+<p>在您保存了对 .scene 文件的更改后，Unity 会自动将该文件签出。如果使用 Plastic SCM，则还会自动签出自动生成的资源，例如光照贴图。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="版本控制窗口">版本控制窗口<a href="#版本控制窗口" class="hash-link" aria-label="版本控制窗口的直接链接" title="版本控制窗口的直接链接" translate="no">​</a></h2>
+<p>可以使用版本控制窗口来查看位于变更列表中的文件。要访问该窗口，请导航到  <strong>Window &gt; Asset Management &gt; Version Control</strong> 。</p>
+<p><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/VersionControlWindowOutgoingChanges.png" alt="Editor 中停靠的版本控制窗口" class="img_ev3q"></p>
+<p>Editor 中停靠的版本控制窗口</p>
+<p><strong>Outgoing</strong>  选项卡列出了所有等待提交到版本控制中的本地更改。 <strong>Incoming</strong>  选项卡列出了需要从版本控制中拉取的所有更改。</p>
+<p>在窗口中右键单击资源或变更列表可对它们执行操作。要在变更列表之间移动资源，只需将资源从一个变更列表拖动到目标变更列表的标题上。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="图标">图标<a href="#图标" class="hash-link" aria-label="图标的直接链接" title="图标的直接链接" translate="no">​</a></h3>
+<p>Editor 会显示以下图标来指示文件和资源的版本控制状态：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong>图标</strong></th><th><strong>目的</strong></th></tr></thead><tbody><tr><td><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/VersionControl_P4_AddedLocal.png" alt="VersionControl_P4_AddedLocal.png" class="img_ev3q"></td><td>本地添加的文件，等待添加到版本控制中。</td></tr><tr><td><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/VersionControl_P4_AddedRemote.png" alt="VersionControl_P4_AddedRemote.png" class="img_ev3q"></td><td>由另一个用户添加到版本控制中的文件，等待添加到版本控制中。</td></tr><tr><td><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/VersionControl_P4_CheckOutLocal.png" alt="VersionControl_P4_CheckOutLocal.png" class="img_ev3q"></td><td>文件已在本地签出。</td></tr><tr><td><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/VersionControl_P4_CheckOutRemote.png" alt="VersionControl_P4_CheckOutRemote.png" class="img_ev3q"></td><td>文件已被另一个用户远程签出。</td></tr><tr><td><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/VersionControl_P4_Conflicted.png" alt="VersionControl_P4_Conflicted.png" class="img_ev3q"></td><td>合并此文件时存在冲突并且需要解决。</td></tr><tr><td><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/VersionControl_P4_DeletedLocal.png" alt="VersionControl_P4_DeletedLocal.png" class="img_ev3q"></td><td>文件已在本地删除，在版本控制中等待删除。</td></tr><tr><td><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/VersionControl_P4_DeletedRemote.png" alt="VersionControl_P4_DeletedRemote.png" class="img_ev3q"></td><td>文件已被另一个用户删除，在版本控制中等待删除。</td></tr><tr><td><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/VersionControl_P4_Local.png" alt="VersionControl_P4_Local.png" class="img_ev3q"></td><td>文件尚未受版本控制。可以使用  <strong>Mark Add</strong>  操作来手动添加文件。</td></tr><tr><td><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/VersionControl_P4_LockedLocal.png" alt="VersionControl_P4_LockedLocal.png" class="img_ev3q"></td><td>文件已被您锁定，其他用户无法对其进行修改。</td></tr><tr><td><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/VersionControl_P4_LockedRemote.png" alt="VersionControl_P4_LockedRemote.png" class="img_ev3q"></td><td>文件已被另一个用户锁定，您无法对其进行修改。</td></tr><tr><td><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/VersionControl_P4_OutOfSync.png" alt="VersionControl_P4_OutOfSync.png" class="img_ev3q"></td><td>另一个用户已签入此文件的新版本。使用  <strong>Apply Incoming Changes</strong>  操作可获取最新版本。</td></tr><tr><td><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/VersionControl_P4_AsyncUpdate.png" alt="VersionControl_P4_AsyncUpdate.png" class="img_ev3q"></td><td>服务器正在请求此文件的版本控制状态，或正在等待响应。仅当使用集中式版本控制系统（如 Perforce）时才会显示。</td></tr></tbody></table></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/danyow/danyow/edit/main/unity/unity/unity-overview/editor-features/version-control/versioncontrolintegration.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>编辑此页</a></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">最后<!-- -->由 <b>danyow</b> <!-- -->于 <b><time datetime="2026-03-18T07:23:55.000Z" itemprop="dateModified">2026年3月18日</time></b> <!-- -->更新</span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="文件选项卡"><a class="pagination-nav__link pagination-nav__link--prev" href="/unity/version-control/per-force-integration"><div class="pagination-nav__sublabel">上一页</div><div class="pagination-nav__label">Perforce 集成</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/unity/editor-features/visual-studio-integration"><div class="pagination-nav__sublabel">下一页</div><div class="pagination-nav__label">Visual Studio C# 集成</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#在-unity-中设置版本控制" class="table-of-contents__link toc-highlight">在 Unity 中设置版本控制</a></li><li><a href="#在-unity-中使用版本控制" class="table-of-contents__link toc-highlight">在 Unity 中使用版本控制</a><ul><li><a href="#签出文件" class="table-of-contents__link toc-highlight">签出文件</a></li></ul></li><li><a href="#版本控制窗口" class="table-of-contents__link toc-highlight">版本控制窗口</a><ul><li><a href="#图标" class="table-of-contents__link toc-highlight">图标</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="margin-bottom--sm"><img src="/img/logo.svg" class="footer__logo themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/logo.svg" class="footer__logo themedComponent_mlkZ themedComponent--dark_xIcU"></div><div class="footer__copyright">© 2026 danyow, Inc. 使用 Docusaurus 构建。</div></div></div></footer></div>
+</body>
+</html>

@@ -1,0 +1,1256 @@
+<!doctype html>
+<html lang="zh" dir="ltr" class="docs-wrapper plugin-docs plugin-id-unity docs-version-current docs-doc-page docs-doc-id-unity-services/udp/udp-reference/udp-reference" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.9.2">
+<title data-rh="true">UDP 参考 | :D</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://danyow.cn/unity/udp-reference"><meta data-rh="true" property="og:locale" content="zh"><meta data-rh="true" name="docusaurus_locale" content="zh"><meta data-rh="true" name="docsearch:language" content="zh"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-unity-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-unity-current"><meta data-rh="true" property="og:title" content="UDP 参考 | :D"><meta data-rh="true" name="description" content="UDP 控制台参考"><meta data-rh="true" property="og:description" content="UDP 控制台参考"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://danyow.cn/unity/udp-reference"><link data-rh="true" rel="alternate" href="https://danyow.cn/unity/udp-reference" hreflang="zh"><link data-rh="true" rel="alternate" href="https://danyow.cn/unity/udp-reference" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Unity 服务","item":"https://danyow.cn/unity/unity-services"},{"@type":"ListItem","position":2,"name":"Unity 分发平台","item":"https://danyow.cn/unity/udp"},{"@type":"ListItem","position":3,"name":"UDP 参考","item":"https://danyow.cn/unity/udp-reference"}]}</script><link rel="alternate" type="application/rss+xml" href="/blog/rss.xml" title=":D RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/blog/atom.xml" title=":D Atom Feed"><link rel="stylesheet" href="/assets/css/styles.640272bb.css">
+<script src="/assets/js/runtime~main.50b7b83d.js" defer="defer"></script>
+<script src="/assets/js/main.ca102e2d.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/img/logo.svg"><div role="region" aria-label="跳到主要内容"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">跳到主要内容</a></div><nav aria-label="主导航" class="theme-layout-navbar navbar navbar--fixed-top navbar--primary"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="切换导航栏" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><b class="navbar__title text--truncate">:D</b></a><a class="navbar__item navbar__link" href="/note/itinerary">笔记</a><a class="navbar__item navbar__link" href="/lua/learn">Lua</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/unity/Glossary">Unity</a><a class="navbar__item navbar__link" href="/blog">博客</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/danyow/danyow" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link header-github-link" aria-label="GitHub repository"></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search searchBarContainer_NW3z" dir="ltr"><input placeholder="搜索" aria-label="Search" class="navbar__search-input searchInput_YFbd" value=""><div class="loadingRing_RJI3 searchBarLoadingRing_YnHq"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="回到顶部" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="文档侧边栏" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/animation-section"><span title="动画" class="categoryLinkLabel_W154">动画</span></a><button aria-label="展开侧边栏分类 &#x27;动画&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/asset-store"><span title="Unity Asset Store" class="categoryLinkLabel_W154">Unity Asset Store</span></a><button aria-label="展开侧边栏分类 &#x27;Unity Asset Store&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/asset-workflow"><span title="资源工作流程" class="categoryLinkLabel_W154">资源工作流程</span></a><button aria-label="展开侧边栏分类 &#x27;资源工作流程&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/audio"><span title="音频" class="categoryLinkLabel_W154">音频</span></a><button aria-label="展开侧边栏分类 &#x27;音频&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/creating-environments"><span title="World building" class="categoryLinkLabel_W154">World building</span></a><button aria-label="展开侧边栏分类 &#x27;World building&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/unity/Glossary"><span title="术语表" class="linkLabel_WmDU">术语表</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/graphics"><span title="图形" class="categoryLinkLabel_W154">图形</span></a><button aria-label="展开侧边栏分类 &#x27;图形&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/input"><span title="输入" class="categoryLinkLabel_W154">输入</span></a><button aria-label="展开侧边栏分类 &#x27;输入&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/legacy-topics"><span title="旧版主题" class="categoryLinkLabel_W154">旧版主题</span></a><button aria-label="展开侧边栏分类 &#x27;旧版主题&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/navigation"><span title="导航和寻路" class="categoryLinkLabel_W154">导航和寻路</span></a><button aria-label="展开侧边栏分类 &#x27;导航和寻路&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/packages-list"><span title="Packages and feature sets" class="categoryLinkLabel_W154">Packages and feature sets</span></a><button aria-label="展开侧边栏分类 &#x27;Packages and feature sets&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/physics-section"><span title="物理系统" class="categoryLinkLabel_W154">物理系统</span></a><button aria-label="展开侧边栏分类 &#x27;物理系统&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/platform-specific"><span title="平台开发" class="categoryLinkLabel_W154">平台开发</span></a><button aria-label="展开侧边栏分类 &#x27;平台开发&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/scripting-section"><span title="脚本" class="categoryLinkLabel_W154">脚本</span></a><button aria-label="展开侧边栏分类 &#x27;脚本&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/search-overview"><span title="Unity Search" class="categoryLinkLabel_W154">Unity Search</span></a><button aria-label="展开侧边栏分类 &#x27;Unity Search&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/uitoolkits"><span title="Create user interfaces (UI)" class="categoryLinkLabel_W154">Create user interfaces (UI)</span></a><button aria-label="展开侧边栏分类 &#x27;Create user interfaces (UI)&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/unet"><span title="多玩家和联网" class="categoryLinkLabel_W154">多玩家和联网</span></a><button aria-label="展开侧边栏分类 &#x27;多玩家和联网&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/unity/unity-manual"><span title="Unity User Manual 2022.1" class="linkLabel_WmDU">Unity User Manual 2022.1</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/unity-overview"><span title="在 Unity 中操作" class="categoryLinkLabel_W154">在 Unity 中操作</span></a><button aria-label="展开侧边栏分类 &#x27;在 Unity 中操作&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" href="/unity/unity-services"><span title="Unity 服务" class="categoryLinkLabel_W154">Unity 服务</span></a><button aria-label="折叠侧边栏分类 &#x27;Unity 服务&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/orgs-unity-organizations"><span title="Unity Organizations" class="categoryLinkLabel_W154">Unity Organizations</span></a><button aria-label="展开侧边栏分类 &#x27;Unity Organizations&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/setting-up-project-services"><span title="Setting up your project for Unity services" class="categoryLinkLabel_W154">Setting up your project for Unity services</span></a><button aria-label="展开侧边栏分类 &#x27;Setting up your project for Unity services&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" tabindex="0" href="/unity/udp"><span title="Unity 分发平台" class="categoryLinkLabel_W154">Unity 分发平台</span></a><button aria-label="折叠侧边栏分类 &#x27;Unity 分发平台&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/unity/udp/udp-distribution"><span title="使用 UDP 分发游戏" class="linkLabel_WmDU">使用 UDP 分发游戏</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/unity/udp/udp-getting-started"><span title="开始使用 UDP" class="linkLabel_WmDU">开始使用 UDP</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/unity/udp/udp-implementing-iap"><span title="Implementing IAP products" class="linkLabel_WmDU">Implementing IAP products</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/unity/udp/udp-managing-and-publishing"><span title="在 UDP 控制台上管理和发布游戏" class="linkLabel_WmDU">在 UDP 控制台上管理和发布游戏</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class="menu__list-item-collapsible menu__list-item-collapsible--active"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" aria-current="page" tabindex="0" href="/unity/udp-reference"><span title="UDP 参考" class="categoryLinkLabel_W154">UDP 参考</span></a><button aria-label="折叠侧边栏分类 &#x27;UDP 参考&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/unity/udp-reference/udp-api"><span title="UDP API" class="linkLabel_WmDU">UDP API</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/unity/udp-reference/udp-sdk-data-collection"><span title="UDP SDK data collection" class="linkLabel_WmDU">UDP SDK data collection</span></a></li></ul></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/unity/udp/udp-sandbox-testing"><span title="在 UDP 沙盒中测试游戏" class="linkLabel_WmDU">在 UDP 沙盒中测试游戏</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/udp-service-interoperability"><span title="Using UDP with other services" class="categoryLinkLabel_W154">Using UDP with other services</span></a><button aria-label="展开侧边栏分类 &#x27;Using UDP with other services&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/unity/udp/udp-troubleshooting"><span title="UDP 故障排除" class="linkLabel_WmDU">UDP 故障排除</span></a></li></ul></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/unity/unity-services/unity-accelerator"><span title="Unity Accelerator" class="linkLabel_WmDU">Unity Accelerator</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/unity/unity-services/unity-ads"><span title="Unity Ads" class="linkLabel_WmDU">Unity Ads</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/unity-analytics"><span title="Unity Analytics" class="categoryLinkLabel_W154">Unity Analytics</span></a><button aria-label="展开侧边栏分类 &#x27;Unity Analytics&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/unity/unity-services/unity-ccd"><span title="Unity Cloud Content Delivery" class="linkLabel_WmDU">Unity Cloud Content Delivery</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/unity-cloud-build"><span title="Unity Cloud Build" class="categoryLinkLabel_W154">Unity Cloud Build</span></a><button aria-label="展开侧边栏分类 &#x27;Unity Cloud Build&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/unity/unity-services/unity-cloud-diagnostics"><span title="Unity Cloud Diagnostics" class="linkLabel_WmDU">Unity Cloud Diagnostics</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/unity-iap"><span title="﻿Unity IAP" class="categoryLinkLabel_W154">﻿Unity IAP</span></a><button aria-label="展开侧边栏分类 &#x27;﻿Unity IAP&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/unity/unity-services/unity-integrations"><span title="Unity Integrations" class="linkLabel_WmDU">Unity Integrations</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/unity/unity-services/unity-multiplayer-service"><span title="Multiplayer 服务" class="linkLabel_WmDU">Multiplayer 服务</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/unity2d"><span title="2D" class="categoryLinkLabel_W154">2D</span></a><button aria-label="展开侧边栏分类 &#x27;2D&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/video-player"><span title="视频概述" class="categoryLinkLabel_W154">视频概述</span></a><button aria-label="展开侧边栏分类 &#x27;视频概述&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/unity/WhatsNew20221"><span title="New in Unity 2022.1" class="linkLabel_WmDU">New in Unity 2022.1</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/xr"><span title="XR" class="categoryLinkLabel_W154">XR</span></a><button aria-label="展开侧边栏分类 &#x27;XR&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="页面路径"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="主页面" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/unity/unity-services"><span>Unity 服务</span></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/unity/udp"><span>Unity 分发平台</span></a></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">UDP 参考</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>UDP 参考</h1></header>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="udp-控制台参考">UDP 控制台参考<a href="#udp-控制台参考" class="hash-link" aria-label="UDP 控制台参考的直接链接" title="UDP 控制台参考的直接链接" translate="no">​</a></h2>
+<p>本节提供有关 UDP 控制台的信息架构的简要概述。</p>
+<p>UDP 控制台包含一个导航栏，可让你在 UDP 控制台的以下部分之间进行导航：</p>
+<ul>
+<li class=""><a href="#overview" class="">Overview</a></li>
+<li class=""><a href="#%E6%88%91%E7%9A%84%E6%B8%B8%E6%88%8F" class="">My Games</a></li>
+<li class=""><a href="#store-sign-ups" class="">Store Sign-Ups</a></li>
+<li class=""><a href="#%E2%80%9C%E6%8A%A5%E5%91%8A%E2%80%9D%E6%8E%A7%E5%88%B6%E9%9D%A2%E6%9D%BF" class="">Reporting</a></li>
+<li class=""><a href="#documentation" class="">Documentation</a></li>
+<li class=""><a href="#%E8%B5%84%E6%BA%90" class="">Resources</a></li>
+<li class=""><a href="#settings" class="">Settings</a></li>
+<li class=""><a href="#developer-api" class="">Developer API</a></li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="overview">Overview<a href="#overview" class="hash-link" aria-label="Overview的直接链接" title="Overview的直接链接" translate="no">​</a></h3>
+<p>The Overview tab of the UDP console contains useful information on how to use the UDP console, including:</p>
+<ul>
+<li class="">教程视频</li>
+<li class="">一个可帮助你跟踪进度的概要指南</li>
+<li class="">特定于商店的信息</li>
+<li class="">常见问题解答</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="我的游戏">我的游戏<a href="#我的游戏" class="hash-link" aria-label="我的游戏的直接链接" title="我的游戏的直接链接" translate="no">​</a></h3>
+<p>“我的游戏”选项卡显示你的 UDP 项目。在这里，你可以在 UDP 项目之间切换、<a class="" href="/unity/udp/udp-distribution#%E5%9C%A8-udp-%E6%8E%A7%E5%88%B6%E5%8F%B0%E4%B8%AD%E5%88%9B%E5%BB%BA%E6%B8%B8%E6%88%8F">创建新游戏</a>以及<a class="" href="/unity/udp/udp-managing-and-publishing#%E6%B8%B8%E6%88%8F%E5%AD%98%E6%A1%A3">存档</a>和<a class="" href="/unity/udp/udp-managing-and-publishing#%E6%81%A2%E5%A4%8D%E5%AD%98%E6%A1%A3%E7%9A%84%E6%B8%B8%E6%88%8F">恢复</a>游戏。</p>
+<p>You can filter the list of games by status, for example:</p>
+<ul>
+<li class=""><strong>All Games</strong></li>
+<li class=""><strong>Published to UDP</strong></li>
+<li class=""><strong>Submitted to stores</strong></li>
+<li class=""><strong>Live on stores</strong></li>
+</ul>
+<p>If you select  <strong>Submitted to stores</strong>  or  <strong>Live on stores</strong> , you can also filter the list of games by store.</p>
+<p>选择一个游戏后，可看到以下选项卡：</p>
+<ul>
+<li class="">游戏信息</li>
+<li class="">发布</li>
+<li class="">状态</li>
+</ul>
+<p>Each game card displays the status of the game. The Published status indicates the game has completed the available steps to be repacked and submitted to the store.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="游戏信息">游戏信息<a href="#游戏信息" class="hash-link" aria-label="游戏信息的直接链接" title="游戏信息的直接链接" translate="no">​</a></h4>
+<p>Use the Game Info page to view and edit your game information. See <a class="" href="/unity/udp/udp-distribution#%E5%9C%A8-udp-%E6%8E%A7%E5%88%B6%E5%8F%B0%E4%B8%8A%E8%BE%93%E5%85%A5%E6%B8%B8%E6%88%8F%E4%BF%A1%E6%81%AF">Entering game information on the UDP console</a> To view the Game Info page for a game, select the card in the My Games tab.</p>
+<p>“游戏信息”页面包含以下部分：</p>
+<ul>
+<li class=""><a href="#%E6%B8%B8%E6%88%8F%E6%8F%8F%E8%BF%B0" class="">游戏描述</a></li>
+<li class=""><a href="#%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6" class="">二进制文件</a></li>
+<li class=""><a href="#%E5%B9%BF%E5%91%8A" class="">广告</a></li>
+<li class=""><a href="#%E4%BB%98%E8%B4%B9%E4%BB%B7%E6%A0%BC" class="">付费价格</a></li>
+<li class=""><a href="#%E5%BA%94%E7%94%A8%E5%86%85%E8%B4%AD" class="">应用内购</a></li>
+<li class=""><a href="#%E6%B2%99%E7%9B%92%E6%B5%8B%E8%AF%95" class="">沙盒测试</a></li>
+<li class=""><a href="#%E5%BA%94%E7%94%A8%E7%AD%BE%E5%90%8D" class="">应用签名</a></li>
+<li class=""><a href="#%E9%9B%86%E6%88%90%E4%BF%A1%E6%81%AF" class="">集成信息</a></li>
+</ul>
+<p><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/UDPManagingGame_01.png" alt="UDPManagingGame_01.png" class="img_ev3q"></p>
+<p>The Game Info page contains a progress bar to display how close you are to being able to release your game. Each section displays a  <strong>Completed</strong>  status when you have added the necessary info for that section.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="游戏描述">游戏描述<a href="#游戏描述" class="hash-link" aria-label="游戏描述的直接链接" title="游戏描述的直接链接" translate="no">​</a></h4>
+<p>Use the Game Description section to enter information that the app stores will display for your game.</p>
+<p>The table below describes a superset of all the participating stores’ requirements. Not all stores use all the properties described. The UDP console flags which fields are mandatory and which are optional. The UDP console also indicates any store-specific syntax requirements.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>属性</th><th>描述</th></tr></thead><tbody><tr><td><strong>Import from Google Play</strong></td><td>如果你已经在 Google Play 上发布了游戏，可使用游戏的 Google Play URL 导入基本信息。</td></tr><tr><td><strong>Game Title</strong></td><td>游戏名称（该字段与编辑器同步）。</td></tr><tr><td><strong>Genre</strong></td><td>表示游戏所属的类别。选项包括：动作游戏、冒险游戏、街机游戏、棋盘游戏、卡牌游戏、博彩游戏、休闲游戏、教育游戏、音乐游戏、解谜游戏、竞速游戏、角色扮演游戏、模拟经营游戏、体育游戏、策略游戏、益智问答游戏和文字游戏。</td></tr><tr><td><strong>Device</strong></td><td>选项包括：智能手机、平板电脑或通用。</td></tr><tr><td><strong>Game Icon</strong></td><td>The game icon to display on the app stores.</td></tr><tr><td><strong>Short Description</strong></td><td>Short description (max 60 char) of your game to display on the app stores.</td></tr><tr><td><strong>描述</strong></td><td>Full-length description (4,000 char) of your game to display on the app stores.</td></tr><tr><td><strong>Game Banners</strong></td><td>商店用来推荐游戏的图像。例如，可以是轮播中的一个展示位置。横向横幅是必选项，纵向横幅是可选项。</td></tr><tr><td><strong>Keywords</strong></td><td>最多定义 4 个关键字（每个关键字最多 30 个字符）。这些关键字用于在应用商店中进行搜索。</td></tr><tr><td><strong>Feature Video</strong></td><td>为游戏添加视频预告片。<br> <strong>注意</strong> ：对于视频，某些商店仅接受 MP4 文件，而其他商店仅接受 Youtube 链接。Unity 建议两种形式都上传。</td></tr><tr><td><strong>Screenshots</strong></td><td>Add screenshots of your game, including the cover image (thumbnail) to lay over the MP4 video when it’s not playing.<br>Add at least four images per orientation that you use.<br>Some app stores only accept either portrait or landscape images, but not both. If you upload both portrait and landscape images to UDP, select your preferred orientation in the  <strong>Preference</strong>  field. UDP will inform you if the screenshots don’t meet the stores’ requirements.</td></tr><tr><td><strong>Use these screenshots for all languages</strong></td><td>Enable this toggle to use the same screenshots for all languages. Disable this toggle if you want to add language-specific screenshots.</td></tr><tr><td><strong>Preference</strong></td><td>某些商店仅接受纵向或横向图像。对于此类商店，请指定要使用的图像方向。</td></tr><tr><td><strong>Ratings</strong></td><td>选择游戏适合的受众。</td></tr></tbody></table>
+<p>可为每种支持的语言指定元数据。要添加新语言，请在编辑模式下选择语言下拉选单，然后选择“管理语言”。</p>
+<p><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/UDPManagingGame_02.png" alt="UDPManagingGame_02.png" class="img_ev3q"></p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="二进制文件">二进制文件<a href="#二进制文件" class="hash-link" aria-label="二进制文件的直接链接" title="二进制文件的直接链接" translate="no">​</a></h4>
+<p>Use the Binary section to upload your APK file and OBB files, or AAB files:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>属性</th><th>描述</th></tr></thead><tbody><tr><td><strong>APK Files (or AAB)</strong></td><td>Your UDP game build. If you pushed your UDP build via Cloud Build, you don’t need to upload it again.<br>For UDP to accept your APK file, the APK file:<br>- Must contain a <code>versionName</code><br>- Must have an <code>Initialize()</code> method<br>- Must have a <code>Purchase()</code> method (for games with IAP)<br>If you upload a new APK version which contains a different package name, you will receive an error. This also prevents publishing the new APK version.<br>To upload an Android App Bundle (AAB) file, select the  <strong>Convert from AAB file</strong>  option. UDP converts AAB files to APK for publishing to stores.</td></tr><tr><td><strong>Version code</strong></td><td>仅当游戏已上传到 UDP 后，才会显示此字段。</td></tr><tr><td><strong>Minimum Android Version Support</strong></td><td>游戏支持的最低 Android 版本。仅当游戏已上传到 UDP 后，才会显示此字段。</td></tr><tr><td><strong>What’s New</strong></td><td>描述此游戏版本的变化。UDP 会在商店中发布此信息。<br>仅当游戏已上传到 UDP 后，才会显示此字段。</td></tr><tr><td><strong>OBB File (Main)</strong></td><td>游戏或应用程序可能需要的其他资源的主扩展文件。</td></tr><tr><td><strong>OBB File (Patch)</strong></td><td>这是一个可选文件，用于对主扩展文件进行小更新。</td></tr><tr><td><strong>Does your game use Google Play Services?</strong></td><td>了解 Google Play 服务使用情况有助于 UDP 在提交阶段更好地为你提供指导。</td></tr></tbody></table>
+<p>OBB files aren’t pushed during a CloudBuild deployment, so if your game uses them you must upload them manually to the UDP console.</p>
+<p><strong>注意</strong> ：只能在默认语言视图（英语）中更改 APK 文件和 OBB 文件。</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="广告">广告<a href="#广告" class="hash-link" aria-label="广告的直接链接" title="广告的直接链接" translate="no">​</a></h4>
+<p>下表介绍了“广告”部分。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>属性</th><th>描述</th></tr></thead><tbody><tr><td><strong>Does your game contain ads</strong></td><td>选择你的游戏是否包含广告。此信息可由 UDP 用于在提交过程中更好地为你提供指导。</td></tr><tr><td><strong>What ad mediation solutions does your game use?</strong>  (Optional)</td><td>如果游戏包含广告，请选择游戏使用哪种聚合解决方案。</td></tr><tr><td><strong>What ad networks does your game use?</strong>  (Optional)</td><td>如果游戏包含广告，请选择游戏使用哪种广告网络。</td></tr></tbody></table>
+<p>某些商店希望你在提交给他们的游戏中采用他们专有的广告网络。</p>
+<p>UDP 会询问你的游戏中是否包含广告，以便更好地了解你提交到商店的内容，尤其是 UDP 可以确定你的提交内容将因此被商店拒绝的情况下。</p>
+<p>Stores which might reject your game display a warning icon in the Publish section, and a tooltip to explain the issue that might occur. UDP otherwise doesn’t modify your game’s ad implementation in any way.</p>
+<p><strong>Note</strong> : Tests of the most common mediation layers and ad networks indicate that games repacked for the UDP stores generally have no problem receiving ad campaigns. Feel free to contact <a href="mailto:udpsupport@unity3d.com" target="_blank" rel="noopener noreferrer" class="">UDP Support</a> about your ad setup and its suitability for distribution via UDP. Make sure you mention which mediation SDK and ad networks your game uses, to get a better-informed answer faster.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="付费价格">付费价格<a href="#付费价格" class="hash-link" aria-label="付费价格的直接链接" title="付费价格的直接链接" translate="no">​</a></h4>
+<p>“付费价格”是玩家下载游戏时所需支付的价格。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>属性</th><th>描述</th></tr></thead><tbody><tr><td><strong>Manage amounts and currencies</strong></td><td>Set the price of the game in USD.<br>Select  <strong>Convert</strong>  to automatically convert the USD price into the other listed currencies. You can also edit prices manually for specific currencies.</td></tr></tbody></table>
+<p><strong>注意</strong> ：只能将付费游戏提交到支持付费游戏的商店。</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="应用内购">应用内购<a href="#应用内购" class="hash-link" aria-label="应用内购的直接链接" title="应用内购的直接链接" translate="no">​</a></h4>
+<p>在“应用内购”部分中可添加和管理 IAP 商品。</p>
+<p>如果使用 UDP 包，UDP 会自动使游戏的 IAP 目录在 Unity 编辑器和 UDP 控制台之间保持同步。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>属性</th><th>描述</th></tr></thead><tbody><tr><td>搜索框</td><td>按文本筛选 IAP 商品列表。</td></tr><tr><td>“类型”下拉选单</td><td>按类型（即消耗品或非消耗品）筛选 IAP 列表。</td></tr><tr><td>“排序”下拉选单</td><td>选择如何对 IAP 商品列表进行排序。</td></tr><tr><td><strong>Add Item</strong></td><td>单击此项可添加新的 IAP 商品。此时将打开一个窗口以输入 IAP 详细信息。</td></tr><tr><td><strong>Manage amounts and currencies</strong></td><td>单击此项可设置其他货币的价格。</td></tr><tr><td><strong>Convert</strong></td><td>将 IAP 商品的美元价格转换为全球货币。这将覆盖手动设置的任何其他货币价格。</td></tr><tr><td><strong>Favourite Currencies</strong></td><td>选择此项可打开“常用货币”窗口。要将货币设置为常用货币，请选择相应货币代码旁边的星形图标。这会将货币固定在列表的顶部。取消选择星形图标即可取消固定。</td></tr></tbody></table>
+<h5 class="anchor anchorTargetStickyNavbar_Vzrq" id="iap-项目窗口">“IAP 项目”窗口<a href="#iap-项目窗口" class="hash-link" aria-label="“IAP 项目”窗口的直接链接" title="“IAP 项目”窗口的直接链接" translate="no">​</a></h5>
+<p>在“IAP 项目”窗口中可添加和编辑 IAP 商品的详细信息。要打开此窗口，请选择 <strong>添加项目</strong> 。 下表介绍了 <strong>添加 IAP 项目</strong> 窗口中的字段。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>字段</th><th>描述</th></tr></thead><tbody><tr><td><strong>Product ID</strong></td><td>用于标识 IAP 商品的唯一 ID。<br>“产品 ID”必须满足以下要求：<br>- 以字母或数字开头<br>- 仅包含字母、数字、点 (.) 和下划线 (_)<br>- 不得使用大写字母</td></tr><tr><td><strong>Product Name</strong></td><td>IAP 商品的名称。</td></tr><tr><td>货币</td><td>显示价格所用的货币。</td></tr><tr><td>价格</td><td>IAP 商品的价格（美元 USD）。<br>必须指定一个价格，才能让玩家在游戏中购买商品。</td></tr><tr><td><strong>Consumable</strong></td><td>选择此选项表示 IAP 商品为消耗品。</td></tr><tr><td><strong>描述</strong></td><td>IAP 商品的简短描述。</td></tr></tbody></table>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="沙盒测试">沙盒测试<a href="#沙盒测试" class="hash-link" aria-label="沙盒测试的直接链接" title="沙盒测试的直接链接" translate="no">​</a></h4>
+<p>“沙盒测试”部分显示游戏的测试状态。在此部分中可创建用于在沙盒环境中进行测试的用户凭据，并会显示测试状态。 下表介绍了此部分的字段。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>字段</th><th>描述</th></tr></thead><tbody><tr><td><strong>Test status</strong></td><td>显示游戏的测试状态。</td></tr><tr><td><strong>UDP Initialization</strong></td><td>显示初始化检查的测试状态。这项检查旨在确保调用 Initialize() 方法（适用于所有游戏）。</td></tr><tr><td><strong>IAP Transaction</strong></td><td>显示 IAP 交易检查的测试状态。此情况下会调用 Purchase() 方法（仅适用于 IAP 游戏）</td></tr><tr><td><strong>Sandbox Test Account</strong></td><td>The email address for the sandbox test account. This is used as the login name for the UDP sandbox environment only.</td></tr><tr><td><strong>Password</strong></td><td>测试帐户的密码。</td></tr></tbody></table>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="应用签名">应用签名<a href="#应用签名" class="hash-link" aria-label="应用签名的直接链接" title="应用签名的直接链接" translate="no">​</a></h4>
+<p>UDP 使用应用签名私钥对提交到商店的重新打包的 APK 文件进行签名。</p>
+<p>Unity recommends that you select  <strong>Export and upload the key and certificate</strong>  and use your own App signing private key. If your game is released on Google Play, use the same key as on Google Play. This significantly decreases the chance of Google Play Protect flagging your game when users install it.</p>
+<p><strong>注意</strong> ：如果游戏被标记，可在<a href="https://support.google.com/googleplay/android-developer/answer/2992033?hl=en" target="_blank" rel="noopener noreferrer" class="">此处</a>向 Google 提出申诉。</p>
+<p>下表介绍了“游戏信息”选项卡的“应用签名”部分。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>属性</th><th>描述</th></tr></thead><tbody><tr><td><strong>Export and upload the key and certificate (recommended)</strong></td><td>UDP 使用你上传的应用签名私钥对重新打包的构建版本进行签名。如果选择此选项，则会应用于你将游戏提交到的所有商店。</td></tr><tr><td><strong>Let UDP create and manage App signing private key</strong></td><td>UDP 为每个需要重新打包游戏的商店生成一个不同的应用签名私钥。<br>此选项会使你的游戏更容易受到 Google Play 保护警告的影响。</td></tr></tbody></table>
+<p><strong>注意</strong> ：只有 Android SDK 版本 18 及更高版本才支持生成应用签名。如果游戏使用的 SDK 版本低于此版本，请使用 RSA 算法签名或提高游戏的最低 API 级别 (Minimum API Level)。</p>
+<h5 class="anchor anchorTargetStickyNavbar_Vzrq" id="更改密钥">更改密钥<a href="#更改密钥" class="hash-link" aria-label="更改密钥的直接链接" title="更改密钥的直接链接" translate="no">​</a></h5>
+<p>You can switch from using the UDP key to your own key at any time. This change only applies for stores that the game hasn’t been repacked for (and therefore signed). If you have previously repacked for a store using the UDP key, that store will always use the UDP key.</p>
+<p>You can only switch from using your own key to the UDP key if you haven’t repacked your game (and your own key) for any store.</p>
+<h5 class="anchor anchorTargetStickyNavbar_Vzrq" id="udp-生成的密钥">UDP 生成的密钥<a href="#udp-生成的密钥" class="hash-link" aria-label="UDP 生成的密钥的直接链接" title="UDP 生成的密钥的直接链接" translate="no">​</a></h5>
+<p>满足以下条件时，UDP 使用公司信息为重新打包的 APK 文件生成密钥库：</p>
+<ul>
+<li class="">The APK file uploaded by the developer doesn’t contain the keystore file.</li>
+<li class="">The game hasn’t been repacked in the partner store.</li>
+</ul>
+<p>If these conditions aren’t met, UDP uses an existing UDP keystore if available, or it uses the developer information to generate a new signature file.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="集成信息">集成信息<a href="#集成信息" class="hash-link" aria-label="集成信息的直接链接" title="集成信息的直接链接" translate="no">​</a></h4>
+<p>此信息与编辑器同步。以下字段是可编辑的字段：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>字段</th><th>描述</th></tr></thead><tbody><tr><td><strong>Unity Project ID</strong></td><td>链接到 UDP 客户端的 Unity 项目 ID。<br>要取消 Unity 项目与 UDP 客户端的链接，请删除此字段中的 ID，然后选择 <strong>保存</strong> 。<br> <strong>注意</strong> ：只有所有者和管理员可以编辑此字段。</td></tr><tr><td><strong>Callback URL</strong></td><td>游戏服务器的 URL。UDP 使用此 URL 发送有关付款结果的通知。</td></tr></tbody></table>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="发布窗口">“发布”窗口<a href="#发布窗口" class="hash-link" aria-label="“发布”窗口的直接链接" title="“发布”窗口的直接链接" translate="no">​</a></h4>
+<p>在“发布”窗口中可以发布游戏的版本。在“游戏信息”页面中选择“发布”时，将显示此窗口。</p>
+<p>“发布”窗口中包含用于指定以下版本信息的字段：</p>
+<ul>
+<li class="">标签</li>
+<li class="">发行说明</li>
+</ul>
+<p>所有修订版的标签和发行说明在以下位置可见：</p>
+<ul>
+<li class="">“游戏信息”部分（展开“修订”下拉选单时）</li>
+<li class="">“状态”部分（由“发布”进行组织）</li>
+</ul>
+<p><strong>注意</strong> ：只能将最新的修订版发布到商店。</p>
+<p>了解更多信息：</p>
+<ul>
+<li class=""><a class="" href="/unity/udp/udp-managing-and-publishing#%E5%8F%91%E5%B8%83%E4%BF%AE%E8%AE%A2%E7%89%88">编辑修订版</a></li>
+<li class=""><a class="" href="/unity/udp/udp-managing-and-publishing#%E5%B0%86%E6%B8%B8%E6%88%8F%E6%8F%90%E4%BA%A4%E5%88%B0%E5%95%86%E5%BA%97">向不同的商店提交不同的修订版</a></li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="发布面板">“发布”面板<a href="#发布面板" class="hash-link" aria-label="“发布”面板的直接链接" title="“发布”面板的直接链接" translate="no">​</a></h3>
+<p>在“发布”面板中可向商店注册并发布游戏。每个商店在此页面中都有自己对应的部分。</p>
+<p><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/UDPManagingGame_11.png" alt="UDPManagingGame_11.png" class="img_ev3q"></p>
+<p>下表介绍了“发布”页面。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>字段</th><th>描述</th></tr></thead><tbody><tr><td><strong>Publish</strong></td><td>发布选定的游戏。</td></tr><tr><td><strong>Only show stores that accept the game’s pricing model</strong></td><td>在“发布”页面中隐藏不支持你的游戏定价模型的商店。</td></tr><tr><td><strong>All Stores</strong></td><td>选择所有可见的商店进行发布。</td></tr><tr><td>商店复选框</td><td>选中商店的复选框表示仅发布到选定的商店。</td></tr><tr><td><strong>Premium</strong></td><td>支持付费游戏的商店将显示“付费”标签。</td></tr><tr><td><strong>IAP</strong></td><td>支持 IAP 的商店将显示 IAP 标签。</td></tr><tr><td>信息图标</td><td>信息图标指明商店是与 UDP 完全集成还是部分集成。</td></tr><tr><td><strong>Sign up</strong></td><td>注册到选定的商店。</td></tr><tr><td><strong>Countries</strong></td><td>选择“国家/地区”以选择要将游戏发布到的国家/地区。<br>此时将打开一个窗口，其中列出商店支持的国家/地区。选中相应的复选框以表示游戏发布到相应的国家/地区，然后选择“保存”。<br>仅当已在商店中注册后才会显示此选项。</td></tr><tr><td><strong>Advanced</strong></td><td>选择此项可配置特定商店的高级属性。<br>仅当已在商店中注册后才会显示此选项。</td></tr></tbody></table>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="目标步骤">目标步骤<a href="#目标步骤" class="hash-link" aria-label="目标步骤的直接链接" title="目标步骤的直接链接" translate="no">​</a></h4>
+<p>在“发布”选项卡中，每个商店都有一个下拉选单，允许选择给定商店的目标步骤。可用的选项如下：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>目标步骤</th><th>描述</th></tr></thead><tbody><tr><td><strong>Repack Game</strong></td><td>UDP 将通用 UDP 构建版本解包，并使用选定商店中的 SDK 重新打包游戏。此过程将使用你提交到商店的上一个构建版本中的 IAP 目录。</td></tr><tr><td><strong>Submit to Store</strong></td><td>UDP 重新打包游戏，并将游戏、元数据和 IAP 目录提交到选定商店的生产环境。<br>首次发布游戏时，必须提交游戏才能在商店的服务器上创建 IAP 目录。</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="高级设置">高级设置<a href="#高级设置" class="hash-link" aria-label="高级设置的直接链接" title="高级设置的直接链接" translate="no">​</a></h3>
+<p>要在提交游戏之前配置特定于商店的设置，请在“发布”选项卡中为商店选择“高级”。 你可以为商店专门配置以下属性：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>属性</th><th>功能</th><th>影响的商店</th></tr></thead><tbody><tr><td><strong>Target SDK</strong></td><td>将游戏发布到的商店 SDK 版本。默认情况下，UDP 会针对最新版本的商店 SDK 进行重新打包。</td><td>所有</td></tr><tr><td><strong>CP ID</strong></td><td>华为 AppGallery Connect 控制台上的商家 ID。</td><td>华为</td></tr><tr><td><strong>Product ID</strong></td><td>华为 AppGallery Connect 控制台上的商品 ID。</td><td>华为</td></tr><tr><td><strong>App ID</strong></td><td>华为 AppGallery Connect 控制台上的应用程序 ID。</td><td>华为</td></tr><tr><td><strong>Configuration version on the Huawei AppGallery Connect console.</strong></td><td>游戏的版本</td><td>华为</td></tr><tr><td><strong>PubKey</strong></td><td>华为 AppGallery Connect 控制台上的公钥。</td><td>华为</td></tr><tr><td><strong>App Secret</strong></td><td>华为 AppGallery Connect 控制台上的应用密码。</td><td>华为</td></tr><tr><td><strong>privacyPolicy</strong></td><td>华为 AppGallery Connect 控制台上的隐私声明地址。</td><td>华为</td></tr><tr><td><strong>Premium Price</strong></td><td>玩家下载游戏时所需支付的价格。</td><td>所有支持付费游戏的商店</td></tr><tr><td><strong>In-App Purchases</strong></td><td>IAP 商品的名称。</td><td>所有</td></tr><tr><td><strong>Approval Number from SAPPRFT (aka ISBN)</strong></td><td>输入你在中国发行游戏的 SAPPRFT 批准文号。如果未获得中国发行许可，请从国家/地区列表中取消选中“中国”。</td><td>小米<br>华为</td></tr><tr><td><strong>Registration Number from MCPRC</strong></td><td>输入你在中国发行游戏的文化部备案号。</td><td>华为</td></tr><tr><td><strong>Launch Manually</strong></td><td>设置为在商店中手动发布游戏。</td><td>华为</td></tr><tr><td><strong>Launch on</strong></td><td>指定在商店中发布游戏的日期和时间。</td><td>华为</td></tr><tr><td><strong>Renew authentication</strong></td><td>选择此项可为选定的商店续订身份验证令牌。</td><td>华为</td></tr><tr><td><strong>Package Name</strong></td><td>Displays the name of the package. This can’t be edited once it’s been registered.</td><td>QooApp<br>Viveport</td></tr><tr><td><strong>URL for Privacy Policy</strong></td><td>Enter the URL of your game’s privacy policy.</td><td>Viveport</td></tr><tr><td><strong>URL for EULA/Terms of Use</strong></td><td>Enter the URL of your game’s EULA/Terms of use.</td><td>Viveport</td></tr></tbody></table>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="细节">细节<a href="#细节" class="hash-link" aria-label="细节的直接链接" title="细节的直接链接" translate="no">​</a></h4>
+<p>如果提交中缺少任何内容，UDP 控制台会显示错误或警告消息。选择 <strong>细节</strong> 可展开有关该问题的更多信息。</p>
+<p>错误显示在红色面板中。必须先修正错误，然后才能提交游戏。选择 <strong>修改</strong> 可进入错误区域以解决相关问题。</p>
+<p>也可以选择只提交到没有错误的商店。</p>
+<p>警告显示在黄色面板中。你可以关闭决定忽略的警告。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="状态面板">“状态”面板<a href="#状态面板" class="hash-link" aria-label="“状态”面板的直接链接" title="“状态”面板的直接链接" translate="no">​</a></h3>
+<p>UDP 开始处理你的游戏时，请访问 <strong>状态</strong> 面板来监控进度以及查看游戏的提交历史记录。</p>
+<p><strong>状态</strong> 面板会显示游戏历史记录的概览。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>字段</th><th>描述</th></tr></thead><tbody><tr><td><strong>Revisions repacked</strong></td><td>使用 UDP 创建的重新打包的 APK 构建版本总数。<br> <strong>注意</strong> ：如果针对同一家商店已将游戏重新打包三次，则计数为三次。</td></tr><tr><td><strong>Revisions submitted</strong></td><td>通过 UDP 提交的总次数。<br> <strong>注意</strong> ：如果将游戏提交到商店五次，则计数为五次。</td></tr><tr><td><strong>Submissions accepted</strong></td><td>应用商店已接受的提交次数。</td></tr><tr><td><strong>Submissions rejected</strong></td><td>应用商店已拒绝的修订版数量。</td></tr></tbody></table>
+<p>对于每个游戏修订版， <strong>状态</strong> 面板显示以下详细信息：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>字段</th><th>描述</th></tr></thead><tbody><tr><td><strong>Store</strong></td><td>将游戏提交到的商店。</td></tr><tr><td><strong>Status</strong></td><td>修订版状态。<br>并非所有商店都可以在进入“上线”状态之前提供可见性。“状态”部分仅提供可从商店获取的信息。</td></tr><tr><td><strong>Countries</strong></td><td>每个商店支持你游戏的国家/地区数量。选择此列中的数字可查看相应的国家/地区。</td></tr><tr><td><strong>Action</strong></td><td>执行其他操作，例如 <strong>下载</strong> 游戏的修订版或 <strong>转到商店</strong> 以完成发布步骤。</td></tr></tbody></table>
+<p>你的游戏可以具有以下状态：</p>
+<ul>
+<li class=""><strong>已重新打包</strong> ：已成功使用选定商店的 SDK 将游戏重新打包</li>
+<li class=""><strong>已发布</strong> ：游戏已完成了将游戏重新打包并提交到商店时该商店所需的所有步骤</li>
+<li class=""><strong>待处理</strong> ：正在使用选定商店的 SDK 将游戏重新打包</li>
+<li class=""><strong>Failed</strong> : your game couldn’t be repacked with the SDK of the selected store</li>
+<li class=""><strong>已取消</strong> ：你或你组织中的某个人取消了你提交的游戏</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="store-sign-ups">Store Sign-Ups<a href="#store-sign-ups" class="hash-link" aria-label="Store Sign-Ups的直接链接" title="Store Sign-Ups的直接链接" translate="no">​</a></h3>
+<p>The Store Sign-Ups tab displays information about the stores you can distribute your game to using UDP.</p>
+<p><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/UDPSettingUp_07.png" alt="UDPSettingUp_07.png" class="img_ev3q"></p>
+<p>选择“更多”链接可获取有关商店的更多信息，例如概览、常见问题解答以及每个商店特有的其他有用链接。</p>
+<p>For an overview of information for all stores, select  <strong>Compare stores</strong>  to open the Partner Stores cheatsheet. This compares details for all stores, including data such as number of users, countries in which the store is available, and whether or not the store supports premium games.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="报告控制面板">“报告”控制面板<a href="#报告控制面板" class="hash-link" aria-label="“报告”控制面板的直接链接" title="“报告”控制面板的直接链接" translate="no">​</a></h3>
+<p>“报告”选项卡显示已发布的游戏的表现信息。 你可以从“报告”控制面板监控已发布的游戏的性能（可从顶部导航栏访问该控制面板）。</p>
+<p><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/UDPReportingDashboard_01.png" alt="UDPReportingDashboard_01.png" class="img_ev3q"></p>
+<p>You can filter the information presented on the Reporting dashboard by game and store.</p>
+<p><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/UDPReportingDashboard_02.png" alt="UDPReportingDashboard_02.png" class="img_ev3q"></p>
+<p>如果没有在整个“报告”控制面板的 <strong>所有游戏</strong> 和 <strong>所有商店</strong> 筛选条件中选择任何选项，则可以查看单个图表级别的细分内容（如果适用）。在支持的图表上，选择 <strong>按商店</strong> 或 <strong>按游戏</strong> 筛选条件可查看特定商店或单个游戏的表现。</p>
+<p>“报告”控制面板分为五个面板，所有面板均受“游戏”和“商店”筛选条件的约束。对于受日期筛选条件约束的面板，你可以将图表数据导出为 CSV 文件和图像。要将数据下载为 CSV 文件或图像，请选择图表的相应图标。</p>
+<p><strong>注意</strong> ：仅当你使用 QueryOrder 设置了服务器端验证时，华为 AppGallery 才向 UDP 返回收入信息。如果你使用了回调通知，则华为没有与收入相关的图表或信息。</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="指标和定义">指标和定义<a href="#指标和定义" class="hash-link" aria-label="指标和定义的直接链接" title="指标和定义的直接链接" translate="no">​</a></h4>
+<p><strong>报告</strong> 控制面板会跟踪发布游戏的 UDP 商店中的以下数据：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>指标</th><th>描述</th></tr></thead><tbody><tr><td><strong>Gross revenue</strong></td><td>Amount collected from players in USD (for example, if IAP price= 0.99 then= $0.99)</td></tr><tr><td><strong>Players</strong></td><td>下载并启动游戏的唯一身份用户数。这是按照唯一设备计算的。</td></tr><tr><td><strong>Spenders</strong></td><td>付费玩家的数量。也就是至少进行了一次成功付款的唯一身份用户数。</td></tr><tr><td><strong>Days since 1st activity</strong></td><td>自游戏在应用商店中达到 10 位玩家以来的天数。</td></tr><tr><td><strong>New Players</strong></td><td>在选定时间段内首次启动游戏的玩家数量。</td></tr><tr><td><strong>DAU</strong></td><td>日活跃用户。当天至少启动了一次游戏的唯一身份用户数。</td></tr><tr><td><strong>MAU</strong></td><td>月活跃用户。过去 30 天至少启动了一次游戏的唯一身份用户数。</td></tr><tr><td><strong>IAP Revenue</strong></td><td>IAP 的总收入（美元）。</td></tr><tr><td><strong>Average Revenue per Transaction</strong></td><td>定义为收入/交易数量（美元）。</td></tr><tr><td><strong>ARPPU</strong></td><td>付费用户的平均收入（美元）。定义为总收入/付费玩家数量。</td></tr><tr><td><strong>ARPU</strong></td><td>用户的平均收入（美元）。定义为总收入/玩家数量。</td></tr><tr><td><strong>Spender Conversion Rate</strong></td><td>定义为付费玩家数量/玩家数量。</td></tr><tr><td><strong>Transactions</strong></td><td>产生付款的成功交易数量（OrderID 成功并已由 UDP 服务器验证）。</td></tr><tr><td><strong>Revenue by IAP</strong></td><td>按 IAP 对总收入进行细分（美元）。</td></tr><tr><td><strong>Transaction Volume by IAP</strong></td><td>按 IAP 对交易进行细分。</td></tr><tr><td><strong>Premium Revenue</strong></td><td>付费游戏产生的总收入（美元）。</td></tr><tr><td><strong>Sessions</strong></td><td>在任何设备上启动游戏的次数。</td></tr><tr><td><strong>Day 1 Retention (%)</strong></td><td>定义为首次启动游戏 1 天后仍活跃的玩家百分比。</td></tr><tr><td><strong>Day 7 Retention (%)</strong></td><td>定义为首次启动游戏 7 天后仍活跃的玩家百分比。</td></tr><tr><td><strong>Day 30 Retention (%)</strong></td><td>定义为首次启动游戏 30 天后仍活跃的玩家百分比。</td></tr></tbody></table>
+<p><strong>注意：</strong> “报告”控制面板包含一些估计数据；你可以直接从商店获取确切的数字。显示的数据采用 UTC 时间，并且截止到前一天，旨在显示最准确的完整数据。</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="所有时间">所有时间<a href="#所有时间" class="hash-link" aria-label="所有时间的直接链接" title="所有时间的直接链接" translate="no">​</a></h4>
+<p>此面板显示以下生命周期指标：</p>
+<ul>
+<li class="">总收入（美元）</li>
+<li class="">玩家</li>
+<li class="">付费者</li>
+<li class="">自第一次活动以来的天数</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="昨天">昨天<a href="#昨天" class="hash-link" aria-label="昨天的直接链接" title="昨天的直接链接" translate="no">​</a></h4>
+<p>此面板显示最近 24 小时（基于 UTC）的以下指标：</p>
+<ul>
+<li class="">总收入（美元）<em>，与前一天进行金额或百分比的比较</em></li>
+<li class="">新玩家</li>
+<li class="">DAU*，与最近 7 天的平均 DAU 值进行百分比的比较*</li>
+<li class="">MAU*，与最近 7 天的平均 MAU 值进行百分比的比较*</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="iap-表现">IAP 表现<a href="#iap-表现" class="hash-link" aria-label="IAP 表现的直接链接" title="IAP 表现的直接链接" translate="no">​</a></h4>
+<p>此面板显示选定日期范围的以下指标：</p>
+<ul>
+<li class="">IAP 收入</li>
+<li class="">每笔交易的平均收入</li>
+<li class="">ARPPU</li>
+<li class="">ARPU</li>
+<li class="">付费者转化率</li>
+<li class="">交易</li>
+<li class="">IAP 收入。最多可以在图表中查看 5 个 IAP，并可通过下拉选择功能选择要查看的 IAP。此图表包含以下各项的预设：
+<ul>
+<li class="">最高收入</li>
+<li class="">最多交易</li>
+<li class="">最高价位</li>
+<li class="">最低价位</li>
+</ul>
+</li>
+<li class="">IAP 交易量。最多可以在图表中查看 5 个 IAP，并可通过下拉选择功能选择要查看的 IAP。此图表包含以下各项的预设：
+<ul>
+<li class="">最高收入</li>
+<li class="">最多交易</li>
+<li class="">最高价位</li>
+<li class="">最低价位</li>
+</ul>
+</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="游戏销售收入">游戏销售收入<a href="#游戏销售收入" class="hash-link" aria-label="游戏销售收入的直接链接" title="游戏销售收入的直接链接" translate="no">​</a></h4>
+<p>此面板显示选定日期范围的以下指标：</p>
+<ul>
+<li class="">游戏销售收入（付费下载收入）</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="游戏运行情况">游戏运行情况<a href="#游戏运行情况" class="hash-link" aria-label="游戏运行情况的直接链接" title="游戏运行情况的直接链接" translate="no">​</a></h4>
+<p>此面板显示选定日期范围的以下指标：</p>
+<ul>
+<li class="">DAU - 每天的值以及一段时间的平均值</li>
+<li class="">MAU - 每天的值以及一段时间的平均值</li>
+<li class="">新玩家 - 每天的值以及一段时间的总值</li>
+<li class="">会话 - 每天的值以及一段时间的总值</li>
+<li class="">第 1 天留存率 - 每天的值以及一段时间的平均值</li>
+<li class="">第 7 天留存率 - 每天的值以及一段时间的平均值</li>
+<li class="">第 30 天留存率 - 每天的值以及一段时间的平均值</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="documentation">Documentation<a href="#documentation" class="hash-link" aria-label="Documentation的直接链接" title="Documentation的直接链接" translate="no">​</a></h3>
+<p>The Documentation tab displays useful information to help you get started, including:</p>
+<ul>
+<li class="">Links to the UDP documentation</li>
+<li class="">不同应用商店的指南</li>
+<li class="">Video tutorials</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="资源">资源<a href="#资源" class="hash-link" aria-label="资源的直接链接" title="资源的直接链接" translate="no">​</a></h3>
+<p>The Resources tab provides useful information to help you get started, including:</p>
+<ul>
+<li class="">Getting Started Guide</li>
+<li class="">教程视频</li>
+<li class="">Store Guides</li>
+<li class="">Knowledge base</li>
+<li class="">发行说明</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="settings">Settings<a href="#settings" class="hash-link" aria-label="Settings的直接链接" title="Settings的直接链接" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="company-information">Company Information<a href="#company-information" class="hash-link" aria-label="Company Information的直接链接" title="Company Information的直接链接" translate="no">​</a></h4>
+<p>在“公司信息”窗口中可添加信息，以便在应用商店中显示你公司的信息。 在 UDP 控制台上，选择你的组织，然后选择铅笔图标以编辑简介信息。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>字段</th><th>描述</th></tr></thead><tbody><tr><td><strong>Company Name</strong></td><td>你希望玩家看到的公司名称。</td></tr><tr><td><strong>Company Icon</strong></td><td>Upload an image to display for your company.</td></tr><tr><td><strong>Location</strong></td><td>你希望定义为工作室总部的所在地。</td></tr><tr><td><strong>Company Size</strong></td><td>使用下拉选单指定公司人数。</td></tr><tr><td><strong>Official Website</strong></td><td>你公司的官方网站。</td></tr><tr><td><strong>Support Email Address</strong></td><td>玩家可以用来与你公司联系的支持电子邮件地址。</td></tr><tr><td><strong>Introduction</strong></td><td>有关公司/工作室的任何其他信息。</td></tr></tbody></table>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="developer-api">Developer API<a href="#developer-api" class="hash-link" aria-label="Developer API的直接链接" title="Developer API的直接链接" translate="no">​</a></h4>
+<p>The Developer API page lets you generate and manage authentication tokens for use with the <a class="" href="/unity/udp-reference/udp-api">UDP API</a>. You can use the UDP API to upload binary files to the UDP console. See <a class="" href="/unity/udp/udp-managing-and-publishing#uploading-your-game-to-the-udp-console-using-the-udp-api">Managing and publishing your game on the UDP console</a></p>
+<p>The table below describes the Developer API page.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>字段</th><th>描述</th></tr></thead><tbody><tr><td><strong>Token</strong></td><td>The authentication token to use to let the UDP API access the UDP console. Select COPY to copy the token to your clipboard.</td></tr><tr><td><strong>Expiry date</strong></td><td>The expiry date of the authentication token, if specified.</td></tr><tr><td><strong>Operations</strong></td><td>Edit or delete existing tokens.</td></tr><tr><td><strong>NEW TOKEN</strong></td><td>Select to create a new token.</td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="csv-参考">CSV 参考<a href="#csv-参考" class="hash-link" aria-label="CSV 参考的直接链接" title="CSV 参考的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="csv-文件的数据值">CSV 文件的数据值<a href="#csv-文件的数据值" class="hash-link" aria-label="CSV 文件的数据值的直接链接" title="CSV 文件的数据值的直接链接" translate="no">​</a></h3>
+<p>Each row in a CSV file of In-App Purchases can contain the following values. Don’t pass empty values.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>字段</th><th>描述</th></tr></thead><tbody><tr><td><code>product_id</code></td><td>代表唯一 IAP 商品的 ID。product_id 需要以小写字母或数字开头，并且只能由小写字母 (a-z)、数字 (0–9)、下划线 (_) 和句点 (.) 组成。</td></tr><tr><td><code>language; product_name; description</code></td><td>When setting the language value, use the language code listed in TABLE A.<br>UDP uses en-US as the default language.<br>Use semicolon(;) to separate language, product_name and description.<br>To include localized versions of the item’s product name and description, list the default language, product_name, and description, followed by the languages, product_names, and descriptions for each locale. In the following example, the product has en-US (ENGLISH) as the default language and zh-CN (CHINESE) as a localization:<br>en-US;Product 1;This is my first product; zh-CN; 产品1; 产品描述1.<br>Note: UDP only imports the fields for languages you’ve defined in the  <strong>Game Info</strong>  section of the UDP Console. To support multiple languages, define them on the UDP Console before you import your IAP catalog.</td></tr><tr><td><code>consumable</code></td><td>Set to TRUE or FALSE (case insensitive) to define whether or not the IAP product is consumable.</td></tr><tr><td><code>auto_convert_prices</code></td><td>If true, UDP automatically converts the price to other currencies. To exclude a currency from conversion, specify the currency and its price in the <code>currency;price</code> field.</td></tr><tr><td><code>currency; price</code></td><td>设置 currency 值时，请使用表 B 中列出的货币代码。price 必须为正。默认货币为美元 (USD)。每个 IAP 商品的价格必须直接列在相应的货币后面。例如：USD;0.99;CNY;6</td></tr></tbody></table>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="表-a---语言代码"><strong>表 A - 语言代码</strong><a href="#表-a---语言代码" class="hash-link" aria-label="表-a---语言代码的直接链接" title="表-a---语言代码的直接链接" translate="no">​</a></h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>语言</th><th>代码</th></tr></thead><tbody><tr><td>南非荷兰语</td><td>af</td></tr><tr><td>阿姆哈拉语</td><td>am</td></tr><tr><td>保加利亚语</td><td>bg</td></tr><tr><td>加泰罗尼亚语</td><td>ca</td></tr><tr><td>中文</td><td>zh-CN</td></tr><tr><td>中文（中国香港）</td><td>zh-HK</td></tr><tr><td>中文（中国台湾）</td><td>zh-TW</td></tr><tr><td>克罗地亚语</td><td>hr</td></tr><tr><td>捷克语</td><td>cs</td></tr><tr><td>丹麦语</td><td>da</td></tr><tr><td>荷兰语</td><td>nl</td></tr><tr><td>英语（英国）</td><td>en-GB</td></tr><tr><td>英语</td><td>en-US</td></tr><tr><td>爱沙尼亚语</td><td>et</td></tr><tr><td>菲律宾语</td><td>fil</td></tr><tr><td>芬兰语</td><td>fi</td></tr><tr><td>法语（加拿大）</td><td>fr-CA</td></tr><tr><td>法语</td><td>fr-FR</td></tr><tr><td>德语</td><td>de</td></tr><tr><td>希腊语</td><td>el</td></tr><tr><td>印地语</td><td>hi</td></tr><tr><td>匈牙利语</td><td>hu</td></tr><tr><td>印尼语</td><td>id</td></tr><tr><td>意大利语</td><td>it</td></tr><tr><td>日语</td><td>ja</td></tr><tr><td>韩语</td><td>ko</td></tr><tr><td>拉脱维亚语</td><td>lv</td></tr><tr><td>立陶宛语</td><td>lt</td></tr><tr><td>马来语</td><td>ms</td></tr><tr><td>挪威语</td><td>no</td></tr><tr><td>波兰语</td><td>pl</td></tr><tr><td>葡萄牙语（巴西）</td><td>pt-BR</td></tr><tr><td>葡萄牙语（葡萄牙）</td><td>pt-PT</td></tr><tr><td>罗马尼亚语</td><td>ro</td></tr><tr><td>俄语</td><td>ru</td></tr><tr><td>塞尔维亚语</td><td>sr</td></tr><tr><td>斯洛伐克语</td><td>sk</td></tr><tr><td>斯洛文尼亚语</td><td>sl</td></tr><tr><td>西班牙语（拉丁美洲）</td><td>es</td></tr><tr><td>西班牙语</td><td>es-ES</td></tr><tr><td>斯瓦希里语</td><td>sw</td></tr><tr><td>瑞典语</td><td>sv</td></tr><tr><td>泰语</td><td>th</td></tr><tr><td>土耳其语</td><td>tr</td></tr><tr><td>乌克兰语</td><td>uk</td></tr><tr><td>越南语</td><td>vi</td></tr><tr><td>祖鲁语</td><td>zu</td></tr></tbody></table>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="表-b---货币代码"><strong>表 B - 货币代码</strong><a href="#表-b---货币代码" class="hash-link" aria-label="表-b---货币代码的直接链接" title="表-b---货币代码的直接链接" translate="no">​</a></h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>代码</th><th>代码</th><th>代码</th></tr></thead><tbody><tr><td>AED</td><td>IDR</td><td>PEN</td></tr><tr><td>ARS</td><td>ILS</td><td>PHP</td></tr><tr><td>AUD</td><td>INR</td><td>PKR</td></tr><tr><td>BGN</td><td>IQD</td><td>PLN</td></tr><tr><td>BHD</td><td>ISK</td><td>QAR</td></tr><tr><td>BND</td><td>JOD</td><td>RON</td></tr><tr><td>BIF</td><td>JPY</td><td>RUB</td></tr><tr><td>BRL</td><td>KES</td><td>SAR</td></tr><tr><td>CAD</td><td>KHR</td><td>SDG</td></tr><tr><td>CHF</td><td>KRW</td><td>SEK</td></tr><tr><td>CNY</td><td>KWD</td><td>SGD</td></tr><tr><td>CZK</td><td>LAK</td><td>THB</td></tr><tr><td>DKK</td><td>LKR</td><td>TND</td></tr><tr><td>DZD</td><td>LYD</td><td>TRY</td></tr><tr><td>EGP</td><td>MAD</td><td>TWD</td></tr><tr><td>EUR</td><td>MMK</td><td>TZS</td></tr><tr><td>GBP</td><td>MXN</td><td>USD</td></tr><tr><td>GHS</td><td>MYR</td><td>UYU</td></tr><tr><td>HKD</td><td>NOK</td><td>VND</td></tr><tr><td>HRK</td><td>NZD</td><td>ZAR</td></tr><tr><td>HUF</td><td>OMR</td><td></td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="示例-1">示例 1<a href="#示例-1" class="hash-link" aria-label="示例 1的直接链接" title="示例 1的直接链接" translate="no">​</a></h3>
+<div class="language-javascript codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-javascript codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">product_id</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain">language</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"> product_name</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"> description</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain">consumable</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain">auto_convert_prices</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain">currency</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"> price</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">com</span><span class="token punctuation" style="color:#393A34">.</span><span class="token property-access">mystudio</span><span class="token punctuation" style="color:#393A34">.</span><span class="token property-access">mygame</span><span class="token punctuation" style="color:#393A34">.</span><span class="token property-access">product1</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain">en</span><span class="token operator" style="color:#393A34">-</span><span class="token constant" style="color:#36acaa">US</span><span class="token punctuation" style="color:#393A34">;</span><span class="token maybe-class-name">Product</span><span class="token plain"> </span><span class="token number" style="color:#36acaa">1</span><span class="token punctuation" style="color:#393A34">;</span><span class="token maybe-class-name">This</span><span class="token plain"> is my first product</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"> zh</span><span class="token operator" style="color:#393A34">-</span><span class="token constant" style="color:#36acaa">CN</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"> 产品</span><span class="token number" style="color:#36acaa">1</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"> 产品描述</span><span class="token number" style="color:#36acaa">1</span><span class="token punctuation" style="color:#393A34">,</span><span class="token constant" style="color:#36acaa">TRUE</span><span class="token punctuation" style="color:#393A34">,</span><span class="token constant" style="color:#36acaa">TRUE</span><span class="token punctuation" style="color:#393A34">,</span><span class="token constant" style="color:#36acaa">USD</span><span class="token punctuation" style="color:#393A34">;</span><span class="token number" style="color:#36acaa">0.99</span><span class="token punctuation" style="color:#393A34">;</span><span class="token constant" style="color:#36acaa">CNY</span><span class="token punctuation" style="color:#393A34">;</span><span class="token number" style="color:#36acaa">6</span><span class="token punctuation" style="color:#393A34">;</span><span class="token constant" style="color:#36acaa">EUR</span><span class="token punctuation" style="color:#393A34">;</span><span class="token number" style="color:#36acaa">0.79</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">com</span><span class="token punctuation" style="color:#393A34">.</span><span class="token property-access">mystudio</span><span class="token punctuation" style="color:#393A34">.</span><span class="token property-access">mygame</span><span class="token punctuation" style="color:#393A34">.</span><span class="token property-access">product2</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain">en</span><span class="token operator" style="color:#393A34">-</span><span class="token constant" style="color:#36acaa">US</span><span class="token punctuation" style="color:#393A34">;</span><span class="token maybe-class-name">Product</span><span class="token plain"> </span><span class="token number" style="color:#36acaa">2</span><span class="token punctuation" style="color:#393A34">;</span><span class="token maybe-class-name">This</span><span class="token plain"> is my second product</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"> zh</span><span class="token operator" style="color:#393A34">-</span><span class="token constant" style="color:#36acaa">CN</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"> 产品</span><span class="token number" style="color:#36acaa">2</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"> 产品描述</span><span class="token number" style="color:#36acaa">2</span><span class="token punctuation" style="color:#393A34">,</span><span class="token constant" style="color:#36acaa">FALSE</span><span class="token punctuation" style="color:#393A34">,</span><span class="token constant" style="color:#36acaa">FALSE</span><span class="token punctuation" style="color:#393A34">,</span><span class="token constant" style="color:#36acaa">USD</span><span class="token punctuation" style="color:#393A34">;</span><span class="token number" style="color:#36acaa">1.99</span><span class="token punctuation" style="color:#393A34">;</span><span class="token constant" style="color:#36acaa">CNY</span><span class="token punctuation" style="color:#393A34">;</span><span class="token number" style="color:#36acaa">12</span><span class="token punctuation" style="color:#393A34">;</span><span class="token constant" style="color:#36acaa">EUR</span><span class="token punctuation" style="color:#393A34">;</span><span class="token number" style="color:#36acaa">1.59</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">com</span><span class="token punctuation" style="color:#393A34">.</span><span class="token property-access">mystudio</span><span class="token punctuation" style="color:#393A34">.</span><span class="token property-access">mygame</span><span class="token punctuation" style="color:#393A34">.</span><span class="token property-access">product3</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain">en</span><span class="token operator" style="color:#393A34">-</span><span class="token constant" style="color:#36acaa">US</span><span class="token punctuation" style="color:#393A34">;</span><span class="token maybe-class-name">Product</span><span class="token plain"> </span><span class="token number" style="color:#36acaa">3</span><span class="token punctuation" style="color:#393A34">;</span><span class="token maybe-class-name">This</span><span class="token plain"> is my third product</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"> zh</span><span class="token operator" style="color:#393A34">-</span><span class="token constant" style="color:#36acaa">CN</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"> 产品</span><span class="token number" style="color:#36acaa">3</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"> 产品描述</span><span class="token number" style="color:#36acaa">3</span><span class="token punctuation" style="color:#393A34">,</span><span class="token constant" style="color:#36acaa">TRUE</span><span class="token punctuation" style="color:#393A34">,</span><span class="token constant" style="color:#36acaa">TRUE</span><span class="token punctuation" style="color:#393A34">,</span><span class="token constant" style="color:#36acaa">USD</span><span class="token punctuation" style="color:#393A34">;</span><span class="token number" style="color:#36acaa">4.99</span><span class="token punctuation" style="color:#393A34">;</span><span class="token constant" style="color:#36acaa">CNY</span><span class="token punctuation" style="color:#393A34">;</span><span class="token number" style="color:#36acaa">30</span><span class="token punctuation" style="color:#393A34">;</span><span class="token constant" style="color:#36acaa">EUR</span><span class="token punctuation" style="color:#393A34">;</span><span class="token number" style="color:#36acaa">3.99</span><span class="token plain"> </span><br></span></code></pre></div></div></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/danyow/danyow/edit/main/unity/unity/unity-services/udp/udp-reference/udp-reference.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>编辑此页</a></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">最后<!-- -->由 <b>danyow</b> <!-- -->于 <b><time datetime="2026-03-18T07:23:55.000Z" itemprop="dateModified">2026年3月18日</time></b> <!-- -->更新</span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="文件选项卡"><a class="pagination-nav__link pagination-nav__link--prev" href="/unity/udp/udp-managing-and-publishing"><div class="pagination-nav__sublabel">上一页</div><div class="pagination-nav__label">在 UDP 控制台上管理和发布游戏</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/unity/udp-reference/udp-api"><div class="pagination-nav__sublabel">下一页</div><div class="pagination-nav__label">UDP API</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#udp-控制台参考" class="table-of-contents__link toc-highlight">UDP 控制台参考</a><ul><li><a href="#overview" class="table-of-contents__link toc-highlight">Overview</a></li><li><a href="#我的游戏" class="table-of-contents__link toc-highlight">我的游戏</a></li><li><a href="#发布面板" class="table-of-contents__link toc-highlight">“发布”面板</a></li><li><a href="#高级设置" class="table-of-contents__link toc-highlight">高级设置</a></li><li><a href="#状态面板" class="table-of-contents__link toc-highlight">“状态”面板</a></li><li><a href="#store-sign-ups" class="table-of-contents__link toc-highlight">Store Sign-Ups</a></li><li><a href="#报告控制面板" class="table-of-contents__link toc-highlight">“报告”控制面板</a></li><li><a href="#documentation" class="table-of-contents__link toc-highlight">Documentation</a></li><li><a href="#资源" class="table-of-contents__link toc-highlight">资源</a></li><li><a href="#settings" class="table-of-contents__link toc-highlight">Settings</a></li></ul></li><li><a href="#csv-参考" class="table-of-contents__link toc-highlight">CSV 参考</a><ul><li><a href="#csv-文件的数据值" class="table-of-contents__link toc-highlight">CSV 文件的数据值</a></li><li><a href="#示例-1" class="table-of-contents__link toc-highlight">示例 1</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="margin-bottom--sm"><img src="/img/logo.svg" class="footer__logo themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/logo.svg" class="footer__logo themedComponent_mlkZ themedComponent--dark_xIcU"></div><div class="footer__copyright">© 2026 danyow, Inc. 使用 Docusaurus 构建。</div></div></div></footer></div>
+</body>
+</html>

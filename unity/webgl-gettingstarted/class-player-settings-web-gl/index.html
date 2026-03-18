@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="zh" dir="ltr" class="docs-wrapper plugin-docs plugin-id-unity docs-version-current docs-doc-page docs-doc-id-platform-specific/webgl/webgl-gettingstarted/class-PlayerSettingsWebGL" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.9.2">
+<title data-rh="true">WebGL Player 设置 | :D</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://danyow.cn/unity/webgl-gettingstarted/class-player-settings-web-gl"><meta data-rh="true" property="og:locale" content="zh"><meta data-rh="true" name="docusaurus_locale" content="zh"><meta data-rh="true" name="docsearch:language" content="zh"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-unity-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-unity-current"><meta data-rh="true" property="og:title" content="WebGL Player 设置 | :D"><meta data-rh="true" name="description" content="This page details the  Player  settings specific to the WebGL platform. For a description of the general  Player  settings, see Player settings."><meta data-rh="true" property="og:description" content="This page details the  Player  settings specific to the WebGL platform. For a description of the general  Player  settings, see Player settings."><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://danyow.cn/unity/webgl-gettingstarted/class-player-settings-web-gl"><link data-rh="true" rel="alternate" href="https://danyow.cn/unity/webgl-gettingstarted/class-player-settings-web-gl" hreflang="zh"><link data-rh="true" rel="alternate" href="https://danyow.cn/unity/webgl-gettingstarted/class-player-settings-web-gl" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"平台开发","item":"https://danyow.cn/unity/platform-specific"},{"@type":"ListItem","position":2,"name":"WebGL","item":"https://danyow.cn/unity/webgl"},{"@type":"ListItem","position":3,"name":"Getting started with WebGL development","item":"https://danyow.cn/unity/webgl-gettingstarted"},{"@type":"ListItem","position":4,"name":"WebGL Player 设置","item":"https://danyow.cn/unity/webgl-gettingstarted/class-player-settings-web-gl"}]}</script><link rel="alternate" type="application/rss+xml" href="/blog/rss.xml" title=":D RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/blog/atom.xml" title=":D Atom Feed"><link rel="stylesheet" href="/assets/css/styles.640272bb.css">
+<script src="/assets/js/runtime~main.50b7b83d.js" defer="defer"></script>
+<script src="/assets/js/main.ca102e2d.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/img/logo.svg"><div role="region" aria-label="跳到主要内容"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">跳到主要内容</a></div><nav aria-label="主导航" class="theme-layout-navbar navbar navbar--fixed-top navbar--primary"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="切换导航栏" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><b class="navbar__title text--truncate">:D</b></a><a class="navbar__item navbar__link" href="/note/itinerary">笔记</a><a class="navbar__item navbar__link" href="/lua/learn">Lua</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/unity/Glossary">Unity</a><a class="navbar__item navbar__link" href="/blog">博客</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/danyow/danyow" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link header-github-link" aria-label="GitHub repository"></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search searchBarContainer_NW3z" dir="ltr"><input placeholder="搜索" aria-label="Search" class="navbar__search-input searchInput_YFbd" value=""><div class="loadingRing_RJI3 searchBarLoadingRing_YnHq"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="回到顶部" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="文档侧边栏" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/animation-section"><span title="动画" class="categoryLinkLabel_W154">动画</span></a><button aria-label="展开侧边栏分类 &#x27;动画&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/asset-store"><span title="Unity Asset Store" class="categoryLinkLabel_W154">Unity Asset Store</span></a><button aria-label="展开侧边栏分类 &#x27;Unity Asset Store&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/asset-workflow"><span title="资源工作流程" class="categoryLinkLabel_W154">资源工作流程</span></a><button aria-label="展开侧边栏分类 &#x27;资源工作流程&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/audio"><span title="音频" class="categoryLinkLabel_W154">音频</span></a><button aria-label="展开侧边栏分类 &#x27;音频&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/creating-environments"><span title="World building" class="categoryLinkLabel_W154">World building</span></a><button aria-label="展开侧边栏分类 &#x27;World building&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/unity/Glossary"><span title="术语表" class="linkLabel_WmDU">术语表</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/graphics"><span title="图形" class="categoryLinkLabel_W154">图形</span></a><button aria-label="展开侧边栏分类 &#x27;图形&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/input"><span title="输入" class="categoryLinkLabel_W154">输入</span></a><button aria-label="展开侧边栏分类 &#x27;输入&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/legacy-topics"><span title="旧版主题" class="categoryLinkLabel_W154">旧版主题</span></a><button aria-label="展开侧边栏分类 &#x27;旧版主题&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/navigation"><span title="导航和寻路" class="categoryLinkLabel_W154">导航和寻路</span></a><button aria-label="展开侧边栏分类 &#x27;导航和寻路&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/packages-list"><span title="Packages and feature sets" class="categoryLinkLabel_W154">Packages and feature sets</span></a><button aria-label="展开侧边栏分类 &#x27;Packages and feature sets&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/physics-section"><span title="物理系统" class="categoryLinkLabel_W154">物理系统</span></a><button aria-label="展开侧边栏分类 &#x27;物理系统&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" href="/unity/platform-specific"><span title="平台开发" class="categoryLinkLabel_W154">平台开发</span></a><button aria-label="折叠侧边栏分类 &#x27;平台开发&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/android"><span title="Android" class="categoryLinkLabel_W154">Android</span></a><button aria-label="展开侧边栏分类 &#x27;Android&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/apple-mac"><span title="macOS" class="categoryLinkLabel_W154">macOS</span></a><button aria-label="展开侧边栏分类 &#x27;macOS&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/unity/platform-specific/deep-linking"><span title="Deep linking" class="linkLabel_WmDU">Deep linking</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/iphone"><span title="iOS" class="categoryLinkLabel_W154">iOS</span></a><button aria-label="展开侧边栏分类 &#x27;iOS&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/linux"><span title="Linux" class="categoryLinkLabel_W154">Linux</span></a><button aria-label="展开侧边栏分类 &#x27;Linux&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/tv-os-introducing"><span title="tvOS" class="categoryLinkLabel_W154">tvOS</span></a><button aria-label="展开侧边栏分类 &#x27;tvOS&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/unity/platform-specific/unityasa-library"><span title="将“Unity 用作库”用于其他应用程序" class="linkLabel_WmDU">将“Unity 用作库”用于其他应用程序</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" tabindex="0" href="/unity/webgl"><span title="WebGL" class="categoryLinkLabel_W154">WebGL</span></a><button aria-label="折叠侧边栏分类 &#x27;WebGL&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/webgl-building-distribution"><span title="Build and distribute a WebGL application" class="categoryLinkLabel_W154">Build and distribute a WebGL application</span></a><button aria-label="展开侧边栏分类 &#x27;Build and distribute a WebGL application&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/webgl-develop"><span title="WebGL Development" class="categoryLinkLabel_W154">WebGL Development</span></a><button aria-label="展开侧边栏分类 &#x27;WebGL Development&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" tabindex="0" href="/unity/webgl-gettingstarted"><span title="Getting started with WebGL development" class="categoryLinkLabel_W154">Getting started with WebGL development</span></a><button aria-label="折叠侧边栏分类 &#x27;Getting started with WebGL development&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/unity/webgl-gettingstarted/class-player-settings-web-gl"><span title="WebGL Player 设置" class="linkLabel_WmDU">WebGL Player 设置</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/unity/webgl-gettingstarted/webgl-technical-overview"><span title="Advanced overview" class="linkLabel_WmDU">Advanced overview</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/unity/webgl-gettingstarted/webgl-texture-format"><span title="Texture Compression in WebGL" class="linkLabel_WmDU">Texture Compression in WebGL</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/webgl-intro"><span title="WebGL Introduction" class="categoryLinkLabel_W154">WebGL Introduction</span></a><button aria-label="展开侧边栏分类 &#x27;WebGL Introduction&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/windows"><span title="Windows" class="categoryLinkLabel_W154">Windows</span></a><button aria-label="展开侧边栏分类 &#x27;Windows&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/windows-store"><span title="Universal Windows Platform" class="categoryLinkLabel_W154">Universal Windows Platform</span></a><button aria-label="展开侧边栏分类 &#x27;Universal Windows Platform&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/unity/platform-specific/xcode-frame-debugger-integration"><span title="Xcode frame debugger Unity integration" class="linkLabel_WmDU">Xcode frame debugger Unity integration</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/scripting-section"><span title="脚本" class="categoryLinkLabel_W154">脚本</span></a><button aria-label="展开侧边栏分类 &#x27;脚本&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/search-overview"><span title="Unity Search" class="categoryLinkLabel_W154">Unity Search</span></a><button aria-label="展开侧边栏分类 &#x27;Unity Search&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/uitoolkits"><span title="Create user interfaces (UI)" class="categoryLinkLabel_W154">Create user interfaces (UI)</span></a><button aria-label="展开侧边栏分类 &#x27;Create user interfaces (UI)&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/unet"><span title="多玩家和联网" class="categoryLinkLabel_W154">多玩家和联网</span></a><button aria-label="展开侧边栏分类 &#x27;多玩家和联网&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/unity/unity-manual"><span title="Unity User Manual 2022.1" class="linkLabel_WmDU">Unity User Manual 2022.1</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/unity-overview"><span title="在 Unity 中操作" class="categoryLinkLabel_W154">在 Unity 中操作</span></a><button aria-label="展开侧边栏分类 &#x27;在 Unity 中操作&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/unity-services"><span title="Unity 服务" class="categoryLinkLabel_W154">Unity 服务</span></a><button aria-label="展开侧边栏分类 &#x27;Unity 服务&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/unity2d"><span title="2D" class="categoryLinkLabel_W154">2D</span></a><button aria-label="展开侧边栏分类 &#x27;2D&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/video-player"><span title="视频概述" class="categoryLinkLabel_W154">视频概述</span></a><button aria-label="展开侧边栏分类 &#x27;视频概述&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/unity/WhatsNew20221"><span title="New in Unity 2022.1" class="linkLabel_WmDU">New in Unity 2022.1</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/xr"><span title="XR" class="categoryLinkLabel_W154">XR</span></a><button aria-label="展开侧边栏分类 &#x27;XR&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="页面路径"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="主页面" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/unity/platform-specific"><span>平台开发</span></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/unity/webgl"><span>WebGL</span></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/unity/webgl-gettingstarted"><span>Getting started with WebGL development</span></a></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">WebGL Player 设置</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>WebGL Player 设置</h1></header>
+<p>This page details the  <strong>Player</strong>  settings specific to the WebGL platform. For a description of the general  <strong>Player</strong>  settings, see <a class="" href="/unity/class-player-settings">Player</a> settings.</p>
+<p><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/class-PlayerSettingsWebGL.png" alt="WebGL Player 设置" class="img_ev3q"></p>
+<p>WebGL Player 设置</p>
+<p>您可以在以下部分找到这些属性的文档：</p>
+<ul>
+<li class=""><a href="#resolution-and-presentation" class="">Resolution and Presentation</a></li>
+<li class=""><a href="#splash-image" class="">Splash Image</a></li>
+<li class=""><a href="#other-settings" class="">Other Settings</a></li>
+<li class=""><a href="#publishing-settings" class="">Publishing Settings</a></li>
+</ul>
+<p><strong>Note:</strong>  Although the  <strong>Icon</strong>  panel appears on the WebGL  <strong>Player</strong>  settings, there are no icon settings because WebGL games do not use icons.</p>
+<p>For more information about WebGL  <strong>Publishing Settings</strong> , see <a class="" href="/unity/webgl-building">WebGL Building and Running</a>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="resolution-and-presentation">Resolution and Presentation<a href="#resolution-and-presentation" class="hash-link" aria-label="Resolution and Presentation的直接链接" title="Resolution and Presentation的直接链接" translate="no">​</a></h2>
+<p>此部分可以自定义屏幕模式和默认大小。</p>
+<p><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/WebGLResolutionandPresentationWindow.png" alt="Resolution section for the WebGL Player platform" class="img_ev3q"></p>
+<p>Resolution section for the WebGL Player platform</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="分辨率">分辨率<a href="#分辨率" class="hash-link" aria-label="分辨率的直接链接" title="分辨率的直接链接" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong>设置</strong></th><th><strong>功能</strong></th></tr></thead><tbody><tr><td><strong>Default Canvas Width</strong></td><td>设置 WebGL 画布元素的宽度。</td></tr><tr><td><strong>Default Canvas Height</strong></td><td>设置 WebGL 画布元素的高度。</td></tr><tr><td><strong>Run In Background</strong></td><td>启用此选项将允许您的内容将在画布或浏览器窗口失去焦点时继续运行。</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="webgl-template">WebGL Template<a href="#webgl-template" class="hash-link" aria-label="WebGL Template的直接链接" title="WebGL Template的直接链接" translate="no">​</a></h3>
+<p>选择要用于 WebGL 项目的模板：</p>
+<ul>
+<li class=""><strong>Default</strong>  页面是一个简单的白色页面，其中的灰色画布上有一个加载进度条。</li>
+<li class=""><strong>Minimal</strong>  页面只有必要的样板代码来运行 WebGL 内容。</li>
+<li class="">The  <strong>PWA</strong>  page has a  <strong>Progressive Web App</strong>  including a web manifest file and service worker code.</li>
+</ul>
+<p>您可以指定自己的模板，以便在与之前完成的游戏类似的环境中运行游戏。遵循<a class="" href="/unity/webgl-building-distribution/webgl-templates">使用 WebGL 模板</a>中的说明。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="splash-image">Splash Image<a href="#splash-image" class="hash-link" aria-label="Splash Image的直接链接" title="Splash Image的直接链接" translate="no">​</a></h2>
+<p>Use the  <strong>Virtual Reality Splash Image</strong>  setting to select a custom splash image for <a class="" href="/unity/xr">XR</a> displays. For information on common Splash Screen settings, see <a class="" href="/unity/class-player-settings/class-player-settings-splash-screen">Splash Screen</a>.</p>
+<p><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/PlayerSetPCSplash.png" alt="Splash screen settings for virtual reality." class="img_ev3q"></p>
+<p>Splash screen settings for virtual reality.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="other-settings">Other Settings<a href="#other-settings" class="hash-link" aria-label="Other Settings的直接链接" title="Other Settings的直接链接" translate="no">​</a></h2>
+<p>此部分可以自定义一系列选项，这些选项分为以下几组：</p>
+<ul>
+<li class=""><a href="#rendering" class="">Rendering</a></li>
+<li class=""><a href="#%E9%85%8D%E7%BD%AE" class="">Configuration</a></li>
+<li class=""><a href="#shader-variant-loading" class="">Shader Variant Loading</a></li>
+<li class=""><a href="#optimization" class="">Optimization</a></li>
+<li class=""><a href="#stack-trace" class="">Stack Trace</a></li>
+<li class=""><a href="#legacy" class="">Legacy</a></li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="rendering">Rendering<a href="#rendering" class="hash-link" aria-label="Rendering的直接链接" title="Rendering的直接链接" translate="no">​</a></h3>
+<p>使用这些设置可自定义 Unity 针对 WebGL 平台渲染游戏的方式。</p>
+<p><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/PlayerSetWebGLOther-Rendering.png" alt="WebGL 平台的 Rendering Player 设置" class="img_ev3q"></p>
+<p>WebGL 平台的 Rendering Player 设置</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong>设置</strong></th><th><strong>功能</strong></th></tr></thead><tbody><tr><td><strong>Color Space</strong></td><td>Choose what color space to use for rendering: <em>Gamma</em> or <em>Linear</em>. <br>See <a class="" href="/unity/linear-lighting">Linear rendering overview</a> for an explanation of the difference between the two.</td></tr><tr><td><strong>Auto Graphics API</strong></td><td>Disable this option to manually pick and reorder the graphics APIs. By default this option is enabled, and Unity includes WebGL2.0, with WebGL1.0 as a fallback for devices where WebGL2.0 isn’t supported.</td></tr><tr><td><strong>Static Batching</strong></td><td>启用此选项可使用静态批处理。</td></tr><tr><td><strong>Dynamic Batching</strong></td><td>选中此复选框可在构建中使用<a class="" href="/unity/draw-call-batching">动态批处理</a>（默认情况下启用）。</td></tr><tr><td><strong>Graphics Jobs</strong></td><td>Enable this option to instruct Unity to offload graphics tasks (render loops) to worker threads running on other CPU cores. Use it to reduce the time spent in <code>Camera.Render</code> on the main thread, which is often a bottleneck. <br> <strong>Note:</strong>  This feature is experimental. It may not deliver a performance improvement for your project, and may introduce new crashes.</td></tr><tr><td><strong>Texture compression format</strong></td><td>Choose <em>DXT</em>, <em>ETC2</em> or <em>ASTC</em> to set the texture compression format for WebGL. See <a class="" href="/unity/texture-compression-formats/class-texture-importer-override#default-texture-formats-by-platform">Texture compression format overview</a> for more information on how to pick the right format.</td></tr><tr><td><strong>Lightmap Encoding</strong></td><td>选择 <em>Low Quality</em>、<em>Normal Quality</em> 或 <em>High Quality</em> 来设置光照贴图编码。此设置影响光照贴图的编码方案和压缩格式。</td></tr><tr><td><strong>HDR Cubemap Encoding</strong></td><td>Choose <em>Low Quality</em>, <em>Normal Quality</em>, or <em>High Quality</em> to set the HDR Cubemap encoding. This setting affects the encoding scheme and compression format of the HDR Cubemaps.</td></tr><tr><td><strong>Lightmap Streaming Enabled</strong></td><td>Whether to use <a class="" href="/unity/texture-mipmaps/texture-streaming">Mipmap Streaming</a> for lightmaps. Unity applies this setting to all lightmaps when it generates them.<br> <strong>Note:</strong>  To use this setting, you must enable the <a class="" href="/unity/comp-manager-group/class-quality-settings">Texture Streaming Quality</a> setting.</td></tr><tr><td><strong>Streaming Priority</strong></td><td>Set the priority for all lightmaps in the <a class="" href="/unity/texture-mipmaps/texture-streaming">Mipmap Streaming system</a>. Unity applies this setting to all lightmaps when it generates them.<br>Positive numbers give higher priority. Valid values range from —128 to 127.</td></tr><tr><td><strong>Frame Timing Stats</strong></td><td>启用此选项可收集 CPU/GPU 帧时序统计信息。</td></tr><tr><td><strong>Virtual Texturing</strong></td><td>Indicates whether to enable <a class="" href="/unity/svt-streaming-virtual-texturing">Virtual Texturing</a>.<br> <strong>Note</strong> : The Unity Editor requires a restart for this setting to take effect.</td></tr><tr><td><strong>Shader precision model</strong></td><td>Controls the default precision of samplers used in shaders. See <a class="" href="/unity/sl-shader-programs/sl-data-types-and-precision#%E7%BA%B9%E7%90%86-%E9%87%87%E6%A0%B7%E5%99%A8%E7%B1%BB%E5%9E%8B">Shader data types and precision</a> for more details.</td></tr><tr><td><strong>360 Stereo Capture</strong></td><td>Indicates whether Unity can capture stereoscopic 360 images and videos. When enabled, Unity compiles additional shader variants to support 360 capture (currently only on Windows/OSX). When enabled, <em>enable_360_capture</em> keyword is added during the <a href="https://docs.unity3d.com/cn/2022.1/ScriptReference/Camera.RenderToCubemap.html" target="_blank" rel="noopener noreferrer" class="">Stereo RenderCubemap call</a>. Note that this keyword isn’t triggered outside the <code>Stereo RenderCubemap</code> function. For more information, see <a href="https://blog.unity.com/technology/stereo-360-image-and-video-capture" target="_blank" rel="noopener noreferrer" class="">Stereo 360 Image and Video Capture</a>.</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="配置">配置<a href="#配置" class="hash-link" aria-label="配置的直接链接" title="配置的直接链接" translate="no">​</a></h3>
+<p><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/PlayerSetWebGLOther-Config.png" alt="WebGL 平台的 Configuration 设置" class="img_ev3q"></p>
+<p>WebGL 平台的 Configuration 设置</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong>Property</strong></th><th><strong>Description</strong></th></tr></thead><tbody><tr><td><strong>Scripting Backend</strong></td><td>Choose the scripting backend you want to use. The scripting backend determines how Unity compiles and executes C# code in your Project.</td></tr><tr><td>-&gt; <em>Mono</em></td><td>Compiles C# code into .NET Common Intermediate Language (CIL) and executes that CIL using a Common Language Runtime. For more information, see <a class="" href="/unity/scripting-backends/mono">Mono</a>.</td></tr><tr><td>-&gt; <em>IL2CPP</em></td><td>Compiles C# code into CIL, converts the CIL to C++ and then compiles that C++ into native machine code, which executes directly at run time. See <a class="" href="/unity/il2cpp">IL2CPP</a> for more information.</td></tr><tr><td><strong>API Compatibility Level</strong></td><td>Choose which .NET APIs you can use in your project. This setting can affect compatibility with third-party libraries. However, it has no effect on Editor-specific code (code in an Editor directory, or within an Editor-specific Assembly Definition).<br><br> <strong>Tip:</strong>  If you are having problems with a third-party assembly, you can try the suggestion in the <a href="#api-compatibility-level" class="">API Compatibility Level</a> section below.</td></tr><tr><td>-&gt; <em>.Net Standard</em></td><td>Compatible with <a href="https://docs.microsoft.com/en-us/dotnet/standard/net-standard" target="_blank" rel="noopener noreferrer" class="">.NET Standard 2.0</a>. Produces smaller builds and has full cross-platform support.</td></tr><tr><td>-&gt; <em>.Net Framework</em></td><td>Compatible with the .NET Framework 4 (which includes everything in the .NET Standard 2.0 profile as well as additional APIs). Choose this option when usng libraries that access APIs not included in .NET Standard 2.0. Produces larger builds and any additional APIs available are not necessarily supported on all platforms. See <a class="" href="/unity/overview-of-dot-net-in-unity/dotnet-profile-assemblies">Referencing additional class library assemblies</a> for more information.</td></tr><tr><td><strong>IL2CPP Code Generation</strong></td><td>Defines how Unity manages IL2CPP code generation. This option is only available if you use the IL2CPP scripting backend.</td></tr><tr><td>-&gt; <em>Faster runtime</em></td><td>Generates code optimized for runtime performance. This setting is enabled by default.</td></tr><tr><td>-&gt; <em>Faster (smaller) builds)</em></td><td>Generates code optimized for build size and iteration. This setting generates less code and produces a smaller build, but may reduce runtime performance, especially for generic code. Use this option when faster build times are important, such as when iterating on changes.</td></tr><tr><td><strong>C++ Compiler Configuration</strong></td><td>Choose the C++ compiler configuration used when compiling IL2CPP generated code.<br> <strong>Note:</strong>  This property is disabled unless  <strong>Scripting Backend</strong>  is set to <em>IL2CPP</em>.</td></tr><tr><td><strong>Use incremental GC</strong></td><td>Uses the incremental garbage collector, which spreads garbage collection over several frames to reduce garbage collection-related spikes in frame duration. For more information, see <a class="" href="/unity/performance-memory-overview/performance-managed-memory">Automatic Memory Management</a>.</td></tr><tr><td><strong>Allow downloads over HTTP</strong></td><td>Indicates whether to allow downloading content over HTTP. The options are  <strong>Not allowed</strong> ,  <strong>Allowed in Development builds only</strong> , and  <strong>Always allowed</strong> . The default option is  <strong>Not allowed</strong>  due to the recommended protocol being HTTPS, which is more secure.</td></tr><tr><td><strong>Active Input Handling</strong></td><td>Chooses how to handle input from users.</td></tr><tr><td>-&gt; <em>Input Manager (old)</em></td><td>Use the default <a class="" href="/unity/input/class-input-manager">Input</a> window.</td></tr><tr><td>-&gt; <em>Input System (Preview)</em></td><td>Use the newer <a href="https://docs.unity3d.com/cn/2022.1/ScriptReference/Input.html" target="_blank" rel="noopener noreferrer" class="">Input</a> system. The Input System is provided as a preview package for this release. To try a preview of the Input System, install the <a href="https://github.com/Unity-Technologies/InputSystem" target="_blank" rel="noopener noreferrer" class="">InputSystem package</a>.</td></tr><tr><td>-&gt; <em>Both</em></td><td>Use both systems side by side.</td></tr></tbody></table>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="shader-variant-loading">Shader Variant Loading<a href="#shader-variant-loading" class="hash-link" aria-label="Shader Variant Loading的直接链接" title="Shader Variant Loading的直接链接" translate="no">​</a></h4>
+<p>Use these settings to control how much memory shaders use at runtime.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong>设置</strong></th><th><strong>功能</strong></th></tr></thead><tbody><tr><td><strong>Default chunk size (MB)</strong></td><td>Sets the maximum size of compressed shader variant data chunks Unity stores in your built application for all platforms. The default is <code>16</code>. See <a class="" href="/unity/shaders-overview/shader-loading#control-how-much-memory-shaders-use">Shader loading</a> for more information.</td></tr><tr><td><strong>Default chunk count</strong></td><td>Sets the default limit on how many decompressed chunks Unity keeps in memory on all platforms. The default is <code>0</code>, which means there’s no limit.</td></tr><tr><td><strong>Override</strong></td><td>Enables overriding  <strong>Default chunk size</strong>  and  <strong>Default chunk count</strong>  for this build target.</td></tr><tr><td><strong>Chunk size (MB)</strong></td><td>Overrides the value of  <strong>Default chunk size (MB)</strong>  on this build target.</td></tr><tr><td><strong>Chunk count</strong></td><td>Overrides the value of  <strong>Default chunk count</strong>  on this build target.</td></tr></tbody></table>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="api-compatibility-level">API Compatibility Level<a href="#api-compatibility-level" class="hash-link" aria-label="API Compatibility Level的直接链接" title="API Compatibility Level的直接链接" translate="no">​</a></h4>
+<p>You can choose your mono API compatibility level for all targets. Sometimes a 3rd-party .NET library uses functionality that’s outside of your .NET compatibility level. To understand what’s going on in such cases, and how to best fix it, try following these suggestions:</p>
+<ol>
+<li class="">Install <a href="https://www.microsoft.com/en-us/p/ilspy/9mxfbkfvsq13?cid=msft_web_chart&amp;activetab=pivot:overviewtab" target="_blank" rel="noopener noreferrer" class="">ILSpy</a> for Windows.</li>
+<li class="">Drag the .NET assemblies for the API compatilibity level that you are having issues with into ILSpy. You can find the problematic files under <code>Frameworks/Mono/lib/mono/YOURSUBSET/</code>.</li>
+<li class="">拖入第三方程序集。</li>
+<li class="">右键单击第三方程序集并选择  <strong>Analyze</strong> 。</li>
+<li class="">在分析报告中，检查  <strong>Depends on</strong>  部分。此报告以红色突出显示第三方程序集所依赖的但在您选择的 .NET 兼容性级别中不可用的任何内容。</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="script-compilation">Script Compilation<a href="#script-compilation" class="hash-link" aria-label="Script Compilation的直接链接" title="Script Compilation的直接链接" translate="no">​</a></h3>
+<p><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/ProjectSettingsScriptCompilation.png" alt="WebGL 平台的脚本编译设置" class="img_ev3q"></p>
+<p>WebGL 平台的脚本编译设置</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong>设置</strong></th><th><strong>功能</strong></th></tr></thead><tbody><tr><td><strong>Scripting Define Symbols</strong></td><td>Set custom compilation flags. For more details, see the documentation on <a class="" href="/unity/platform-dependent-compilation">Platform dependent compilation</a>.</td></tr><tr><td><strong>Additional Compiler Arguments</strong></td><td>Add entries to this list to pass additional arguments to the Roslyn compiler. Use one new entry for each additional argument.<br>To create a new entry, press the ‘+’ button. To remove an entry, press the ‘-’ button.<br>When you have added all desired arguments, click the  <strong>Apply</strong>  button to include your additional arguments in future compilations. The  <strong>Revert</strong>  button resets this list to the most recent applied state.</td></tr><tr><td><strong>Suppress Common Warnings</strong></td><td>Disable this setting to display the C# warnings <a href="https://docs.microsoft.com/en-us/dotnet/csharp/misc/cs0169" target="_blank" rel="noopener noreferrer" class="">CS0169</a> and <a href="https://docs.microsoft.com/en-us/dotnet/csharp/misc/CS0649" target="_blank" rel="noopener noreferrer" class="">CS0649</a>.</td></tr><tr><td><strong>Allow ‘unsafe’ Code</strong></td><td>允许在预定义的程序集（例如，<code>Assembly-CSharp.dll</code>）中编译<a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/unsafe" target="_blank" rel="noopener noreferrer" class="">“不安全”的 C# 代码</a>。<br>对于程序集定义文件 (<code>.asmdef</code>)，请单击其中一个 <code>.asmdef</code> 文件，并在出现的 Inspector 窗口中启用该选项。</td></tr><tr><td><strong>Use Deterministic Compilation</strong></td><td>Disable this setting to prevent compilation with the -deterministic C# flag. With this setting enabled, compiled assemblies are byte-for-byte identical each time they’re compiled.<br>For more information, see Microsoft’s <a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/compiler-options/deterministic-compiler-option" target="_blank" rel="noopener noreferrer" class="">deterministic compiler option documentation</a>.</td></tr><tr><td><strong>Enable Roslyn Analyzers</strong></td><td>Disable this setting to compile user-written scripts without Roslyn analyzer DLLs that might be present in your project.</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="optimization">Optimization<a href="#optimization" class="hash-link" aria-label="Optimization的直接链接" title="Optimization的直接链接" translate="no">​</a></h3>
+<p><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/PlayerSetWebGLOther-Optimization.png" alt="WebGL 平台的 Optimization 设置" class="img_ev3q"></p>
+<p>WebGL 平台的 Optimization 设置</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong>Property</strong></th><th><strong>Description</strong></th></tr></thead><tbody><tr><td><strong>Prebake Collision Meshes</strong></td><td>Adds collision data to <a class="" href="/unity/mesh/class-mesh">Meshes</a> at build time.</td></tr><tr><td><strong>Keep Loaded Shaders Alive</strong></td><td>Indicates whether to prevent shaders from being unloaded. <br><br>For more information, see <a class="" href="/unity/shaders-overview/shader-loading">Shader Loading</a>.</td></tr><tr><td><strong>Preloaded Assets</strong></td><td>Sets an array of Assets for the player to load on startup. <br>To add new Assets, increase the value of the  <strong>Size</strong>  property and then set a reference to the Asset to load in the new  <strong>Element</strong>  box that appears.</td></tr><tr><td><strong>AOT compilation options</strong></td><td>Additional options for Ahead of Time (AOT) compilation. This helps <a class="" href="/unity/iphone-performance/iphone-player-size-optimization">optimize the size of the built iOS player</a>.</td></tr><tr><td><strong>Strip Engine Code</strong></td><td>Enable this option if you want the Unity Linker tool to remove code for Unity Engine features that your Project doesn’t use. This setting is only available with the IL2CPP scripting backend.<br><br>Most apps don’t use every available DLL. This option strips out DLLs that your app doesn’t use to reduce the size of the built Player. If your app is using one or more classes that would normally be stripped out under your current settings, Unity displays a debug message when you try to build the app.</td></tr><tr><td><strong>Managed Stripping Level</strong></td><td>Chooses how aggressively Unity strips unused managed (C#) code. The options are  <strong>Minimal</strong> ,  <strong>Low</strong> ,  <strong>Medium</strong> , and  <strong>High</strong> . <br>When Unity builds your app, the Unity Linker process can strip unused code from the managed DLLs your Project uses. Stripping code can make the resulting executable significantly smaller, but can sometimes accidentally remove code that’s in use. <br><br>For more information about these options and bytecode stripping with IL2CPP, see <a href="https://docs.unity3d.com/cn/2022.1/ScriptReference/ManagedStrippingLevel.html" target="_blank" rel="noopener noreferrer" class="">ManagedStrippingLevel</a>.</td></tr><tr><td><strong>Vertex Compression</strong></td><td>Sets vertex compression per channel. This affects all the meshes in your project. <br>Typically, Vertex Compression is used to reduce the size of mesh data in memory, reduce file size, and improve GPU performance. <br><br>For more information on how to configure vertex compression and limitations of this setting, see <a class="" href="/unity/mesh/mesh-compression">Compressing mesh data</a>.</td></tr><tr><td><strong>Optimize Mesh Data</strong></td><td>Enable this option to strip unused vertex attributes from the mesh used in a build. This option reduces the amount of data in the mesh, which can help reduce build size, loading times, and runtime memory usage. <br><br>  <strong>Warning:</strong>  If you have this setting enabled, you should remember to not change material or shader settings at runtime. <br><br> See <a href="https://docs.unity3d.com/cn/2022.1/Manual/PlayerSettings-stripUnusedMeshComponents.html" target="_blank" rel="noopener noreferrer" class="">PlayerSettings.stripUnusedMeshComponents</a> for more information.</td></tr><tr><td><strong>Texture MipMap Stripping</strong></td><td>Enables mipmap stripping for all platforms. This strips unused mipmaps from Textures at build time. Unity determines unused mipmaps by comparing the value of the mipmap against the  <strong>Quality Settings</strong>  for the current platform. If a mipmap value is excluded from every  <strong>Quality Setting</strong>  for the current platform, then Unity strips those mipmaps from the build at build time. If <a href="https://docs.unity3d.com/cn/2022.1/Manual/QualitySettings-masterTextureLimit.html" target="_blank" rel="noopener noreferrer" class="">QualitySettings.masterTextureLimit</a> is set to a mipmap value that has been stripped, Unity will set the value to the closest mipmap value that has not been stripped.</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="stack-trace">Stack Trace<a href="#stack-trace" class="hash-link" aria-label="Stack Trace的直接链接" title="Stack Trace的直接链接" translate="no">​</a></h3>
+<p>Select the logging settings for the WebGL platform.</p>
+<p><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/PlayerSetPCOther-Logging.png" alt="WebGL 平台的 Logging 设置" class="img_ev3q"></p>
+<p>WebGL 平台的 Logging 设置</p>
+<ul>
+<li class="">Select your preferred stack trace method by enabling the option that corresponds to each Log Type ( <strong>Error</strong> ,  <strong>Assert</strong> ,  <strong>Warning</strong> ,  <strong>Log</strong> , and  <strong>Exception</strong> ) based on the type of logging you require. For example: <br>
+<ul>
+<li class=""><strong>ScriptOnly</strong> : Logs only when running scripts.<br></li>
+<li class=""><strong>Full</strong> : Logs all the time. <br></li>
+<li class=""><strong>None</strong> : No logs are ever recorded. <br></li>
+</ul>
+</li>
+</ul>
+<p>See <a class="" href="/unity/scripting-setting-up/stack-trace">stack trace logging</a> for more information.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="legacy">Legacy<a href="#legacy" class="hash-link" aria-label="Legacy的直接链接" title="Legacy的直接链接" translate="no">​</a></h3>
+<p>Enable the  <strong>Clamp BlendShapes (Deprecated)</strong>  option to clamp the range of blend shape weights in <a class="" href="/unity/comp-mesh-group/class-skinned-mesh-renderer">Skinned Mesh Renderers</a>.</p>
+<p><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/PlayerSetPCOther-Legacy.png" alt="WebGL 平台的 Legacy 设置" class="img_ev3q"></p>
+<p>WebGL 平台的 Legacy 设置</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="publishing-settings">Publishing settings<a href="#publishing-settings" class="hash-link" aria-label="Publishing settings的直接链接" title="Publishing settings的直接链接" translate="no">​</a></h2>
+<p>Use the Publishing Settings to configure how Unity builds your WebGL app. For example, you can choose to enable the browser cache to store its files in your build.</p>
+<p><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/WebGLBuilding-PublishingSettings.png" alt="WebGL 平台的 Publishing settings" class="img_ev3q"></p>
+<p>WebGL 平台的 Publishing settings</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong>设置</strong></th><th><strong>功能</strong></th></tr></thead><tbody><tr><td><strong>Enable Exceptions</strong></td><td>选择在运行时如何处理意外的代码行为（通常视为错误）。选项包括：_None*、<em>Explicitly Thrown Exceptions Only</em>、*Full Without Stacktrace_ 和 <em>Full With Stacktrace</em>。有关详细信息，请参阅<a class="" href="/unity/webgl-building">构建和运行 WebGL 项目</a>页面。</td></tr><tr><td><strong>Compression Format</strong></td><td>Choose the compression format to use for release build files. The options are: <em>Gzip</em>, <em>Brotli</em>, or <em>Disabled</em> (none).  <strong>Note:</strong>  This option doesn’t affect development builds.</td></tr><tr><td><strong>Name Files As Hashes</strong></td><td>启用此选项可使用未压缩文件内容的 MD5 哈希作为构建中每个文件的文件名。</td></tr><tr><td><strong>Data caching</strong></td><td>启用此选项可自动将内容资源数据缓存在用户计算机上，这样就不必在后续运行中重新下载（除非内容已更改）。<br>缓存是使用浏览器提供的 IndexedDB API 实现的。有些浏览器可能会对此实施限制，例如要求用户进行授权才能缓存超过特定大小的数据。</td></tr><tr><td><strong>Debug Symbols</strong></td><td>Enable this option to preserve debug symbols and perform demangling (displaying the original function names) of the stack trace when an error occurs. For release builds, all the debug information is stored in a separate file, which you can download from the server on demand when an error occurs.  <strong>Note:</strong>  This option doesn’t affect development builds as by default, dev builds have demangling support embedded in the main module.</td></tr><tr><td><strong>Decompression Fallback</strong></td><td>Include decompression fallback code for build files in the loader. Use this option if you are unable to configure server response headers according to the selected compression method.</td></tr><tr><td><strong>Initial Memory Size</strong></td><td>The initial size of the WASM heap memory in megabytes (MB). By default, this is set to 32 MB. If  <strong>Memory Growth Mode</strong>  is set to  <strong>None</strong> , then this is also the maximum size of WASM heap memory.</td></tr><tr><td><strong>Memory Growth Mode</strong></td><td>Choose the growth mode for the WASM heap memory from the following options. The recommended option is  <strong>Geometric</strong> .</td></tr><tr><td>-&gt; <em>None</em></td><td>The WASM heap memory has a fixed size configured in  <strong>Initial Memory Size</strong> .</td></tr><tr><td>-&gt; <em>Linear</em></td><td>The WASM heap memory increases by a fixed amount configured by  <strong>Linear Memory Growth Step</strong> .</td></tr><tr><td>-&gt; <em>Geometric</em></td><td>The WASM heap memory increases relative to the current heap size depending on the factor configured in  <strong>Geometric Memory Growth Step</strong>  and  <strong>Geometric Memory Growth Cap</strong> .</td></tr><tr><td><strong>Maximum Memory Size</strong></td><td>The maximum size of the WASM heap memory in MB. By default, this is set to 2048 MB. This option is only available for the  <strong>Memory Growth Mode</strong>   <strong>Linear</strong>  or  <strong>Geometric</strong> .</td></tr><tr><td><strong>Linear Memory Growth Step</strong></td><td>Advanced tuning option to control the WASM heap growth step in MB. By default, this is set to 16 MB. A growth step of 16MB indicates that the heap is increased by 16MB each time it needs to grow. Only available if  <strong>Memory Growth Mode</strong>  is set to  <strong>Linear</strong> .</td></tr><tr><td><strong>Geometric Memory Growth Step</strong></td><td>Advanced tuning option to control the WASM heap growth factor relative to the current heap size. By default, this is set to 0.2. A growth factor of 0.2 means that the size of the heap is increased by 0.2 * currentHeapSize each time the heap needs to grow. Only available if  <strong>Memory Growth Mode</strong>  is set to  <strong>Geometric</strong> .</td></tr><tr><td><strong>Geometric Memory Growth Cap</strong></td><td>Advanced tuning option to control the upper limit for a heap growth step in MB. By default, this is set to 96 MB. A growth cap of 96MB means that the size of the heap is increased by at most 96 MB. Only available if  <strong>Memory Growth Mode</strong>  is set to  <strong>Geometric</strong> .</td></tr></tbody></table>
+<hr>
+<ul>
+<li class="">WASM memory options were added in Unity 2022.1.</li>
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/danyow/danyow/edit/main/unity/unity/platform-specific/webgl/webgl-gettingstarted/class-player-settings-web-gl.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>编辑此页</a></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">最后<!-- -->由 <b>danyow</b> <!-- -->于 <b><time datetime="2026-03-18T07:23:55.000Z" itemprop="dateModified">2026年3月18日</time></b> <!-- -->更新</span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="文件选项卡"><a class="pagination-nav__link pagination-nav__link--prev" href="/unity/webgl-gettingstarted"><div class="pagination-nav__sublabel">上一页</div><div class="pagination-nav__label">Getting started with WebGL development</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/unity/webgl-gettingstarted/webgl-technical-overview"><div class="pagination-nav__sublabel">下一页</div><div class="pagination-nav__label">Advanced overview</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#resolution-and-presentation" class="table-of-contents__link toc-highlight">Resolution and Presentation</a><ul><li><a href="#分辨率" class="table-of-contents__link toc-highlight">分辨率</a></li><li><a href="#webgl-template" class="table-of-contents__link toc-highlight">WebGL Template</a></li></ul></li><li><a href="#splash-image" class="table-of-contents__link toc-highlight">Splash Image</a></li><li><a href="#other-settings" class="table-of-contents__link toc-highlight">Other Settings</a><ul><li><a href="#rendering" class="table-of-contents__link toc-highlight">Rendering</a></li><li><a href="#配置" class="table-of-contents__link toc-highlight">配置</a></li><li><a href="#script-compilation" class="table-of-contents__link toc-highlight">Script Compilation</a></li><li><a href="#optimization" class="table-of-contents__link toc-highlight">Optimization</a></li><li><a href="#stack-trace" class="table-of-contents__link toc-highlight">Stack Trace</a></li><li><a href="#legacy" class="table-of-contents__link toc-highlight">Legacy</a></li></ul></li><li><a href="#publishing-settings" class="table-of-contents__link toc-highlight">Publishing settings</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="margin-bottom--sm"><img src="/img/logo.svg" class="footer__logo themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/logo.svg" class="footer__logo themedComponent_mlkZ themedComponent--dark_xIcU"></div><div class="footer__copyright">© 2026 danyow, Inc. 使用 Docusaurus 构建。</div></div></div></footer></div>
+</body>
+</html>

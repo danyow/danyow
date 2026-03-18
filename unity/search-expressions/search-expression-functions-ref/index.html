@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="zh" dir="ltr" class="docs-wrapper plugin-docs plugin-id-unity docs-version-current docs-doc-page docs-doc-id-search-overview/search-expressions/search-expression-functions-ref" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.9.2">
+<title data-rh="true">Functions reference | :D</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://danyow.cn/unity/search-expressions/search-expression-functions-ref"><meta data-rh="true" property="og:locale" content="zh"><meta data-rh="true" name="docusaurus_locale" content="zh"><meta data-rh="true" name="docsearch:language" content="zh"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-unity-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-unity-current"><meta data-rh="true" property="og:title" content="Functions reference | :D"><meta data-rh="true" name="description" content="Functions by category"><meta data-rh="true" property="og:description" content="Functions by category"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://danyow.cn/unity/search-expressions/search-expression-functions-ref"><link data-rh="true" rel="alternate" href="https://danyow.cn/unity/search-expressions/search-expression-functions-ref" hreflang="zh"><link data-rh="true" rel="alternate" href="https://danyow.cn/unity/search-expressions/search-expression-functions-ref" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Unity Search","item":"https://danyow.cn/unity/search-overview"},{"@type":"ListItem","position":2,"name":"Search expressions","item":"https://danyow.cn/unity/search-expressions"},{"@type":"ListItem","position":3,"name":"Functions reference","item":"https://danyow.cn/unity/search-expressions/search-expression-functions-ref"}]}</script><link rel="alternate" type="application/rss+xml" href="/blog/rss.xml" title=":D RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/blog/atom.xml" title=":D Atom Feed"><link rel="stylesheet" href="/assets/css/styles.640272bb.css">
+<script src="/assets/js/runtime~main.50b7b83d.js" defer="defer"></script>
+<script src="/assets/js/main.ca102e2d.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/img/logo.svg"><div role="region" aria-label="跳到主要内容"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">跳到主要内容</a></div><nav aria-label="主导航" class="theme-layout-navbar navbar navbar--fixed-top navbar--primary"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="切换导航栏" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><b class="navbar__title text--truncate">:D</b></a><a class="navbar__item navbar__link" href="/note/itinerary">笔记</a><a class="navbar__item navbar__link" href="/lua/learn">Lua</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/unity/Glossary">Unity</a><a class="navbar__item navbar__link" href="/blog">博客</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/danyow/danyow" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link header-github-link" aria-label="GitHub repository"></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search searchBarContainer_NW3z" dir="ltr"><input placeholder="搜索" aria-label="Search" class="navbar__search-input searchInput_YFbd" value=""><div class="loadingRing_RJI3 searchBarLoadingRing_YnHq"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="回到顶部" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="文档侧边栏" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/animation-section"><span title="动画" class="categoryLinkLabel_W154">动画</span></a><button aria-label="展开侧边栏分类 &#x27;动画&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/asset-store"><span title="Unity Asset Store" class="categoryLinkLabel_W154">Unity Asset Store</span></a><button aria-label="展开侧边栏分类 &#x27;Unity Asset Store&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/asset-workflow"><span title="资源工作流程" class="categoryLinkLabel_W154">资源工作流程</span></a><button aria-label="展开侧边栏分类 &#x27;资源工作流程&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/audio"><span title="音频" class="categoryLinkLabel_W154">音频</span></a><button aria-label="展开侧边栏分类 &#x27;音频&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/creating-environments"><span title="World building" class="categoryLinkLabel_W154">World building</span></a><button aria-label="展开侧边栏分类 &#x27;World building&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/unity/Glossary"><span title="术语表" class="linkLabel_WmDU">术语表</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/graphics"><span title="图形" class="categoryLinkLabel_W154">图形</span></a><button aria-label="展开侧边栏分类 &#x27;图形&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/input"><span title="输入" class="categoryLinkLabel_W154">输入</span></a><button aria-label="展开侧边栏分类 &#x27;输入&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/legacy-topics"><span title="旧版主题" class="categoryLinkLabel_W154">旧版主题</span></a><button aria-label="展开侧边栏分类 &#x27;旧版主题&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/navigation"><span title="导航和寻路" class="categoryLinkLabel_W154">导航和寻路</span></a><button aria-label="展开侧边栏分类 &#x27;导航和寻路&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/packages-list"><span title="Packages and feature sets" class="categoryLinkLabel_W154">Packages and feature sets</span></a><button aria-label="展开侧边栏分类 &#x27;Packages and feature sets&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/physics-section"><span title="物理系统" class="categoryLinkLabel_W154">物理系统</span></a><button aria-label="展开侧边栏分类 &#x27;物理系统&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/platform-specific"><span title="平台开发" class="categoryLinkLabel_W154">平台开发</span></a><button aria-label="展开侧边栏分类 &#x27;平台开发&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/scripting-section"><span title="脚本" class="categoryLinkLabel_W154">脚本</span></a><button aria-label="展开侧边栏分类 &#x27;脚本&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" href="/unity/search-overview"><span title="Unity Search" class="categoryLinkLabel_W154">Unity Search</span></a><button aria-label="折叠侧边栏分类 &#x27;Unity Search&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/api"><span title="Creating a custom Search Provider" class="categoryLinkLabel_W154">Creating a custom Search Provider</span></a><button aria-label="展开侧边栏分类 &#x27;Creating a custom Search Provider&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" tabindex="0" href="/unity/search-expressions"><span title="Search expressions" class="categoryLinkLabel_W154">Search expressions</span></a><button aria-label="折叠侧边栏分类 &#x27;Search expressions&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/unity/search-expressions/search-expression-functions-ref"><span title="Functions reference" class="linkLabel_WmDU">Functions reference</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/search-providers"><span title="Search Providers" class="categoryLinkLabel_W154">Search Providers</span></a><button aria-label="展开侧边栏分类 &#x27;Search Providers&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/unity/search-overview/search-tables"><span title="Search tables" class="linkLabel_WmDU">Search tables</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/search-usage"><span title="Search usage" class="categoryLinkLabel_W154">Search usage</span></a><button aria-label="展开侧边栏分类 &#x27;Search usage&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/uitoolkits"><span title="Create user interfaces (UI)" class="categoryLinkLabel_W154">Create user interfaces (UI)</span></a><button aria-label="展开侧边栏分类 &#x27;Create user interfaces (UI)&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/unet"><span title="多玩家和联网" class="categoryLinkLabel_W154">多玩家和联网</span></a><button aria-label="展开侧边栏分类 &#x27;多玩家和联网&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/unity/unity-manual"><span title="Unity User Manual 2022.1" class="linkLabel_WmDU">Unity User Manual 2022.1</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/unity-overview"><span title="在 Unity 中操作" class="categoryLinkLabel_W154">在 Unity 中操作</span></a><button aria-label="展开侧边栏分类 &#x27;在 Unity 中操作&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/unity-services"><span title="Unity 服务" class="categoryLinkLabel_W154">Unity 服务</span></a><button aria-label="展开侧边栏分类 &#x27;Unity 服务&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/unity2d"><span title="2D" class="categoryLinkLabel_W154">2D</span></a><button aria-label="展开侧边栏分类 &#x27;2D&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/video-player"><span title="视频概述" class="categoryLinkLabel_W154">视频概述</span></a><button aria-label="展开侧边栏分类 &#x27;视频概述&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/unity/WhatsNew20221"><span title="New in Unity 2022.1" class="linkLabel_WmDU">New in Unity 2022.1</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/xr"><span title="XR" class="categoryLinkLabel_W154">XR</span></a><button aria-label="展开侧边栏分类 &#x27;XR&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="页面路径"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="主页面" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/unity/search-overview"><span>Unity Search</span></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/unity/search-expressions"><span>Search expressions</span></a></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Functions reference</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>Functions reference</h1></header>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="functions-by-category">Functions by category<a href="#functions-by-category" class="hash-link" aria-label="Functions by category的直接链接" title="Functions by category的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="set-manipulation">Set manipulation<a href="#set-manipulation" class="hash-link" aria-label="Set manipulation的直接链接" title="Set manipulation的直接链接" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Expression</th><th>描述</th></tr></thead><tbody><tr><td><a href="#distinct" class=""> <strong>distinct</strong> </a><br> {Variadic</td><td>AnyExpression}</td></tr><tr><td><a href="#except" class=""> <strong>except</strong> </a><br> {Iterable, Variadic</td><td>Iterable}</td></tr><tr><td><a href="#first" class=""> <strong>first</strong> </a><br> {Number, Variadic</td><td>Iterable}</td></tr><tr><td><a href="#group-by" class=""> <strong>groupBy</strong> </a><br> {Iterable, Optional</td><td>Selector}</td></tr><tr><td><a href="#intersect" class=""> <strong>intersect</strong> </a><br> {No signature}</td><td>Produces the set intersection of two sequences.</td></tr><tr><td><a href="#last" class=""> <strong>last</strong> </a><br> {Number, Variadic</td><td>Iterable}</td></tr><tr><td><a href="#map" class=""> <strong>map</strong> </a><br> {Iterable, AnyValue}</td><td>Maps an expression result to form a new expression using variables.</td></tr><tr><td><a href="#select" class=""> <strong>select</strong> </a><br> {No signature}</td><td>Creates new results by selecting which value and property to take.</td></tr><tr><td><a href="#sort" class=""> <strong>sort</strong> </a><br> {No signature}</td><td>Sorts expression results based on a criteria.</td></tr><tr><td><a href="#union" class=""> <strong>union</strong> </a><br> {Variadic</td><td>AnyExpression}</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="set-filtering">Set filtering<a href="#set-filtering" class="hash-link" aria-label="Set filtering的直接链接" title="Set filtering的直接链接" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Expression</th><th>描述</th></tr></thead><tbody><tr><td><a href="#eq" class=""> <strong>eq</strong> </a><br> {Iterable, Selector, Literal</td><td>QueryString}</td></tr><tr><td><a href="#gt" class=""> <strong>gt</strong> </a><br> {Iterable, Selector, Literal</td><td>QueryString}</td></tr><tr><td><a href="#gte" class=""> <strong>gte</strong> </a><br> {Iterable, Selector, Literal</td><td>QueryString}</td></tr><tr><td><a href="#lw" class=""> <strong>lw</strong> </a><br> {Iterable, Selector, Literal</td><td>QueryString}</td></tr><tr><td>[ <strong>lwe</strong> ][15]<br> {Iterable, Selector, Literal</td><td>QueryString}</td></tr><tr><td>[ <strong>neq</strong> ][16]<br> {Iterable, Selector, Literal</td><td>QueryString}</td></tr><tr><td>[ <strong>where</strong> ][17]<br> {Iterable, Text</td><td>Selector</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="math">Math<a href="#math" class="hash-link" aria-label="Math的直接链接" title="Math的直接链接" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Expression</th><th>描述</th></tr></thead><tbody><tr><td>[ <strong>avg</strong> ][18]<br> {Selector, Variadic</td><td>Iterable}</td></tr><tr><td>[ <strong>count</strong> ][19]<br> {Variadic</td><td>Iterable}</td></tr><tr><td>[ <strong>max</strong> ][20]<br> {Selector, Variadic</td><td>Iterable}</td></tr><tr><td>[ <strong>min</strong> ][21]<br> {Selector, Variadic</td><td>Iterable}</td></tr><tr><td>[ <strong>sum</strong> ][22]<br> {Selector, Variadic</td><td>Iterable}</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="utility">Utility<a href="#utility" class="hash-link" aria-label="Utility的直接链接" title="Utility的直接链接" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Expression</th><th>描述</th></tr></thead><tbody><tr><td>[ <strong>alias</strong> ][23]<br> {Iterable, Text</td><td>Selector</td></tr><tr><td>[ <strong>constant</strong> ][24] <br>{Literal</td><td>Function}</td></tr><tr><td>[ <strong>format</strong> ][25]<br> {Text</td><td>Selector, Variadic</td></tr><tr><td>[ <strong>print</strong> ][26]<br> {Text</td><td>Selector, Variadic</td></tr><tr><td>[ <strong>query</strong> ][27]<br> {No signature}</td><td>Hints: ExpandSupported</td></tr><tr><td>[ <strong>random</strong> ][28]<br> {Variadic</td><td>Iterable}</td></tr><tr><td>[ <strong>set</strong> ][29]<br> {Variadic</td><td>Iterable}</td></tr><tr><td>[ <strong>text</strong> ][30]<br> {No signature}</td><td>Converts the text of any expression to a literal string.</td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="functions-in-alphabetical-order">Functions in alphabetical order<a href="#functions-in-alphabetical-order" class="hash-link" aria-label="Functions in alphabetical order的直接链接" title="Functions in alphabetical order的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="alias">alias<a href="#alias" class="hash-link" aria-label="alias的直接链接" title="alias的直接链接" translate="no">​</a></h3>
+<p><code>alias{set, aliasName} -&amp;gt; {each element in set gets assigned an aliasName}</code></p>
+<p><code>alias{set, formatString} -&amp;gt; {each element in set gets assigned an alias computed from the formatString}</code></p>
+<p>This function effectively assigns an alias to an expression. This is equivalent to using the “as” keyword. See also [alias usage][31].</p>
+<p>示例：</p>
+<p><code>count{t:material as material}</code> is equivalent to:</p>
+<p><code>count{alias{t:material, material}}</code></p>
+<p>示例：</p>
+<p>Assign the alias “number” to the elements: 1, 2 and 3.</p>
+<p><code>alias{[1, 2, 3], &#x27;number&#x27;}</code></p>
+<p>示例：</p>
+<p>Assign and alias dynamically computed from a format string to 1,2 and 3:</p>
+<p><code>alias{[1,2,3], &#x27;number @value}&#x27;}</code></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="avg">avg<a href="#avg" class="hash-link" aria-label="avg的直接链接" title="avg的直接链接" translate="no">​</a></h3>
+<p><code>avg{selector, sets...} -&amp;gt; {Average of selector value in each set}</code></p>
+<p><code>avg{set...} -&amp;gt; {Average of @value in each set}</code></p>
+<p>Find the average value of each item in each set passed as parameters.</p>
+<p>示例：</p>
+<p><code>avg{[1,2,3,4, 5,6], [1, 1, 1], []} -&amp;gt; {3.5, 1, 1}</code></p>
+<p>示例：</p>
+<p><code>avg{@size, t:texture, t:material} -&amp;gt; {1100576, 3618}</code></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="constant">constant<a href="#constant" class="hash-link" aria-label="constant的直接链接" title="constant的直接链接" translate="no">​</a></h3>
+<p><code>constant{value} -&amp;gt; {constant value}</code></p>
+<p>Attempts to convert the value to a constant literal value: either a number, string, or Boolean. This can use used to disambiguate parameter types in some functions.</p>
+<p>示例：</p>
+<p><code>first{constant{5}, t:material}</code></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="count">count<a href="#count" class="hash-link" aria-label="count的直接链接" title="count的直接链接" translate="no">​</a></h3>
+<p><code>count{sets...} -&amp;gt; {count of each set}</code></p>
+<p>Counts the number of results in each set passed as parameters.</p>
+<p>示例：</p>
+<p><code>count{t:texture, t:material} -&amp;gt; {359, 194}</code></p>
+<p>示例：</p>
+<p>From the index named “assets”, group assets by type and count each of those asset groups. Take the five largest groups.</p>
+<p><code>first{5, sort{count{...groupBy{a:assets, @type}}, @value, desc}}</code></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="distinct">distinct<a href="#distinct" class="hash-link" aria-label="distinct的直接链接" title="distinct的直接链接" translate="no">​</a></h3>
+<p><code>distinct{sets...} -&amp;gt; {Unified set of all unique elements in all sets}</code></p>
+<p>Distinct creates a set of all elements found in all sets passed as parameters. Like union, no duplicate elements are kept.</p>
+<p>Example: This example shows that duplicates are removed.</p>
+<p><code>distinct{[1,2,3], [3,4,5]} -&amp;gt; {1,2,3,4,5}</code></p>
+<p>示例：</p>
+<p><code>distinct{*.mat, t:shader} -&amp;gt; {all materials and shaders in the project}</code></p>
+<p>示例：</p>
+<p>Select the <code>@type</code> of each asset in the index named “project” and keep a single asset of each type since duplicates are computed according to the <code>@value</code> of an item.</p>
+<p><code>distinct{select{a:project, @type}}</code></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="eq">eq<a href="#eq" class="hash-link" aria-label="eq的直接链接" title="eq的直接链接" translate="no">​</a></h3>
+<p><code>eq{set, value} -&amp;gt; {all elements equal to value}</code></p>
+<p><code>eq{set, selector, value} -&amp;gt; {all selector value equal to value}</code></p>
+<p>Filters a set of element by keeping those equal to a given value.</p>
+<p>示例：</p>
+<p><code>eq{[2,4,5,6,4,3], 4} -&amp;gt; {4,4}</code></p>
+<p>this is equivalent to:</p>
+<p><code>where{[2,4,5,6,4,3], &quot;@value=4&quot;}</code></p>
+<p>示例：</p>
+<p>Find all textures with a <code>#width</code> serialized property of 256.</p>
+<p><code>eq{t:texture, #width, 256}</code></p>
+<p>this is equivalent to</p>
+<p><code>t:texture #width=256</code></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="except">except<a href="#except" class="hash-link" aria-label="except的直接链接" title="except的直接链接" translate="no">​</a></h3>
+<p><code>except{set, sets...} -&amp;gt; {New set of elements}</code></p>
+<p>Except creates a set of all elements that are not in any of the sets passed as parameters.</p>
+<p>示例：</p>
+<p><code>except{[1,2,3,4,5], [2,3], [5], [6]} -&amp;gt; {1,4}</code></p>
+<p>示例：</p>
+<p><code>except{t:prefab, t:prefab ref=select{t:texture, @path}}</code></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="first">first<a href="#first" class="hash-link" aria-label="first的直接链接" title="first的直接链接" translate="no">​</a></h3>
+<p><code>first{sets...} -&amp;gt; {all first element in each sets}</code></p>
+<p><code>first{count, sets...} -&amp;gt; {first count elements in each sets}</code></p>
+<p>First returns a set of the first element found in each set passed as a parameter. If <code>count</code> is passed as parameter, will take the first count element in each set.</p>
+<p>示例：</p>
+<p><code>first{[3, 4,5], [9, 28, 3]} -&amp;gt; {3,9}</code></p>
+<p>示例：</p>
+<p><code>first{3, [9, 28, 3, 4, 6, 7, 8, 9], [1, 2, 3, 4, 5, 6, 7]} -&amp;gt; {9, 28, 3, 1, 2, 3}</code></p>
+<p>示例：</p>
+<p>Sort all .fbx files in the project by descending order of size and show the three largest.</p>
+<p><code>first{3,sort{*.fbx, @size, desc}}</code></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="format">format<a href="#format" class="hash-link" aria-label="format的直接链接" title="format的直接链接" translate="no">​</a></h3>
+<p><code>format{expression} -&amp;gt; {set of items where the value is converted to a string}</code></p>
+<p><code>format{formatString, expression} -&amp;gt; {set of items where the value is set by applying a format string}</code></p>
+<p>Format can be used in two ways. When only a single expression argument is used it will try to convert the current <code>@value</code> of an item to a string representation.</p>
+<p>If format is used with a format string, it will replace all selectors in the format string with the selected value of the item and set this formatted string in the <code>@value</code> of the item.</p>
+<p>示例：</p>
+<p><code>print{format{&quot;value=@value&quot;, [1,2,3,4]}}</code> would print [“value=1”,“value=2”,“value=3”,“value=4”] in the Console window.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="groupby">groupBy<a href="#groupby" class="hash-link" aria-label="groupBy的直接链接" title="groupBy的直接链接" translate="no">​</a></h3>
+<p><code>groupBy{set, selector}</code> -&gt; <code>{multiple sets of items grouped by their selector}</code></p>
+<p>示例：</p>
+<p>To count the number of assets for each type in a project, the <code>groupBy</code> function coupled with the Expand Operator allows you to automatically group items according to a selector. In the example below it creates a set of items of the same types. The [Expand Operator][32] allows you to expand this set of items into multiple sets of the same type.</p>
+<p><code>count{...groupBy{a:assets, @type}}</code> -&gt; <code>{numberOfAssetType1, numberOfAssetType2, .. numberOfAssetTypeN}</code></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="gt">gt<a href="#gt" class="hash-link" aria-label="gt的直接链接" title="gt的直接链接" translate="no">​</a></h3>
+<p><code>gt{set, value} -&amp;gt; {all elements greater than value}</code></p>
+<p><code>gt{set, selector, value} -&amp;gt; {all elements with selector value greater than value}</code></p>
+<p>Filters a set of elements by keeping those greater than a given value.</p>
+<p>示例：</p>
+<p><code>gt{[2,4,5,6,4,3], 4} -&amp;gt; {5,6}</code></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="gte">gte<a href="#gte" class="hash-link" aria-label="gte的直接链接" title="gte的直接链接" translate="no">​</a></h3>
+<p><code>gte{set, value} -&amp;gt; {all elements greater or equal than value}</code></p>
+<p><code>gte{set, selector, value} -&amp;gt; {all with a selector value greater or equal than value}</code></p>
+<p>Filters a set of element by keeping those greater than or equal to a given value.</p>
+<p>示例：</p>
+<p><code>gte{[2,4,5,6,4,3], 4} -&amp;gt; {4,5,6,4}</code></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="intersect">intersect<a href="#intersect" class="hash-link" aria-label="intersect的直接链接" title="intersect的直接链接" translate="no">​</a></h3>
+<p><code>intersect{sets...} -&amp;gt; {elements that are in all sets}</code></p>
+<p><code>intersect{sets…, selector} -&amp;gt; {elements whose selector value is contained in all sets}</code></p>
+<p>Intersect creates a new set of elements whose <code>@value</code> is contained in all sets. If a selector is passed as parameter the selector value is used to compare elements.</p>
+<p>示例：</p>
+<p><code>intersect{[1,2,3,4,5], [3, 5], [6, 3]} -&amp;gt; {3}</code></p>
+<p>示例：</p>
+<p>Find all textures whose size is bigger than 4000 bytes and intersect with all textures whose path contains the word “rock”.</p>
+<p><code>intersect{t:texture size&amp;gt;4000, t:texture @path:rock}</code></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="last">last<a href="#last" class="hash-link" aria-label="last的直接链接" title="last的直接链接" translate="no">​</a></h3>
+<p><code>last{sets...} -&amp;gt; {all last element in each sets}</code></p>
+<p><code>last{count, sets...} -&amp;gt; {last count elements in each sets}</code></p>
+<p>Last returns a set of the last element found in each set passed as parameter. If <code>count</code> is passed as parameter, will take the last count elements in each set.</p>
+<p>示例：</p>
+<p><code>last{[3, 4,5], [9, 28, 3]} -&amp;gt; {5, 3}</code></p>
+<p>示例：</p>
+<p><code>last{3, [9, 28, 3, 4, 6, 7, 8, 9], [1, 2, 3, 4, 5, 6, 7]} -&amp;gt; {7,8,9,5,6,7}</code></p>
+<p>示例：</p>
+<p>Sort all .fbx files in the project by ascending order of size and take the last three.</p>
+<p><code>last{3,sort{*.fbx, @size}}</code></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="lw">lw<a href="#lw" class="hash-link" aria-label="lw的直接链接" title="lw的直接链接" translate="no">​</a></h3>
+<p><code>lw{set, value} -&amp;gt; {all elements less than value}</code></p>
+<p><code>lw{set, selector, value} -&amp;gt; {all elements with selector value less than value}</code></p>
+<p>Filters a set of elements by keeping those less than a given value.</p>
+<p>示例：</p>
+<p><code>lw{[2,4,5,6,4,3], 4} -&amp;gt; {2,3}</code></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="lwe">lwe<a href="#lwe" class="hash-link" aria-label="lwe的直接链接" title="lwe的直接链接" translate="no">​</a></h3>
+<p><code>lwe{set, value} -&amp;gt; {all elements less or equal than value}</code></p>
+<p><code>lwe{set, selector, value} -&amp;gt; {all with a selector value less or equal than value}</code></p>
+<p>Filters a set of elements by keeping those less than or equal to a given value.</p>
+<p>示例：</p>
+<p><code>lwe{[2,4,5,6,4,3], 4} -&amp;gt; {2,4,3,4}</code></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="map">map<a href="#map" class="hash-link" aria-label="map的直接链接" title="map的直接链接" translate="no">​</a></h3>
+<p><code>map{set, &amp;lt;string containing selectors to replace&amp;gt;}</code></p>
+<p>The map operator is a functional way of expressing a [search expression][33]. It maps an expression result to form a new expression using variables.</p>
+<p>The following example:</p>
+<p><code>map{t:texture, t:prefab ref=@id}</code> -&gt; <code>{t:prefab ref=&amp;lt;textureId1&amp;gt;} {t:prefab ref=&amp;lt;textureId2&amp;gt;} ... {t:prefab ref=&amp;lt;textureIdN&amp;gt;}</code></p>
+<p>will run the query <code>t:prefab ref=@id</code> for each of the textures returned by <code>t:texture</code>.</p>
+<p>This is equivalent to running:</p>
+<p><code>{t:prefab ref={t:texture}}</code></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="max">max<a href="#max" class="hash-link" aria-label="max的直接链接" title="max的直接链接" translate="no">​</a></h3>
+<p><code>max{sets...} -&amp;gt; {max value element in each set}</code></p>
+<p><code>max{selector, sets...} -&amp;gt; {max selector value element in each set}</code></p>
+<p>Finds the maximum <code>@value` for each set passed as parameters. If a selector is passed as a parameter, find the element with maximum</code>@selector` value.</p>
+<p>示例：</p>
+<p><code>max{[1,2,3,4,5,6], [2,4,5]} -&amp;gt; {6, 5}</code></p>
+<p>示例：</p>
+<p>Find the largest .png file and the largest .jpg file.</p>
+<p><code>max{@size, *.png, *.jpg} -&amp;gt; {&amp;lt;largest .png file&amp;gt;, &amp;lt;largest .jpg file&amp;gt;}</code></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="min">min<a href="#min" class="hash-link" aria-label="min的直接链接" title="min的直接链接" translate="no">​</a></h3>
+<p><code>min{sets...} -&amp;gt; {min value element in each set}</code></p>
+<p><code>min{selector, sets...} -&amp;gt; {min selector value element in each set}</code></p>
+<p>Finds the minimum <code>@value` for each set passed as parameters. If a selector is passed as parameter, find the element with minimum</code>@selector` value.</p>
+<p>示例：</p>
+<p><code>min{[1,2,3,4,5,6], [2,4,5]} -&amp;gt; {1, 2}</code></p>
+<p>示例：</p>
+<p>Find the smallest .png file and the largest .jpg file.</p>
+<p><code>min{@size, *.png, *.jpg} -&amp;gt; {&amp;lt;smallest .png file&amp;gt;, &amp;lt;smallest .jpg file&amp;gt;}</code></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="neq">neq<a href="#neq" class="hash-link" aria-label="neq的直接链接" title="neq的直接链接" translate="no">​</a></h3>
+<p><code>neq{set, value} -&amp;gt; {all elements not equal to value}</code></p>
+<p><code>neq{set, selector, value} -&amp;gt; {all selector value not equal to value}</code></p>
+<p>Filters a set of elements by keeping those not equal to a given value.</p>
+<p>示例：</p>
+<p><code>neq{[2,4,5,6,4,3], 4} -&amp;gt; {2,5,6,3}</code></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="print">print<a href="#print" class="hash-link" aria-label="print的直接链接" title="print的直接链接" translate="no">​</a></h3>
+<p><code>print(FormatString | selector, set)</code></p>
+<p>Print takes a format string (or a selector) and a set of items and prints the formatted results of each item in the console. This can be useful to debug the values of an item.</p>
+<p>In a project, the following expression returns the textures and their paths in the Search window and prints them in the Console window:</p>
+<p><code>print{&#x27;path=@path&#x27;, t:texture}</code></p>
+<p>示例：</p>
+<p><code>print{@value, [1,2,3,4]}</code> would print [1,2,3,4] in the Console window.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="query">query<a href="#query" class="hash-link" aria-label="query的直接链接" title="query的直接链接" translate="no">​</a></h3>
+<p><code>query{value} -&amp;gt; {query expression}</code></p>
+<p>Attempts to convert value to a query expression. This can use used to disambiguate parameters type in some specific functions.</p>
+<p>示例：</p>
+<p><code>count{t:material}</code> is equivalent to</p>
+<p><code>count{query{t:material}}</code></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="random">random<a href="#random" class="hash-link" aria-label="random的直接链接" title="random的直接链接" translate="no">​</a></h3>
+<p><code>random{sets...} -&amp;gt; {random elements in each set}</code></p>
+<p>Creates a set out of random elements taken from each set of items passed as a parameter.</p>
+<p>示例：</p>
+<p><code>random{[1,3,5], [6,4,2]} -&amp;gt; {3, 2}</code> returns a random results in each set.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="select">select<a href="#select" class="hash-link" aria-label="select的直接链接" title="select的直接链接" translate="no">​</a></h3>
+<p><code>select(&amp;lt;set&amp;gt;, selectorForLabel, selectorForDesc, otherSelectors...)</code></p>
+<p>Select is a function that creates a new set of search items and extracts or transforms properties from an original set of search items.</p>
+<p>The second parameter (selectorForLabel) of the select function assigns the selected value to the label of the new item.</p>
+<p>The third parameter (selectorForDesc) assigns the selected value to the description of the new item.</p>
+<p>The last selector in a select function also specifies the value of the item</p>
+<p>示例：</p>
+<p>When searching for textures in a project, using <code>select</code>, generates a set of items where the label is the path and where the description becomes the size of the texture:</p>
+<p><code>select{t:texture, @path, @size}</code></p>
+<p><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/search-expression-select-1.png" alt="search-expression-select-1.png" class="img_ev3q"></p>
+<p>The last selector in a select statement also sets the value of the item. For the example <code>select{t:texture, @path, @size}</code> this means <code>@size</code> will also become the <code>@value</code> of the search item. Switch to the Table view to see how the search expression replaces the label and description sets the value:</p>
+<p><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/search-expression-select-2.png" alt="search-expression-select-2.png" class="img_ev3q"></p>
+<p>Selectors of a <code>select</code> function can also be functions themselves. Selectors in these functions are evaluated according to the search item being processed.</p>
+<p>示例：</p>
+<p><code>select{t:texture, @path, count{t:prefab ref=@id}}</code></p>
+<ol>
+<li class="">For each texture in the project, create a new search item (<code>t:texture</code>)</li>
+<li class="">whose label is equal to the <code>@path</code> of the texture (<code>@path</code>)</li>
+<li class="">and whose description is equal to how many prefabs refer to that texture (<code>count{t:prefab ref=@id}</code>). In the example, <code>@id</code> refers to the <code>SearchItem.id</code> of each texture item.</li>
+</ol>
+<p><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/search-expression-select-3.png" alt="search-expression-select-3.png" class="img_ev3q"></p>
+<p>You can assign a property value to a search item field if you use the alias operator.</p>
+<p>示例：</p>
+<p><code>print{&quot;@pow&quot;, select{t:script, @path as pow}}</code></p>
+<p>This extracts the <code>@path</code> property from a search item and assigns it to the search item field named <code>pow</code> in the new search item created by the <code>select</code> function.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="set">set<a href="#set" class="hash-link" aria-label="set的直接链接" title="set的直接链接" translate="no">​</a></h3>
+<p><code>set{sets...} -&amp;gt; {set of all elements in all sets}</code></p>
+<p>Creates a set of all elements contained in all the sets passed as parameter. This is equivalent to using the “[set, of , element]” notation.</p>
+<p>示例：</p>
+<p><code>set{[1, 2,3], [4,5,6]}</code> is equivalent to:</p>
+<p><code>[[1,2,3], [4,5,6]]</code> which is equivalent to:</p>
+<p><code>[1,2,3,4,5,6]</code></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="sort">sort<a href="#sort" class="hash-link" aria-label="sort的直接链接" title="sort的直接链接" translate="no">​</a></h3>
+<p><code>sort{set, selector} -&amp;gt; {set of items sorted in ascending order according to selector value}</code></p>
+<p><code>sort{set, selector, desc} -&amp;gt; {set of items sorted in descending order according to selector value}</code></p>
+<p>Sorts a set of items according to a selector value in descending or ascending order.</p>
+<p>示例：</p>
+<p>Sort this set in ascending order (from smallest to largest).</p>
+<p><code>Sort{[4,2,7,5,8,1,9], @value} -&amp;gt; {1,2,4,5,7,8,9}</code></p>
+<p>示例：</p>
+<p>Sort this set in descending order (from largest to smallest).</p>
+<p><code>sort{[4,2,7,5,8,1,9], @value, desc} -&amp;gt; {9,8,7,5,4,2,1}</code></p>
+<p>示例：</p>
+<p>Sort all textures in my project according to their @size in descending order (from largest to smallest).</p>
+<p><code>sort{t:texture, @size, desc}</code></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="sum">sum<a href="#sum" class="hash-link" aria-label="sum的直接链接" title="sum的直接链接" translate="no">​</a></h3>
+<p><code>sum{sets...} -&amp;gt; {sum of all elements in each set}</code></p>
+<p><code>sum{selector, sets...} -&amp;gt; {sum of all elements in each set}</code></p>
+<p>Find the sum `<code>@value</code> of each item in each set passed as parameters. If a selector is passed as parameter, find the sum <code>@selector</code> value of each element in each set.</p>
+<p>示例：</p>
+<p><code>sum{[1,2,3,4,5,6], [2,4,5]} -&amp;gt; {21, 11}</code></p>
+<p>示例：</p>
+<p>Find the sum of all textures <code>@size</code> in a project.</p>
+<p><code>sum{@size, t:texture}</code></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="text">text<a href="#text" class="hash-link" aria-label="text的直接链接" title="text的直接链接" translate="no">​</a></h3>
+<p><code>text{expression} -&amp;gt; {&quot;text of the expression&quot;}</code></p>
+<p>Creates a string out of an expression. This is equivalent to using the &quot;&quot; or ‘’ delimiters.</p>
+<p>示例：</p>
+<p><code>[text{hello}]</code> is equivalent to</p>
+<p><code>[&quot;hello&quot;]</code> or <code>[‘hello’]</code></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="union">union<a href="#union" class="hash-link" aria-label="union的直接链接" title="union的直接链接" translate="no">​</a></h3>
+<p><code>union{sets...} -&amp;gt; {Unified set of all unique elements in all sets}</code></p>
+<p>Union creates a set of all elements found in all sets passed as a parameter. Like <code>distinct</code>, no duplicate of elements are kept.</p>
+<p>示例：</p>
+<p>This example shows that duplicates are removed.</p>
+<p><code>union{[1,2,3], [3,4,5]} -&amp;gt; {1,2,3,4,5}</code></p>
+<p>示例：</p>
+<p><code>union{*.mat, t:shader} -&amp;gt; {all materials and shaders in the project}</code></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="where">where<a href="#where" class="hash-link" aria-label="where的直接链接" title="where的直接链接" translate="no">​</a></h3>
+<p><code>where{set, filterString | selector} -&amp;gt; {filtered set of items}</code></p>
+<p>Where is a general filtering function that accepts a selector or a string containing selector usage and operators (&gt;, ==, …) to filter elements of a set and returns the new filtered set.</p>
+<p>Example: Filtering out numbers according to their value:</p>
+<p><code>where{[1,2,3,4,5,6,7,8,9,10], &#x27;@value&amp;gt;4 and @value&amp;lt;9&#x27;}</code> -&gt; <code>{5,6,7,8}</code></p>
+<p>Example: Finding all audio clips containing the word <code>effect</code>:</p>
+<p><code>where{t:AudioClip, @path:effect}</code></p>
+<p>[15]: <a href="https://docs.unity3d.com/cn/2022.1/Manual/(.html" target="_blank" rel="noopener noreferrer" class="">https://docs.unity3d.com/cn/2022.1/Manual/(.html</a>
+[16]: #neq
+[17]: #where
+[18]: #avg
+[19]: #count
+[20]: #max
+[21]: #min
+[22]: #sum
+[23]: #alias
+[24]: #constant
+[25]: #format
+[26]: #print
+[27]: #query
+[28]: #random
+[29]: #set
+[30]: #text
+[31]: search-overview/search-expressions/search-expressions.md#name-search-expressions-alias
+[32]: #expand-operator
+[33]: #search-expression</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/danyow/danyow/edit/main/unity/unity/search-overview/search-expressions/search-expression-functions-ref.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>编辑此页</a></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">最后<!-- -->由 <b>danyow</b> <!-- -->于 <b><time datetime="2026-03-18T07:23:55.000Z" itemprop="dateModified">2026年3月18日</time></b> <!-- -->更新</span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="文件选项卡"><a class="pagination-nav__link pagination-nav__link--prev" href="/unity/search-expressions"><div class="pagination-nav__sublabel">上一页</div><div class="pagination-nav__label">Search expressions</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/unity/search-providers"><div class="pagination-nav__sublabel">下一页</div><div class="pagination-nav__label">Search Providers</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#functions-by-category" class="table-of-contents__link toc-highlight">Functions by category</a><ul><li><a href="#set-manipulation" class="table-of-contents__link toc-highlight">Set manipulation</a></li><li><a href="#set-filtering" class="table-of-contents__link toc-highlight">Set filtering</a></li><li><a href="#math" class="table-of-contents__link toc-highlight">Math</a></li><li><a href="#utility" class="table-of-contents__link toc-highlight">Utility</a></li></ul></li><li><a href="#functions-in-alphabetical-order" class="table-of-contents__link toc-highlight">Functions in alphabetical order</a><ul><li><a href="#alias" class="table-of-contents__link toc-highlight">alias</a></li><li><a href="#avg" class="table-of-contents__link toc-highlight">avg</a></li><li><a href="#constant" class="table-of-contents__link toc-highlight">constant</a></li><li><a href="#count" class="table-of-contents__link toc-highlight">count</a></li><li><a href="#distinct" class="table-of-contents__link toc-highlight">distinct</a></li><li><a href="#eq" class="table-of-contents__link toc-highlight">eq</a></li><li><a href="#except" class="table-of-contents__link toc-highlight">except</a></li><li><a href="#first" class="table-of-contents__link toc-highlight">first</a></li><li><a href="#format" class="table-of-contents__link toc-highlight">format</a></li><li><a href="#groupby" class="table-of-contents__link toc-highlight">groupBy</a></li><li><a href="#gt" class="table-of-contents__link toc-highlight">gt</a></li><li><a href="#gte" class="table-of-contents__link toc-highlight">gte</a></li><li><a href="#intersect" class="table-of-contents__link toc-highlight">intersect</a></li><li><a href="#last" class="table-of-contents__link toc-highlight">last</a></li><li><a href="#lw" class="table-of-contents__link toc-highlight">lw</a></li><li><a href="#lwe" class="table-of-contents__link toc-highlight">lwe</a></li><li><a href="#map" class="table-of-contents__link toc-highlight">map</a></li><li><a href="#max" class="table-of-contents__link toc-highlight">max</a></li><li><a href="#min" class="table-of-contents__link toc-highlight">min</a></li><li><a href="#neq" class="table-of-contents__link toc-highlight">neq</a></li><li><a href="#print" class="table-of-contents__link toc-highlight">print</a></li><li><a href="#query" class="table-of-contents__link toc-highlight">query</a></li><li><a href="#random" class="table-of-contents__link toc-highlight">random</a></li><li><a href="#select" class="table-of-contents__link toc-highlight">select</a></li><li><a href="#set" class="table-of-contents__link toc-highlight">set</a></li><li><a href="#sort" class="table-of-contents__link toc-highlight">sort</a></li><li><a href="#sum" class="table-of-contents__link toc-highlight">sum</a></li><li><a href="#text" class="table-of-contents__link toc-highlight">text</a></li><li><a href="#union" class="table-of-contents__link toc-highlight">union</a></li><li><a href="#where" class="table-of-contents__link toc-highlight">where</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="margin-bottom--sm"><img src="/img/logo.svg" class="footer__logo themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/logo.svg" class="footer__logo themedComponent_mlkZ themedComponent--dark_xIcU"></div><div class="footer__copyright">© 2026 danyow, Inc. 使用 Docusaurus 构建。</div></div></div></footer></div>
+</body>
+</html>

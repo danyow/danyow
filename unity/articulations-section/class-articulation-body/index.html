@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="zh" dir="ltr" class="docs-wrapper plugin-docs plugin-id-unity docs-version-current docs-doc-page docs-doc-id-physics-section/physics-overview/articulations-section/class-ArticulationBody" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.9.2">
+<title data-rh="true">Articulation Body component reference | :D</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://danyow.cn/unity/articulations-section/class-articulation-body"><meta data-rh="true" property="og:locale" content="zh"><meta data-rh="true" name="docusaurus_locale" content="zh"><meta data-rh="true" name="docsearch:language" content="zh"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-unity-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-unity-current"><meta data-rh="true" property="og:title" content="Articulation Body component reference | :D"><meta data-rh="true" name="description" content="通过接合体可以使用分层组织的游戏对象构建物理接合，例如机器人手臂或运动链。它们可帮助在针对工业应用程序的模拟环境中获得逼真的物理行为。"><meta data-rh="true" property="og:description" content="通过接合体可以使用分层组织的游戏对象构建物理接合，例如机器人手臂或运动链。它们可帮助在针对工业应用程序的模拟环境中获得逼真的物理行为。"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://danyow.cn/unity/articulations-section/class-articulation-body"><link data-rh="true" rel="alternate" href="https://danyow.cn/unity/articulations-section/class-articulation-body" hreflang="zh"><link data-rh="true" rel="alternate" href="https://danyow.cn/unity/articulations-section/class-articulation-body" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"物理系统","item":"https://danyow.cn/unity/physics-section"},{"@type":"ListItem","position":2,"name":"Built-in 3D Physics","item":"https://danyow.cn/unity/physics-overview"},{"@type":"ListItem","position":3,"name":"Articulations","item":"https://danyow.cn/unity/articulations-section"},{"@type":"ListItem","position":4,"name":"Articulation Body component reference","item":"https://danyow.cn/unity/articulations-section/class-articulation-body"}]}</script><link rel="alternate" type="application/rss+xml" href="/blog/rss.xml" title=":D RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/blog/atom.xml" title=":D Atom Feed"><link rel="stylesheet" href="/assets/css/styles.640272bb.css">
+<script src="/assets/js/runtime~main.50b7b83d.js" defer="defer"></script>
+<script src="/assets/js/main.ca102e2d.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/img/logo.svg"><div role="region" aria-label="跳到主要内容"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">跳到主要内容</a></div><nav aria-label="主导航" class="theme-layout-navbar navbar navbar--fixed-top navbar--primary"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="切换导航栏" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><b class="navbar__title text--truncate">:D</b></a><a class="navbar__item navbar__link" href="/note/itinerary">笔记</a><a class="navbar__item navbar__link" href="/lua/learn">Lua</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/unity/Glossary">Unity</a><a class="navbar__item navbar__link" href="/blog">博客</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/danyow/danyow" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link header-github-link" aria-label="GitHub repository"></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search searchBarContainer_NW3z" dir="ltr"><input placeholder="搜索" aria-label="Search" class="navbar__search-input searchInput_YFbd" value=""><div class="loadingRing_RJI3 searchBarLoadingRing_YnHq"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="回到顶部" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="文档侧边栏" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/animation-section"><span title="动画" class="categoryLinkLabel_W154">动画</span></a><button aria-label="展开侧边栏分类 &#x27;动画&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/asset-store"><span title="Unity Asset Store" class="categoryLinkLabel_W154">Unity Asset Store</span></a><button aria-label="展开侧边栏分类 &#x27;Unity Asset Store&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/asset-workflow"><span title="资源工作流程" class="categoryLinkLabel_W154">资源工作流程</span></a><button aria-label="展开侧边栏分类 &#x27;资源工作流程&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/audio"><span title="音频" class="categoryLinkLabel_W154">音频</span></a><button aria-label="展开侧边栏分类 &#x27;音频&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/creating-environments"><span title="World building" class="categoryLinkLabel_W154">World building</span></a><button aria-label="展开侧边栏分类 &#x27;World building&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/unity/Glossary"><span title="术语表" class="linkLabel_WmDU">术语表</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/graphics"><span title="图形" class="categoryLinkLabel_W154">图形</span></a><button aria-label="展开侧边栏分类 &#x27;图形&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/input"><span title="输入" class="categoryLinkLabel_W154">输入</span></a><button aria-label="展开侧边栏分类 &#x27;输入&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/legacy-topics"><span title="旧版主题" class="categoryLinkLabel_W154">旧版主题</span></a><button aria-label="展开侧边栏分类 &#x27;旧版主题&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/navigation"><span title="导航和寻路" class="categoryLinkLabel_W154">导航和寻路</span></a><button aria-label="展开侧边栏分类 &#x27;导航和寻路&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/packages-list"><span title="Packages and feature sets" class="categoryLinkLabel_W154">Packages and feature sets</span></a><button aria-label="展开侧边栏分类 &#x27;Packages and feature sets&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" href="/unity/physics-section"><span title="物理系统" class="categoryLinkLabel_W154">物理系统</span></a><button aria-label="折叠侧边栏分类 &#x27;物理系统&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" tabindex="0" href="/unity/physics-overview"><span title="Built-in 3D Physics" class="categoryLinkLabel_W154">Built-in 3D Physics</span></a><button aria-label="折叠侧边栏分类 &#x27;Built-in 3D Physics&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" tabindex="0" href="/unity/articulations-section"><span title="Articulations" class="categoryLinkLabel_W154">Articulations</span></a><button aria-label="折叠侧边栏分类 &#x27;Articulations&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/unity/articulations-section/class-articulation-body"><span title="Articulation Body component reference" class="linkLabel_WmDU">Articulation Body component reference</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/unity/articulations-section/physics-articulations"><span title="Introduction to physics articulations" class="linkLabel_WmDU">Introduction to physics articulations</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/character-control-section"><span title="Character control" class="categoryLinkLabel_W154">Character control</span></a><button aria-label="展开侧边栏分类 &#x27;Character control&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/unity/physics-overview/class-cloth"><span title="布料" class="linkLabel_WmDU">布料</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/collision-section"><span title="Collision" class="categoryLinkLabel_W154">Collision</span></a><button aria-label="展开侧边栏分类 &#x27;Collision&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/joints-section"><span title="Joints" class="categoryLinkLabel_W154">Joints</span></a><button aria-label="展开侧边栏分类 &#x27;Joints&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/unity/physics-overview/physics-multi-scene"><span title="多场景物理" class="linkLabel_WmDU">多场景物理</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/ragdoll-physics-section"><span title="Ragdoll physics" class="categoryLinkLabel_W154">Ragdoll physics</span></a><button aria-label="展开侧边栏分类 &#x27;Ragdoll physics&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/rigidbody-physics-section"><span title="Rigidbody physics" class="categoryLinkLabel_W154">Rigidbody physics</span></a><button aria-label="展开侧边栏分类 &#x27;Rigidbody physics&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li></ul></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/platform-specific"><span title="平台开发" class="categoryLinkLabel_W154">平台开发</span></a><button aria-label="展开侧边栏分类 &#x27;平台开发&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/scripting-section"><span title="脚本" class="categoryLinkLabel_W154">脚本</span></a><button aria-label="展开侧边栏分类 &#x27;脚本&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/search-overview"><span title="Unity Search" class="categoryLinkLabel_W154">Unity Search</span></a><button aria-label="展开侧边栏分类 &#x27;Unity Search&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/uitoolkits"><span title="Create user interfaces (UI)" class="categoryLinkLabel_W154">Create user interfaces (UI)</span></a><button aria-label="展开侧边栏分类 &#x27;Create user interfaces (UI)&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/unet"><span title="多玩家和联网" class="categoryLinkLabel_W154">多玩家和联网</span></a><button aria-label="展开侧边栏分类 &#x27;多玩家和联网&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/unity/unity-manual"><span title="Unity User Manual 2022.1" class="linkLabel_WmDU">Unity User Manual 2022.1</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/unity-overview"><span title="在 Unity 中操作" class="categoryLinkLabel_W154">在 Unity 中操作</span></a><button aria-label="展开侧边栏分类 &#x27;在 Unity 中操作&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/unity-services"><span title="Unity 服务" class="categoryLinkLabel_W154">Unity 服务</span></a><button aria-label="展开侧边栏分类 &#x27;Unity 服务&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/unity2d"><span title="2D" class="categoryLinkLabel_W154">2D</span></a><button aria-label="展开侧边栏分类 &#x27;2D&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/video-player"><span title="视频概述" class="categoryLinkLabel_W154">视频概述</span></a><button aria-label="展开侧边栏分类 &#x27;视频概述&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/unity/WhatsNew20221"><span title="New in Unity 2022.1" class="linkLabel_WmDU">New in Unity 2022.1</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/xr"><span title="XR" class="categoryLinkLabel_W154">XR</span></a><button aria-label="展开侧边栏分类 &#x27;XR&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="页面路径"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="主页面" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/unity/physics-section"><span>物理系统</span></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/unity/physics-overview"><span>Built-in 3D Physics</span></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/unity/articulations-section"><span>Articulations</span></a></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Articulation Body component reference</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>Articulation Body component reference</h1></header>
+<p>通过接合体可以使用分层组织的游戏对象构建<a class="" href="/unity/articulations-section/physics-articulations">物理接合</a>，例如机器人手臂或运动链。它们可帮助在针对工业应用程序的模拟环境中获得逼真的物理行为。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="属性">属性<a href="#属性" class="hash-link" aria-label="属性的直接链接" title="属性的直接链接" translate="no">​</a></h2>
+<p>接合体可用于在单一组件中定义属性，而这些属性在经典配置中会通过<a class="" href="/unity/rigidbody-physics-section/rigidbodies-overview">刚体</a>和<a class="" href="/unity/joints-section/joints">常规关节</a>以类似方法进行定义。也就是说，这些属性取决于层级视图中的游戏对象位置：</p>
+<ul>
+<li class="">对于接合的根游戏对象，只能设置物理体属性：</li>
+</ul>
+<p><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/articulation-body-properties-root.png" alt="articulation-body-properties-root.png" class="img_ev3q"></p>
+<ul>
+<li class="">对于接合内的任何子游戏对象，可以设置物理体属性以及将此游戏对象链接到其父游戏对象的关节的类型和属性：</li>
+</ul>
+<p><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/articulation-body-properties-child.png" alt="articulation-body-properties-child.png" class="img_ev3q"></p>
+<p>接合体属性分为以下主要类别：</p>
+<ul>
+<li class="">
+<p><a href="#%E7%89%A9%E7%90%86%E4%BD%93%E5%B1%9E%E6%80%A7" class="">物理体属性</a></p>
+</li>
+<li class="">
+<p><a href="#%E5%85%B3%E8%8A%82%E9%94%9A%E7%82%B9%E5%B1%9E%E6%80%A7" class="">关节锚点属性</a></p>
+</li>
+<li class="">
+<p><a href="#%E5%85%B3%E8%8A%82%E7%B1%BB%E5%9E%8B%E9%80%89%E6%8B%A9%E5%92%8C%E5%85%B3%E8%8A%82%E5%B1%9E%E6%80%A7" class="">关节类型选择和属性</a></p>
+</li>
+<li class="">
+<p><a href="#%E5%85%B3%E8%8A%82%E9%A9%B1%E5%8A%A8%E5%B1%9E%E6%80%A7" class="">关节驱动属性</a></p>
+</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="物理体属性">物理体属性<a href="#物理体属性" class="hash-link" aria-label="物理体属性的直接链接" title="物理体属性的直接链接" translate="no">​</a></h3>
+<p>定义接合体响应物理环境的方式。</p>
+<p><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/articulation-body-properties-physical-body.png" alt="articulation-body-properties-physical-body.png" class="img_ev3q"></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>属性</th><th>功能</th></tr></thead><tbody><tr><td><strong>Mass</strong></td><td>接合体的质量（默认为千克）。</td></tr><tr><td><strong>Immovable</strong></td><td>使用此属性可定义此接合体是否可移动。只能为根接合体设置此属性。例如，此属性可用于使机器人双手的基体不可移动。物理引擎将它与所有其他约束分开解决，保证不会违反它。</td></tr><tr><td><strong>Use Gravity</strong></td><td>使用此属性可使重力影响或不影响此接合体。</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="关节锚点属性">关节锚点属性<a href="#关节锚点属性" class="hash-link" aria-label="关节锚点属性的直接链接" title="关节锚点属性的直接链接" translate="no">​</a></h3>
+<p>为接合体及其父接合体定义<a href="#%E5%85%B3%E8%8A%82%E9%94%9A%E7%82%B9" class="">关节锚点</a>的坐标。</p>
+<p><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/articulation-body-properties-joint-anchor.png" alt="articulation-body-properties-joint-anchor.png" class="img_ev3q"></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>属性</th><th>功能</th></tr></thead><tbody><tr><td><strong>Compute Parent Anchor</strong></td><td>启用此属性可使父相关锚点与当前接合体的锚点匹配。如果禁用此属性，则可以为  <strong>Parent Anchor Position</strong>  和  <strong>Parent Anchor Rotation</strong>  单独设置值。</td></tr><tr><td><strong>Anchor Position</strong></td><td>锚点相对于当前接合体的位置坐标。</td></tr><tr><td><strong>Anchor Rotation</strong></td><td>锚点相对于当前接合体的旋转坐标。</td></tr><tr><td><strong>Parent Anchor Position</strong></td><td>父锚点相对于父接合体的位置坐标。仅当禁用  <strong>Compute Parent Anchor</strong>  时，此属性才会出现。</td></tr><tr><td><strong>Parent Anchor Rotation</strong></td><td>父锚点相对于父接合体的旋转坐标。仅当禁用  <strong>Compute Parent Anchor</strong>  时，此属性才会出现。</td></tr><tr><td><strong>Snap Anchor to closest contact</strong></td><td>计算此接合体表面上最接近父接合体质心的点，并将锚点设置到它。如果启用了  <strong>Compute Parent Anchor</strong> ，则 Unity 也会相应地更新父锚点。</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="关节类型选择和关节属性">关节类型选择和关节属性<a href="#关节类型选择和关节属性" class="hash-link" aria-label="关节类型选择和关节属性的直接链接" title="关节类型选择和关节属性的直接链接" translate="no">​</a></h3>
+<p>选择将当前接合体链接到其父接合体的关节类型，并定义其通用和特定属性。</p>
+<p><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/articulation-body-properties-joint-type.png" alt="articulation-body-properties-joint-type.png" class="img_ev3q"></p>
+<p>| 属性 |  -&gt; 功能 |
+| --- | --- | --- |
+|  <strong>Articulation Joint Type</strong>  |  -&gt; 将此接合体连接到其父接合体的关节类型。 <strong>注意：</strong> 所有类型的关节都共有此表介绍的属性，其中一些类型具有特定的附加属性。 |
+|  -&gt; Fixed | 在物理体之间设置刚性、牢不可破和不可拉伸的链接。除了此表中介绍的属性外，固定结合关节没有附加属性。 |
+|  -&gt; Prismatic | 阻止除了沿特定轴滑动之外的所有运动。另请参阅<a href="#%E6%A3%B1%E5%BD%A2%E5%85%B3%E8%8A%82%E9%99%84%E5%8A%A0%E5%B1%9E%E6%80%A7" class="">棱形关节附加属性</a>。 |
+|  -&gt; Revolute | 允许绕特定轴旋转（如铰链）。另请参阅<a href="#%E6%97%8B%E8%BD%AC%E5%85%B3%E8%8A%82%E9%99%84%E5%8A%A0%E5%B1%9E%E6%80%A7" class="">旋转关节附加属性</a>。 |
+|  -&gt; Spherical | 解剖关节，允许两次摆动和一次扭转。另请参阅<a href="#%E7%90%83%E5%BD%A2%E5%85%B3%E8%8A%82%E9%99%84%E5%8A%A0%E5%B1%9E%E6%80%A7" class="">球形关节附加属性</a>。 |
+|  <strong>Linear Damping</strong>  |  -&gt; 控制线性减速的系数。 |
+|  <strong>Angular Damping</strong>  |  -&gt; 控制旋转减速的系数。 |
+|  <strong>Joint Friction</strong>  |  -&gt; 控制关节中由摩擦引起的能量损失的系数。 |</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="棱形关节附加属性">棱形关节附加属性<a href="#棱形关节附加属性" class="hash-link" aria-label="棱形关节附加属性的直接链接" title="棱形关节附加属性的直接链接" translate="no">​</a></h4>
+<p><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/articulation-body-properties-joint-prismatic.png" alt="articulation-body-properties-joint-prismatic.png" class="img_ev3q"></p>
+<p>| 属性 |  -&gt; 功能 |
+| --- | --- | --- |
+|  <strong>Axis</strong>  |  -&gt; 指定棱形关节允许相对于父锚点沿之运动的轴。 |
+|  <strong>Motion</strong>  |  -&gt; 指定沿该轴的运动限制类型。 |
+|  -&gt; Free | 允许接合体沿着父锚点的所选 <strong>轴</strong> 自由移动。 |
+|  -&gt; 受限 | 按照在  <strong>Drive</strong>  属性中指定的  <strong>Lower Limit</strong>  和  <strong>Upper Limit</strong> ，限制结合体沿父锚点的所选 <strong>轴</strong> 的移动。 |
+|  <strong>X Drive</strong> 、 <strong>Y Drive</strong>  或  <strong>Z Drive</strong>  |  -&gt; 按照父锚点的所选 <strong>轴</strong> ，附加到关节的<a href="#%E5%85%B3%E8%8A%82%E9%A9%B1%E5%8A%A8%E5%B1%9E%E6%80%A7" class="">线性驱动属性</a>。 <strong>主要：</strong> 此处只有一个 Drive 部分。其标题会根据轴选择自动调整。 |</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="旋转关节附加属性">旋转关节附加属性<a href="#旋转关节附加属性" class="hash-link" aria-label="旋转关节附加属性的直接链接" title="旋转关节附加属性的直接链接" translate="no">​</a></h4>
+<p><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/articulation-body-properties-joint-revolute.png" alt="articulation-body-properties-joint-revolute.png" class="img_ev3q"></p>
+<p>| 属性 |  -&gt; 功能 |
+| --- | --- | --- |
+|  <strong>Motion</strong>  |  -&gt; 指定围绕父锚点 X 轴的旋转限制类型。 |
+|  -&gt; Free | 允许接合体围绕父锚点 X 轴自由旋转。 |
+|  -&gt; 受限 | 按照在  <strong>X Drive</strong>  属性中指定的  <strong>Lower Limit</strong>  和  <strong>Upper Limit</strong> ，限制结合体围绕父锚点 X 轴的旋转。 |
+|  <strong>X Drive</strong>  |  -&gt; 围绕父锚点 X 轴，附加到关节的<a href="#%E5%85%B3%E8%8A%82%E9%A9%B1%E5%8A%A8%E5%B1%9E%E6%80%A7" class="">旋转驱动属性</a>。 |</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="球形关节附加属性">球形关节附加属性<a href="#球形关节附加属性" class="hash-link" aria-label="球形关节附加属性的直接链接" title="球形关节附加属性的直接链接" translate="no">​</a></h4>
+<p><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/articulation-body-properties-joint-spherical.png" alt="articulation-body-properties-joint-spherical.png" class="img_ev3q"></p>
+<p>| 属性 |  -&gt; 功能 |
+| --- | --- | --- |
+|  <strong>Swing Y</strong>  |  -&gt; 指定围绕 Y 轴的旋转限制类型。 |
+|  -&gt; Free | 允许接合体围绕父锚点 Y 轴自由旋转。 |
+|  -&gt; 受限 | 按照在  <strong>Y Drive</strong>  属性中指定的  <strong>Lower Limit</strong>  和  <strong>Upper Limit</strong> ，限制结合体围绕父锚点 Y 轴的旋转。 |
+|  -&gt; Locked | 完全锁定接合体围绕父锚点 Y 轴的旋转。 <strong>注意：</strong> 不能同时锁定两个以上的自由度。 |
+|  <strong>Swing Z</strong>  |  -&gt; 指定围绕 Z 轴的旋转限制类型。所有 3 个轴的选项都相同。 |
+|  <strong>Twist</strong>  |  -&gt; 指定围绕 X 轴的旋转限制类型。所有 3 个轴的选项都相同。 |
+|  <strong>Y Drive</strong> 、 <strong>Z Drive</strong>  和  <strong>X Drive</strong>  |  -&gt; 分别围绕父锚点 Y、Z 和 X 轴，附加到关节的<a href="#%E5%85%B3%E8%8A%82%E9%A9%B1%E5%8A%A8%E5%B1%9E%E6%80%A7" class="">旋转驱动属性</a>。 <strong>注意：</strong> 每个驱动都有一个单独的细分部分。如果锁定某个轴，则 Inspector 不会显示其驱动属性。 |</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="关节驱动属性">关节驱动属性<a href="#关节驱动属性" class="hash-link" aria-label="关节驱动属性的直接链接" title="关节驱动属性的直接链接" translate="no">​</a></h3>
+<p>设置有关特定轴的<a href="#%E5%85%B3%E8%8A%82%E8%87%AA%E7%94%B1%E5%BA%A6%E5%92%8C%E9%99%90%E5%88%B6" class="">关节限制</a>， 以及此轴的<a href="#%E5%85%B3%E8%8A%82%E9%A9%B1%E5%8A%A8%E6%95%88%E6%9E%9C" class="">关节驱动效果</a> 参数。</p>
+<p><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/articulation-body-properties-joint-drive.png" alt="articulation-body-properties-joint-drive.png" class="img_ev3q"></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>属性</th><th>功能</th></tr></thead><tbody><tr><td><strong>Lower Limit</strong></td><td>关节阻止接合体的移动或旋转的下限，具体取决于关节类型。仅当将相关  <strong>Motion</strong> 、 <strong>Swing</strong>  或  <strong>Twist</strong>  属性设置为  <strong>Limited</strong>  时，才能定义此属性。</td></tr><tr><td><strong>Upper Limit</strong></td><td>关节阻止接合体移动或旋转的上限，具体取决于关节类型。仅当将相关  <strong>Motion</strong> 、 <strong>Swing</strong>  或  <strong>Twist</strong>  属性设置为  <strong>Limited</strong>  时，才能定义此属性。</td></tr><tr><td><strong>Stiffness</strong></td><td>将关节吸引到目标的弹簧的刚度。</td></tr><tr><td><strong>Damping</strong></td><td>将关节吸引到目标的弹簧的阻尼。</td></tr><tr><td><strong>Force limit</strong></td><td>此驱动可以产生的力或扭矩的最大量。</td></tr><tr><td><strong>Target</strong></td><td>此驱动旨在达到的目标值。</td></tr><tr><td><strong>Target velocity</strong></td><td>此驱动旨在达到的目标速度。</td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="配置接合关节">配置接合关节<a href="#配置接合关节" class="hash-link" aria-label="配置接合关节的直接链接" title="配置接合关节的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="关节驱动效果">关节驱动效果<a href="#关节驱动效果" class="hash-link" aria-label="关节驱动效果的直接链接" title="关节驱动效果的直接链接" translate="no">​</a></h3>
+<p>任何驱动都是隐式 1D 弹簧，旨在通过应用由以下公式计算的效果（力或扭矩）使当前驱动参数达到目标：</p>
+<p><strong>效果 = 刚度 * (drivePosition - targetPosition) - 阻尼 * (driveVelocity - targetVelocity)</strong></p>
+<p>附加到线性自由度的驱动会产生力。附加到旋转自由度的驱动会产生扭矩。可以通过<a href="#%E5%85%B3%E8%8A%82%E9%A9%B1%E5%8A%A8%E5%B1%9E%E6%80%A7" class="">关节驱动属性</a>设置此公式的每个参数，以便为关节中涉及的任何轴微调所需效果。</p>
+<p>请注意，效果公式由两个独立的项组成，可以平衡甚至抵消它们。例如：</p>
+<ul>
+<li class="">
+<p>如果将刚度设置为零，则会获得只是旨在达到特定速度的驱动。</p>
+</li>
+<li class="">
+<p>如果将阻尼设置为零，则会获得旨在达到特定位置而不尝试达到任何特定速度的驱动。在这种情况下，达到目标后，驱动不会尝试最终停止。</p>
+</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="关节锚点">关节锚点<a href="#关节锚点" class="hash-link" aria-label="关节锚点的直接链接" title="关节锚点的直接链接" translate="no">​</a></h2>
+<p>每个关节有两个锚点：</p>
+<ul>
+<li class="">
+<p><strong>锚点</strong> ，相对于当前接合体</p>
+</li>
+<li class="">
+<p><strong>父锚点</strong> ，相对于父接合体</p>
+</li>
+</ul>
+<p>默认情况下，Unity 会自动计算父锚点以匹配锚点的姿势。但是，可以禁用  <strong>Compute Parent Anchor</strong>  属性以手动设置父锚点：</p>
+<p><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/articulation-body-properties-joint-anchors.png" alt="articulation-body-properties-joint-anchors.png" class="img_ev3q"></p>
+<p>当前，Unity 编辑器使用缩放变换组件工具显示锚点，以将它们与游戏对象变换组件工具区分开来：</p>
+<p><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/articulation-body-joint-anchor-tools.png" alt="articulation-body-joint-anchor-tools.png" class="img_ev3q"></p>
+<p>若要更改锚点的位置，可以使用 Inspector 并编辑<a href="#%E5%85%B3%E8%8A%82%E9%94%9A%E7%82%B9%E5%B1%9E%E6%80%A7" class="">关节锚点属性</a>，或者在 Scene 视图中直接移动和旋转其变换组件工具。</p>
+<p><strong>注意：</strong> 创建新的接合体时，Unity 会将锚点定位在各自体的局部零点处。但是，如果所连接体附加了碰撞体，则局部零不是锚点的理想默认位置，因为关节可能会尝试使各个体相互推动。 <strong>Snap Anchor to closest contact</strong>  按钮可帮助设置更合理的锚点默认位置，适用于许多接合。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="关节自由度和限制">关节自由度和限制<a href="#关节自由度和限制" class="hash-link" aria-label="关节自由度和限制的直接链接" title="关节自由度和限制的直接链接" translate="no">​</a></h3>
+<p><strong>注意：</strong> 当前，Scene 视图可用于可视化关节限制，但不能以图形方式操作它们。</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="固定关节">固定关节<a href="#固定关节" class="hash-link" aria-label="固定关节的直接链接" title="固定关节的直接链接" translate="no">​</a></h4>
+<p>固定关节没有自由度，因此 Scene 视图不显示任何特定标记。</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="棱形关节">棱形关节<a href="#棱形关节" class="hash-link" aria-label="棱形关节的直接链接" title="棱形关节的直接链接" translate="no">​</a></h4>
+<p>棱形关节实际上是相对于父锚点沿着指定轴移动的滑动条。此轴只能是基础轴（X、Y 或 Z），但是仍然可以<a href="#%E5%85%B3%E8%8A%82%E9%94%9A%E7%82%B9" class="">旋转父锚点</a>以在世界空间中获得不同的轴方向。</p>
+<p>可以设置棱形关节以进行自由或有限的移动。为此，请使用 Inspector 并编辑<a href="#%E6%A3%B1%E5%BD%A2%E5%85%B3%E8%8A%82%E9%99%84%E5%8A%A0%E5%B1%9E%E6%80%A7" class="">棱形关节特定属性</a>。</p>
+<p><strong>注意：</strong> 不能锁定棱形关节，否则这会只移除其自由度并使其成为退化关节。</p>
+<p>将棱形关节从  <strong>Motion</strong>  设置为  <strong>Limited</strong>  时，Scene 视图会显示标记以表示移动限制：</p>
+<ul>
+<li class="">
+<p>红色小标记代表下限。</p>
+</li>
+<li class="">
+<p>绿色小标记代表上限。</p>
+</li>
+<li class="">
+<p>白色虚线表示限制之间的允许移动。</p>
+</li>
+</ul>
+<p>若要操作关节限制，必须使用 Inspector 并在<a href="#%E5%85%B3%E8%8A%82%E9%A9%B1%E5%8A%A8%E5%B1%9E%E6%80%A7" class="">关节驱动属性</a>中编辑其值。</p>
+<p><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/articulation-body-joint-prismatic-limited.png" alt="articulation-body-joint-prismatic-limited.png" class="img_ev3q"> <br><em>有限棱形关节的示例。</em></p>
+<p><strong>注意：</strong> 将棱形关节  <strong>Motion</strong>  设置为  <strong>Free</strong>  时，Scene 视图不显示任何特定标记。</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="旋转关节">旋转关节<a href="#旋转关节" class="hash-link" aria-label="旋转关节的直接链接" title="旋转关节的直接链接" translate="no">​</a></h4>
+<p>旋转关节本质上是具有围绕父锚点 X 轴的单一旋转自由度的铰链。仍可以<a href="#%E5%85%B3%E8%8A%82%E9%94%9A%E7%82%B9" class="">旋转父锚点</a>以在世界空间中获得不同的轴方向。</p>
+<p>可以设置旋转关节以进行自由或有限的旋转。为此，请使用 Inspector 并编辑<a href="#%E6%97%8B%E8%BD%AC%E5%85%B3%E8%8A%82%E9%99%84%E5%8A%A0%E5%B1%9E%E6%80%A7" class="">旋转关节特定属性</a>。</p>
+<p><strong>注意：</strong> 不能锁定旋转关节，否则这会只移除其自由度并使其成为退化关节。</p>
+<p>将旋转关节  <strong>Motion</strong>  设置为  <strong>Free</strong>  时，Scene 视图会显示红色圆盘以表示围绕 X 轴所允许的自由旋转。</p>
+<p><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/articulation-body-joint-revolute-free.png" alt="articulation-body-joint-revolute-free.png" class="img_ev3q"> <br><em>自由旋转关节的示例。</em></p>
+<p>将旋转关节从  <strong>Motion</strong>  设置为  <strong>Limited</strong>  时，Scene 视图会显示标记以表示旋转限制：</p>
+<ul>
+<li class="">
+<p>红色小标记代表下限。</p>
+</li>
+<li class="">
+<p>绿色小标记代表上限。</p>
+</li>
+<li class="">
+<p>红色扇形表示限制之间允许的旋转角度。</p>
+</li>
+<li class="">
+<p>父锚点 Z 轴用作两个限制角度的参考（零）。</p>
+</li>
+</ul>
+<p>若要操作关节限制，必须使用 Inspector 并在<a href="#%E5%85%B3%E8%8A%82%E9%A9%B1%E5%8A%A8%E5%B1%9E%E6%80%A7" class="">关节驱动属性</a>中编辑其值。</p>
+<p><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/articulation-body-joint-revolute-limited.png" alt="articulation-body-joint-revolute-limited.png" class="img_ev3q"> <br><em>有限旋转关节的示例。</em></p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="球形关节">球形关节<a href="#球形关节" class="hash-link" aria-label="球形关节的直接链接" title="球形关节的直接链接" translate="no">​</a></h4>
+<p>球形关节是最适合模拟人形角色肢体的解剖关节。</p>
+<p>此关节类型最多可以具有三个旋转自由度。可以将所有这些属性设置为自由、有限或锁定。为此，请使用 Inspector 并编辑<a href="#%E6%97%8B%E8%BD%AC%E5%85%B3%E8%8A%82%E9%99%84%E5%8A%A0%E5%B1%9E%E6%80%A7" class="">旋转关节特定属性</a>。</p>
+<p><strong>注意：</strong> 不能同时锁定球形关节的所有旋转，否则这会移除其所有自由度并使其成为退化关节。此外，不应锁定两个摆动轴来模拟旋转关节，因为模拟的发生方式与旋转关节不同，并且成本更高。</p>
+<p>与<a href="#%E6%97%8B%E8%BD%AC%E5%85%B3%E8%8A%82" class="">旋转关节</a>一样：</p>
+<ul>
+<li class="">
+<p>Scene 视图显示带有彩色圆盘的自由旋转和带有彩色扇形的有限旋转。每种颜色（红色、绿色、蓝色）表示围绕具有此颜色的轴（分别为：X、Y、Z）的旋转。</p>
+</li>
+<li class="">
+<p>红色和绿色小标记分别表示下限和上限。</p>
+</li>
+</ul>
+<p><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/articulation-body-joint-spherical-free.png" alt="articulation-body-joint-spherical-free.png" class="img_ev3q"> <br><em>自由球形关节的示例。</em></p>
+<p><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/articulation-body-joint-spherical-limited.png" alt="articulation-body-joint-spherical-limited.png" class="img_ev3q"> <br><em>摆动有限的球形关节示例。</em></p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/danyow/danyow/edit/main/unity/unity/physics-section/physics-overview/articulations-section/class-articulation-body.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>编辑此页</a></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">最后<!-- -->由 <b>danyow</b> <!-- -->于 <b><time datetime="2026-03-18T07:23:55.000Z" itemprop="dateModified">2026年3月18日</time></b> <!-- -->更新</span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="文件选项卡"><a class="pagination-nav__link pagination-nav__link--prev" href="/unity/articulations-section"><div class="pagination-nav__sublabel">上一页</div><div class="pagination-nav__label">Articulations</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/unity/articulations-section/physics-articulations"><div class="pagination-nav__sublabel">下一页</div><div class="pagination-nav__label">Introduction to physics articulations</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#属性" class="table-of-contents__link toc-highlight">属性</a><ul><li><a href="#物理体属性" class="table-of-contents__link toc-highlight">物理体属性</a></li><li><a href="#关节锚点属性" class="table-of-contents__link toc-highlight">关节锚点属性</a></li><li><a href="#关节类型选择和关节属性" class="table-of-contents__link toc-highlight">关节类型选择和关节属性</a></li><li><a href="#关节驱动属性" class="table-of-contents__link toc-highlight">关节驱动属性</a></li></ul></li><li><a href="#配置接合关节" class="table-of-contents__link toc-highlight">配置接合关节</a><ul><li><a href="#关节驱动效果" class="table-of-contents__link toc-highlight">关节驱动效果</a></li></ul></li><li><a href="#关节锚点" class="table-of-contents__link toc-highlight">关节锚点</a><ul><li><a href="#关节自由度和限制" class="table-of-contents__link toc-highlight">关节自由度和限制</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="margin-bottom--sm"><img src="/img/logo.svg" class="footer__logo themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/logo.svg" class="footer__logo themedComponent_mlkZ themedComponent--dark_xIcU"></div><div class="footer__copyright">© 2026 danyow, Inc. 使用 Docusaurus 构建。</div></div></div></footer></div>
+</body>
+</html>

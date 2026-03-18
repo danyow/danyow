@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="zh" dir="ltr" class="docs-wrapper plugin-docs plugin-id-unity docs-version-current docs-doc-page docs-doc-id-graphics/models/models-importing/class-fbximporter/FBXImporter-Model" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.9.2">
+<title data-rh="true">Model 选项卡 | :D</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://danyow.cn/unity/class-fbximporter/fbximporter-model"><meta data-rh="true" property="og:locale" content="zh"><meta data-rh="true" name="docusaurus_locale" content="zh"><meta data-rh="true" name="docsearch:language" content="zh"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-unity-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-unity-current"><meta data-rh="true" property="og:title" content="Model 选项卡 | :D"><meta data-rh="true" name="description" content="选择模型时，模型文件的  Import Settings  显示在 Inspector 窗口的  Model  选项卡中。这些设置会影响模型中存储的各种元素和属性。Unity 使用这些设置导入每个资源，因此您可以调整任何设置以应用于项目中的不同资源。"><meta data-rh="true" property="og:description" content="选择模型时，模型文件的  Import Settings  显示在 Inspector 窗口的  Model  选项卡中。这些设置会影响模型中存储的各种元素和属性。Unity 使用这些设置导入每个资源，因此您可以调整任何设置以应用于项目中的不同资源。"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://danyow.cn/unity/class-fbximporter/fbximporter-model"><link data-rh="true" rel="alternate" href="https://danyow.cn/unity/class-fbximporter/fbximporter-model" hreflang="zh"><link data-rh="true" rel="alternate" href="https://danyow.cn/unity/class-fbximporter/fbximporter-model" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"图形","item":"https://danyow.cn/unity/graphics"},{"@type":"ListItem","position":2,"name":"模型","item":"https://danyow.cn/unity/models"},{"@type":"ListItem","position":3,"name":"将模型导入 Unity","item":"https://danyow.cn/unity/models-importing"},{"@type":"ListItem","position":4,"name":"Model Import Settings 窗口","item":"https://danyow.cn/unity/class-fbximporter"},{"@type":"ListItem","position":5,"name":"Model 选项卡","item":"https://danyow.cn/unity/class-fbximporter/fbximporter-model"}]}</script><link rel="alternate" type="application/rss+xml" href="/blog/rss.xml" title=":D RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/blog/atom.xml" title=":D Atom Feed"><link rel="stylesheet" href="/assets/css/styles.640272bb.css">
+<script src="/assets/js/runtime~main.50b7b83d.js" defer="defer"></script>
+<script src="/assets/js/main.ca102e2d.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/img/logo.svg"><div role="region" aria-label="跳到主要内容"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">跳到主要内容</a></div><nav aria-label="主导航" class="theme-layout-navbar navbar navbar--fixed-top navbar--primary"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="切换导航栏" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><b class="navbar__title text--truncate">:D</b></a><a class="navbar__item navbar__link" href="/note/itinerary">笔记</a><a class="navbar__item navbar__link" href="/lua/learn">Lua</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/unity/Glossary">Unity</a><a class="navbar__item navbar__link" href="/blog">博客</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/danyow/danyow" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link header-github-link" aria-label="GitHub repository"></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search searchBarContainer_NW3z" dir="ltr"><input placeholder="搜索" aria-label="Search" class="navbar__search-input searchInput_YFbd" value=""><div class="loadingRing_RJI3 searchBarLoadingRing_YnHq"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="回到顶部" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="文档侧边栏" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/animation-section"><span title="动画" class="categoryLinkLabel_W154">动画</span></a><button aria-label="展开侧边栏分类 &#x27;动画&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/asset-store"><span title="Unity Asset Store" class="categoryLinkLabel_W154">Unity Asset Store</span></a><button aria-label="展开侧边栏分类 &#x27;Unity Asset Store&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/asset-workflow"><span title="资源工作流程" class="categoryLinkLabel_W154">资源工作流程</span></a><button aria-label="展开侧边栏分类 &#x27;资源工作流程&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/audio"><span title="音频" class="categoryLinkLabel_W154">音频</span></a><button aria-label="展开侧边栏分类 &#x27;音频&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/creating-environments"><span title="World building" class="categoryLinkLabel_W154">World building</span></a><button aria-label="展开侧边栏分类 &#x27;World building&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/unity/Glossary"><span title="术语表" class="linkLabel_WmDU">术语表</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" href="/unity/graphics"><span title="图形" class="categoryLinkLabel_W154">图形</span></a><button aria-label="折叠侧边栏分类 &#x27;图形&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/cameras-overview"><span title="摄像机" class="categoryLinkLabel_W154">摄像机</span></a><button aria-label="展开侧边栏分类 &#x27;摄像机&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/graphics-apis"><span title="图形 API 支持" class="categoryLinkLabel_W154">图形 API 支持</span></a><button aria-label="展开侧边栏分类 &#x27;图形 API 支持&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/graphics-color"><span title="颜色" class="categoryLinkLabel_W154">颜色</span></a><button aria-label="展开侧边栏分类 &#x27;颜色&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/graphics-performance-profiling"><span title="Graphics performance and profiling" class="categoryLinkLabel_W154">Graphics performance and profiling</span></a><button aria-label="展开侧边栏分类 &#x27;Graphics performance and profiling&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/lighting-overview"><span title="光照" class="categoryLinkLabel_W154">光照</span></a><button aria-label="展开侧边栏分类 &#x27;光照&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/materials"><span title="材质" class="categoryLinkLabel_W154">材质</span></a><button aria-label="展开侧边栏分类 &#x27;材质&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/mesh"><span title="网格" class="categoryLinkLabel_W154">网格</span></a><button aria-label="展开侧边栏分类 &#x27;网格&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" tabindex="0" href="/unity/models"><span title="模型" class="categoryLinkLabel_W154">模型</span></a><button aria-label="折叠侧边栏分类 &#x27;模型&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/creating-dccassets"><span title="在 Unity 外部创建模型" class="categoryLinkLabel_W154">在 Unity 外部创建模型</span></a><button aria-label="展开侧边栏分类 &#x27;在 Unity 外部创建模型&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" tabindex="0" href="/unity/models-importing"><span title="将模型导入 Unity" class="categoryLinkLabel_W154">将模型导入 Unity</span></a><button aria-label="折叠侧边栏分类 &#x27;将模型导入 Unity&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" tabindex="0" href="/unity/class-fbximporter"><span title="Model Import Settings 窗口" class="categoryLinkLabel_W154">Model Import Settings 窗口</span></a><button aria-label="折叠侧边栏分类 &#x27;Model Import Settings 窗口&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-5 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/class-animation-clip"><span title="Animation 选项卡" class="categoryLinkLabel_W154">Animation 选项卡</span></a><button aria-label="展开侧边栏分类 &#x27;Animation 选项卡&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class="menu__link" tabindex="0" href="/unity/class-fbximporter/fbximporter-materials"><span title="Materials 选项卡" class="linkLabel_WmDU">Materials 选项卡</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/unity/class-fbximporter/fbximporter-model"><span title="Model 选项卡" class="linkLabel_WmDU">Model 选项卡</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-5 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/fbximporter-rig"><span title="Rig 选项卡" class="categoryLinkLabel_W154">Rig 选项卡</span></a><button aria-label="展开侧边栏分类 &#x27;Rig 选项卡&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li></ul></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/unity/models-importing/class-sketch-up-importer"><span title="SketchUp Import Settings 窗口" class="linkLabel_WmDU">SketchUp Import Settings 窗口</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/class-speed-tree-importer"><span title="SpeedTree Import Settings 窗口" class="categoryLinkLabel_W154">SpeedTree Import Settings 窗口</span></a><button aria-label="展开侧边栏分类 &#x27;SpeedTree Import Settings 窗口&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/unity/models-importing/configuringthe-avatar"><span title="导入带有人形动画的模型" class="linkLabel_WmDU">导入带有人形动画的模型</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/unity/models-importing/generic-animations"><span title="导入带有非人形（通用）动画的模型" class="linkLabel_WmDU">导入带有非人形（通用）动画的模型</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/unity/models-importing/importing-model-files"><span title="导入一个模型" class="linkLabel_WmDU">导入一个模型</span></a></li></ul></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/render-pipelines"><span title="渲染管线" class="categoryLinkLabel_W154">渲染管线</span></a><button aria-label="展开侧边栏分类 &#x27;渲染管线&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/shaders"><span title="着色器" class="categoryLinkLabel_W154">着色器</span></a><button aria-label="展开侧边栏分类 &#x27;着色器&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/sky"><span title="天空" class="categoryLinkLabel_W154">天空</span></a><button aria-label="展开侧边栏分类 &#x27;天空&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/textures"><span title="纹理" class="categoryLinkLabel_W154">纹理</span></a><button aria-label="展开侧边栏分类 &#x27;纹理&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/unity/visual-effects"><span title="Visual effects" class="categoryLinkLabel_W154">Visual effects</span></a><button aria-label="展开侧边栏分类 &#x27;Visual effects&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/input"><span title="输入" class="categoryLinkLabel_W154">输入</span></a><button aria-label="展开侧边栏分类 &#x27;输入&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/legacy-topics"><span title="旧版主题" class="categoryLinkLabel_W154">旧版主题</span></a><button aria-label="展开侧边栏分类 &#x27;旧版主题&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/navigation"><span title="导航和寻路" class="categoryLinkLabel_W154">导航和寻路</span></a><button aria-label="展开侧边栏分类 &#x27;导航和寻路&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/packages-list"><span title="Packages and feature sets" class="categoryLinkLabel_W154">Packages and feature sets</span></a><button aria-label="展开侧边栏分类 &#x27;Packages and feature sets&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/physics-section"><span title="物理系统" class="categoryLinkLabel_W154">物理系统</span></a><button aria-label="展开侧边栏分类 &#x27;物理系统&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/platform-specific"><span title="平台开发" class="categoryLinkLabel_W154">平台开发</span></a><button aria-label="展开侧边栏分类 &#x27;平台开发&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/scripting-section"><span title="脚本" class="categoryLinkLabel_W154">脚本</span></a><button aria-label="展开侧边栏分类 &#x27;脚本&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/search-overview"><span title="Unity Search" class="categoryLinkLabel_W154">Unity Search</span></a><button aria-label="展开侧边栏分类 &#x27;Unity Search&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/uitoolkits"><span title="Create user interfaces (UI)" class="categoryLinkLabel_W154">Create user interfaces (UI)</span></a><button aria-label="展开侧边栏分类 &#x27;Create user interfaces (UI)&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/unet"><span title="多玩家和联网" class="categoryLinkLabel_W154">多玩家和联网</span></a><button aria-label="展开侧边栏分类 &#x27;多玩家和联网&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/unity/unity-manual"><span title="Unity User Manual 2022.1" class="linkLabel_WmDU">Unity User Manual 2022.1</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/unity-overview"><span title="在 Unity 中操作" class="categoryLinkLabel_W154">在 Unity 中操作</span></a><button aria-label="展开侧边栏分类 &#x27;在 Unity 中操作&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/unity-services"><span title="Unity 服务" class="categoryLinkLabel_W154">Unity 服务</span></a><button aria-label="展开侧边栏分类 &#x27;Unity 服务&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/unity2d"><span title="2D" class="categoryLinkLabel_W154">2D</span></a><button aria-label="展开侧边栏分类 &#x27;2D&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/video-player"><span title="视频概述" class="categoryLinkLabel_W154">视频概述</span></a><button aria-label="展开侧边栏分类 &#x27;视频概述&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/unity/WhatsNew20221"><span title="New in Unity 2022.1" class="linkLabel_WmDU">New in Unity 2022.1</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/unity/xr"><span title="XR" class="categoryLinkLabel_W154">XR</span></a><button aria-label="展开侧边栏分类 &#x27;XR&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="页面路径"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="主页面" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/unity/graphics"><span>图形</span></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/unity/models"><span>模型</span></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/unity/models-importing"><span>将模型导入 Unity</span></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/unity/class-fbximporter"><span>Model Import Settings 窗口</span></a></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Model 选项卡</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>Model 选项卡</h1></header>
+<p>选择模型时，模型文件的  <strong>Import Settings</strong>  显示在 Inspector 窗口的  <strong>Model</strong>  选项卡中。这些设置会影响模型中存储的各种元素和属性。Unity 使用这些设置导入每个资源，因此您可以调整任何设置以应用于项目中的不同资源。</p>
+<p><img decoding="async" loading="lazy" src="https://docs.unity3d.com/cn/2022.1/uploads/Main/FBXImporter-Model.png" alt="模型的导入设置 (Import settings)" class="img_ev3q"></p>
+<p>模型的导入设置 (Import settings)</p>
+<p>本节提供有关 Model 选项卡中每个部分的信息：</p>
+<p><strong>(A)</strong>  <a href="#scene" class="">场景 (Scene)</a> 级别的属性，比如，是否导入光源和摄像机以及使用何种缩放因子。</p>
+<p><strong>(B)</strong>  特定于<a href="#meshes-%E5%B1%9E%E6%80%A7%E9%83%A8%E5%88%86" class="">网格 (Meshes)</a> 的属性。</p>
+<p><strong>(C)</strong>  <a href="#geometry-%E5%B1%9E%E6%80%A7%E9%83%A8%E5%88%86" class="">几何体 (Geometry)</a> 相关属性，用于处理拓扑、UV 和法线。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="scene">Scene<a href="#scene" class="hash-link" aria-label="Scene的直接链接" title="Scene的直接链接" translate="no">​</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong>属性</strong></th><th><strong>功能</strong></th></tr></thead><tbody><tr><td><strong>Scale Factor</strong></td><td>当原始文件比例（来自模型文件）不符合项目中的预期比例时，请设置此值以应用导入的模型中的全局比例。Unity 的物理系统希望游戏世界中的 1 米在导入文件中为 1 个单位。</td></tr><tr><td><strong>Convert Units</strong></td><td>启用此选项可将模型文件中定义的<a class="" href="/unity/creating-dccassets">模型比例</a>转换为 Unity 的比例。</td></tr><tr><td><strong>Bake Axis Conversion</strong></td><td>如果启用此属性，当您导入使用与 Unity 不同的轴系统的模型时，可将轴转换的结果直接烘焙到应用程序的资源数据（例如，顶点或动画数据）中。如果禁用此属性，将在运行时补偿根游戏对象的 Transform 组件以模拟轴转换。</td></tr><tr><td><strong>Import BlendShapes</strong></td><td>启用此属性可允许 Unity 随网格一起导入混合形状。请参阅下面的<a href="#%E5%AF%BC%E5%85%A5%E6%B7%B7%E5%90%88%E5%BD%A2%E7%8A%B6" class="">导入混合形状</a>以了解详细信息。<br><br> <strong>注意：</strong> 导入混合形状法线需要在 FBX 文件中具有平滑组。</td></tr><tr><td><strong>Import Visibility</strong></td><td>导入 FBX 设置，这些设置定义了是否启用 MeshRenderer 组件（可见）。有关详细信息，请参阅下面的<a href="#%E5%AF%BC%E5%85%A5%E5%8F%AF%E8%A7%81%E6%80%A7" class="">导入可见性</a>。</td></tr><tr><td><strong>Import Cameras</strong></td><td>从 .FBX 文件导入摄像机。有关详细信息，请参阅下面的<a href="#%E5%AF%BC%E5%85%A5%E6%91%84%E5%83%8F%E6%9C%BA" class="">导入摄像机</a>。</td></tr><tr><td><strong>Import Lights</strong></td><td>从 .FBX 文件导入光源。有关详细信息，请参阅下面的<a href="#%E5%AF%BC%E5%85%A5%E5%85%89%E6%BA%90" class="">导入光源</a>。</td></tr><tr><td><strong>Preserve Hierarchy</strong></td><td>始终创建一个显式预制件根，即使这个模型只有一个根。通常，FBX Importer 会将模型中的任何空根节点作为优化策略进行剥离。但是，如果您的多个 FBX 文件中包含同一层级视图的某些部分，则可以使用此选项来保留原始层级视图。<br><br>例如，file1.fbx 包含一个骨架和一个网格，file2.fbx 包含相同骨架，但只包含该骨架的动画。如果在不启用此选项的情况下导入 file2.fbx，那么 Unity 将剥离根节点，层级视图将不匹配，并且动画暂停。</td></tr><tr><td><strong>Sort Hierarchy By Name</strong></td><td>启用此属性可在层级视图中按字母顺序对游戏对象进行排序。禁用此属性可保留 FBX 文件中定义的层级视图顺序。</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="导入混合形状">导入混合形状<a href="#导入混合形状" class="hash-link" aria-label="导入混合形状的直接链接" title="导入混合形状的直接链接" translate="no">​</a></h3>
+<p>Unity 支持混合形状（变形），并可从 3D 建模应用程序导出的 FBX 和 DAE 文件中导入混合形状。此外还可从 FBX 文件导入动画。Unity 支持混合形状在顶点、法线和切线上的顶点级动画。</p>
+<p>网格可能同时受到皮肤和混合形状的影响。Unity 导入包含混合形状的网格时，它将使用 <a class="" href="/unity/comp-mesh-group/class-skinned-mesh-renderer">SkinnedMeshRenderer</a> 组件（而不是 <a class="" href="/unity/comp-mesh-group/class-mesh-renderer">MeshRenderer</a> 组件），无论其是否具有皮肤。</p>
+<p>Unity 将混合形状动画作为常规动画的一部分导入：对 SkinnedMeshRenderer 上的混合形状权重进行动画化。</p>
+<p>选择以下两种方法之一来导入具有法线的混合形状：</p>
+<ul>
+<li class="">
+<p>将 <a href="#blend-shape-normals" class="">Blend Shape Normals</a> 属性设置为  <strong>Import</strong> ，以便 Unity 使用来自 FBX 文件的法线。有关更多信息，请参阅下面的 <a href="#blend-shape-normals" class="">Blend Shape Normals</a> 属性文档。</p>
+<p><em>或</em></p>
+</li>
+<li class="">
+<p>将 <a href="#blend-shape-normals" class="">Blend Shape Normals</a> 属性设置为  <strong>Calculate</strong> ，以便 Unity 使用相同的逻辑来计算网格和混合形状上的法线。</p>
+</li>
+</ul>
+<p><strong>注意：</strong> 如果需要混合形状上的切线，则应将 <a href="#tangents" class="">Tangents</a> 导入设置设为  <strong>Calculate</strong> 。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="导入可见性">导入可见性<a href="#导入可见性" class="hash-link" aria-label="导入可见性的直接链接" title="导入可见性的直接链接" translate="no">​</a></h3>
+<p>Unity 可以通过  <strong>Import Visibility</strong>  属性从 FBX 文件读取可见性属性。值和动画曲线可以通过控制 <a href="https://docs.unity3d.com/cn/2022.1/Manual/Renderer-enabled.html" target="_blank" rel="noopener noreferrer" class="">Renderer.enabled</a> 属性来启用或禁用 MeshRenderer 组件。</p>
+<p>默认情况下，可见性是可以继承的（设置为 true），但可以覆盖。例如，如果父网格上的可见性设置为 0，那么其子网格上的所有渲染器也将被禁用。在此情况下，将为每个子项的 <code>Renderer.enabled</code> 属性创建一个动画曲线。</p>
+<p>一些 3D 建模应用程序要么不支持可见性属性，要么存在限制。有关更多信息，请参阅：</p>
+<ul>
+<li class=""><a class="" href="/unity/creating-dccassets/howto-import-objects-from3dapps#%E4%BB%8E-autodesk%C2%AE-maya%C2%AE-%E5%AF%BC%E5%85%A5%E5%AF%B9%E8%B1%A1">将模型从 Autodesk® Maya® 导入 Unity 的限制</a></li>
+<li class=""><a class="" href="/unity/creating-dccassets/howto-import-objects-from3dapps#%E4%BB%8E-blender-%E5%AF%BC%E5%85%A5%E5%AF%B9%E8%B1%A1">将模型从 Blender 导入 Unity 的限制</a></li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="导入摄像机">导入摄像机<a href="#导入摄像机" class="hash-link" aria-label="导入摄像机的直接链接" title="导入摄像机的直接链接" translate="no">​</a></h3>
+<p>从 .FBX 文件导入摄像机时，Unity 支持以下属性：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong>属性：</strong></th><th><strong>功能：</strong></th></tr></thead><tbody><tr><td><strong>Projection</strong>  模式</td><td>正交或透视。不支持动画。</td></tr><tr><td><strong>Field of View</strong></td><td>支持动画。</td></tr><tr><td>所有  <strong>Physical Camera</strong>  属性</td><td>如果导入包含物理属性的摄像机（例如，从 Maya 导入），那么 Unity 将创建一个启用了  <strong>Physical Camera</strong>  属性的摄像机，并且采用来自 FBX 文件的  <strong>Focal Length</strong> 、 <strong>Sensor Type</strong> 、 <strong>Sensor Size</strong> 、 <strong>Lens Shift</strong>  和  <strong>Gate Fit</strong>  值。<br> *<strong>注意：</strong> *并非所有 3D 建模应用程序都有 <em>Gate Fit</em> 概念。当 3D 建模应用程序不支持时，Unity 中的默认值是  <strong>None</strong> 。</td></tr><tr><td><strong>Near</strong>  和  <strong>Far</strong>   <strong>Clipping Plane</strong>  距离</td><td>Unity 不会根据这些属性导入任何动画。从 3ds Max 导出时，请启用  <strong>Clip Manually</strong>  设置；否则，在导入时将应用默认值。</td></tr><tr><td><strong>Target Cameras</strong></td><td>如果导入目标摄像机，Unity 将使用目标对象作为源游戏对象创建具有 <a class="" href="/unity/constraints/class-look-at-constraint">LookAt</a> 约束的摄像机。</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="导入光源">导入光源<a href="#导入光源" class="hash-link" aria-label="导入光源的直接链接" title="导入光源的直接链接" translate="no">​</a></h3>
+<p>支持以下光源类型：</p>
+<ul>
+<li class="">全向光</li>
+<li class="">聚光灯</li>
+<li class="">方向光</li>
+<li class="">面光源</li>
+</ul>
+<p>支持以下光源属性：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong>属性：</strong></th><th><strong>功能：</strong></th></tr></thead><tbody><tr><td><strong>Range</strong></td><td>如果启用  <strong>UseFarAttenuation</strong> ，则使用 <strong>FarAttenuationEndValue</strong> 。 <strong>FarAttenuationEndValue</strong>  不支持动画。</td></tr><tr><td><strong>Color</strong></td><td>支持动画。</td></tr><tr><td><strong>Intensity</strong></td><td>支持动画。</td></tr><tr><td><strong>Spot Angle</strong></td><td>Supports animation. Only available for Spot Lights.</td></tr></tbody></table>
+<p><strong>注意</strong> ：在 3ds Max 中，导出的默认值是当前选定帧上的属性值。为了避免混淆，在导出时将播放头移动到第 0 帧。</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="限制">限制<a href="#限制" class="hash-link" aria-label="限制的直接链接" title="限制的直接链接" translate="no">​</a></h4>
+<p>Some 3D modeling applications apply scaling on light properties. For instance, you can scale a Spot Light by its hierarchy and affect the light cone. Unity does not do this, which may cause lights to look different in Unity.</p>
+<p>The FBX format does not define the width and height of area lights. Some 3D modeling applications don’t have this property and only allow you to use scaling to define the rectangle or disc area. Because of this, area lights always have a size of 1 when imported.</p>
+<p>不支持目标光照动画，除非它们的动画经过烘焙。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="meshes-属性部分">Meshes 属性部分<a href="#meshes-属性部分" class="hash-link" aria-label="Meshes 属性部分的直接链接" title="Meshes 属性部分的直接链接" translate="no">​</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong>属性</strong></th><th><strong>功能</strong></th></tr></thead><tbody><tr><td><strong>Mesh Compression</strong></td><td>设置压缩比级别以减小网格的文件大小。提高压缩比会降低网格的精度，方法是在每个组件中使用网格边界和更低的位深来压缩网格数据。<br><br>最好是尽可能调高网格，而不会使网格看起来与未压缩版本有太大区别。这对于<a class="" href="/unity/publishing-builds/reducing-filesize">优化游戏大小</a>很有用。</td></tr><tr><td>-&gt;  <strong>Off</strong></td><td>不使用压缩。</td></tr><tr><td>-&gt;  <strong>Low</strong></td><td>使用低压缩比。</td></tr><tr><td>-&gt;  <strong>Medium</strong></td><td>使用中等压缩比。</td></tr><tr><td>-&gt;  <strong>High</strong></td><td>使用高压缩比。</td></tr><tr><td><strong>Read/Write Enabled</strong></td><td>启用此选项时，Unity 会将网格数据上传到 GPU 可寻址内存，但也会将其保存在 CPU 可寻址内存中。这意味着 Unity 可以在运行时访问网格数据，您也可以从脚本中访问网格数据。例如，如果您正在按过程生成一个网格，或者想要从一个网格中复制一些数据，可能会希望这样做。<br><br>当禁用此选项时，Unity 会将网格数据上传到 GPU 可寻址内存，然后从 CPU 可寻址内存中删除网格数据。<br><br>默认情况下会禁用此选项。在大多数情况下，为节省运行时内存使用量，请将此选项禁用为禁用状态。有关何时启用 Read/Write Enabled 的信息，请参阅 <a href="https://docs.unity3d.com/cn/2022.1/Manual/Mesh-isReadable.html" target="_blank" rel="noopener noreferrer" class="">Mesh.isReadable</a>。</td></tr><tr><td><strong>Optimize Mesh</strong></td><td>确定三角形在网格中列出的顺序以提高 GPU 性能。</td></tr><tr><td>-&gt;  <strong>Nothing</strong></td><td>无优化。</td></tr><tr><td>-&gt;  <strong>Everything</strong></td><td>让 Unity 对顶点以及多边形和顶点的索引进行重新排序。此为默认值。</td></tr><tr><td>-&gt;  <strong>Polygon Order</strong></td><td>仅对多边形重新排序。</td></tr><tr><td>-&gt;  <strong>Vertex Order</strong></td><td>仅对顶点重新排序。</td></tr><tr><td><strong>Generate Colliders</strong></td><td>启用此属性可在自动附加网格碰撞体的情况下导入您的网格。这可以用于为环境几何体快速生成碰撞网格，但是对于您正在移动的几何体，应避免使用。</td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="geometry-属性部分">Geometry 属性部分<a href="#geometry-属性部分" class="hash-link" aria-label="Geometry 属性部分的直接链接" title="Geometry 属性部分的直接链接" translate="no">​</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong>属性</strong></th><th><strong>功能</strong></th></tr></thead><tbody><tr><td><strong>Keep Quads</strong></td><td>启用此属性可使 Unity 停止将包含四个顶点的多边形转换为三角形。例如，如果您正在使用<a class="" href="/unity/sl-surface-shaders/sl-surface-shader-tessellation">曲面细分着色器</a>，可能会希望启用此选项，因为四边形的曲面细分要比多边形的曲面细分效率更高。<br><br>Unity 可以导入任意类型的多边形（三角形到 N 边形）。顶点数量<em>超过</em>四个的多边形将始终转换为三角形，无论此设置如何。然而，如果一个网格有四边形和三角形（或者转换为三角形的 N 边形），那么 Unity 会创建两个子网格来分离四边形和三角形。每个子网格要么只包含三角形，要么只包含四边形。<br><br> <strong>提示：</strong> 如果要从 3ds Max 将四边形导入 Unity，必须将其导出为可编辑多边形。</td></tr><tr><td><strong>Weld Vertices</strong></td><td>合并在空间中共享相同位置的顶点，前提是这些顶点总体上共享相同的属性（包括 UV、法线、切线和 VertexColor）。<br><br>这通过减少网格的总数量来优化网格的顶点计数。默认情况下会启用此选项。<br><br>在某些情况下，您可能需要在导入网格时关闭此优化。例如，如果有意包含重复顶点，这些重复顶点在网格中占据相同的位置，那么您可能更喜欢使用脚本来读取或操作单个顶点和三角形数据。</td></tr><tr><td><strong>Index Format</strong></td><td>定义网格索引缓冲区的大小。<br><br> <strong>注意：</strong> 由于带宽和内存存储大小的原因，通常会希望将  <strong>16 bit</strong>  索引保留为默认设置，并且只在必要时使用  <strong>32 bit</strong> ，这也是 <strong>Auto</strong>  选项所使用的设置。</td></tr><tr><td>-&gt;  <strong>Auto</strong></td><td>在导入网格时，让 Unity 根据网格顶点数来决定是使用 16 位索引还是 32 位索引。对于 Unity 2017.3 和更高版本中添加的资源，这是默认设置。</td></tr><tr><td>-&gt;  <strong>16 bit</strong></td><td>导入网格时使用 16 位索引。如果网格较大，则会将其分割为小于 64k 顶点块。对于在 Unity 2017.2 或更低版本中建立的项目，这是默认设置。</td></tr><tr><td>-&gt;  <strong>32 bit</strong></td><td>导入网格时使用 32 位索引。如果使用的是基于 GPU 的渲染管线（例如，使用计算着色器三角形剔除），那么使用 32 位索引将确保所有网格使用相同的索引格式。这降低了着色器的复杂性，因为它们只需要处理一种格式。</td></tr><tr><td><strong>Legacy Blend Shape Normals</strong></td><td>启用此选项可基于  <strong>Smoothing Angle</strong>  值来计算法线。</td></tr><tr><td><strong>Normals</strong></td><td>定义是否以及如何计算法线。这对于<a class="" href="/unity/publishing-builds/reducing-filesize">优化游戏大小</a>很有用。</td></tr><tr><td>-&gt;  <strong>Import</strong></td><td>从文件中导入法线。这是默认选项。如果文件不包含法线，则将计算法线。</td></tr><tr><td>-&gt;  <strong>Calculate</strong></td><td>根据  <strong>Normals Mode</strong> 、 <strong>Smoothness Source</strong>  和  <strong>Smoothing Angle</strong> （下文）属性来计算法线。</td></tr><tr><td><strong>Blend Shape Normals</strong></td><td>定义 Unity 是否以及如何为混合形状计算法线。此值应与  <strong>Normals</strong>  属性的值匹配。<br><br>仅当禁用  <strong>Legacy Blend Shape Normals</strong>  时，此属性才可见。</td></tr><tr><td>-&gt;  <strong>Import</strong></td><td>从文件中导入法线。如果混合形状不包含法线，则 FBX SDK 会使用其自己的方法来计算法线，从而导致法线值通常会不同于 Unity 使用  <strong>Calculate</strong>  选项创建的法线值。</td></tr><tr><td>-&gt;  <strong>Calculate</strong></td><td>根据  <strong>Normals Mode</strong> 、 <strong>Smoothness Source</strong>  和  <strong>Smoothing Angle</strong> （下文）属性来计算法线。</td></tr><tr><td><strong>Normals Mode</strong></td><td>定义 Unity 计算法线的方式。仅当  <strong>Normals</strong>  设置为  <strong>Calculate</strong>  或  <strong>Import</strong>  时，此属性才可用。</td></tr><tr><td>-&gt;  <strong>Unweighted Legacy</strong></td><td>旧版的法线计算方法（在 2017.1 版本之前）。在某些情况下，旧版给出的结果与当前实现给出的结果略有不同。对于在将项目迁移到最新版本的 Unity 之前导入的所有 FBX 预制件，这是默认设置。</td></tr><tr><td>-&gt;  <strong>Unweighted</strong></td><td>法线不加权。</td></tr><tr><td>-&gt;  <strong>Area Weighted</strong></td><td>法线按照图面面积加权。</td></tr><tr><td>-&gt;  <strong>Angle Weighted</strong></td><td>法线按照每个图面上的顶角加权。</td></tr><tr><td>-&gt;  <strong>Area and Angle Weighted</strong></td><td>法线按照每个图面上的图面面积和顶角加权。这是默认选项。</td></tr><tr><td><strong>Smoothness Source</strong></td><td>设置如何确定平滑行为（哪些边应该是平滑的，哪些应该是粗糙的）。<br><br>仅当禁用  <strong>Legacy Blend Shape Normals</strong>  时，此属性才可见。</td></tr><tr><td>-&gt;  <strong>Prefer Smoothing Groups</strong></td><td>尽可能使用模型文件中的平滑组。</td></tr><tr><td>-&gt;  <strong>From Smoothing Groups</strong></td><td>仅使用模型文件中的平滑组。</td></tr><tr><td>-&gt;  <strong>From Angle</strong></td><td>使用  <strong>Smoothing Angle</strong>  值来确定哪些边应该是平滑的。</td></tr><tr><td>-&gt;  <strong>None</strong></td><td>不拆分硬边的任何顶点。</td></tr><tr><td><strong>Smoothing Angle</strong></td><td>控制是否为硬边拆分顶点。通常，值越大，产生的顶点越少。<br><br> <strong>注意：</strong> 此设置仅用于非常光滑的有机物或非常复杂的多边形模型。否则，最好在 3D 建模软件中手动平滑，然后导入，并且需要将  <strong>Normals</strong>  选项设置为  <strong>Import</strong> （上文）。由于 Unity 仅以单个角度作为硬边的基础，因此您可能会错误地在模型的某些部分上平滑。<br><br>仅当 <strong>Normals</strong>  设置为  <strong>Calculate</strong>  时才可用。</td></tr><tr><td><strong>Tangents</strong></td><td>定义如何导入或计算顶点切线。仅当  <strong>Normals</strong>  设置为  <strong>Calculate</strong>  或  <strong>Import</strong>  时，此属性才可用。</td></tr><tr><td>-&gt;  <strong>Import</strong></td><td>如果  <strong>Normals</strong>  设置为  <strong>Import</strong> ，则从 FBX 文件中导入顶点切线。如果网格没有切线，那么将无法使用法线贴图着色器。</td></tr><tr><td>-&gt;  <strong>Calculate Legacy - Split Tangent</strong></td><td>使用旧版算法计算切线，并在 UV 图表上进行拆分。如果网格上的接缝破坏了法线贴图光照，请使用此属性。此属性通常仅适用于角色。</td></tr><tr><td>-&gt;  <strong>None</strong></td><td>不导入顶点切线。网格没有切线，因此将无法使用法线贴图着色器。</td></tr><tr><td><strong>Swap UVs</strong></td><td>在网格中交换 UV 通道。如果漫射纹理使用光照贴图中的 UV，请使用此选项。Unity 最多支持八个 UV 通道，但并不是所有的 3D 建模应用程序都会导出两个以上的通道。</td></tr><tr><td><strong>Generate Lightmap UVs</strong></td><td>为光照贴图创建第二个 UV 通道。有关更多信息，请参阅<a class="" href="/unity/lighting-gi-uvs/lighting-gi-uvs-generating-lightmapping-uvs">生成光照贴图 UV</a> 文档。</td></tr></tbody></table>
+<hr>
+<ul>
+<li class="">在 Unity <a href="https://docs.unity3d.com/cn/2022.1/Manual/30_search.html?q=newin20171" target="_blank" rel="noopener noreferrer" class="">2017.1</a> 中添加了  <strong>Normals Mode</strong> 、 <strong>Light</strong>  和  <strong>Camera</strong>  导入选项 NewIn20171</li>
+<li class=""><a href="https://docs.unity3d.com/2017.2/Documentation/Manual/30_search.html?q=newin20172" target="_blank" rel="noopener noreferrer" class="">2017.2</a> 中添加了  <strong>Materials</strong>  选项卡 NewIn20172</li>
+<li class="">在 <a href="https://docs.unity3d.com/2017.3/Documentation/Manual/30_search.html?q=newin20173" target="_blank" rel="noopener noreferrer" class="">2017.3</a> 版中添加了  <strong>Index Format</strong>  属性 NewIn20173</li>
+<li class="">更新了 read/write enabled 设置的描述并且重新整理了属性表以便与 Unity <a href="https://docs.unity3d.com/cn/2022.1/Manual/30_search.html?q=newin20173" target="_blank" rel="noopener noreferrer" class="">2017.3</a> 中的改进相符 NewIn20173</li>
+<li class="">在 Unity <a href="https://docs.unity3d.com/cn/2022.1/Manual/30_search.html?q=newin20193" target="_blank" rel="noopener noreferrer" class="">2019.3</a> 中添加了  <strong>Legacy Blend Shape Normals</strong>  和  <strong>Sort Hierarchy By Name</strong>  属性 NewIn20193</li>
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/danyow/danyow/edit/main/unity/unity/graphics/models/models-importing/class-fbximporter/fbximporter-model.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>编辑此页</a></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">最后<!-- -->由 <b>danyow</b> <!-- -->于 <b><time datetime="2026-03-18T07:23:55.000Z" itemprop="dateModified">2026年3月18日</time></b> <!-- -->更新</span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="文件选项卡"><a class="pagination-nav__link pagination-nav__link--prev" href="/unity/class-fbximporter/fbximporter-materials"><div class="pagination-nav__sublabel">上一页</div><div class="pagination-nav__label">Materials 选项卡</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/unity/fbximporter-rig"><div class="pagination-nav__sublabel">下一页</div><div class="pagination-nav__label">Rig 选项卡</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#scene" class="table-of-contents__link toc-highlight">Scene</a><ul><li><a href="#导入混合形状" class="table-of-contents__link toc-highlight">导入混合形状</a></li><li><a href="#导入可见性" class="table-of-contents__link toc-highlight">导入可见性</a></li><li><a href="#导入摄像机" class="table-of-contents__link toc-highlight">导入摄像机</a></li><li><a href="#导入光源" class="table-of-contents__link toc-highlight">导入光源</a></li></ul></li><li><a href="#meshes-属性部分" class="table-of-contents__link toc-highlight">Meshes 属性部分</a></li><li><a href="#geometry-属性部分" class="table-of-contents__link toc-highlight">Geometry 属性部分</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="margin-bottom--sm"><img src="/img/logo.svg" class="footer__logo themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/logo.svg" class="footer__logo themedComponent_mlkZ themedComponent--dark_xIcU"></div><div class="footer__copyright">© 2026 danyow, Inc. 使用 Docusaurus 构建。</div></div></div></footer></div>
+</body>
+</html>
