@@ -21,7 +21,7 @@ jobs:
         env:
           CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
           # 本地化 crowdin-udb
-          NODE_OPTIONS: "--stack-trace-limit=50"
+          NODE_OPTIONS: "--max-old-space-size=8192"
         run: |
           yarn install 
           yarn generate
@@ -29,7 +29,6 @@ jobs:
           git config --global user.name "danyow"
           git add unity/
           git commit -m 'generate'
-          node scripts/patch-ssg-debug.js
           yarn build
 
       # 目前较为流行部署到 GitHubPages 的 Action：
@@ -37,7 +36,7 @@ jobs:
       - name: 部署到GitHub
         uses: peaceiris/actions-gh-pages@v4
         with:
-          github_token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           # 构建输出以发布到 `gh-pages` 分支：
           publish_dir: ./build
           # 将提交作者身份分配给官方 GH-Actions 机器人以部署到 `gh-pages` 分支：
