@@ -35,11 +35,11 @@ jobs:
             const f = path.resolve('node_modules/@docusaurus/core/lib/ssg/ssgGlobalResult.js');
             let src = fs.readFileSync(f, 'utf8');
             src = src.replace(
-              'throwSSGError(ssgErrors)',
-              'ssgErrors.slice(0,5).forEach((e,i)=>{ console.error(\"[SSG-ERR-\"+i+\"]\", e.pathname, e.error?.message, e.error?.cause?.message, e.error?.cause?.stack?.slice(0,800)); }); throwSSGError(ssgErrors)'
+              'if (ssgErrors.length > 0) {\n        throwSSGError(ssgErrors);\n    }',
+              'if (ssgErrors.length > 0) {\n        ssgErrors.slice(0,5).forEach(function(e,i){ console.error(\"[SSG-ERR-\"+i+\"] \"+e.pathname+\" | \"+String(e.error)+\" | cause: \"+String(e.error && e.error.cause)); });\n        throwSSGError(ssgErrors);\n    }'
             );
             fs.writeFileSync(f, src);
-            console.log('Patched ssgGlobalResult.js');
+            console.log('Patched ssgGlobalResult.js, changed: ' + src.includes('[SSG-ERR-'));
           "
           yarn build
 
