@@ -584,8 +584,8 @@ function handleMarkdown(complexList, handleCallback) {
 
     reader.on('line', function (line) {
       line = line.replaceAll(/^\[\d*?\]: (.+)/g, function (lineRep, lineReference) {
-        // 是 链接
-        if (lineReference.match(/http(s)?:\/\/([\w-]+[\.|\:])+[\w-]+(\/[\w.\/?%&#=]*)?/g)) {
+        // 是 链接（含 http://ip:port/... 等占位符形式的 URL）
+        if (lineReference.match(/^https?:\/\//)) {
           // TODO: 对同类型的链接
           // if (ref.includes('docs.unity3d.com')) {
           //   if (ref.includes('ScriptReference')) {
