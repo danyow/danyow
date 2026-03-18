@@ -21,6 +21,7 @@ jobs:
         env:
           CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
           # 本地化 crowdin-udb
+          NODE_OPTIONS: "--stack-trace-limit=50"
         run: |
           yarn install 
           yarn generate
@@ -28,7 +29,11 @@ jobs:
           git config --global user.name "danyow"
           git add unity/
           git commit -m 'generate'
-          yarn build
+          yarn build 2>&1 | tee /tmp/build.log; BUILD_EXIT=${PIPESTATUS[0]}
+          if [ -f .docusaurus/ssr-error-log.txt ]; then
+            echo "=== SSR ERROR LOG ===" && cat .docusaurus/ssr-error-log.txt | head -200
+          fi
+          exit $BUILD_EXIT
 
       # 目前较为流行部署到 GitHubPages 的 Action：
       # 文档: https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-docusaurus
