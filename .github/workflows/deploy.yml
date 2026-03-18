@@ -29,18 +29,6 @@ jobs:
           git config --global user.name "danyow"
           git add unity/
           git commit -m 'generate'
-          node -e "
-            const fs = require('fs');
-            const path = require('path');
-            const f = path.resolve('node_modules/@docusaurus/core/lib/ssg/ssgGlobalResult.js');
-            let src = fs.readFileSync(f, 'utf8');
-            src = src.replace(
-              'if (ssgErrors.length > 0) {\n        throwSSGError(ssgErrors);\n    }',
-              'if (ssgErrors.length > 0) {\n        ssgErrors.slice(0,5).forEach(function(e,i){ console.error(\"[SSG-ERR-\"+i+\"] \"+e.pathname+\" | \"+String(e.error)+\" | cause: \"+String(e.error && e.error.cause)); });\n        throwSSGError(ssgErrors);\n    }'
-            );
-            fs.writeFileSync(f, src);
-            console.log('Patched ssgGlobalResult.js, changed: ' + src.includes('[SSG-ERR-'));
-          "
           yarn build
 
       # 目前较为流行部署到 GitHubPages 的 Action：
