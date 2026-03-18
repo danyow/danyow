@@ -11,11 +11,11 @@ jobs:
 
     steps:
       - name: 检出代码
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: 设置 node 版本
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: '16'
+          node-version: '20'
           cache: yarn
       - name: 配置环境 构建网站
         env:
@@ -33,7 +33,7 @@ jobs:
       # 目前较为流行部署到 GitHubPages 的 Action：
       # 文档: https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-docusaurus
       - name: 部署到GitHub
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
           # 构建输出以发布到 `gh-pages` 分支：

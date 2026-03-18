@@ -1,8 +1,9 @@
 // @ts-check
 // Note: 类型注释允许类型检查和 IDE 自动完成
 
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+const {themes} = require('prism-react-renderer');
+const lightCodeTheme = themes.github;
+const darkCodeTheme = themes.dracula;
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -11,10 +12,15 @@ const config = {
   url: "https://danyow.cn",
   baseUrl: "/",
   onBrokenLinks: "ignore",
-  onBrokenMarkdownLinks: "ignore",
   favicon: "img/favicon.ico",
   organizationName: "danyow", // 通常是您的 gitHub.com/<组织用户名>。
   projectName: "danyow", // 通常是您的仓库名称。
+  markdown: {
+    format: 'detect',
+    hooks: {
+      onBrokenMarkdownLinks: "ignore",
+    },
+  },
   presets: [
     [
       "classic",
@@ -29,13 +35,14 @@ const config = {
           showReadingTime: true,
           // 请将其更改为您的仓库。
           editUrl: "https://github.com/danyow/danyow/edit/main/blog",
+          onUntruncatedBlogPosts: "ignore",
         },
         theme: {
           customCss: [
-            "../src/css/docusaurus-1.css",
-            "../src/css/prism.css",
-            "../src/css/customTheme.css",
-            "../src/css/custom.css",
+            "./src/css/docusaurus-1.css",
+            "./src/css/prism.css",
+            "./src/css/customTheme.css",
+            "./src/css/custom.css",
           ],
         },
       }),
@@ -179,8 +186,8 @@ const config = {
         },
       },
       prism: {
-        theme: require("prism-react-renderer/themes/github"),
-        darkTheme: require("prism-react-renderer/themes/dracula"),
+        theme: lightCodeTheme,
+        darkTheme: darkCodeTheme,
         defaultLanguage: "javascript",
         additionalLanguages: ["lua", "csharp"],
       },

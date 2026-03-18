@@ -1,7 +1,7 @@
 import React from 'react';
 import Layout from '@theme/Layout';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import useBaseUrl from "@docusaurus/core/lib/client/exports/useBaseUrl";
+import useBaseUrl from "@docusaurus/useBaseUrl";
 
 export default (props) => (
   <Layout>
