@@ -135,7 +135,7 @@ const config = {
           },
           {
             type: "doc",
-            docId: "glossary",
+            docId: "Glossary",
             docsPluginId: "unity",
             position: "left",
             label: "Unity",
