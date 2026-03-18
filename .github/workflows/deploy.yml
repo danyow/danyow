@@ -29,11 +29,19 @@ jobs:
           git config --global user.name "danyow"
           git add unity/
           git commit -m 'generate'
-          yarn build 2>&1 | tee /tmp/build.log; BUILD_EXIT=${PIPESTATUS[0]}
-          if [ -f .docusaurus/ssr-error-log.txt ]; then
-            echo "=== SSR ERROR LOG ===" && cat .docusaurus/ssr-error-log.txt | head -200
-          fi
-          exit $BUILD_EXIT
+          node -e "
+            const fs = require('fs');
+            const path = require('path');
+            const f = path.resolve('node_modules/@docusaurus/core/lib/ssg/ssgGlobalResult.js');
+            let src = fs.readFileSync(f, 'utf8');
+            src = src.replace(
+              'throwSSGError(ssgErrors)',
+              'ssgErrors.slice(0,5).forEach((e,i)=>{ console.error(\"[SSG-ERR-\"+i+\"]\", e.pathname, e.error?.message, e.error?.cause?.message, e.error?.cause?.stack?.slice(0,800)); }); throwSSGError(ssgErrors)'
+            );
+            fs.writeFileSync(f, src);
+            console.log('Patched ssgGlobalResult.js');
+          "
+          yarn build
 
       # 目前较为流行部署到 GitHubPages 的 Action：
       # 文档: https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-docusaurus
