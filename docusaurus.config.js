@@ -12,6 +12,7 @@ const config = {
   url: "https://danyow.cn",
   baseUrl: "/",
   onBrokenLinks: "ignore",
+  onDuplicateRoutes: "ignore",
   favicon: "img/favicon.ico",
   organizationName: "danyow", // 通常是您的 gitHub.com/<组织用户名>。
   projectName: "danyow", // 通常是您的仓库名称。

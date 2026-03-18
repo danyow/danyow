@@ -197,14 +197,14 @@ function toSimpleList(linkConfigs, callback) {
 // 准备转换成数组
 function toComplexList(simpleList, reader, callback) {
   // 去找有没同名的目录
+  // 修复：用精确路径前缀匹配（加路径分隔符边界），避免 .includes() 把"导航"误判为包含"导航参考"
   function existsSameNameDir(simple, list) {
     let dir = Path.join(...simple.titles, simple.title)
+    let dirWithSep = dir + Path.sep
     let index = list.findIndex(function (other) {
       let otherDir = Path.join(...other.titles)
-      if (otherDir.includes(dir)) {
-        return true
-      }
-      return false
+      // 必须是完整路径段的前缀，而非任意子串
+      return otherDir === dirWithSep.slice(0, -1) || otherDir.startsWith(dirWithSep)
     })
     return index !== -1
   }
