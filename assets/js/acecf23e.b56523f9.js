@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkdanyow=globalThis.webpackChunkdanyow||[]).push([[81903],{1912(a){a.exports=JSON.parse('{"blogBasePath":"/danyow/blog","blogTitle":"Blog","authorsListPath":"/danyow/blog/authors"}')}}]);

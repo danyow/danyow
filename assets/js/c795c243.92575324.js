@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkdanyow=globalThis.webpackChunkdanyow||[]).push([[88919],{44216(a){a.exports=JSON.parse('{"metadata":{"permalink":"/danyow/blog","page":1,"postsPerPage":10,"totalPages":3,"totalCount":29,"nextPage":"/danyow/blog/page/2","blogDescription":"Blog","blogTitle":"Blog"}}')}}]);
