@@ -29,6 +29,7 @@ jobs:
           git config --global user.name "danyow"
           git add unity/
           git commit -m 'generate'
+          node scripts/patch-ssg-debug.js
           yarn build
 
       # 目前较为流行部署到 GitHubPages 的 Action：
