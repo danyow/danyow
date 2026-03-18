@@ -518,6 +518,13 @@ function writeMarkdown(complexList, writeCallback) {
       // 对子属性的选项表格
       md = md.replaceAll('|  | ', '|  -> ')
 
+      // 将正文中包含非法字符的裸文本 URL（如 http://ip:port/dashboard）
+      // 用反引号包裹，防止 Docusaurus 3 MDX 解析器将其后的中文文字误当作 URL 解析报错。
+      // 匹配不在引用链接行（^\[n\]: ）开头、且 URL 后紧跟中文/全角字符的裸 URL。
+      md = md.replaceAll(/(https?:\/\/[^\s，。；,;[\]（）\u4e00-\u9fa5]+)([\u00ff-\uffff，。；;])/gm, function (match, url, after) {
+        return '`' + url + '`' + after
+      })
+
 
       // 图片类型链接 -> 改名和改链接
       // !\[(.*?)\]\((.*?)\)
