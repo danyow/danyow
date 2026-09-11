@@ -2,22 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://danyow.cn/danyow/blog</id>
     <title>:D Blog</title>
-    <updated>2026-03-18T07:34:58.000Z</updated>
+    <updated>2022-03-15T09:42:42.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://danyow.cn/danyow/blog"/>
     <subtitle>:D Blog</subtitle>
     <icon>https://danyow.cn/danyow/img/favicon.ico</icon>
-    <entry>
-        <title type="html"><![CDATA[笔记]]></title>
-        <id>https://danyow.cn/danyow/blog/2021/note</id>
-        <link href="https://danyow.cn/danyow/blog/2021/note"/>
-        <updated>2026-03-18T07:34:58.000Z</updated>
-        <summary type="html"><![CDATA[Windows]]></summary>
-        <content type="html"><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="windows">Windows<a href="https://danyow.cn/danyow/blog/2021/note#windows" class="hash-link" aria-label="Windows的直接链接" title="Windows的直接链接" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="查看端口被占用">查看端口被占用<a href="https://danyow.cn/danyow/blog/2021/note#%E6%9F%A5%E7%9C%8B%E7%AB%AF%E5%8F%A3%E8%A2%AB%E5%8D%A0%E7%94%A8" class="hash-link" aria-label="查看端口被占用的直接链接" title="查看端口被占用的直接链接" translate="no">​</a></h3>
-<p><code>netstat –ano</code></p>
-<p><code>netstat</code></p>]]></content>
-    </entry>
     <entry>
         <title type="html"><![CDATA[安装ArchWSL]]></title>
         <id>https://danyow.cn/danyow/blog/2021/archwsl-03-15</id>
@@ -54,6 +43,17 @@
 <p><code>yay -S make gcc cargo</code></p>
 <h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="安装-genie-systemd-git">安装 <code>genie-systemd-git</code><a href="https://danyow.cn/danyow/blog/2021/archwsl-03-15#%E5%AE%89%E8%A3%85-genie-systemd-git" class="hash-link" aria-label="安装-genie-systemd-git的直接链接" title="安装-genie-systemd-git的直接链接" translate="no">​</a></h4>
 <p><code>yay -S genie-systemd-git</code></p>]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[笔记]]></title>
+        <id>https://danyow.cn/danyow/blog/2021/note</id>
+        <link href="https://danyow.cn/danyow/blog/2021/note"/>
+        <updated>2021-12-26T16:32:02.000Z</updated>
+        <summary type="html"><![CDATA[Windows]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="windows">Windows<a href="https://danyow.cn/danyow/blog/2021/note#windows" class="hash-link" aria-label="Windows的直接链接" title="Windows的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="查看端口被占用">查看端口被占用<a href="https://danyow.cn/danyow/blog/2021/note#%E6%9F%A5%E7%9C%8B%E7%AB%AF%E5%8F%A3%E8%A2%AB%E5%8D%A0%E7%94%A8" class="hash-link" aria-label="查看端口被占用的直接链接" title="查看端口被占用的直接链接" translate="no">​</a></h3>
+<p><code>netstat –ano</code></p>
+<p><code>netstat</code></p>]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[Scoop的安装]]></title>
