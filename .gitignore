@@ -1,24 +1,27 @@
-# 依赖关系
+# Dependencies and builds
 /node_modules
-
-# 生产
 /build
 /scripts_build
-
-# 生成的文件
 .docusaurus
 .cache-loader
 
-# 杂项
+# Generated archive files; Markdown originals remain tracked.
+/.generated/
+/static/ai-engine-watch/
+
+# Local/editor/private configuration
 .DS_Store
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+.idea/
+.env
+.env.*
+!.env.example
+.clasp.json
+.clasprc.json
+*.local.json
 
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# 自定义
+# Existing translation output
 /i18n

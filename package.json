@@ -2,8 +2,14 @@
   "name": "danyow",
   "version": "0.0.0",
   "private": true,
+  "packageManager": "yarn@1.22.22",
+  "engines": {"node": ">=22"},
   "scripts": {
     "generate": "node scripts/main.js",
+    "archive:build": "node scripts/build-ai-engine-archive.cjs",
+    "archive:test": "node --test tests/ai-engine-archive.test.cjs tests/ai-engine-bridge.test.cjs",
+    "prebuild": "node scripts/build-ai-engine-archive.cjs",
+    "prestart": "node scripts/build-ai-engine-archive.cjs",
     "docusaurus": "node --max-old-space-size=8192 node_modules/@docusaurus/core/bin/docusaurus.mjs",
     "start": "node --max-old-space-size=8192 node_modules/@docusaurus/core/bin/docusaurus.mjs start",
     "build": "node --max-old-space-size=8192 node_modules/@docusaurus/core/bin/docusaurus.mjs build",
@@ -33,15 +39,7 @@
     "turndown-plugin-gfm": "^1.0.2"
   },
   "browserslist": {
-    "production": [
-      ">0.5%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "production": [">0.5%", "not dead", "not op_mini all"],
+    "development": ["last 1 chrome version", "last 1 firefox version", "last 1 safari version"]
   }
 }
