@@ -25,8 +25,8 @@
     "write-heading-ids": "node --max-old-space-size=8192 node_modules/@docusaurus/core/bin/docusaurus.mjs write-heading-ids"
   },
   "dependencies": {
-    "@docusaurus/core": "^3.9.2",
-    "@docusaurus/preset-classic": "^3.9.2",
+    "@docusaurus/core": "^3.10.2",
+    "@docusaurus/preset-classic": "^3.10.2",
     "@easyops-cn/docusaurus-search-local": "^0.55.1",
     "@mdx-js/react": "^3.1.0",
     "async": "^3.2.3",
