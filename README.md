@@ -43,7 +43,9 @@ yarn build
 - 自动生成：`.generated/ai-engine-watch/` 与 `static/ai-engine-watch/`，不提交 HTML 或重复原稿副本。
 - 投递：确认网页版本后发送摘要与当日链接，不再把整篇 HTML 塞入邮件。
 
-仓库代码不等于已经启用定时检索或手机推送。Google 中转授权和现有每日任务的切换步骤见[部署说明](ai-engine-watch/DEPLOYMENT.md)。
+默认由已有定时任务直接调用已授权 GitHub 写入 Markdown，由现有 Actions 构建网页，再由同一任务核验发布并调用 Gmail 发送摘要和链接。**不要求 Google Apps Script、收稿邮件中转或新的令牌。** Apps Script 代码仅保留为可选备用；共享的 `Core.gs` 仍用于 Node 构建校验，不表示正在执行 Google 服务。
+
+2026-09-12 已更新已有任务的直接执行提示词，保持北京时间09:00；配置保存不等于新流程端到端实测通过。发布或写入失败时使用有明确错误标记的邮件回退。详情见[部署说明](ai-engine-watch/DEPLOYMENT.md)。
 
 ## 维护边界
 
