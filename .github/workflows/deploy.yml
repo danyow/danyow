@@ -1,47 +1,81 @@
-name: Deploy to GitHub
+name: Build and deploy
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: website-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
-  deploy:
-    name: 部署到GitHub
+  build:
     runs-on: ubuntu-latest
-
+    timeout-minutes: 30
     steps:
-      - name: 检出代码
-        uses: actions/checkout@v4
-      - name: 设置 node 版本
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v4
         with:
-          node-version: '20'
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
           cache: yarn
-      - name: 配置环境 构建网站
+      - name: Install locked dependencies
+        run: yarn install --frozen-lockfile --non-interactive
+      - name: Test archive and mail bridge
+        run: yarn archive:test
+      - name: Check corrections against previous originals
         env:
-          CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
-          # 本地化 crowdin-udb
-          NODE_OPTIONS: "--max-old-space-size=8192"
+          BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
         run: |
-          yarn install 
+          if [[ "$BASE_SHA" =~ ^[0-9a-f]{40}$ && "$BASE_SHA" != "0000000000000000000000000000000000000000" ]]; then
+            node scripts/build-ai-engine-archive.cjs --check-revisions "$BASE_SHA"
+          fi
+      - name: Generate existing Unity documentation
+        env:
+          NODE_OPTIONS: --max-old-space-size=8192
+        run: |
           yarn generate
-          git config --global user.email "i.zuucol@gmail.com"
-          git config --global user.name "danyow"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add unity/
-          git commit -m 'generate'
-          yarn build
+          if ! git diff --cached --quiet -- unity/; then
+            git commit -m 'build: generate Unity documentation [skip ci]'
+          fi
+      - name: Build the complete existing website and archive
+        env:
+          NODE_OPTIONS: --max-old-space-size=8192
+        run: yarn build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: website-build
+          path: build
+          include-hidden-files: true
+          retention-days: 1
 
-      # 目前较为流行部署到 GitHubPages 的 Action：
-      # 文档: https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-docusaurus
-      - name: 部署到GitHub
+  deploy:
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: website-build
+          path: build
+      - name: Publish through the existing gh-pages branch
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          # 构建输出以发布到 `gh-pages` 分支：
           publish_dir: ./build
-          # 将提交作者身份分配给官方 GH-Actions 机器人以部署到 `gh-pages` 分支：
-          # https://github.com/actions/checkout/issues/13#issuecomment-724415212
-          # 如果您未指定这两个字段，则默认使用 GH 操作机器人。
-          # 您可以使用自己的用户凭据替换它们。
           user_name: github-actions[bot]
           user_email: 41898282+github-actions[bot]@users.noreply.github.com
