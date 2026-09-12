@@ -21,9 +21,9 @@
     "markdown-it": "14.1.1",
     "sanitize-html": "2.17.2",
     "yaml": "2.8.2",
-    "unocss": "66.6.8",
-    "@unocss/astro": "66.6.8",
-    "@unocss/preset-attributify": "66.6.8",
+    "unocss": "66.10.0",
+    "@unocss/astro": "66.10.0",
+    "@unocss/preset-attributify": "66.10.0",
     "unocss-preset-theme": "0.14.1"
   },
   "devDependencies": {
