@@ -1,0 +1,7 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import {entries} from '@/utils/site'
+import {base} from '@/config'
+const tags=Array.from(new Set(entries.flatMap(e=>e.tags))).sort()
+---
+<Layout postTitle="标签"><h2 class="section-title">标签</h2><div class="filters">{tags.map(tag=><a href={`${base}/tags/${encodeURIComponent(tag)}/`}>{tag}</a>)}</div></Layout>

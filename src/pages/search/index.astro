@@ -1,0 +1,12 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import {base} from '@/config'
+---
+<Layout postTitle="搜索"><h2 class="section-title">搜索</h2><label for="search-input">搜索日报、笔记和旧文档</label><input class="search-input" id="search-input" type="search" placeholder="输入项目名、关键词或日期" autocomplete="off" data-index={`${base}/search-index.json`} /><p id="search-status" role="status">输入关键词后搜索，内容只在你的浏览器里匹配。</p><ul id="search-results" class="article-list"></ul><noscript><p>搜索需要启用 JavaScript，也可以直接打开<a href={`${base}/archive/`}>历史归档</a>。</p></noscript></Layout>
+<script>
+const input=document.getElementById('search-input') as HTMLInputElement;
+const list=document.getElementById('search-results')!;const status=document.getElementById('search-status')!;
+let index:{title:string;url:string;text:string;date:string|null;label:string}[]|null=null;let loading:Promise<void>|null=null;let timer:ReturnType<typeof setTimeout>;
+async function search(){const query=input.value.trim().toLocaleLowerCase();list.replaceChildren();if(!query){status.textContent='输入关键词后搜索。';return}try{if(!index){if(!loading)loading=fetch(input.dataset.index!).then(r=>{if(!r.ok)throw Error('index');return r.json()}).then(data=>{index=data}).finally(()=>{loading=null});await loading}if(query!==input.value.trim().toLocaleLowerCase())return;const words=query.split(/\s+/);const found=index!.filter(e=>words.every(word=>(e.title+' '+e.text+' '+(e.date||'')).toLocaleLowerCase().includes(word))).slice(0,50);status.textContent=found.length?`找到 ${found.length} 条结果`:'暂时没有匹配的内容。';for(const e of found){const item=document.createElement('li'),title=document.createElement('h3'),link=document.createElement('a'),meta=document.createElement('div');link.href=e.url;link.textContent=e.title;link.className='entry-title';title.append(link);meta.className='entry-meta';meta.textContent=e.label+' · '+(e.date||'日期未记录');item.append(title,meta);list.append(item)}}catch(_){status.textContent='搜索索引暂时无法读取，请稍后重试。'}}
+input.addEventListener('input',()=>{clearTimeout(timer);timer=setTimeout(search,180)});
+</script>

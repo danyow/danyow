@@ -1,0 +1,10 @@
+---
+import {base} from '@/config'
+const current=decodeURI(Astro.url.pathname).replace(/\/$/,'')
+const items=[{path:'/',label:'最新'},{path:'/ai-engine-watch/',label:'日报'},{path:'/note/',label:'笔记'},{path:'/docs/',label:'文档'},{path:'/archive/',label:'归档'},{path:'/search/',label:'搜索'}]
+---
+<nav aria-label="主导航" class="mb-10.5 text-3.6 font-semibold leading-2.45em font-navbar lg:(uno-desktop-column text-4 top-[calc(5rem+8rem)]) cjk:tracking-wide">
+<ul class="site-nav">
+{items.map(item=>{const href=base+item.path;const active=item.path==='/'?current===base:current===href.replace(/\/$/,'')||current.startsWith(href);return <li><a href={href} aria-current={active?'page':undefined} class:list={[active?'highlight-static c-primary font-bold':'highlight-hover hover:c-primary','after:bottom-0.7em']}>{item.label}</a></li>})}
+<li><button id="theme-toggle" type="button" aria-label="切换为浅色" aria-pressed="false">浅色</button></li>
+</ul></nav>

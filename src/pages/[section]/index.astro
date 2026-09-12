@@ -1,0 +1,10 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import EntryList from '@/components/EntryList.astro'
+import {entries} from '@/utils/site'
+import {base} from '@/config'
+export function getStaticPaths(){return [{section:'ai-engine-watch',title:'AI 引擎日报',kind:'news',intro:'新在哪、有什么用、现在能用吗。每天讲清几件事。'},{section:'note',title:'笔记',kind:'note',intro:'保留以前记下的问题、想法和未完成的提纲。'},{section:'docs',title:'文档',kind:'docs',intro:'旧文档继续保留，内容不作自动改写。'},{section:'blog',title:'旧博客',kind:'blog',intro:'以前的学习记录与零散想法。保留原文，也保留当时的日期。'}].map(item=>({params:{section:item.section},props:item}))}
+const {title,kind,intro}=Astro.props
+const selected=entries.filter(e=>e.kind===kind)
+---
+<Layout postTitle={title}><h2 class="section-title">{title}</h2><p class="lead">{intro}</p><EntryList entries={selected} descriptions={kind!=='note'} />{kind==='news'&&<p class="source-note"><a href={`${base}/ai-engine-watch/index/catalog.json`}>月份索引</a> · <a href={`${base}/ai-engine-watch/index/recent.json`}>近期索引</a></p>}</Layout>

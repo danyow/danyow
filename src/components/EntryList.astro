@@ -1,0 +1,7 @@
+---
+import {base} from '@/config'
+import type {Entry} from '@/utils/site'
+interface Props{entries:Entry[];descriptions?:boolean}
+const {entries,descriptions=true}=Astro.props
+---
+<ul class="article-list">{entries.map(entry=><li><h3><a class="entry-title" href={`${base}/${entry.route}/`}>{entry.title}</a></h3><div class="entry-meta"><span>{entry.label}</span>{entry.date?<time datetime={entry.date}>{entry.date}</time>:<span>日期未记录</span>}{entry.placeholder&&<span>待补充</span>}</div>{descriptions&&!entry.placeholder&&<p class="excerpt">{entry.description}</p>}</li>)}</ul>

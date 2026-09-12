@@ -8,7 +8,7 @@
 
 ## 1. 沿用现有站点
 
-沿用Docusaurus、/danyow/路径及gh-pages分支。博客、笔记、Lua、Unity和原Gitee工作流不删除。不要加入第二套覆盖全站的publish.yml。
+沿用Astro + Retypeset、/danyow/路径及gh-pages分支。博客、笔记、Lua、Unity和原Gitee工作流不删除。不要加入第二套覆盖全站的publish.yml。
 
 现有deploy.yml负责统一构建：PR只验证，main才发布。既有Pages设置保持不动。先确认平台发布状态，再实际检查栏目及当天页面。暂时没有日报时列表为空正常，不用未核验历史或虚构资讯填充。
 

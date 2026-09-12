@@ -1,0 +1,25 @@
+---
+import { base,themeConfig } from '@/config'
+interface Props {postTitle?:string;postDescription?:string;noindex?:boolean}
+const {postTitle,postDescription,noindex=false}=Astro.props
+const title=postTitle?`${postTitle} | Danyow`:'Danyow · AI 与游戏观察'
+const description=postDescription||themeConfig.site.description
+const canonical=new URL(Astro.url.pathname,themeConfig.site.url)
+---
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="generator" content={Astro.generator} />
+<title>{title}</title><meta name="description" content={description} />
+<meta name="theme-color" content="#202024" /><meta name="color-scheme" content="dark light" />
+{noindex&&<meta name="robots" content="noindex,follow" />}
+<link rel="canonical" href={canonical} />
+<link rel="icon" type="image/svg+xml" href={`${base}/icons/favicon.svg`} />
+<link rel="alternate" type="application/rss+xml" title="Danyow AI 引擎日报" href={`${base}/rss.xml`} />
+<link rel="sitemap" href={`${base}/sitemap.xml`} />
+<meta property="og:type" content={postTitle?'article':'website'} />
+<meta property="og:title" content={title} /><meta property="og:description" content={description} /><meta property="og:url" content={canonical} />
+<script is:inline>
+try {const mode=localStorage.getItem('danyow-theme')||'dark';document.documentElement.classList.toggle('dark',mode!=='light')}catch(_){document.documentElement.classList.add('dark')}
+</script>
+</head>

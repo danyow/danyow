@@ -1,0 +1,24 @@
+---
+import Header from '@/components/Header.astro'
+import Navbar from '@/components/Navbar.astro'
+import Footer from '@/components/Footer.astro'
+import Head from '@/layouts/Head.astro'
+import '@/styles/global.css'
+import '@/styles/markdown.css'
+import '@/styles/news.css'
+interface Props {postTitle?:string;postDescription?:string;noindex?:boolean}
+const {postTitle,postDescription,noindex}=Astro.props
+---
+<html lang="zh-CN" class="dark font-sans">
+<Head {postTitle} {postDescription} {noindex} />
+<body>
+<a href="#content" class="skip-link">跳到正文</a>
+<div class="mx-auto max-w-205.848 min-h-vh w-full min-h-dvh" p="x-[min(7.25vw,3.731rem)] y-10" lg="mx-[max(5.75rem,calc(50vw-34.25rem))] my-20 max-w-[min(calc(75vw-16rem),44rem)] min-h-full p-0">
+<Header /><Navbar /><main id="content" class="mb-12"><slot /></main><Footer />
+</div>
+<script>
+const button=document.getElementById('theme-toggle');
+const update=()=>{const dark=document.documentElement.classList.contains('dark');button?.setAttribute('aria-label',dark?'切换为浅色':'切换为暗色');button?.setAttribute('aria-pressed',String(!dark));if(button)button.textContent=dark?'浅色':'暗色'};
+update();button?.addEventListener('click',()=>{document.documentElement.classList.toggle('dark');try{localStorage.setItem('danyow-theme',document.documentElement.classList.contains('dark')?'dark':'light')}catch(_){}update()});
+</script>
+</body></html>
