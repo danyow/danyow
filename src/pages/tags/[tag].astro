@@ -1,0 +1,8 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import EntryList from '@/components/EntryList.astro'
+import {entries} from '@/utils/site'
+export function getStaticPaths(){return Array.from(new Set(entries.flatMap(e=>e.tags))).map(tag=>({params:{tag},props:{tag}}))}
+const {tag}=Astro.props
+---
+<Layout postTitle={tag}><h2 class="section-title">{tag}</h2><EntryList entries={entries.filter(e=>e.tags.includes(tag))} /></Layout>

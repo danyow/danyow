@@ -1,6 +1,6 @@
 # AI 原生游戏引擎每日观察
 
-这是现有 Docusaurus 站点中的独立栏目，不会替换博客、笔记、Lua 或 Unity。
+这是现有 Astro + Retypeset 站点中的独立栏目，不会替换博客、笔记、Lua 或 Unity。
 
 ## 默认流程：直接修改已有定时任务
 
@@ -34,9 +34,9 @@
 ## 本地校验
 
 ```sh
-yarn archive:test
-yarn archive:build
-yarn build
+npm run archive:test
+npm run archive:build
+npm run build
 ```
 
 构建产生 `.generated/ai-engine-watch/` 和 `static/ai-engine-watch/`，仅作为发布产物，不提交回源码分支。代码转换不调用模型。构建器引用 `bridge/Core.gs` 的纯函数，普通 Node 环境可以执行；不要为了去掉 Apps Script 中转而删除共享校验模块。

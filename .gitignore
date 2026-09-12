@@ -1,27 +1,17 @@
-# Dependencies and builds
-/node_modules
-/build
-/scripts_build
-.docusaurus
-.cache-loader
-
-# Generated archive files; Markdown originals remain tracked.
-/.generated/
-/static/ai-engine-watch/
-
-# Local/editor/private configuration
+node_modules/
+dist/
+build/
+.astro/
+.generated/
+.docusaurus/
+static/ai-engine-watch/
+static/search-index.json
+.cache-loader/
 .DS_Store
 .idea/
 .env
 .env.*
 !.env.example
-.clasp.json
-.clasprc.json
-*.local.json
-
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# Existing translation output
-/i18n
+*.log
+coverage/
+_migration-upstream/

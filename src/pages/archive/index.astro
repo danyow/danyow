@@ -1,0 +1,8 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import EntryList from '@/components/EntryList.astro'
+import {entries} from '@/utils/site'
+import {base} from '@/config'
+const groups=Map.groupBy(entries,e=>e.date?.slice(0,4)||'日期未记录')
+---
+<Layout postTitle="归档"><h2 class="section-title">归档</h2><p class="lead">按时间翻一翻，也可以按栏目找。</p><div class="filters"><a href={`${base}/ai-engine-watch/`}>日报</a><a href={`${base}/note/`}>笔记</a><a href={`${base}/docs/`}>文档</a><a href={`${base}/blog/`}>旧博客</a><a href={`${base}/tags/`}>标签</a></div>{Array.from(groups).map(([year,items])=><section><h3 class="archive-year">{year}</h3><EntryList entries={items} descriptions={false} /></section>)}</Layout>

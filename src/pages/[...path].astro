@@ -1,0 +1,14 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import {entries} from '@/utils/site'
+import {base} from '@/config'
+export function getStaticPaths(){return entries.flatMap(entry=>[entry.route,...entry.aliases].map(route=>({params:{path:route},props:{entry}})))}
+const {entry}=Astro.props
+---
+<Layout postTitle={entry.title} postDescription={entry.description}><article>
+<header class="article-header"><p class="edition">{entry.label}</p><h1>{entry.title}</h1><div class="entry-meta">{entry.date?<time datetime={entry.date}>{entry.date}</time>:<span>日期未记录</span>}{entry.kind==='news'&&<span>北京时间</span>}</div></header>
+{entry.kind!=='news'&&<p class="source-note">旧文存档，内容保持原样，文中的版本和操作可能已过时。</p>}
+<div class="heti" id="post-content" set:html={entry.html} />
+{entry.placeholder&&<p class="source-note">这篇笔记目前只有标题，保留原来的位置，待日后补充。</p>}
+<footer class="article-footer"><a href={`${base}/${entry.kind==='news'?'ai-engine-watch':entry.kind==='docs'?'docs':entry.kind==='note'?'note':'blog'}/`}>返回列表</a><a href={entry.kind==='news'?`${base}/ai-engine-watch/${entry.raw}`:`https://github.com/danyow/danyow/blob/main/${entry.source}`}>Markdown 原稿</a>{entry.kind==='news'&&<p class="version">修订 {entry.revision} · <span>{`source-sha256:${entry.sha256}`}</span></p>}</footer>
+</article></Layout>

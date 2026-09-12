@@ -1,0 +1,8 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import EntryList from '@/components/EntryList.astro'
+import {base} from '@/config'
+import {groupByKind,stats} from '@/utils/site'
+const news=groupByKind('news').slice(0,10)
+---
+<Layout><p class="edition">AI & GAMES · DAILY NOTES</p><h2 class="section-title">最新观察</h2><p class="lead">少一点术语，多一点值得知道的事。<br />记录 AI、游戏引擎与新工具的变化。</p><EntryList entries={news} /><a class="section-link" href={`${base}/ai-engine-watch/`}>查看全部日报 →</a><div class="uno-decorative-line" /><h2 class="section-title">留下来的笔记</h2><p class="lead">以前写过的东西，也放在这里。<br />{stats.note} 篇笔记、{stats.docs} 篇文档，还有旧博客。</p><div class="filters"><a href={`${base}/note/`}>笔记</a><a href={`${base}/docs/`}>文档</a><a href={`${base}/blog/`}>旧博客</a></div></Layout>

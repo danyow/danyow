@@ -1,45 +1,36 @@
 {
-  "name": "danyow",
-  "version": "0.0.0",
+  "name": "danyow-news",
+  "version": "1.0.0",
   "private": true,
-  "packageManager": "yarn@1.22.22",
-  "engines": {"node": ">=22"},
+  "type": "module",
+  "engines": {
+    "node": ">=22.16.0"
+  },
   "scripts": {
-    "generate": "node scripts/main.js",
-    "archive:build": "node scripts/build-ai-engine-archive.cjs",
+    "dev": "node scripts/prepare-content.mjs && astro dev",
+    "start": "npm run dev",
+    "build": "node scripts/prepare-content.mjs && astro build && node scripts/check-site.mjs",
+    "preview": "astro preview",
+    "test": "node --test tests/*.test.cjs tests/*.test.mjs",
     "archive:test": "node --test tests/ai-engine-archive.test.cjs tests/ai-engine-bridge.test.cjs",
-    "prebuild": "node scripts/build-ai-engine-archive.cjs",
-    "prestart": "node scripts/build-ai-engine-archive.cjs",
-    "docusaurus": "node --max-old-space-size=8192 node_modules/@docusaurus/core/bin/docusaurus.mjs",
-    "start": "node --max-old-space-size=8192 node_modules/@docusaurus/core/bin/docusaurus.mjs start",
-    "build": "node --max-old-space-size=8192 node_modules/@docusaurus/core/bin/docusaurus.mjs build",
-    "swizzle": "node --max-old-space-size=8192 node_modules/@docusaurus/core/bin/docusaurus.mjs swizzle",
-    "deploy": "node --max-old-space-size=8192 node_modules/@docusaurus/core/bin/docusaurus.mjs deploy",
-    "clear": "node --max-old-space-size=8192 node_modules/@docusaurus/core/bin/docusaurus.mjs clear",
-    "serve": "node --max-old-space-size=8192 node_modules/@docusaurus/core/bin/docusaurus.mjs serve",
-    "crowdin-uploade": "crowdin upload",
-    "crowdin-download": "crowdin download",
-    "crowdin-udb": "yarn write-translations && yarn crowdin-download && yarn build",
-    "crowdin-db": "yarn write-translations && yarn crowdin-uploade && yarn crowdin-download && yarn build",
-    "write-translations": "node --max-old-space-size=8192 node_modules/@docusaurus/core/bin/docusaurus.mjs write-translations",
-    "write-heading-ids": "node --max-old-space-size=8192 node_modules/@docusaurus/core/bin/docusaurus.mjs write-heading-ids"
+    "archive:build": "node scripts/build-ai-engine-archive.cjs",
+    "check": "node scripts/prepare-content.mjs && astro check"
   },
   "dependencies": {
-    "@docusaurus/core": "^3.10.2",
-    "@docusaurus/preset-classic": "^3.10.2",
-    "@easyops-cn/docusaurus-search-local": "^0.55.1",
-    "@mdx-js/react": "^3.1.0",
-    "async": "^3.2.3",
-    "clsx": "^2.1.1",
-    "node-stream-zip": "^1.15.0",
-    "prism-react-renderer": "^2.4.1",
-    "react": "^19.2.8",
-    "react-dom": "^19.2.8",
-    "turndown": "^7.1.1",
-    "turndown-plugin-gfm": "^1.0.2"
+    "astro": "6.1.5",
+    "markdown-it": "14.1.1",
+    "sanitize-html": "2.17.2",
+    "yaml": "2.8.2",
+    "unocss": "66.6.8",
+    "@unocss/astro": "66.6.8",
+    "@unocss/preset-attributify": "66.6.8",
+    "unocss-preset-theme": "0.14.1"
   },
-  "browserslist": {
-    "production": [">0.5%", "not dead", "not op_mini all"],
-    "development": ["last 1 chrome version", "last 1 firefox version", "last 1 safari version"]
+  "devDependencies": {
+    "@astrojs/check": "0.9.8",
+    "@types/node": "25.6.0",
+    "@types/markdown-it": "14.1.2",
+    "@types/sanitize-html": "2.16.1",
+    "typescript": "5.9.3"
   }
 }

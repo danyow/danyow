@@ -1,0 +1,10 @@
+import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';
+import {readLegacy,legacyRoute,articleDate,safeRender} from '../scripts/prepare-content.mjs';
+test('legacy boolean published is not a date',()=>{assert.equal(articleDate(true),null);assert.equal(readLegacy('---\ntitle: test\npublished: false\n---\n# Draft').meta.published,false)});
+test('legacy date formats retain original day',()=>{assert.equal(articleDate('2019-8-2 17:00:00 +0800'),'2019-08-02');assert.equal(articleDate('2020/6/14 14:55:00 +0800'),'2020-06-14');assert.equal(articleDate(undefined),null)});
+test('folder home routes preserve old URLs',()=>{assert.equal(legacyRoute('note/csharp/csharp.md'),'note/csharp');assert.equal(legacyRoute('note/framework/Framework.md'),'note/framework');assert.equal(legacyRoute('note/framework/ETFramework.md'),'note/framework/ETFramework');assert.equal(legacyRoute('docs/least.md'),'docs/least')});
+test('nested blog URLs preserve original path',()=>assert.equal(legacyRoute('blog/2019/python/object.md'),'blog/2019/python/object'));
+test('relative original links use preserved routes',()=>assert.match(safeRender('[b](../docs/least.md)','note/a.md',new Map([['docs/least.md','docs/least']]),'/danyow'),/href="\/danyow\/docs\/least\/"/));
+test('raw scripts and event handlers removed',()=>{const h=safeRender('# hi\n<script>alert(1)</script><img src="https://example.org/x.png" onerror="alert(2)">','docs/a.md',new Map(),'/danyow');assert.ok(!h.includes('<script'));assert.ok(!h.includes('onerror'));assert.ok(h.includes('<img'))});
+test('draft source retained in repository',()=>assert.ok(fs.existsSync('blog/2019/voyager.md')));
+test('theme config excludes author services',()=>{const t=fs.readFileSync('src/config.ts','utf8');assert.ok(!t.includes('radishzz'));assert.ok(/mode:\s*'dark'/.test(t))});
