@@ -37,6 +37,56 @@ jobs:
         run: npm run build
       - name: Type check
         run: npm run check
+      - name: Install isolated browser test tools
+        run: |
+          python -m pip install playwright==1.55.0
+          python -m playwright install --with-deps chromium
+      - name: Verify real browser behavior
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from http.server import ThreadingHTTPServer, SimpleHTTPRequestHandler
+          from threading import Thread
+          from functools import partial
+          from playwright.sync_api import sync_playwright
+          import json
+          out=Path('/tmp/migration-result/qa'); out.mkdir(parents=True,exist_ok=True)
+          serve=Path('/tmp/retypeset-serve');serve.mkdir(exist_ok=True)
+          (serve/'danyow').symlink_to(Path('dist').resolve(),target_is_directory=True)
+          class Handler(SimpleHTTPRequestHandler):
+              def log_message(self,*args): pass
+          server=ThreadingHTTPServer(('127.0.0.1',8788),partial(Handler,directory=str(serve)))
+          Thread(target=server.serve_forever,daemon=True).start()
+          results=[]
+          with sync_playwright() as p:
+              browser=p.chromium.launch(headless=True)
+              for width,height in [(320,740),(390,844),(1024,768),(1440,1000)]:
+                  context=browser.new_context(viewport={'width':width,'height':height},device_scale_factor=1)
+                  page=context.new_page(); errors=[]
+                  page.on('pageerror',lambda e:errors.append(str(e)))
+                  for route,label in [('', 'home'),('ai-engine-watch/reports/2026-09-11/','article'),('note/itinerary/','note'),('blog/2019/python/object/','code')]:
+                      response=page.goto('http://127.0.0.1:8788/danyow/'+route,wait_until='networkidle')
+                      assert response.status==200
+                      assert page.locator('html').evaluate("e=>e.classList.contains('dark')")
+                      assert not page.evaluate('document.documentElement.scrollWidth>innerWidth'), (width,label,'overflow')
+                      if width in (390,1440) and label in ('home','article'):
+                          page.screenshot(path=str(out/(label+'-'+str(width)+'.png')),full_page=True)
+                      results.append({'width':width,'page':label,'status':200,'dark':True,'overflow':False})
+                  page.goto('http://127.0.0.1:8788/danyow/search/',wait_until='networkidle')
+                  page.locator('#search-input').fill('PWM')
+                  page.wait_for_function("document.querySelector('#search-status').textContent.includes('找到')")
+                  assert page.locator('#search-results li').count()>=2
+                  page.locator('#theme-toggle').click()
+                  page.reload(wait_until='networkidle')
+                  assert not page.locator('html').evaluate("e=>e.classList.contains('dark')")
+                  assert not errors,errors
+                  results.append({'width':width,'search':'passed','themePersistence':'passed','jsErrors':errors})
+                  context.close()
+              browser.close()
+          server.shutdown()
+          (out/'browser-results.json').write_text(json.dumps(results,ensure_ascii=False,indent=2))
+          print(json.dumps(results,ensure_ascii=False))
+          PY
       - name: Preserve test outputs
         if: always()
         run: |
@@ -54,6 +104,7 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -A -- . ':(exclude).github' ':(exclude)migration' ':(exclude)_migration-upstream'
+          git add -A
+          git reset -q -- .github migration
           if ! git diff --cached --quiet; then git commit -m 'refactor: replace Docusaurus with verified Retypeset news site'; fi
           git push origin HEAD:refactor/retypeset-news
