@@ -1,12 +1,19 @@
 'use strict';
-// Markdown is the source of truth; Docusaurus renders the generated .md files.
+// Markdown is the source of truth; the site renderer consumes channel-specific output.
 const fs = require('node:fs');
 const path = require('node:path');
 const crypto = require('node:crypto');
 const {execFileSync} = require('node:child_process');
 const Core = require('../ai-engine-watch/bridge/Core.gs');
 const ROOT = path.resolve(__dirname, '..');
-const PREFIX = 'ai-engine-watch/reports/';
+const CHANNELS = Object.freeze({
+  'ai-engine-watch': {title:'AI 原生游戏引擎每日观察', label:'AI 引擎日报', tags:['AI','游戏引擎','日报']},
+  'voice-agent-watch': {title:'电话语音 Agent 每日观察', label:'电话语音日报', tags:['AI','语音助手','电话','日报']},
+});
+function channelInfo(channel) {
+  if (!Object.prototype.hasOwnProperty.call(CHANNELS, channel)) throw new Error('INVALID_ARCHIVE_CHANNEL');
+  return CHANNELS[channel];
+}
 const digest = text => crypto.createHash('sha256').update(text, 'utf8').digest('hex');
 const json = value => JSON.stringify(value, null, 0) + '\n';
 const quote = value => JSON.stringify(value);
@@ -18,11 +25,16 @@ function files(dir) {
     return e.isDirectory() ? files(p) : e.name.endsWith('.md') ? [p] : [];
   }).sort();
 }
-function load(root) {
-  return files(path.join(root, PREFIX)).map(p => {
+function load(root, {channel='ai-engine-watch'}={}) {
+  channelInfo(channel);
+  const prefix = channel + '/reports/';
+  for (const dir of [path.join(root,channel),path.join(root,prefix)]) {
+    if (fs.existsSync(dir) && fs.lstatSync(dir).isSymbolicLink()) throw new Error('SYMLINK_NOT_ALLOWED');
+  }
+  return files(path.join(root, prefix)).map(p => {
     const relative = path.relative(root, p).split(path.sep).join('/');
     const r = Core.parse(fs.readFileSync(p, 'utf8'), path.basename(p, '.md'));
-    if (relative !== Core.path(r.meta.date)) throw new Error('INVALID_REPORT_PATH');
+    if (relative !== channel + '/reports/' + r.meta.date.slice(0,4) + '/' + r.meta.date.slice(5,7) + '/' + r.meta.date + '.md') throw new Error('INVALID_REPORT_PATH');
     if (r.meta.publication !== 'publish' || r.meta.review_status === 'imported-unverified')
       throw new Error('HELD_OR_UNVERIFIED_REPORT_IN_PUBLIC_REPOSITORY');
     return {...r, file:relative, sha256:digest(r.text)};
@@ -31,7 +43,7 @@ function load(root) {
 function checkRevisions(root, base) {
   if (!/^[a-f0-9]{40}$/i.test(base) || /^0+$/.test(base)) throw new Error('INVALID_BASE_COMMIT');
   const git = args => execFileSync('git', args, {cwd:root, encoding:'utf8', stdio:['ignore','pipe','pipe']});
-  const previous = git(['ls-tree','-r','--name-only',base,'--',PREFIX]).trim().split('\n').filter(p => p.endsWith('.md'));
+  const previous = git(['ls-tree','-r','--name-only',base,'--',...Object.keys(CHANNELS).map(c=>c+'/reports/')]).trim().split('\n').filter(p => p.endsWith('.md'));
   for (const p of previous) {
     if (!fs.existsSync(path.join(root,p))) throw new Error('REPORT_DELETION_REQUIRES_MANUAL_ARCHIVE_REVIEW');
     const old = Core.parse(git(['show',`${base}:${p}`]));
@@ -43,17 +55,18 @@ function write(file, content) {
   fs.mkdirSync(path.dirname(file), {recursive:true});
   fs.writeFileSync(file, content, 'utf8');
 }
-function build(root=ROOT, {baseUrl='/danyow/'}={}) {
+function build(root=ROOT, {baseUrl='/danyow/',channel='ai-engine-watch'}={}) {
+  const info = channelInfo(channel);
   if (!/^\/(?:[A-Za-z0-9._-]+\/)*$/.test(baseUrl)) throw new Error('INVALID_BASE_URL');
-  const reports = load(root);
-  const docs = path.join(root,'.generated/ai-engine-watch');
-  const assets = path.join(root,'static/ai-engine-watch');
+  const reports = load(root,{channel});
+  const docs = path.join(root,'.generated',channel);
+  const assets = path.join(root,'static',channel);
   for (const dir of [docs,assets]) {
     if (fs.existsSync(dir) && fs.lstatSync(dir).isSymbolicLink()) throw new Error('SYMLINK_OUTPUT_NOT_ALLOWED');
   }
   fs.rmSync(docs,{recursive:true,force:true}); fs.rmSync(assets,{recursive:true,force:true});
   fs.mkdirSync(docs,{recursive:true}); fs.mkdirSync(assets,{recursive:true});
-  const base = baseUrl + 'ai-engine-watch';
+  const base = baseUrl + channel;
   const months = new Map(); const entries = [];
   for (const r of reports) {
     const m=r.meta, d=m.date, route=`reports/${d}`, raw=`raw/${d.slice(0,4)}/${d.slice(5,7)}/${d}.md`;
@@ -73,14 +86,14 @@ function build(root=ROOT, {baseUrl='/danyow/'}={}) {
   const cutoff=reports.length ? new Date(Date.parse(reports[0].meta.date+'T00:00:00Z')-30*86400000).toISOString().slice(0,10) : '9999-12-31';
   write(path.join(assets,'index/recent.json'),json({schema:1,timezone:'Asia/Shanghai',reports:entries.filter(r=>r.date>=cutoff),events:[...months.values()].flatMap(m=>m.events).filter(e=>e.report_date>=cutoff)}));
   write(path.join(assets,'index/catalog.json'),json({schema:1,timezone:'Asia/Shanghai',months:[...months.keys()],total:entries.length}));
-  let listing='# AI 原生游戏引擎每日观察\n\nMarkdown 原稿归档，网页用于阅读，邮件仅发送摘要和当日固定链接。所有日期按北京时间记录。\n\n';
+  let listing='# '+info.title+'\n\nMarkdown 原稿归档，网页用于阅读，邮件仅发送摘要和当日固定链接。所有日期按北京时间记录。\n\n';
   if (!entries.length) listing+='## 归档入口已准备\n\n暂时没有已发布的日报。历史邮件样本没有被自动公开；每日检索和手机推送是否已接通，请以各执行系统的实际记录为准。\n\n';
   for (const [month,data] of months) {
     listing+=`## ${month}\n\n`;
     for (const r of data.reports) listing+=`### [${r.date}](${base}/${r.html})\n\n${r.summary.map(s=>Core.escape(s)).join(' / ')}\n\n`;
   }
   listing+=`## 机器读取入口\n\n[近期索引](${base}/index/recent.json) · [月份目录](${base}/index/catalog.json)\n\n查询历史时先定位月份和事件，再读取命中的 Markdown 原稿。不需要反复读取网页 HTML。\n`;
-  write(path.join(docs,'index.md'),'---\nid: index\ntitle: AI 原生游戏引擎每日观察\nhide_title: true\nslug: /\n---\n\n'+listing);
+  write(path.join(docs,'index.md'),'---\nid: index\ntitle: '+info.title+'\nhide_title: true\nslug: /\n---\n\n'+listing);
   return {reports:reports.length,months:months.size};
 }
 if (require.main===module) {
@@ -90,4 +103,4 @@ if (require.main===module) {
     else console.log(JSON.stringify(build(ROOT,{baseUrl:process.env.SITE_BASE_URL || '/danyow/'})));
   } catch (error) { console.error(error.message); process.exitCode=1; }
 }
-module.exports={build,load,checkRevisions,digest};
+module.exports={build,load,checkRevisions,digest,CHANNELS};

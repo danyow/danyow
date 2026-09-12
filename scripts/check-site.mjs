@@ -16,6 +16,6 @@ function crawl(dir){for(const item of fs.readdirSync(dir,{withFileTypes:true})){
 crawl(out);
 for(const e of data.entries){
  const p=path.join(out,e.route,'index.html');if(!fs.existsSync(p)){failures.push('MISSING_ORIGINAL '+e.source);continue;}
- if(e.kind==='news'){const receipt=JSON.parse(fs.readFileSync(path.join(out,'ai-engine-watch/receipts',e.date+'.json'),'utf8'));const raw=fs.readFileSync(path.join(out,'ai-engine-watch',e.raw));const digest=crypto.createHash('sha256').update(raw).digest('hex');if(receipt.sha256!==digest||digest!==e.sha256||!fs.readFileSync(p,'utf8').includes('source-sha256:'+digest))failures.push('HASH_MISMATCH '+e.date);}
+ if(e.kind==='news'){const channel=e.channel||'ai-engine-watch';const receipt=JSON.parse(fs.readFileSync(path.join(out,channel,'receipts',e.date+'.json'),'utf8'));const raw=fs.readFileSync(path.join(out,channel,e.raw));const digest=crypto.createHash('sha256').update(raw).digest('hex');if(receipt.sha256!==digest||digest!==e.sha256||!fs.readFileSync(p,'utf8').includes('source-sha256:'+digest))failures.push('HASH_MISMATCH '+e.date);}
 }
 if(failures.length){console.error(failures.join('\n'));process.exitCode=1}else console.log(JSON.stringify({html_pages:checked,entries:data.stats,links:'passed',receipts:'matched',analytics:'none'}));
