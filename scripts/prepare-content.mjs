@@ -50,7 +50,10 @@ export function safeRender(body,source,routes,base){
  return sanitizeHtml(html,{allowedTags:[...sanitizeHtml.defaults.allowedTags,'img','figure','figcaption','details','summary'],allowedAttributes:{'*':['id','class'],'a':['href','title','rel'],'img':['src','alt','title','width','height','loading']},allowedSchemes:['http','https','mailto','tel'],allowedSchemesByTag:{img:['http','https','data']}});
 }
 export function prepare(root=ROOT,baseUrl=process.env.SITE_BASE_URL||'/danyow/'){
- if(!/^\/(?:[A-Za-z0-9._-]+\/)*$/.test(baseUrl))throw Error('INVALID_BASE_URL');const base=baseUrl.replace(/\/$/,'');Archive.build(root,{baseUrl});
+ if(!/^\/(?:[A-Za-z0-9._-]+\/)*$/.test(baseUrl))throw Error('INVALID_BASE_URL');const base=baseUrl.replace(/\/$/,'');
+ // Validate every channel before replacing any generated output.
+ for(const channel of Object.keys(Archive.CHANNELS)) Archive.load(root,{channel});
+ for(const channel of Object.keys(Archive.CHANNELS)) Archive.build(root,{baseUrl,channel});
  const entries=[];const routes=new Map();const stats={note:0,docs:0,blog:0,news:0,drafts:0};
  for(const kind of ['note','docs','blog'])for(const file of walk(path.join(root,kind))){
   const source=path.relative(root,file).split(path.sep).join('/');const {meta,body}=readLegacy(fs.readFileSync(file,'utf8'));
@@ -59,9 +62,9 @@ export function prepare(root=ROOT,baseUrl=process.env.SITE_BASE_URL||'/danyow/')
   const categories=Array.isArray(meta.tags)?meta.tags:Array.isArray(meta.categories)?meta.categories:String(meta.categories||'').split(/\s+/);
   entries.push({source,route,kind,label:({note:'笔记',docs:'文档',blog:'旧博客'})[kind],title,date:articleDate(meta.date)||articleDate(typeof meta.published==='boolean'?null:meta.published),body,tags:categories.filter(t=>typeof t==='string'&&t.trim()&&!/[\/<>]/.test(t)),placeholder:!body.replace(/^# [^\n]+\n?/,'').trim(),aliases:[],description:String(meta.description||'')});stats[kind]++;
  }
- for(const report of Archive.load(root)){
+ for(const [channel,info] of Object.entries(Archive.CHANNELS))for(const report of Archive.load(root,{channel})){
   const {meta,body,file,sha256}=report;
-  entries.push({source:file,route:'ai-engine-watch/reports/'+meta.date,kind:'news',label:'AI 引擎日报',title:'AI 引擎日报｜'+meta.date,date:meta.date,body,description:meta.summary.join(' '),tags:['AI','游戏引擎','日报'],placeholder:false,aliases:[],sha256,revision:meta.revision,raw:`raw/${meta.date.slice(0,4)}/${meta.date.slice(5,7)}/${meta.date}.md`});stats.news++;
+  entries.push({source:file,route:channel+'/reports/'+meta.date,channel,kind:'news',label:info.label,title:info.label+'｜'+meta.date,date:meta.date,body,description:meta.summary.join(' '),tags:info.tags,placeholder:false,aliases:[],sha256,revision:meta.revision,raw:`raw/${meta.date.slice(0,4)}/${meta.date.slice(5,7)}/${meta.date}.md`});stats.news++;
  }
  const unique=new Set();for(const e of entries){if(unique.has(e.route))throw Error('DUPLICATE_ROUTE '+e.route);unique.add(e.route)}
  for(const e of entries){e.html=safeRender(e.body,e.source,routes,base);e.plain=sanitizeHtml(e.html,{allowedTags:[],allowedAttributes:{}}).replace(/&[^;]+;/g,' ').replace(/\s+/g,' ').trim();if(!e.description)e.description=e.placeholder?'保留原始提纲，待补充。':e.plain.slice(0,82)+(e.plain.length>82?'…':'');delete e.body;}

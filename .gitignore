@@ -5,6 +5,7 @@ build/
 .generated/
 .docusaurus/
 static/ai-engine-watch/
+static/voice-agent-watch/
 static/search-index.json
 .cache-loader/
 .DS_Store

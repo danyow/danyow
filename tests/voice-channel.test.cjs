@@ -1,0 +1,18 @@
+'use strict';
+const test=require('node:test'),assert=require('node:assert/strict');
+const fs=require('node:fs'),os=require('node:os'),path=require('node:path');
+const {execFileSync}=require('node:child_process');
+const Archive=require('../scripts/build-ai-engine-archive.cjs');
+const voice='voice-agent-watch',engine='ai-engine-watch',day='2026-09-12';
+function setup(t){const r=fs.mkdtempSync(path.join(os.tmpdir(),'voice-archive-'));t.after(()=>fs.rmSync(r,{recursive:true,force:true}));return r;}
+function put(root,channel,revision=1,body='仅供自动测试。',extra={}){const p=path.join(root,channel,'reports/2026/09',day+'.md');fs.mkdirSync(path.dirname(p),{recursive:true});const meta={schema:1,date:day,timezone:'Asia/Shanghai',title:channel,revision,publication:'publish',review_status:'generated',summary:[channel],events:[],...extra};fs.writeFileSync(p,'---\n'+JSON.stringify(meta)+'\n---\n# 测试\n\n'+body+'\n');return p;}
+const json=(r,c,p)=>JSON.parse(fs.readFileSync(path.join(r,'static',c,p),'utf8'));
+function baseCommit(r){const git=a=>execFileSync('git',a,{cwd:r,encoding:'utf8',stdio:'pipe'});git(['init','-q']);git(['add','.']);git(['-c','user.name=test','-c','user.email=test@example.invalid','commit','-qm','test']);return git(['rev-parse','HEAD']).trim();}
+test('voice empty archive has no invented articles',t=>{const r=setup(t);assert.equal(Archive.build(r,{channel:voice}).reports,0);assert.equal(json(r,voice,'index/catalog.json').total,0);});
+test('same date in two channels has independent content and receipts',t=>{const r=setup(t);put(r,engine);put(r,voice);Archive.build(r);const before=fs.readFileSync(path.join(r,'static',engine,'index/recent.json'),'utf8');Archive.build(r,{channel:voice});assert.equal(fs.readFileSync(path.join(r,'static',engine,'index/recent.json'),'utf8'),before);const a=json(r,engine,'receipts/'+day+'.json'),b=json(r,voice,'receipts/'+day+'.json');assert.notEqual(a.sha256,b.sha256);assert.equal(Archive.load(r).length,1);assert.equal(Archive.load(r,{channel:voice}).length,1);});
+test('voice raw, page marker and receipt use exact normalized original',t=>{const r=setup(t);put(r,voice);Archive.build(r,{channel:voice});const receipt=json(r,voice,'receipts/'+day+'.json');const raw=fs.readFileSync(path.join(r,'static',voice,receipt.raw),'utf8');assert.equal(Archive.digest(raw),receipt.sha256);assert.match(fs.readFileSync(path.join(r,'.generated',voice,day+'.md'),'utf8'),new RegExp('source-sha256:'+receipt.sha256));});
+test('channel traversal is rejected before file writes',t=>{const r=setup(t);assert.throws(()=>Archive.build(r,{channel:'../other'}),/INVALID_ARCHIVE_CHANNEL/);assert.throws(()=>Archive.load(r,{channel:'toString'}),/INVALID_ARCHIVE_CHANNEL/);});
+test('voice paths and publication state are validated',t=>{const r=setup(t);put(r,voice,1,'测试',{publication:'hold'});assert.throws(()=>Archive.load(r,{channel:voice}),/HELD_OR_UNVERIFIED/);});
+test('voice corrections require a revision increase',t=>{const r=setup(t);put(r,voice);const sha=baseCommit(r);put(r,voice,1,'更正');assert.throws(()=>Archive.checkRevisions(r,sha),/INCREMENT_REVISION/);put(r,voice,2,'更正');Archive.checkRevisions(r,sha);});
+test('voice history cannot be deleted by a daily update',t=>{const r=setup(t);const p=put(r,voice);const sha=baseCommit(r);fs.unlinkSync(p);assert.throws(()=>Archive.checkRevisions(r,sha),/REPORT_DELETION/);});
+test('alternate base paths work for voice links',t=>{const r=setup(t);put(r,voice);Archive.build(r,{channel:voice,baseUrl:'/test/'});assert.match(fs.readFileSync(path.join(r,'.generated',voice,day+'.md'),'utf8'),/\/test\/voice-agent-watch\/raw\//);});
