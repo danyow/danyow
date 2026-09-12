@@ -17,7 +17,9 @@ updates:
       - dependency-name: '*'
         update-types: ['version-update:semver-major']
     groups:
-      docusaurus:
-        patterns: ['@docusaurus/*']
-      react:
-        patterns: ['react', 'react-dom', '@mdx-js/react']
+      astro:
+        patterns: ['astro', '@astrojs/*']
+      unocss:
+        patterns: ['unocss', '@unocss/*', 'unocss-preset-theme']
+      tooling:
+        patterns: ['typescript', '@types/*']

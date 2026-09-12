@@ -3,6 +3,7 @@ name: Build and deploy
 on:
   push:
     branches: [main]
+    paths-ignore: ['lua/**', 'unity/**']
   pull_request:
     branches: [main]
   workflow_dispatch:
@@ -17,7 +18,7 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v7
         with:
@@ -26,11 +27,11 @@ jobs:
       - uses: actions/setup-node@v7
         with:
           node-version: '22'
-          cache: yarn
+          cache: npm
       - name: Install locked dependencies
-        run: yarn install --frozen-lockfile --non-interactive
-      - name: Test archive and mail bridge
-        run: yarn archive:test
+        run: npm ci --ignore-scripts --no-audit --no-fund
+      - name: Test archive and content migration
+        run: npm test
       - name: Check corrections against previous originals
         env:
           BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
@@ -38,25 +39,14 @@ jobs:
           if [[ "$BASE_SHA" =~ ^[0-9a-f]{40}$ && "$BASE_SHA" != "0000000000000000000000000000000000000000" ]]; then
             node scripts/build-ai-engine-archive.cjs --check-revisions "$BASE_SHA"
           fi
-      - name: Generate existing Unity documentation
-        env:
-          NODE_OPTIONS: --max-old-space-size=8192
-        run: |
-          yarn generate
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add unity/
-          if ! git diff --cached --quiet -- unity/; then
-            git commit -m 'build: generate Unity documentation [skip ci]'
-          fi
-      - name: Build the complete existing website and archive
-        env:
-          NODE_OPTIONS: --max-old-space-size=8192
-        run: yarn build
+      - name: Type check
+        run: npm run check
+      - name: Build static news site and validate links
+        run: npm run build
       - uses: actions/upload-artifact@v7
         with:
           name: website-build
-          path: build
+          path: dist
           include-hidden-files: true
           retention-days: 1
 
@@ -68,14 +58,23 @@ jobs:
     permissions:
       contents: write
     steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+          package-manager-cache: false
       - uses: actions/download-artifact@v8
         with:
           name: website-build
-          path: build
+          path: dist
       - name: Publish through the existing gh-pages branch
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build
+          publish_dir: ./dist
           user_name: github-actions[bot]
           user_email: 41898282+github-actions[bot]@users.noreply.github.com
+      - name: Verify public pages and report versions
+        run: node scripts/verify-deployment.mjs
