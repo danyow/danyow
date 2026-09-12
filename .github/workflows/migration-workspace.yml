@@ -1,0 +1,35 @@
+name: Retypeset migration workspace
+on:
+  push:
+    branches: [refactor/retypeset-news]
+    paths: [.github/workflows/migration-workspace.yml]
+permissions:
+  contents: read
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          path: site
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/checkout@v7
+        with:
+          repository: radishzzz/astro-theme-retypeset
+          ref: a636b6d393be714cab52d3fc4baddd3f3905f701
+          path: upstream
+          persist-credentials: false
+      - name: Create migration workspace
+        run: |
+          mkdir -p bundle
+          tar --exclude=.git -czf bundle/sources.tar.gz site upstream
+          git -C site ls-files -s > bundle/site-index.txt
+          git -C site log -1 --format='%H %T' > bundle/site-head.txt
+          git -C site log --format='COMMIT %aI' --name-only -- note docs blog > bundle/content-dates.txt
+      - uses: actions/upload-artifact@v7
+        with:
+          name: retypeset-migration-sources
+          path: bundle
+          retention-days: 1
