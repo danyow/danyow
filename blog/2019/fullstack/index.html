@@ -1,115 +1,46 @@
-<!DOCTYPE html><html lang="zh-CN" class="dark font-sans"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="generator" content="Astro v6.1.5"><title>fullstack开源库 | Danyow</title><meta name="description" content="大致就是项目做完没给钱，然后就开源了。 Github：fullstack 提交是 586fe8bea5d5a12406253994bb848c257109eb15 …"><meta name="theme-color" content="#202024"><meta name="color-scheme" content="dark light"><link rel="canonical" href="https://danyow.cn/danyow/blog/2019/fullstack/"><link rel="icon" type="image/svg+xml" href="/danyow/icons/favicon.svg"><link rel="alternate" type="application/rss+xml" title="Danyow AI 引擎日报" href="/danyow/rss.xml"><link rel="sitemap" href="/danyow/sitemap.xml"><meta property="og:type" content="article"><meta property="og:title" content="fullstack开源库 | Danyow"><meta property="og:description" content="大致就是项目做完没给钱，然后就开源了。 Github：fullstack 提交是 586fe8bea5d5a12406253994bb848c257109eb15 …"><meta property="og:url" content="https://danyow.cn/danyow/blog/2019/fullstack/"><script>
-try {const mode=localStorage.getItem('danyow-theme')||'dark';document.documentElement.classList.toggle('dark',mode!=='light')}catch(_){document.documentElement.classList.add('dark')}
-</script><link rel="stylesheet" href="/danyow/_astro/__uno.BU4Uhfdw.css">
-<link rel="stylesheet" href="/danyow/_astro/Layout.DBOqAoW0.css"><style>[data-astro-transition-scope="astro-wif6pdce-1"] { view-transition-name: site-title-zh; }@layer astro { ::view-transition-old(site-title-zh) { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeOut; }::view-transition-new(site-title-zh) { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(site-title-zh) { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(site-title-zh) { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-wif6pdce-1"],
-			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-wif6pdce-1"] { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-wif6pdce-1"],
-			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-wif6pdce-1"] { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-wif6pdce-1"],
-			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-wif6pdce-1"] { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-wif6pdce-1"],
-			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-wif6pdce-1"] { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeIn; }</style></head><body> <a href="#content" class="skip-link">跳到正文</a> <div class="mx-auto max-w-205.848 min-h-vh w-full min-h-dvh" p="x-[min(7.25vw,3.731rem)] y-10" lg="mx-[max(5.75rem,calc(50vw-34.25rem))] my-20 max-w-[min(calc(75vw-16rem),44rem)] min-h-full p-0"> <header class="lg:uno-desktop-column lg:top-20 cjk:tracking-wide mb-10.8"> <h2 class="font-bold font-title mb-2.8 mt-3 text-5.375 c-secondary lg:mb-1.8 lg:mt-0 lg:text-9 lg:c-primary">  <div class="box-content inline-block pr-1" data-disable-theme-toggle-transition data-astro-transition-scope="astro-wif6pdce-1"> <a id="site-title-link" href="/danyow/"> Danyow </a> </div> </h2> <div aria-hidden="true" class="text-3.5 c-secondary font-navbar lg:text-4 op-0 lg:op-100">技术在变，慢慢看。</div> </header><nav aria-label="主导航" class="mb-10.5 text-3.6 font-semibold leading-2.45em font-navbar lg:uno-desktop-column lg:text-4 lg:top-[calc(5rem+8rem)] cjk:tracking-wide"> <ul class="site-nav"> <li><a href="/danyow/" class="highlight-hover hover:c-primary after:bottom-0.7em">最新</a></li><li><a href="/danyow/ai-engine-watch/" class="highlight-hover hover:c-primary after:bottom-0.7em">引擎日报</a></li><li><a href="/danyow/voice-agent-watch/" class="highlight-hover hover:c-primary after:bottom-0.7em">语音日报</a></li><li><a href="/danyow/note/" class="highlight-hover hover:c-primary after:bottom-0.7em">笔记</a></li><li><a href="/danyow/docs/" class="highlight-hover hover:c-primary after:bottom-0.7em">文档</a></li><li><a href="/danyow/archive/" class="highlight-hover hover:c-primary after:bottom-0.7em">归档</a></li><li><a href="/danyow/search/" class="highlight-hover hover:c-primary after:bottom-0.7em">搜索</a></li> <li><button id="theme-toggle" type="button" aria-label="切换为浅色" aria-pressed="false">浅色</button></li> </ul></nav><main id="content" class="mb-12"><article> <header class="article-header"><p class="edition">旧博客</p><h1>fullstack开源库</h1><div class="entry-meta"><time datetime="2019-06-10">2019-06-10</time></div></header> <p class="source-note">旧文存档，内容保持原样，文中的版本和操作可能已过时。</p> <div class="heti" id="post-content"><p>大致就是项目做完没给钱，然后就开源了。</p>
-<p>Github：<a href="https://github.com/TrillCyborg/fullstack" rel="noopener noreferrer">fullstack</a>
-提交是 <em>586fe8bea5d5a12406253994bb848c257109eb15</em></p>
-<h2 id="大致步骤">大致步骤</h2>
-<ol>
-<li>
-<p>首先准备本地环境</p>
-<ol>
-<li>安装 node 环境 <code>brew install node</code></li>
-<li>安装 yarn <code>brew install yarn</code></li>
-</ol>
-</li>
-<li>
-<p>去准备 api 参数</p>
-<ol>
-<li>
-<p>先去谷歌云平台 <a href="https://console.cloud.google.com/" rel="noopener noreferrer">Google Cloud Platform</a> 里面创建一个凭据，在 <em>API和服务</em> 里面的 <em>凭据</em>, 这时候会获得一个密钥，将其记作 <strong>GOOGLE_MAPS_KEY</strong>。</p>
-</li>
-<li>
-<p>然后到 <em>API和服务</em> 里面的 <em>库</em>，找的地图类别中的 <em>Places API</em>，将其启用，谷歌这边就算是完成了。</p>
-</li>
-<li>
-<p>然后到 <a href="https://plaid.com/" rel="noopener noreferrer">PLAID</a> 上注册账号，这个网站应该是专门获取银行账户内信息的一个聚合平台。完成后找到 <code>Node.js</code> 选项，下面会有对应的信息</p>
-<pre><code class="language-json">{
-    "ACCOUNTS_SECRET": "secret",
-    "PLAID_CLIENT_ID": "xxxxxxxxxxxxxxxxxxxx",
-    "PLAID_SECRET": "xxxxxxxxxxxxxxxxxxxx",
-    "PLAID_PUBLIC_KEY": "xxxxxxxxxxxxxxxxxxxx",
-    "PLAID_PRODUCTS": "transactions",
-    "PLAID_COUNTRY_CODES": "US",
-    "PLAID_ENV": "sandbox"
-}
-</code></pre>
-</li>
-</ol>
-</li>
-<li>
-<p>填写参数</p>
-<ol>
-<li>将 <strong>GOOGLE_MAPS_KEY</strong> 替换到 <code>/client/src/config/example.env.json</code> 文件内。</li>
-<li>将 <strong>PLAID_PUBLIC_KEY</strong> 也替换到这个文件内。</li>
-<li>将 <strong>PLAID_CLIENT_ID</strong>、<strong>PLAID_SECRET</strong>、<strong>PLAID_PUBLIC_KEY</strong> 替换到 <code>server/config/default.json</code> 文件内。</li>
-</ol>
-</li>
-<li>
-<p>然后启动本地的 mongo</p>
-<p><code>mongod --dbpath /Users/imagons/mongo/data</code></p>
-<p>这个只是我的启动方式。</p>
-</li>
-<li>
-<p>进入到 <code>server</code> 目录, 然后执行 <code>yarn install</code> 和 <code>yarn watch</code></p>
-</li>
-<li>
-<p>另起一个终端，然后进入到 <code>client</code> 目录，然后执行</p>
-<ol>
-<li><code>cp ./src/config/example.env.json ./src/config/development.env.json</code></li>
-<li><code>yarn install</code></li>
-<li><code>yarn start</code></li>
-</ol>
-</li>
-<li>
-<p>（这一步貌似不执行也能运行了）又再起一个终端，继续在 <code>client</code> 目录，执行 <code>yarn gen:types:watch</code></p>
-</li>
-</ol>
-<h2 id="注意事项">注意事项</h2>
-<ul>
-<li>
-<p>如果遇到 <code>npm</code> 相关的问题，建议重装 <code>node</code> 环境。</p>
-</li>
-<li>
-<p>4000 的端口和 3000 的端口不要被占用。</p>
-</li>
-</ul>
-</div>  <footer class="article-footer"><a href="/danyow/blog/">返回列表</a><a href="https://github.com/danyow/danyow/blob/main/blog/2019/fullstack.md">Markdown 原稿</a></footer> </article></main><footer class="text-3 leading-1.25em font-navbar" lg="uno-desktop-column bottom-20 text-3.5"> <p>  <a class="highlight-hover py-0.8 transition-colors after:bottom-0.35em hover:c-primary" name="RSS" href="/danyow/rss.xml" target="_blank" rel="noopener noreferrer">RSS</a> / <a class="highlight-hover py-0.8 transition-colors after:bottom-0.35em hover:c-primary" name="GitHub" href="https://github.com/danyow/danyow" target="_blank" rel="noopener noreferrer">GitHub</a>  </p> <p>
-© 2019-2026 danyow </p> <p>
-Powered by <a class="highlight-hover py-0.8 transition-colors after:bottom-0.35em hover:c-primary" href="https://astro.build/" target="_blank" rel="noopener noreferrer">Astro</a> and <a class="highlight-hover py-0.8 transition-colors after:bottom-0.35em hover:c-primary" href="https://github.com/radishzzz/astro-theme-retypeset" target="_blank" rel="noopener noreferrer">Retypeset</a> </p> </footer> </div> <script type="module">const t=document.getElementById("theme-toggle"),n=()=>{const e=document.documentElement.classList.contains("dark");t?.setAttribute("aria-label",e?"切换为浅色":"切换为暗色"),t?.setAttribute("aria-pressed",String(!e)),t&&(t.textContent=e?"浅色":"暗色")};n();t?.addEventListener("click",()=>{document.documentElement.classList.toggle("dark");try{localStorage.setItem("danyow-theme",document.documentElement.classList.contains("dark")?"dark":"light")}catch{}n()});</script> </body></html>
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>正在前往新地址</title><meta name="robots" content="noindex,follow">
+<meta name="legacy-redirect" content="danyow-legacy-redirect-v1"><link rel="canonical" href="https://danyow.cn/blog/2019/fullstack/"><noscript><meta http-equiv="refresh" content="0;url=https://danyow.cn/blog/2019/fullstack/"></noscript>
+<script>(function(){const target=(function redirectTarget(href) {
+  let current;
+  try { current = new URL(href); } catch { return null; }
+  if (!['http:', 'https:'].includes(current.protocol) ||
+      !['danyow.cn', 'danyow.github.io'].includes(current.hostname)) return null;
+  const prefix = '/danyow';
+  let pathname = current.pathname;
+  if (pathname !== prefix && !pathname.startsWith(prefix + '/')) return null;
+  // This is a retired namespace, including accidentally duplicated old prefixes.
+  while (pathname === prefix || pathname.startsWith(prefix + '/')) {
+    pathname = pathname.slice(prefix.length) || '/';
+    pathname = '/' + pathname.replace(/^\/+/, '');
+  }
+  const target = new URL('https://danyow.cn/');
+  target.pathname = pathname; // Fixed origin: never interpret a path as another host.
+  target.search = current.search;
+  target.hash = current.hash;
+  if (target.pathname === prefix || target.pathname.startsWith(prefix + '/')) return null;
+  return target.href;
+})(window.location.href);if(target)window.location.replace(target);})();</script>
+</head><body><p>页面已搬到新地址。<a id="destination" href="https://danyow.cn/blog/2019/fullstack/">前往新页面</a></p>
+<script>(function(){const target=(function redirectTarget(href) {
+  let current;
+  try { current = new URL(href); } catch { return null; }
+  if (!['http:', 'https:'].includes(current.protocol) ||
+      !['danyow.cn', 'danyow.github.io'].includes(current.hostname)) return null;
+  const prefix = '/danyow';
+  let pathname = current.pathname;
+  if (pathname !== prefix && !pathname.startsWith(prefix + '/')) return null;
+  // This is a retired namespace, including accidentally duplicated old prefixes.
+  while (pathname === prefix || pathname.startsWith(prefix + '/')) {
+    pathname = pathname.slice(prefix.length) || '/';
+    pathname = '/' + pathname.replace(/^\/+/, '');
+  }
+  const target = new URL('https://danyow.cn/');
+  target.pathname = pathname; // Fixed origin: never interpret a path as another host.
+  target.search = current.search;
+  target.hash = current.hash;
+  if (target.pathname === prefix || target.pathname.startsWith(prefix + '/')) return null;
+  return target.href;
+})(window.location.href);if(target)document.getElementById('destination').href=target;})();</script>
+</body></html>

@@ -1,328 +1,46 @@
-<!DOCTYPE html><html lang="zh-CN" class="dark font-sans"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="generator" content="Astro v6.1.5"><title>廖雪峰Python学习教程 | Danyow</title><meta name="description" content="小白入门, 以前的笔记。 函数 函数的参数 当默认参数为可变对象的时候 eg: def add_end(L=[]): L.append('END') return …"><meta name="theme-color" content="#202024"><meta name="color-scheme" content="dark light"><link rel="canonical" href="https://danyow.cn/danyow/blog/2019/python/python/"><link rel="icon" type="image/svg+xml" href="/danyow/icons/favicon.svg"><link rel="alternate" type="application/rss+xml" title="Danyow AI 引擎日报" href="/danyow/rss.xml"><link rel="sitemap" href="/danyow/sitemap.xml"><meta property="og:type" content="article"><meta property="og:title" content="廖雪峰Python学习教程 | Danyow"><meta property="og:description" content="小白入门, 以前的笔记。 函数 函数的参数 当默认参数为可变对象的时候 eg: def add_end(L=[]): L.append('END') return …"><meta property="og:url" content="https://danyow.cn/danyow/blog/2019/python/python/"><script>
-try {const mode=localStorage.getItem('danyow-theme')||'dark';document.documentElement.classList.toggle('dark',mode!=='light')}catch(_){document.documentElement.classList.add('dark')}
-</script><link rel="stylesheet" href="/danyow/_astro/__uno.BU4Uhfdw.css">
-<link rel="stylesheet" href="/danyow/_astro/Layout.DBOqAoW0.css"><style>[data-astro-transition-scope="astro-wif6pdce-1"] { view-transition-name: site-title-zh; }@layer astro { ::view-transition-old(site-title-zh) { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeOut; }::view-transition-new(site-title-zh) { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(site-title-zh) { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(site-title-zh) { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-wif6pdce-1"],
-			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-wif6pdce-1"] { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-wif6pdce-1"],
-			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-wif6pdce-1"] { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-wif6pdce-1"],
-			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-wif6pdce-1"] { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-wif6pdce-1"],
-			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-wif6pdce-1"] { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeIn; }</style></head><body> <a href="#content" class="skip-link">跳到正文</a> <div class="mx-auto max-w-205.848 min-h-vh w-full min-h-dvh" p="x-[min(7.25vw,3.731rem)] y-10" lg="mx-[max(5.75rem,calc(50vw-34.25rem))] my-20 max-w-[min(calc(75vw-16rem),44rem)] min-h-full p-0"> <header class="lg:uno-desktop-column lg:top-20 cjk:tracking-wide mb-10.8"> <h2 class="font-bold font-title mb-2.8 mt-3 text-5.375 c-secondary lg:mb-1.8 lg:mt-0 lg:text-9 lg:c-primary">  <div class="box-content inline-block pr-1" data-disable-theme-toggle-transition data-astro-transition-scope="astro-wif6pdce-1"> <a id="site-title-link" href="/danyow/"> Danyow </a> </div> </h2> <div aria-hidden="true" class="text-3.5 c-secondary font-navbar lg:text-4 op-0 lg:op-100">技术在变，慢慢看。</div> </header><nav aria-label="主导航" class="mb-10.5 text-3.6 font-semibold leading-2.45em font-navbar lg:uno-desktop-column lg:text-4 lg:top-[calc(5rem+8rem)] cjk:tracking-wide"> <ul class="site-nav"> <li><a href="/danyow/" class="highlight-hover hover:c-primary after:bottom-0.7em">最新</a></li><li><a href="/danyow/ai-engine-watch/" class="highlight-hover hover:c-primary after:bottom-0.7em">引擎日报</a></li><li><a href="/danyow/voice-agent-watch/" class="highlight-hover hover:c-primary after:bottom-0.7em">语音日报</a></li><li><a href="/danyow/note/" class="highlight-hover hover:c-primary after:bottom-0.7em">笔记</a></li><li><a href="/danyow/docs/" class="highlight-hover hover:c-primary after:bottom-0.7em">文档</a></li><li><a href="/danyow/archive/" class="highlight-hover hover:c-primary after:bottom-0.7em">归档</a></li><li><a href="/danyow/search/" class="highlight-hover hover:c-primary after:bottom-0.7em">搜索</a></li> <li><button id="theme-toggle" type="button" aria-label="切换为浅色" aria-pressed="false">浅色</button></li> </ul></nav><main id="content" class="mb-12"><article> <header class="article-header"><p class="edition">旧博客</p><h1>廖雪峰Python学习教程</h1><div class="entry-meta"><time datetime="2019-05-29">2019-05-29</time></div></header> <p class="source-note">旧文存档，内容保持原样，文中的版本和操作可能已过时。</p> <div class="heti" id="post-content"><p>小白入门, 以前的笔记。</p>
-<h2 id="函数">函数</h2>
-<h3 id="函数的参数">函数的参数</h3>
-<ul>
-<li>当默认参数为可变对象的时候 eg:</li>
-</ul>
-<pre><code class="language-python">def add_end(L=[]):
-    L.append('END')
-    return L
-
-'''
-如果多次调用该函数
-就会导致L的值不断递增
-&gt;&gt;&gt; add_end()
-['END', 'END']
-&gt;&gt;&gt; add_end()
-['END', 'END', 'END']
-因为L也是一个变量
-所以最佳做法是将 L=None
-在函数内部去做判断
-'''
-</code></pre>
-<ul>
-<li>定义可变参数的的函数</li>
-</ul>
-<pre><code class="language-python">def calc(*numbers):
-    sum = 0
-    for n in numbers:
-        sum = sum + n * n
-    return sum
-
-'''
-# 当如果要使用list传入的话
-'''
-nums = [1, 2, 3]
-calc(*nums)
-</code></pre>
-<ul>
-<li>关键字参数的用法和可变参数类似</li>
-</ul>
-<pre><code class="language-python"># 定义
-**kw
-#调用
-&gt;&gt;&gt; extra = {'city': 'Beijing', 'job': 'Engineer'}
-&gt;&gt;&gt; person('Jack', 24, **extra)
-</code></pre>
-<ul>
-<li>命名关键字参数</li>
-</ul>
-<pre><code class="language-python"># 无可变参数时 必须加入*分隔
-def person(name, age, *, city, job):
-    print(name, age, city, job)
-
-# 有可变参数时 无序理会
-def person(name, age, *args, city, job):
-    print(name, age, args, city, job)
-</code></pre>
-<ul>
-<li>参数组合</li>
-</ul>
-<p>目前共有五种参数</p>
-<ol>
-<li>必选</li>
-<li>默认</li>
-<li>可变</li>
-<li>关键字</li>
-<li>命名关键字</li>
-</ol>
-<p>定义必须遵循以上顺序</p>
-<h3 id="递归函数">递归函数</h3>
-<ul>
-<li>
-<p>递归需要注意一点就是: 防止函数栈溢出</p>
-</li>
-<li>
-<p>尽可能的采用尾递归方式来处理递归函数</p>
-<ul>
-<li>尾递归：函数返回的时候, 只调用该函数本身, 不能添加其他的表达式.</li>
-</ul>
-</li>
-</ul>
-<h2 id="高级特性">高级特性</h2>
-<h3 id="切片">切片</h3>
-<ul>
-<li>当如果采用-号来进行倒序取数的时候, 并不是取得顺序也是倒的, 而是正序.</li>
-</ul>
-<pre><code class="language-python">L = ['Michael', 'Sarah', 'Tracy', 'Bob', 'Jack']
-L[-2:]
-# 这个-2指从倒数第二个开始, 继续往后取值, 而不是往前取值.
-# 即: ['Bob', 'Jack']
-# 而不是 ['Bob', 'Tracy', 'Sarah', 'Michael']
-</code></pre>
-<h3 id="迭代">迭代</h3>
-<ul>
-<li>
-<p>字典直接遍历时取得是所有的键, 需要字典的所有值是 <code>dic.values()</code>, 所有键值对是 <code>dic.items()</code></p>
-</li>
-<li>
-<p><code>Iterable</code>: 可迭代 <code>from collections import Iterable</code></p>
-</li>
-<li>
-<p><code>isinstance</code>: 判断一个对象的类型 <code>isinstance(object, class-or-type-or-tuple)</code></p>
-</li>
-<li>
-<p><code>enumerate</code> 将一个list改变为索引-元素对</p>
-</li>
-</ul>
-<pre><code class="language-python">&gt;&gt;&gt; for i, value in enumerate(['A', 'B', 'C']):
-...     print(i, value)
-...
-0 A
-1 B
-2 C
-</code></pre>
-<ul>
-<li>可以同时引用两个变量</li>
-</ul>
-<pre><code class="language-py">&gt;&gt;&gt; for x, y in [(1, 1), (2, 4), (3, 9)]:
-...     print(x, y)
-...
-1 1
-2 4
-3 9
-</code></pre>
-<ul>
-<li><code>for ... in</code> 是不支持直接遍历字典的时候, 同时取到键和值需要以下方法</li>
-</ul>
-<pre><code class="language-py"># 会报错
-d = {'key_1':'1', 'key_2':'2', 'key_3':'3'}
-for key, value in d:
-    print(key + value)
-
-# 加上items这样就不会报错了
-d = {'key_1':'1', 'key_2':'2', 'key_3':'3'}
-for key, value in d.items():
-    print(key + value)
-</code></pre>
-<h3 id="列表生成器">列表生成器</h3>
-<ul>
-<li><code>[]</code></li>
-</ul>
-<h3 id="生成器-generator">生成器: generator</h3>
-<ul>
-<li><code>()</code> 或者 <code>yield</code></li>
-</ul>
-<h3 id="迭代器-iterator">迭代器: Iterator</h3>
-<ul>
-<li>凡是可作用于<code>for</code>循环的对象都是<code>Iterable</code>类型；</li>
-<li>凡是可作用于<code>next()</code>函数的对象都是<code>Iterator</code>类型，它们表示一个惰性计算的序列；</li>
-<li>集合数据类型如<code>list、dict、str</code>等是<code>Iterable</code>但不是<code>Iterator</code>，不过可以通过<code>iter()</code>函数获得一个<code>Iterator</code>对象。</li>
-<li><code>for</code>循环本质上就是通过不断调用<code>next()</code>函数实现的</li>
-</ul>
-<h2 id="函数式编程">函数式编程</h2>
-<h3 id="builtins-内置函数">builtins: 内置函数</h3>
-<ul>
-<li><code>abs</code>就在<code>import builtins</code></li>
-</ul>
-<h3 id="高阶函数">高阶函数</h3>
-<ul>
-<li>
-<p><code>map</code> 对每个数进行一次函数算法, 然后重新组装为一个数组.</p>
-</li>
-<li>
-<p><code>reduce</code> 从 0, 1 每两个, 直到最后一个数进行一次函数算法, 然后返回.</p>
-</li>
-<li>
-<p><code>filter</code> 遍历每个数对其进行过滤 真保存, 假删除.</p>
-</li>
-</ul>
-<blockquote>
-<p>以上都是返回的是 <code>Iterator</code> 类型 需要用<code>list()</code>让其算完.</p>
-</blockquote>
-<h2 id="模块">模块</h2>
-<h3 id="使用模块">使用模块</h3>
-<ul>
-<li>
-<p><code>sys.argv</code>存储了命令行输入参数, 当长度为1时没有输入参数.</p>
-</li>
-<li>
-<p><code>if __name__=='__main__':</code> 被引入使用时失效, 仅在运行当前文件时生效, 主要用于测试.</p>
-</li>
-</ul>
-<h3 id="安装第三方模块">安装第三方模块</h3>
-<ul>
-<li>模块搜索路径 环境修改<code>PYTHONPATH</code></li>
-</ul>
-<pre><code class="language-py"># 仅仅在运行时添加
-import sys
-&gt;&gt;&gt; sys.path.append('/Users/michael/my_py_scripts')
-</code></pre>
-<h2 id="面向对象编程">面向对象编程</h2>
-<h3 id="获取对象信息">获取对象信息</h3>
-<ul>
-<li>
-<p>获取对象所有方法 <code>dir()</code></p>
-</li>
-<li>
-<p>类似OC动态运行时 <code>getattr()</code> <code>setattr()</code> <code>hasattr()</code></p>
-</li>
-</ul>
-<h2 id="面向对象高级编程">面向对象高级编程</h2>
-<h3 id="使用__slots__">使用__slots__</h3>
-<ul>
-<li>python的动态能力很强, 甚至可以给类添加绑定一个方法, 或者是给对象绑定一个参数. 但有问题就是想起限制作用, 这时候就可以使用到了__slots__</li>
-</ul>
-<pre><code class="language-py">class Student(object):
-    __slots__ = ('name', 'age') # 用tuple定义允许绑定的属性名称
-'''
-这里补充下网友发现的一些现象
-1. 如果设置了__slots__ 但是给类直接绑定新的值, 还是可行 eg: Student.score = 99
-2. 如果采用了__slots__内含有双下划线的变量时, 在继承的时候该 变量会变形 eg: Person __slots__('__name') Student(Person) __slots__() 这时候的Student的name在用的时候会报错. 由于其没有改写本身的__name, 所以已经变形为_Persion__name
-'''
-</code></pre>
-<h3 id="定制类">定制类</h3>
-<ul>
-<li><code>__init__</code>    初始化的时候使用</li>
-<li><code>__len__</code>     <code>len()</code>方法的时候</li>
-<li><code>__str__</code>     <code>print()</code>方法的时候</li>
-<li><code>__repr__</code>    命令行直接输出的时候</li>
-<li><code>__iter__</code>    返回迭代所需要的对象</li>
-<li><code>__next__</code>    返回下一个取出来的值</li>
-<li><code>__getitem__</code> <code>[::]</code>的方式取下标</li>
-<li><code>__getattr__</code> 通常用作获取一个没有的值得属性的时候</li>
-<li><code>__call__</code>    判断是否可调用的具体条件<code>callable()</code></li>
-</ul>
-<h3 id="元类">元类</h3>
-<ul>
-<li>类可以通过 <code>type()</code> 直接去创建.</li>
-</ul>
-<pre><code class="language-py">def fn(self, name='world'): # 先定义函数
-    print('Hello, %s.' % name)
-Hello = type('Hello', (object,), dict(hello=fn)) # 创建Hello class
-</code></pre>
-<ul>
-<li>而<code>metaclass</code>本质上就是监听创建这个类时的回调, 从而在本源上大规模的去改动这个类的创建形式.</li>
-</ul>
-<pre><code class="language-py">class ListMetaclass(type):
-    def __new__(cls, name, bases, attrs):
-        attrs['add'] = lambda self, value: self.append(value)
-        return type.__new__(cls, name, bases, attrs)
-class MyList(list, metaclass=ListMetaclass):
-    pass
-'''
-&gt;&gt;&gt; L = MyList()
-&gt;&gt;&gt; L.add(1)
-&gt;&gt; L
-[1]
-'''
-</code></pre>
-<h2 id="io编程">IO编程</h2>
-<h3 id="序列化">序列化</h3>
-<ul>
-<li>模型转json</li>
-</ul>
-<pre><code class="language-py"># 自定义模式
-def student2dict(std):
-    return {
-        'name': std.name,
-        'age': std.age,
-        'score': std.score
-    }
-json.dumps(s, default=student2dict)
-
-# 偷懒模式
-json.dumps(s, default=lambda obj: obj.__dict__)
-</code></pre>
-<ul>
-<li>json转模型</li>
-</ul>
-<pre><code class="language-py">def dict2student(d):
-    return Student(d['name'], d['age'], d['score'])
-json.loads(json_str, object_hook=dict2student)
-</code></pre>
-<h2 id="进程和线程">进程和线程</h2>
-<h3 id="多线程">多线程</h3>
-<ul>
-<li>
-<p>GIL</p>
-<p>启动与CPU核心数量相同的N个线程，在4核CPU上可以监控到CPU占用率仅有102%，也就是仅使用了一核。</p>
-<p>但是用C、C++或Java来改写相同的死循环，直接可以把全部核心跑满，4核就跑到400%，8核就跑到800%，为什么Python不行呢？</p>
-<p>因为Python的线程虽然是真正的线程，但解释器执行代码时，有一个GIL锁：Global Interpreter Lock，任何Python线程执行前，必须先获得GIL锁，然后，每执行100条字节码，解释器就自动释放GIL锁，让别的线程有机会执行。这个GIL全局锁实际上把所有线程的执行代码都给上了锁，所以，多线程在Python中只能交替执行，即使100个线程跑在100核CPU上，也只能用到1个核。</p>
-<p>GIL是Python解释器设计的历史遗留问题，通常我们用的解释器是官方实现的CPython，要真正利用多核，除非重写一个不带GIL的解释器。</p>
-<p>所以，在Python中，可以使用多线程，但不要指望能有效利用多核。如果一定要通过多线程利用多核，那只能通过C扩展来实现，不过这样就失去了Python简单易用的特点。</p>
-<p>不过，也不用过于担心，Python虽然不能利用多线程实现多核任务，但可以通过多进程实现多核任务。多个Python进程有各自独立的GIL锁，互不影响。</p>
-</li>
-</ul>
-</div>  <footer class="article-footer"><a href="/danyow/blog/">返回列表</a><a href="https://github.com/danyow/danyow/blob/main/blog/2019/python/python.md">Markdown 原稿</a></footer> </article></main><footer class="text-3 leading-1.25em font-navbar" lg="uno-desktop-column bottom-20 text-3.5"> <p>  <a class="highlight-hover py-0.8 transition-colors after:bottom-0.35em hover:c-primary" name="RSS" href="/danyow/rss.xml" target="_blank" rel="noopener noreferrer">RSS</a> / <a class="highlight-hover py-0.8 transition-colors after:bottom-0.35em hover:c-primary" name="GitHub" href="https://github.com/danyow/danyow" target="_blank" rel="noopener noreferrer">GitHub</a>  </p> <p>
-© 2019-2026 danyow </p> <p>
-Powered by <a class="highlight-hover py-0.8 transition-colors after:bottom-0.35em hover:c-primary" href="https://astro.build/" target="_blank" rel="noopener noreferrer">Astro</a> and <a class="highlight-hover py-0.8 transition-colors after:bottom-0.35em hover:c-primary" href="https://github.com/radishzzz/astro-theme-retypeset" target="_blank" rel="noopener noreferrer">Retypeset</a> </p> </footer> </div> <script type="module">const t=document.getElementById("theme-toggle"),n=()=>{const e=document.documentElement.classList.contains("dark");t?.setAttribute("aria-label",e?"切换为浅色":"切换为暗色"),t?.setAttribute("aria-pressed",String(!e)),t&&(t.textContent=e?"浅色":"暗色")};n();t?.addEventListener("click",()=>{document.documentElement.classList.toggle("dark");try{localStorage.setItem("danyow-theme",document.documentElement.classList.contains("dark")?"dark":"light")}catch{}n()});</script> </body></html>
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>正在前往新地址</title><meta name="robots" content="noindex,follow">
+<meta name="legacy-redirect" content="danyow-legacy-redirect-v1"><link rel="canonical" href="https://danyow.cn/blog/2019/python/python/"><noscript><meta http-equiv="refresh" content="0;url=https://danyow.cn/blog/2019/python/python/"></noscript>
+<script>(function(){const target=(function redirectTarget(href) {
+  let current;
+  try { current = new URL(href); } catch { return null; }
+  if (!['http:', 'https:'].includes(current.protocol) ||
+      !['danyow.cn', 'danyow.github.io'].includes(current.hostname)) return null;
+  const prefix = '/danyow';
+  let pathname = current.pathname;
+  if (pathname !== prefix && !pathname.startsWith(prefix + '/')) return null;
+  // This is a retired namespace, including accidentally duplicated old prefixes.
+  while (pathname === prefix || pathname.startsWith(prefix + '/')) {
+    pathname = pathname.slice(prefix.length) || '/';
+    pathname = '/' + pathname.replace(/^\/+/, '');
+  }
+  const target = new URL('https://danyow.cn/');
+  target.pathname = pathname; // Fixed origin: never interpret a path as another host.
+  target.search = current.search;
+  target.hash = current.hash;
+  if (target.pathname === prefix || target.pathname.startsWith(prefix + '/')) return null;
+  return target.href;
+})(window.location.href);if(target)window.location.replace(target);})();</script>
+</head><body><p>页面已搬到新地址。<a id="destination" href="https://danyow.cn/blog/2019/python/python/">前往新页面</a></p>
+<script>(function(){const target=(function redirectTarget(href) {
+  let current;
+  try { current = new URL(href); } catch { return null; }
+  if (!['http:', 'https:'].includes(current.protocol) ||
+      !['danyow.cn', 'danyow.github.io'].includes(current.hostname)) return null;
+  const prefix = '/danyow';
+  let pathname = current.pathname;
+  if (pathname !== prefix && !pathname.startsWith(prefix + '/')) return null;
+  // This is a retired namespace, including accidentally duplicated old prefixes.
+  while (pathname === prefix || pathname.startsWith(prefix + '/')) {
+    pathname = pathname.slice(prefix.length) || '/';
+    pathname = '/' + pathname.replace(/^\/+/, '');
+  }
+  const target = new URL('https://danyow.cn/');
+  target.pathname = pathname; // Fixed origin: never interpret a path as another host.
+  target.search = current.search;
+  target.hash = current.hash;
+  if (target.pathname === prefix || target.pathname.startsWith(prefix + '/')) return null;
+  return target.href;
+})(window.location.href);if(target)document.getElementById('destination').href=target;})();</script>
+</body></html>

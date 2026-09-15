@@ -1,154 +1,46 @@
-<!DOCTYPE html><html lang="zh-CN" class="dark font-sans"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="generator" content="Astro v6.1.5"><title>Scoop的安装 | Danyow</title><meta name="description" content="目前暂不推荐, 因为自带的软件较少, 而且更多的需要使用到别人的 Bucket . 反省一下，比起之前的 Chocolatey 来说，还是推荐的，因为它更加适合程序…"><meta name="theme-color" content="#202024"><meta name="color-scheme" content="dark light"><link rel="canonical" href="https://danyow.cn/danyow/blog/2019/scoop/"><link rel="icon" type="image/svg+xml" href="/danyow/icons/favicon.svg"><link rel="alternate" type="application/rss+xml" title="Danyow AI 引擎日报" href="/danyow/rss.xml"><link rel="sitemap" href="/danyow/sitemap.xml"><meta property="og:type" content="article"><meta property="og:title" content="Scoop的安装 | Danyow"><meta property="og:description" content="目前暂不推荐, 因为自带的软件较少, 而且更多的需要使用到别人的 Bucket . 反省一下，比起之前的 Chocolatey 来说，还是推荐的，因为它更加适合程序…"><meta property="og:url" content="https://danyow.cn/danyow/blog/2019/scoop/"><script>
-try {const mode=localStorage.getItem('danyow-theme')||'dark';document.documentElement.classList.toggle('dark',mode!=='light')}catch(_){document.documentElement.classList.add('dark')}
-</script><link rel="stylesheet" href="/danyow/_astro/__uno.BU4Uhfdw.css">
-<link rel="stylesheet" href="/danyow/_astro/Layout.DBOqAoW0.css"><style>[data-astro-transition-scope="astro-wif6pdce-1"] { view-transition-name: site-title-zh; }@layer astro { ::view-transition-old(site-title-zh) { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeOut; }::view-transition-new(site-title-zh) { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(site-title-zh) { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(site-title-zh) { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-wif6pdce-1"],
-			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-wif6pdce-1"] { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-wif6pdce-1"],
-			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-wif6pdce-1"] { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-wif6pdce-1"],
-			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-wif6pdce-1"] { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-wif6pdce-1"],
-			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-wif6pdce-1"] { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeIn; }</style></head><body> <a href="#content" class="skip-link">跳到正文</a> <div class="mx-auto max-w-205.848 min-h-vh w-full min-h-dvh" p="x-[min(7.25vw,3.731rem)] y-10" lg="mx-[max(5.75rem,calc(50vw-34.25rem))] my-20 max-w-[min(calc(75vw-16rem),44rem)] min-h-full p-0"> <header class="lg:uno-desktop-column lg:top-20 cjk:tracking-wide mb-10.8"> <h2 class="font-bold font-title mb-2.8 mt-3 text-5.375 c-secondary lg:mb-1.8 lg:mt-0 lg:text-9 lg:c-primary">  <div class="box-content inline-block pr-1" data-disable-theme-toggle-transition data-astro-transition-scope="astro-wif6pdce-1"> <a id="site-title-link" href="/danyow/"> Danyow </a> </div> </h2> <div aria-hidden="true" class="text-3.5 c-secondary font-navbar lg:text-4 op-0 lg:op-100">技术在变，慢慢看。</div> </header><nav aria-label="主导航" class="mb-10.5 text-3.6 font-semibold leading-2.45em font-navbar lg:uno-desktop-column lg:text-4 lg:top-[calc(5rem+8rem)] cjk:tracking-wide"> <ul class="site-nav"> <li><a href="/danyow/" class="highlight-hover hover:c-primary after:bottom-0.7em">最新</a></li><li><a href="/danyow/ai-engine-watch/" class="highlight-hover hover:c-primary after:bottom-0.7em">引擎日报</a></li><li><a href="/danyow/voice-agent-watch/" class="highlight-hover hover:c-primary after:bottom-0.7em">语音日报</a></li><li><a href="/danyow/note/" class="highlight-hover hover:c-primary after:bottom-0.7em">笔记</a></li><li><a href="/danyow/docs/" class="highlight-hover hover:c-primary after:bottom-0.7em">文档</a></li><li><a href="/danyow/archive/" class="highlight-hover hover:c-primary after:bottom-0.7em">归档</a></li><li><a href="/danyow/search/" class="highlight-hover hover:c-primary after:bottom-0.7em">搜索</a></li> <li><button id="theme-toggle" type="button" aria-label="切换为浅色" aria-pressed="false">浅色</button></li> </ul></nav><main id="content" class="mb-12"><article> <header class="article-header"><p class="edition">旧博客</p><h1>Scoop的安装</h1><div class="entry-meta"><time datetime="2020-06-14">2020-06-14</time></div></header> <p class="source-note">旧文存档，内容保持原样，文中的版本和操作可能已过时。</p> <div class="heti" id="post-content"><p><s>目前暂不推荐, 因为自带的软件较少, 而且更多的需要使用到别人的 <em>Bucket</em> .</s></p>
-<p>反省一下，比起之前的 <em>Chocolatey</em> 来说，还是推荐的，因为它更加适合程序员和具有高度强迫症的患者。</p>
-<blockquote>
-<p>优点：</p>
-</blockquote>
-<ol>
-<li>环境和后续安装的软件都可以不放在<strong>C</strong>盘</li>
-<li>扩展包也比较丰富</li>
-</ol>
-<blockquote>
-<p>缺点：</p>
-</blockquote>
-<ol>
-<li>如果网速慢的情况下（因为使用到了 <em>github</em> ）安装某个包的时候，可能会出现半天安装不上的情况，这时候取消的话会使得 <em>scoop</em> 误以为安装完成，这时需要卸载。</li>
-<li>后续依据使用情况补充</li>
-</ol>
-<h2 id="scoop的安装">Scoop的安装</h2>
-<ol>
-<li>
-<p><em>PowerShell</em> 下运行下述内容，确保 <em>PowerShell</em> 允许可以执行本地脚本。</p>
-<p><code>Set-ExecutionPolicy RemoteSigned -scope CurrentUser</code></p>
-</li>
-<li>
-<p>然后安装 <em>Scoop</em> ，看网速来的。</p>
-<p><code>Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh')</code></p>
-<p>or 更短的</p>
-<p><code>iwr -useb get.scoop.sh | iex</code></p>
-</li>
-<li>
-<p>进入桶子环境准备阶段。即添加 <em>Bucket</em> 库。但由于 <em>Bucket</em> 是依托于 <em>Github</em> ，所以要先安装 <em>git</em> 环境</p>
-<p><code>scoop install git</code></p>
-</li>
-</ol>
-<p>如果你没有 7zip 的话，会顺手给你安装git的依赖。</p>
-<pre><code class="language-txt">  7zip 21.06 [main]
-  adb 31.0.3 [main]
-  adopt8-hotspot 8u292-b10 [java]
-  android-sdk 4333796 [extras]
-  ant 1.10.12 [main]
-  archwsl 21.8.28.0 [extras]
-  beyondcompare-zh-cn 4.4.0.25886 [dorado]
-  brotli 1.0.9_6 [main]
-  cacert 2021-10-26 [main]
-  ccleaner 5.87.9306 [extras]
-  clash-for-windows 0.19.1 [dorado]
-  cmake 3.22.1 [main]
-  codeblocks-mingw 20.03 [extras]
-  curl 7.80.0 [main]
-  dark 3.11.2 [main]
-  dingtalk 6.3.5.10278702 [dorado]
-  DirectX 9.29.1974.1-June2010 [Scoop-Ash258]
-  diskgenius 5.4.2.1239 [extras]
-  docker-machine 0.16.2 [silver886]
-  docker-nightly nightly-20211121 [main]
-  dotnet-sdk 6.0.100 [main]
-  EpicGamesLauncher 13.0.0 [dorado]
-  gcc 11.2.0-9.0.0-r3 [main]
-  git 2.34.1.windows.1 [main]
-  github 2.9.5 [extras]
-  gradle-bin 7.3.1 [main]
-  innounp 0.50 [main]
-  ipfs-desktop 0.17.0 [extras]
-  jetbrains-toolbox 1.22.10774 [extras]
-  k2pdfopt 2.53 [seu]
-  lcow v4.14.35-v0.3.9 [main]
-  lessmsi 1.10.0 [main]
-  meshlab 2021.10 [extras]
-  microsoftedge  *failed*
-  mls-software-openssh 8.8p1-1 [main]
-  mongodb 5.2.0-rc0 [main]
-  motrix 1.6.11 [extras]
-  msys2 2021-11-30 [main]
-  nginx 1.21.4 [main]
-  nodejs-lts 16.13.1 [main]
-  nuget 6.0.0 [main]
-  nuwen-mingw-gcc 11.2.0-18.0 [dorado]
-  nvidia-display-driver-dch-np 7 *failed*
-  obs-studio 27.1.3 [extras]
-  office-tool-plus 8.1.5.15 [Master-Hash]
-  openjdk 17.0.1-12 [java]
-  openssl 3.0.0 [main]
-  oraclejdk8 8u291 [iszy]
-  oraclejre8 8u311 [java]
-  poedit 3.0.6387 [extras]
-  potplayer 211118 [extras]
-  powertoys-np 0.51.1 [nonportable]
-  premake 5.0.0-beta1 [main]
-  protobuf 3.19.1 [extras]
-  pxcook 3.9.960.202101211055 [dorado]
-  python 3.10.1 [main]
-  python27 2.7.18 [versions]
-  RevokeMsgPatcher 1.1 [Darkatse]
-  rime-weasel-np 0.14.3.0 [scoop-jingyu9575]
-  ruby 3.0.3-1 [main]
-  rufus 3.17 [extras]
-  Sejda-pdf 7.3.7 [extras]
-  SogouPinyin-Portable 0.3 [scoop-zapps]
-  sourcetree 3.4.7 [extras]
-  steam nightly-20200928 [extras]
-  sudo 0.2020.01.26 [main]
-  telnet msys-inetutils-1.7-1 [main]
-  todesk 4.1.0 [dorado]
-  TranslucentTb 2020.2 [dorado]
-  VcXsrv 1.20.9.0 [extras]
-  virtualbox-np 6.1.30 [nonportable]
-  vscode 1.63.0 [extras]
-  wechat nightly-20200613 [dorado]
-  wget 1.21.2 [main]
-  winscp 5.19.5 [extras]
-  Writage 2.7.2 [cvp]
-  yarn 1.22.15 [main]
-</code></pre>
-</div>  <footer class="article-footer"><a href="/danyow/blog/">返回列表</a><a href="https://github.com/danyow/danyow/blob/main/blog/2019/scoop.md">Markdown 原稿</a></footer> </article></main><footer class="text-3 leading-1.25em font-navbar" lg="uno-desktop-column bottom-20 text-3.5"> <p>  <a class="highlight-hover py-0.8 transition-colors after:bottom-0.35em hover:c-primary" name="RSS" href="/danyow/rss.xml" target="_blank" rel="noopener noreferrer">RSS</a> / <a class="highlight-hover py-0.8 transition-colors after:bottom-0.35em hover:c-primary" name="GitHub" href="https://github.com/danyow/danyow" target="_blank" rel="noopener noreferrer">GitHub</a>  </p> <p>
-© 2019-2026 danyow </p> <p>
-Powered by <a class="highlight-hover py-0.8 transition-colors after:bottom-0.35em hover:c-primary" href="https://astro.build/" target="_blank" rel="noopener noreferrer">Astro</a> and <a class="highlight-hover py-0.8 transition-colors after:bottom-0.35em hover:c-primary" href="https://github.com/radishzzz/astro-theme-retypeset" target="_blank" rel="noopener noreferrer">Retypeset</a> </p> </footer> </div> <script type="module">const t=document.getElementById("theme-toggle"),n=()=>{const e=document.documentElement.classList.contains("dark");t?.setAttribute("aria-label",e?"切换为浅色":"切换为暗色"),t?.setAttribute("aria-pressed",String(!e)),t&&(t.textContent=e?"浅色":"暗色")};n();t?.addEventListener("click",()=>{document.documentElement.classList.toggle("dark");try{localStorage.setItem("danyow-theme",document.documentElement.classList.contains("dark")?"dark":"light")}catch{}n()});</script> </body></html>
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>正在前往新地址</title><meta name="robots" content="noindex,follow">
+<meta name="legacy-redirect" content="danyow-legacy-redirect-v1"><link rel="canonical" href="https://danyow.cn/blog/2019/scoop/"><noscript><meta http-equiv="refresh" content="0;url=https://danyow.cn/blog/2019/scoop/"></noscript>
+<script>(function(){const target=(function redirectTarget(href) {
+  let current;
+  try { current = new URL(href); } catch { return null; }
+  if (!['http:', 'https:'].includes(current.protocol) ||
+      !['danyow.cn', 'danyow.github.io'].includes(current.hostname)) return null;
+  const prefix = '/danyow';
+  let pathname = current.pathname;
+  if (pathname !== prefix && !pathname.startsWith(prefix + '/')) return null;
+  // This is a retired namespace, including accidentally duplicated old prefixes.
+  while (pathname === prefix || pathname.startsWith(prefix + '/')) {
+    pathname = pathname.slice(prefix.length) || '/';
+    pathname = '/' + pathname.replace(/^\/+/, '');
+  }
+  const target = new URL('https://danyow.cn/');
+  target.pathname = pathname; // Fixed origin: never interpret a path as another host.
+  target.search = current.search;
+  target.hash = current.hash;
+  if (target.pathname === prefix || target.pathname.startsWith(prefix + '/')) return null;
+  return target.href;
+})(window.location.href);if(target)window.location.replace(target);})();</script>
+</head><body><p>页面已搬到新地址。<a id="destination" href="https://danyow.cn/blog/2019/scoop/">前往新页面</a></p>
+<script>(function(){const target=(function redirectTarget(href) {
+  let current;
+  try { current = new URL(href); } catch { return null; }
+  if (!['http:', 'https:'].includes(current.protocol) ||
+      !['danyow.cn', 'danyow.github.io'].includes(current.hostname)) return null;
+  const prefix = '/danyow';
+  let pathname = current.pathname;
+  if (pathname !== prefix && !pathname.startsWith(prefix + '/')) return null;
+  // This is a retired namespace, including accidentally duplicated old prefixes.
+  while (pathname === prefix || pathname.startsWith(prefix + '/')) {
+    pathname = pathname.slice(prefix.length) || '/';
+    pathname = '/' + pathname.replace(/^\/+/, '');
+  }
+  const target = new URL('https://danyow.cn/');
+  target.pathname = pathname; // Fixed origin: never interpret a path as another host.
+  target.search = current.search;
+  target.hash = current.hash;
+  if (target.pathname === prefix || target.pathname.startsWith(prefix + '/')) return null;
+  return target.href;
+})(window.location.href);if(target)document.getElementById('destination').href=target;})();</script>
+</body></html>

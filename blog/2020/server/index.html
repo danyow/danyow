@@ -1,167 +1,46 @@
-<!DOCTYPE html><html lang="zh-CN" class="dark font-sans"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="generator" content="Astro v6.1.5"><title>部署新安装的centos服务器 | Danyow</title><meta name="description" content="服务器链接超时解决 vim /etc/ssh/sshd_config 修改里面的两个参数 ClientAliveInterval 60 ClientAliveCou…"><meta name="theme-color" content="#202024"><meta name="color-scheme" content="dark light"><link rel="canonical" href="https://danyow.cn/danyow/blog/2020/server/"><link rel="icon" type="image/svg+xml" href="/danyow/icons/favicon.svg"><link rel="alternate" type="application/rss+xml" title="Danyow AI 引擎日报" href="/danyow/rss.xml"><link rel="sitemap" href="/danyow/sitemap.xml"><meta property="og:type" content="article"><meta property="og:title" content="部署新安装的centos服务器 | Danyow"><meta property="og:description" content="服务器链接超时解决 vim /etc/ssh/sshd_config 修改里面的两个参数 ClientAliveInterval 60 ClientAliveCou…"><meta property="og:url" content="https://danyow.cn/danyow/blog/2020/server/"><script>
-try {const mode=localStorage.getItem('danyow-theme')||'dark';document.documentElement.classList.toggle('dark',mode!=='light')}catch(_){document.documentElement.classList.add('dark')}
-</script><link rel="stylesheet" href="/danyow/_astro/__uno.BU4Uhfdw.css">
-<link rel="stylesheet" href="/danyow/_astro/Layout.DBOqAoW0.css"><style>[data-astro-transition-scope="astro-wif6pdce-1"] { view-transition-name: site-title-zh; }@layer astro { ::view-transition-old(site-title-zh) { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeOut; }::view-transition-new(site-title-zh) { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(site-title-zh) { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(site-title-zh) { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-wif6pdce-1"],
-			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-wif6pdce-1"] { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-wif6pdce-1"],
-			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-wif6pdce-1"] { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-wif6pdce-1"],
-			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-wif6pdce-1"] { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-wif6pdce-1"],
-			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-wif6pdce-1"] { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeIn; }</style></head><body> <a href="#content" class="skip-link">跳到正文</a> <div class="mx-auto max-w-205.848 min-h-vh w-full min-h-dvh" p="x-[min(7.25vw,3.731rem)] y-10" lg="mx-[max(5.75rem,calc(50vw-34.25rem))] my-20 max-w-[min(calc(75vw-16rem),44rem)] min-h-full p-0"> <header class="lg:uno-desktop-column lg:top-20 cjk:tracking-wide mb-10.8"> <h2 class="font-bold font-title mb-2.8 mt-3 text-5.375 c-secondary lg:mb-1.8 lg:mt-0 lg:text-9 lg:c-primary">  <div class="box-content inline-block pr-1" data-disable-theme-toggle-transition data-astro-transition-scope="astro-wif6pdce-1"> <a id="site-title-link" href="/danyow/"> Danyow </a> </div> </h2> <div aria-hidden="true" class="text-3.5 c-secondary font-navbar lg:text-4 op-0 lg:op-100">技术在变，慢慢看。</div> </header><nav aria-label="主导航" class="mb-10.5 text-3.6 font-semibold leading-2.45em font-navbar lg:uno-desktop-column lg:text-4 lg:top-[calc(5rem+8rem)] cjk:tracking-wide"> <ul class="site-nav"> <li><a href="/danyow/" class="highlight-hover hover:c-primary after:bottom-0.7em">最新</a></li><li><a href="/danyow/ai-engine-watch/" class="highlight-hover hover:c-primary after:bottom-0.7em">引擎日报</a></li><li><a href="/danyow/voice-agent-watch/" class="highlight-hover hover:c-primary after:bottom-0.7em">语音日报</a></li><li><a href="/danyow/note/" class="highlight-hover hover:c-primary after:bottom-0.7em">笔记</a></li><li><a href="/danyow/docs/" class="highlight-hover hover:c-primary after:bottom-0.7em">文档</a></li><li><a href="/danyow/archive/" class="highlight-hover hover:c-primary after:bottom-0.7em">归档</a></li><li><a href="/danyow/search/" class="highlight-hover hover:c-primary after:bottom-0.7em">搜索</a></li> <li><button id="theme-toggle" type="button" aria-label="切换为浅色" aria-pressed="false">浅色</button></li> </ul></nav><main id="content" class="mb-12"><article> <header class="article-header"><p class="edition">旧博客</p><h1>部署新安装的centos服务器</h1><div class="entry-meta"><time datetime="2020-01-28">2020-01-28</time></div></header> <p class="source-note">旧文存档，内容保持原样，文中的版本和操作可能已过时。</p> <div class="heti" id="post-content"><h2 id="服务器链接超时解决">服务器链接超时解决</h2>
-<p><code>vim /etc/ssh/sshd_config</code> 修改里面的两个参数</p>
-<pre><code class="language-config">ClientAliveInterval 60
-ClientAliveCountMax 60
-</code></pre>
-<p>然后重启<code>ssh</code></p>
-<p><code>systemctl restart ssh</code></p>
-<h2 id="出现报错">出现报错</h2>
-<p>内容<code>Failed to set locale, defaulting to C.UTF-8</code></p>
-<p>执行<code>echo "export LC_ALL=en_US.UTF-8"  &gt;&gt;  /etc/profile</code></p>
-<h2 id="安装docker">安装<code>docker</code></h2>
-<ol>
-<li>
-<p>卸载旧的版本</p>
-<pre><code class="language-shell">sudo yum remove docker \
-                docker-client \
-                docker-client-latest \
-                docker-common \
-                docker-latest \
-                docker-latest-logrotate \
-                docker-logrotate \
-                docker-engine
-</code></pre>
-</li>
-<li>
-<p>安装依赖</p>
-<p><code>sudo yum install -y yum-utils  device-mapper-persistent-data  lvm2</code>
-<code>sudo yum-config-manager  --add-repo   https://download.docker.com/linux/centos/docker-ce.repo</code>
-<code>sudo yum install docker-ce docker-ce-cli containerd.io</code></p>
-</li>
-<li>
-<p><a href="http://xn--containerd-jv6u01j.io" rel="noopener noreferrer">更新containerd.io</a></p>
-<p><code>dnf install https://download.docker.com/linux/centos/7/x86_64/stable/Packages/containerd.io-1.2.6-3.3.el7.x86_64.rpm</code></p>
-</li>
-<li>
-<p>安装</p>
-<p><code>sudo yum install docker-ce docker-ce-cli containerd.io</code></p>
-</li>
-<li>
-<p>启动docker</p>
-<p><code>sudo systemctl start docker</code></p>
-</li>
-</ol>
-<h2 id="创建-dockerfile">创建 <code>Dockerfile</code></h2>
-<ol>
-<li>
-<p>创建 <code>docker/Dockerfile</code></p>
-<p><code>mkdir docker &amp;&amp; cd docker &amp;&amp; vim Dockerfile</code></p>
-</li>
-<li>
-<p>加入下面内容</p>
-<pre><code class="language-docker">FROM jenkins/jenkins:lts
-USER root
-WORKDIR /dotnet
-RUN wget -O dotnet.tar.gz https://download.visualstudio.microsoft.com/download/pr/c4b503d6-2f41-4908-b634-270a0a1dcfca/c5a20e42868a48a2cd1ae27cf038044c/dotnet-sdk-3.1.101-linux-x64.tar.gz
-RUN tar zxf dotnet.tar.gz -C ./
-RUN rm -rf dotnet.tar.gz
-ENV PATH="${PATH}:/dotnet:/var/jenkins_home/.dotnet/tools"
-ENV DOTNET_ROOT="/dotnet"
-RUN apt update -y
-RUN apt install icu-devtools vim zip unzip -y
-RUN usermod -a -G root jenkins
-USER jenkins
-</code></pre>
-<ol>
-<li>这个Docker镜像基于jenkins</li>
-<li>设置当前用户为root，因为后面安装需要使用root</li>
-<li>设置当前工作目录为dotnet</li>
-<li>下载dotnet SDK包，保存为dotnet.tar.gz。这里要注意下载正确版本的SDK，可前往微软官方网站获取下载链接：<a href="https://dotnet.microsoft.com/download" rel="noopener noreferrer">https://dotnet.microsoft.com/download</a></li>
-<li>解压dotnet SDK到当前目录，即/dotnet目录</li>
-<li>删除dotnet SDK包</li>
-<li>把dotnet目录和dotnet tools目录添加到环境变量PATH，这样就可以使用dotnet命令了</li>
-<li>设置DOTNET_ROOT变量</li>
-<li>更新源</li>
-<li>安装一些必需的，常用的工具包，其中icu-devtools是运行dotnet需要的</li>
-<li>修改jenkins用户到root附加组</li>
-<li>设置当前用户为jenkins</li>
-</ol>
-</li>
-<li>
-<p>生成镜像</p>
-<p><code>docker build -t jenkins:dotnet .</code></p>
-</li>
-<li>
-<p>查看所有镜像</p>
-<p><code>docker image</code></p>
-</li>
-<li>
-<p>运行<code>docker</code>实例</p>
-<p><code>docker run -p 8080:8080 -p 50000:50000 --name jenkins jenkins:dotnet</code></p>
-</li>
-<li>
-<p>获取密码和访问链接</p>
-<ol>
-<li>自定义安装</li>
-<li>补充安装<code>GitHub</code>和<code>Publish Over SSH</code></li>
-</ol>
-</li>
-<li>
-<p>添加编译执行脚本</p>
-<p><code>dotnet publish</code></p>
-</li>
-<li>
-<p>构建</p>
-</li>
-<li>
-<p>添加 <code>github webhook</code></p>
-</li>
-</ol>
-<h2 id="直接部署项目">直接部署项目</h2>
-<ol>
-<li>
-<p>安装<code>git</code></p>
-<p><code>yum install git</code></p>
-</li>
-<li>
-<p>克隆</p>
-</li>
-<li>
-<p><code>docker build -t dotnet .</code></p>
-</li>
-<li>
-<p><code>docker run -d -p 8080:80 dotnet</code></p>
-</li>
-</ol>
-</div>  <footer class="article-footer"><a href="/danyow/blog/">返回列表</a><a href="https://github.com/danyow/danyow/blob/main/blog/2020/server.md">Markdown 原稿</a></footer> </article></main><footer class="text-3 leading-1.25em font-navbar" lg="uno-desktop-column bottom-20 text-3.5"> <p>  <a class="highlight-hover py-0.8 transition-colors after:bottom-0.35em hover:c-primary" name="RSS" href="/danyow/rss.xml" target="_blank" rel="noopener noreferrer">RSS</a> / <a class="highlight-hover py-0.8 transition-colors after:bottom-0.35em hover:c-primary" name="GitHub" href="https://github.com/danyow/danyow" target="_blank" rel="noopener noreferrer">GitHub</a>  </p> <p>
-© 2019-2026 danyow </p> <p>
-Powered by <a class="highlight-hover py-0.8 transition-colors after:bottom-0.35em hover:c-primary" href="https://astro.build/" target="_blank" rel="noopener noreferrer">Astro</a> and <a class="highlight-hover py-0.8 transition-colors after:bottom-0.35em hover:c-primary" href="https://github.com/radishzzz/astro-theme-retypeset" target="_blank" rel="noopener noreferrer">Retypeset</a> </p> </footer> </div> <script type="module">const t=document.getElementById("theme-toggle"),n=()=>{const e=document.documentElement.classList.contains("dark");t?.setAttribute("aria-label",e?"切换为浅色":"切换为暗色"),t?.setAttribute("aria-pressed",String(!e)),t&&(t.textContent=e?"浅色":"暗色")};n();t?.addEventListener("click",()=>{document.documentElement.classList.toggle("dark");try{localStorage.setItem("danyow-theme",document.documentElement.classList.contains("dark")?"dark":"light")}catch{}n()});</script> </body></html>
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>正在前往新地址</title><meta name="robots" content="noindex,follow">
+<meta name="legacy-redirect" content="danyow-legacy-redirect-v1"><link rel="canonical" href="https://danyow.cn/blog/2020/server/"><noscript><meta http-equiv="refresh" content="0;url=https://danyow.cn/blog/2020/server/"></noscript>
+<script>(function(){const target=(function redirectTarget(href) {
+  let current;
+  try { current = new URL(href); } catch { return null; }
+  if (!['http:', 'https:'].includes(current.protocol) ||
+      !['danyow.cn', 'danyow.github.io'].includes(current.hostname)) return null;
+  const prefix = '/danyow';
+  let pathname = current.pathname;
+  if (pathname !== prefix && !pathname.startsWith(prefix + '/')) return null;
+  // This is a retired namespace, including accidentally duplicated old prefixes.
+  while (pathname === prefix || pathname.startsWith(prefix + '/')) {
+    pathname = pathname.slice(prefix.length) || '/';
+    pathname = '/' + pathname.replace(/^\/+/, '');
+  }
+  const target = new URL('https://danyow.cn/');
+  target.pathname = pathname; // Fixed origin: never interpret a path as another host.
+  target.search = current.search;
+  target.hash = current.hash;
+  if (target.pathname === prefix || target.pathname.startsWith(prefix + '/')) return null;
+  return target.href;
+})(window.location.href);if(target)window.location.replace(target);})();</script>
+</head><body><p>页面已搬到新地址。<a id="destination" href="https://danyow.cn/blog/2020/server/">前往新页面</a></p>
+<script>(function(){const target=(function redirectTarget(href) {
+  let current;
+  try { current = new URL(href); } catch { return null; }
+  if (!['http:', 'https:'].includes(current.protocol) ||
+      !['danyow.cn', 'danyow.github.io'].includes(current.hostname)) return null;
+  const prefix = '/danyow';
+  let pathname = current.pathname;
+  if (pathname !== prefix && !pathname.startsWith(prefix + '/')) return null;
+  // This is a retired namespace, including accidentally duplicated old prefixes.
+  while (pathname === prefix || pathname.startsWith(prefix + '/')) {
+    pathname = pathname.slice(prefix.length) || '/';
+    pathname = '/' + pathname.replace(/^\/+/, '');
+  }
+  const target = new URL('https://danyow.cn/');
+  target.pathname = pathname; // Fixed origin: never interpret a path as another host.
+  target.search = current.search;
+  target.hash = current.hash;
+  if (target.pathname === prefix || target.pathname.startsWith(prefix + '/')) return null;
+  return target.href;
+})(window.location.href);if(target)document.getElementById('destination').href=target;})();</script>
+</body></html>

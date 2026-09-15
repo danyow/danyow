@@ -1,291 +1,46 @@
-<!DOCTYPE html><html lang="zh-CN" class="dark font-sans"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="generator" content="Astro v6.1.5"><title>Python3面向对象编程 | Danyow</title><meta name="description" content="第二版 2. Python 对象 自我解释 - 在规范自己所编写的类的时候，应该加入详尽的注释。 class Point: '这段是类注释，建议用单引号' def …"><meta name="theme-color" content="#202024"><meta name="color-scheme" content="dark light"><link rel="canonical" href="https://danyow.cn/danyow/blog/2019/python/object/"><link rel="icon" type="image/svg+xml" href="/danyow/icons/favicon.svg"><link rel="alternate" type="application/rss+xml" title="Danyow AI 引擎日报" href="/danyow/rss.xml"><link rel="sitemap" href="/danyow/sitemap.xml"><meta property="og:type" content="article"><meta property="og:title" content="Python3面向对象编程 | Danyow"><meta property="og:description" content="第二版 2. Python 对象 自我解释 - 在规范自己所编写的类的时候，应该加入详尽的注释。 class Point: '这段是类注释，建议用单引号' def …"><meta property="og:url" content="https://danyow.cn/danyow/blog/2019/python/object/"><script>
-try {const mode=localStorage.getItem('danyow-theme')||'dark';document.documentElement.classList.toggle('dark',mode!=='light')}catch(_){document.documentElement.classList.add('dark')}
-</script><link rel="stylesheet" href="/danyow/_astro/__uno.BU4Uhfdw.css">
-<link rel="stylesheet" href="/danyow/_astro/Layout.DBOqAoW0.css"><style>[data-astro-transition-scope="astro-wif6pdce-1"] { view-transition-name: site-title-zh; }@layer astro { ::view-transition-old(site-title-zh) { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeOut; }::view-transition-new(site-title-zh) { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(site-title-zh) { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(site-title-zh) { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-wif6pdce-1"],
-			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-wif6pdce-1"] { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-wif6pdce-1"],
-			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-wif6pdce-1"] { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-wif6pdce-1"],
-			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-wif6pdce-1"] { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-wif6pdce-1"],
-			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-wif6pdce-1"] { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeIn; }</style></head><body> <a href="#content" class="skip-link">跳到正文</a> <div class="mx-auto max-w-205.848 min-h-vh w-full min-h-dvh" p="x-[min(7.25vw,3.731rem)] y-10" lg="mx-[max(5.75rem,calc(50vw-34.25rem))] my-20 max-w-[min(calc(75vw-16rem),44rem)] min-h-full p-0"> <header class="lg:uno-desktop-column lg:top-20 cjk:tracking-wide mb-10.8"> <h2 class="font-bold font-title mb-2.8 mt-3 text-5.375 c-secondary lg:mb-1.8 lg:mt-0 lg:text-9 lg:c-primary">  <div class="box-content inline-block pr-1" data-disable-theme-toggle-transition data-astro-transition-scope="astro-wif6pdce-1"> <a id="site-title-link" href="/danyow/"> Danyow </a> </div> </h2> <div aria-hidden="true" class="text-3.5 c-secondary font-navbar lg:text-4 op-0 lg:op-100">技术在变，慢慢看。</div> </header><nav aria-label="主导航" class="mb-10.5 text-3.6 font-semibold leading-2.45em font-navbar lg:uno-desktop-column lg:text-4 lg:top-[calc(5rem+8rem)] cjk:tracking-wide"> <ul class="site-nav"> <li><a href="/danyow/" class="highlight-hover hover:c-primary after:bottom-0.7em">最新</a></li><li><a href="/danyow/ai-engine-watch/" class="highlight-hover hover:c-primary after:bottom-0.7em">引擎日报</a></li><li><a href="/danyow/voice-agent-watch/" class="highlight-hover hover:c-primary after:bottom-0.7em">语音日报</a></li><li><a href="/danyow/note/" class="highlight-hover hover:c-primary after:bottom-0.7em">笔记</a></li><li><a href="/danyow/docs/" class="highlight-hover hover:c-primary after:bottom-0.7em">文档</a></li><li><a href="/danyow/archive/" class="highlight-hover hover:c-primary after:bottom-0.7em">归档</a></li><li><a href="/danyow/search/" class="highlight-hover hover:c-primary after:bottom-0.7em">搜索</a></li> <li><button id="theme-toggle" type="button" aria-label="切换为浅色" aria-pressed="false">浅色</button></li> </ul></nav><main id="content" class="mb-12"><article> <header class="article-header"><p class="edition">旧博客</p><h1>Python3面向对象编程</h1><div class="entry-meta"><time datetime="2019-05-27">2019-05-27</time></div></header> <p class="source-note">旧文存档，内容保持原样，文中的版本和操作可能已过时。</p> <div class="heti" id="post-content"><p>第二版</p>
-<h2 id="2-python-对象">2. Python 对象</h2>
-<ul>
-<li>自我解释 -&gt; 在规范自己所编写的类的时候，应该加入详尽的注释。</li>
-</ul>
-<pre><code class="language-python">class Point:
-    '这段是类注释，建议用单引号'
-
-    def __init__(self, x=0, y=0):
-        '''多行文档注释'''
-        pass
-
-    def foo(self):
-        '单行文档注释'
-        pass
-</code></pre>
-<ul>
-<li>双下划线的命名的变量，是会对其实施<strong>命名改装</strong>。会自动封装 _(类名)</li>
-</ul>
-<h2 id="3-对象相似时">3. 对象相似时</h2>
-<ul>
-<li>如果一个类继承了多个类，那么在初始化其父类时，可以采用如下方式。</li>
-</ul>
-<pre><code class="language-python"># 分别调用父类
-class Teacher(Person, Title):
-    def __init__(self, name, title, studens):
-        Person.__init__(self, name)
-        Title.__init__(self, title)
-        self.studens = studens
-
-'''
-以上就是简单定义了一个多继承关系的类，这么看来是没什么问题的
-但作者提到了一个问题，如果在定义模型的时候，需要连接数据库，那么每次都是连接两次数据库。
-这里可以采用 __mro__ 来修改方法的调用顺序
-'''
-
-# 采用super() 和 **kw 的方式
-
-class Person(object):
-    def __init__(self, name='', **kw):
-        self.name = name
-
-class Title(object):
-    def __init__(self, title='', **kw):
-        self.title = title
-
-class Teacher(Person, Title):
-    def __init__(self, studens=null, **kw):
-        super().__init__(**kw)
-        self.studens = studens
-
-'''
-super() 的方式可以确保object只初始化一次。
-**kw 的方式可以解决多父类情况下 参数不一致的问题
-'''
-</code></pre>
-<ul>
-<li>如果定义了一个抽象基类 <code>abc</code> 而且这个类重写了 <code>__subclasshook__(cls, C)</code> 的时候，需要注意</li>
-</ul>
-<p>任意类的实例在被调用 <code>insubclass</code> 和 <code>ininstance</code> 是会去调用抽象基类重写的 <code>__subclasshook__</code> 这个方法的，如果他说的是那么就是。</p>
-<h2 id="4-异常捕获">4. 异常捕获</h2>
-<ul>
-<li>
-<p><code>else</code> 和 <code>finally</code> 的调用是，没有异常时前者会执行，后者无论如何都会执行。</p>
-</li>
-<li>
-<p>异常的层级</p>
-</li>
-</ul>
-<pre><code class="language-python">'''
-    BaseException   &lt;---    KeybordInterrupt, SystemExit
-                    &lt;---    Exception   &lt;---    其他所有的异常
-'''
-</code></pre>
-<h2 id="6-python-数据结构">6. Python 数据结构</h2>
-<ul>
-<li>无法给内置类实例添加属性，但可以给自定义类添加属性。</li>
-</ul>
-<pre><code class="language-python">o = object()
-o.x = 0
-'''
-👆会报错
-👇正常运行
-'''
-class MyClass(object):
-    pass
-m = MyClass()
-m.x = 1
-</code></pre>
-<ul>
-<li>命名元组相当于字典</li>
-</ul>
-<pre><code class="language-python">from collections import namedtuple
-
-Stock = namedtuple("Stock", "symbol current high low")
-# Stock = namedtuple("Stock", "symbol, current, high, low")
-stock = Stock("FB", 75.0, 75.3, 74.2)
-# 可以使用点语法
-stock.symbol
-</code></pre>
-<ul>
-<li>
-<p><code>total_ordering</code> 对应着 <code>&gt;, &lt;, ==, !=, &gt;=, &lt;=</code> 逻辑运算符</p>
-</li>
-<li>
-<p><code>operator.itemgetter</code> 可以对元组排序时，直接修改所要比较时用到的是第几个属性</p>
-</li>
-</ul>
-<pre><code class="language-python">from operator import itemgetter
-
-l = [('h', 4), ('n', 6), ('o', 5), ('p', 1), ('t', 3), ('y', 2)]
-# 这里直接采用第二个键来做比较的项
-l.sort(key=itemgetter(1))
-</code></pre>
-<ul>
-<li>队列有三种</li>
-</ul>
-<ol>
-<li>
-<p>FIFO 队列（<em>First In First Out</em>）</p>
-<p><code>from queue import Queue</code></p>
-</li>
-<li>
-<p>LIFO 队列（<em>Last In First Out</em>）</p>
-<p><code>from queue import LifoQueue</code></p>
-</li>
-<li>
-<p>优先级队列</p>
-<p><code>from queue import PriorityQueue</code></p>
-</li>
-</ol>
-<h2 id="7-python-面向对象的捷径">7. Python 面向对象的捷径</h2>
-<ul>
-<li>
-<p>上下文管理器，判断一个对象能否执行 <code>with</code> 语句，可以用哪个 <code>dir()</code> 查看里面是否有 <code>__ennter__</code> 和 <code>__exit__</code></p>
-</li>
-<li>
-<p>参数解包，对于列表对象的解包是加 <code>*</code>, 字典的解包是 <code>**</code></p>
-</li>
-</ul>
-<h2 id="8-字符串与序列化">8. 字符串与序列化</h2>
-<ul>
-<li>占位值改变打印样式</li>
-</ul>
-<pre><code class="language-python">'''
-{0:10s}     s字符串，然后是占10个字节。
-{1:^9d}     d整形，然后占9个字节，^(脱字符)表示居中对齐。
-{2:&lt;8.2f}   f浮点型，然后占8个字节，&lt;表示向左对齐，.2省略两位小数
-{3:&gt;7.2f}   f浮点型，然后占7个字节，&gt;表示向右对齐，.2省略两位小数
-'''
-orders = [('burger', 2, 5),
-          ('fries', 3.5, 1),
-          ('cola', 1.75, 3)]
-
-print("PRODUCT    QUANTITY   PRICE    SUBTOTAL")
-
-for product, price, quantity in orders:
-    subtotal = price * quantity
-    print("{0:10s}{1:^9d}   ${2:&lt;8.2f}${3:&gt;7.2f}".format(product, quantity, price, subtotal))
-
-'''
-PRODUCT    QUANTITY   PRICE    SUBTOTAL
-burger        5       $2.00    $  10.00
-fries         1       $3.50    $   3.50
-cola          3       $1.75    $   5.25
-'''
-</code></pre>
-<h2 id="9-迭代器模式">9. 迭代器模式</h2>
-<ul>
-<li>协程</li>
-</ul>
-<pre><code class="language-python">def tally():
-    score = 0
-    while True:
-        increment = yield score
-        print("increment : {}, score : {}".format(increment, score))
-        score += increment
-
-white_sox = tally()
-next(white_sox)
-white_sox.send(3)
-
-'''
-increment : 3, score : 0
-'''
-</code></pre>
-<ol>
-<li><code>yield</code> 的出现和生成器暂停。</li>
-<li>在函数外执行 <code>send()</code> 方法，且激活了生成器。</li>
-<li>发送的值赋给了 <code>yield</code> 语句左侧的变量。</li>
-<li>生成器继续执行，直至遇到下一个 <code>yield</code> 语句。</li>
-</ol>
-<h2 id="10-python-设计模式-i">10. Python 设计模式 I</h2>
-<ul>
-<li>
-<p>观察者模式在执行起来需要以下两个步骤</p>
-<ol>
-<li>被观察者主动通知观察者 通过 <code>_update_observers</code></li>
-</ol>
-<pre><code class="language-python">class Inventory:
-    def __init__(self):
-        self.observers = []
-
-    def _update_observers(self):
-        for observer in self.observers:
-            observer()
-</code></pre>
-<ol>
-<li>观察者自身现实被调用方法 通过 <code>__call__</code></li>
-</ol>
-<pre><code class="language-python">class Observer:
-    def __init__(self, inventory):
-        self.inventory = inventory
-
-    def __call__(self):
-        print("观察成功！")
-</code></pre>
-</li>
-</ul>
-<h2 id="12-测试面向对象程序">12. 测试面向对象程序</h2>
-<ul>
-<li>
-<p><code>unittest</code> 的 <code>setUp()</code> 是用于每次执行测试时，都会调用该方法用以保证数据被污染 和 <code>tearDown()</code> 是用来保证每次测试结束后调用。</p>
-</li>
-<li>
-<p><code>py.test</code> 与之相对应的有类似几个。</p>
-<ol>
-<li><code>setup_module</code></li>
-<li><code>teardown_module</code></li>
-<li><code>setup_class</code></li>
-<li><code>teardown_class</code></li>
-<li><code>setup_method</code></li>
-<li><code>teardown_method</code></li>
-</ol>
-</li>
-<li>
-<p><code>pytest_funcarg__&lt;idenntifier&gt;</code> 和被测试函数需要接受的参数作为测试</p>
-</li>
-</ul>
-<pre><code class="language-python">def pytest_funcarg__numbers(request):
-    return [1,2,3]
-
-def test_sum(numbers):
-    assert sum(numbers) == 6
-</code></pre>
-<h2 id="13-并发">13. 并发</h2>
-<ul>
-<li>自定义线程再被需要重写 <code>run()</code> 方法，但调用时用到的是 <code>start()</code></li>
-</ul>
-</div>  <footer class="article-footer"><a href="/danyow/blog/">返回列表</a><a href="https://github.com/danyow/danyow/blob/main/blog/2019/python/object.md">Markdown 原稿</a></footer> </article></main><footer class="text-3 leading-1.25em font-navbar" lg="uno-desktop-column bottom-20 text-3.5"> <p>  <a class="highlight-hover py-0.8 transition-colors after:bottom-0.35em hover:c-primary" name="RSS" href="/danyow/rss.xml" target="_blank" rel="noopener noreferrer">RSS</a> / <a class="highlight-hover py-0.8 transition-colors after:bottom-0.35em hover:c-primary" name="GitHub" href="https://github.com/danyow/danyow" target="_blank" rel="noopener noreferrer">GitHub</a>  </p> <p>
-© 2019-2026 danyow </p> <p>
-Powered by <a class="highlight-hover py-0.8 transition-colors after:bottom-0.35em hover:c-primary" href="https://astro.build/" target="_blank" rel="noopener noreferrer">Astro</a> and <a class="highlight-hover py-0.8 transition-colors after:bottom-0.35em hover:c-primary" href="https://github.com/radishzzz/astro-theme-retypeset" target="_blank" rel="noopener noreferrer">Retypeset</a> </p> </footer> </div> <script type="module">const t=document.getElementById("theme-toggle"),n=()=>{const e=document.documentElement.classList.contains("dark");t?.setAttribute("aria-label",e?"切换为浅色":"切换为暗色"),t?.setAttribute("aria-pressed",String(!e)),t&&(t.textContent=e?"浅色":"暗色")};n();t?.addEventListener("click",()=>{document.documentElement.classList.toggle("dark");try{localStorage.setItem("danyow-theme",document.documentElement.classList.contains("dark")?"dark":"light")}catch{}n()});</script> </body></html>
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>正在前往新地址</title><meta name="robots" content="noindex,follow">
+<meta name="legacy-redirect" content="danyow-legacy-redirect-v1"><link rel="canonical" href="https://danyow.cn/blog/2019/python/object/"><noscript><meta http-equiv="refresh" content="0;url=https://danyow.cn/blog/2019/python/object/"></noscript>
+<script>(function(){const target=(function redirectTarget(href) {
+  let current;
+  try { current = new URL(href); } catch { return null; }
+  if (!['http:', 'https:'].includes(current.protocol) ||
+      !['danyow.cn', 'danyow.github.io'].includes(current.hostname)) return null;
+  const prefix = '/danyow';
+  let pathname = current.pathname;
+  if (pathname !== prefix && !pathname.startsWith(prefix + '/')) return null;
+  // This is a retired namespace, including accidentally duplicated old prefixes.
+  while (pathname === prefix || pathname.startsWith(prefix + '/')) {
+    pathname = pathname.slice(prefix.length) || '/';
+    pathname = '/' + pathname.replace(/^\/+/, '');
+  }
+  const target = new URL('https://danyow.cn/');
+  target.pathname = pathname; // Fixed origin: never interpret a path as another host.
+  target.search = current.search;
+  target.hash = current.hash;
+  if (target.pathname === prefix || target.pathname.startsWith(prefix + '/')) return null;
+  return target.href;
+})(window.location.href);if(target)window.location.replace(target);})();</script>
+</head><body><p>页面已搬到新地址。<a id="destination" href="https://danyow.cn/blog/2019/python/object/">前往新页面</a></p>
+<script>(function(){const target=(function redirectTarget(href) {
+  let current;
+  try { current = new URL(href); } catch { return null; }
+  if (!['http:', 'https:'].includes(current.protocol) ||
+      !['danyow.cn', 'danyow.github.io'].includes(current.hostname)) return null;
+  const prefix = '/danyow';
+  let pathname = current.pathname;
+  if (pathname !== prefix && !pathname.startsWith(prefix + '/')) return null;
+  // This is a retired namespace, including accidentally duplicated old prefixes.
+  while (pathname === prefix || pathname.startsWith(prefix + '/')) {
+    pathname = pathname.slice(prefix.length) || '/';
+    pathname = '/' + pathname.replace(/^\/+/, '');
+  }
+  const target = new URL('https://danyow.cn/');
+  target.pathname = pathname; // Fixed origin: never interpret a path as another host.
+  target.search = current.search;
+  target.hash = current.hash;
+  if (target.pathname === prefix || target.pathname.startsWith(prefix + '/')) return null;
+  return target.href;
+})(window.location.href);if(target)document.getElementById('destination').href=target;})();</script>
+</body></html>
