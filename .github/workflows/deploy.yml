@@ -1,4 +1,4 @@
-name: Build and deploy
+name: Check root site and publish legacy redirects
 
 on:
   push:
@@ -30,7 +30,7 @@ jobs:
           cache: npm
       - name: Install locked dependencies
         run: npm ci --ignore-scripts --no-audit --no-fund
-      - name: Test archive and content migration
+      - name: Test archive, content migration and redirects
         run: npm test
       - name: Check corrections against previous originals
         env:
@@ -40,13 +40,20 @@ jobs:
             node scripts/build-ai-engine-archive.cjs --check-revisions "$BASE_SHA"
           fi
       - name: Type check
+        env:
+          SITE_BASE_URL: /
         run: npm run check
-      - name: Build static news site and validate links
+      - name: Validate canonical root build without publishing a duplicate site
+        env:
+          SITE_BASE_URL: /
+          SITE_URL: https://danyow.cn
         run: npm run build
+      - name: Generate redirect-only project Pages artifact
+        run: node scripts/build-legacy-redirects.mjs dist .generated/legacy-redirects
       - uses: actions/upload-artifact@v7
         with:
-          name: website-build
-          path: dist
+          name: legacy-redirects
+          path: .generated/legacy-redirects
           include-hidden-files: true
           retention-days: 1
 
@@ -67,14 +74,16 @@ jobs:
           package-manager-cache: false
       - uses: actions/download-artifact@v8
         with:
-          name: website-build
-          path: dist
-      - name: Publish through the existing gh-pages branch
+          name: legacy-redirects
+          path: .generated/legacy-redirects
+      - name: Replace old project site with redirects only
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          publish_dir: .generated/legacy-redirects
+          publish_branch: gh-pages
+          keep_files: false
           user_name: github-actions[bot]
           user_email: 41898282+github-actions[bot]@users.noreply.github.com
-      - name: Verify public pages and report versions
-        run: node scripts/verify-deployment.mjs
+      - name: Verify live old-to-root navigation and fallback
+        run: node scripts/verify-legacy-redirects.mjs
