@@ -3,7 +3,7 @@ name: Check root site and publish legacy redirects
 on:
   push:
     branches: [main]
-    paths-ignore: ['lua/**', 'unity/**']
+    paths-ignore: ['lua/**', 'unity/**', 'README.md', '.github/profile/**', '.github/PROFILE.md', '.github/SITE.md', '.github/workflows/profile.yml']
   pull_request:
     branches: [main]
   workflow_dispatch:

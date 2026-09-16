@@ -1,0 +1,29 @@
+name: Check profile README
+
+on:
+  push:
+    branches: [main]
+    paths: ['README.md', '.github/profile/**', '.github/PROFILE.md', '.github/SITE.md', '.github/workflows/profile.yml']
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  profile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+          package-manager-cache: false
+      - name: Test safe deterministic profile updates
+        run: node --test .github/profile/update.test.mjs
+      - name: Validate identity, marker boundaries and reading cards
+        run: node .github/profile/update.mjs --check
