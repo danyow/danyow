@@ -11,10 +11,14 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: profile-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   profile:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 8
     steps:
       - uses: actions/checkout@v7
         with:
@@ -23,7 +27,29 @@ jobs:
         with:
           node-version: '22'
           package-manager-cache: false
-      - name: Test safe deterministic profile updates
-        run: node --test .github/profile/update.test.mjs
-      - name: Validate identity, marker boundaries and reading cards
-        run: node .github/profile/update.mjs --check
+      - name: Test static profile, safety and asset integrity
+        run: node --test .github/profile/check.test.mjs
+      - name: Validate personal copy and repository-owned presentation assets
+        run: node .github/profile/check.mjs
+      - name: Verify actual public GitHub profile after publication
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        env:
+          EXPECTED_COMMIT: ${{ github.sha }}
+        run: |
+          node --input-type=module <<'NODE'
+          import {checkPublic} from './.github/profile/check.mjs';
+          import {setTimeout as sleep} from 'node:timers/promises';
+          let failure;
+          for (let attempt = 1; attempt <= 9; attempt++) {
+            try {
+              await checkPublic(process.env.EXPECTED_COMMIT);
+              failure = undefined;
+              break;
+            } catch (error) {
+              failure = error;
+              console.log('Waiting for public profile: ' + String(error.message).slice(0, 160));
+              if (attempt < 9) await sleep(10000);
+            }
+          }
+          if (failure) throw failure;
+          NODE

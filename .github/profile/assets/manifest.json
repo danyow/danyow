@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "kind": "static-personal-profile",
+  "files": {
+    "dusk-cover.webp": {
+      "bytes": 24158,
+      "sha256": "f13c86daacba6ac8e5a5d0b7bc4e87d19a09fcadebf1e690298a14cfbbe57502"
+    },
+    "link-github.svg": {
+      "bytes": 557,
+      "sha256": "0c729537499bd0a812f0f2620e6948e9eb34a9a7078fc7ba2f395cc4f4ef0856"
+    },
+    "link-website.svg": {
+      "bytes": 568,
+      "sha256": "0e8e65f82c11d1a3ab3cbb8ae6f3c0435962839563a6269d6b2a2f0f709e3299"
+    },
+    "link-mirror.svg": {
+      "bytes": 529,
+      "sha256": "36f2a93b20a15d658c63064f8935aa15939d0593f82692128ebcf124707da0ca"
+    }
+  }
+}
