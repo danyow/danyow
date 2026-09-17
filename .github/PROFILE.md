@@ -1,70 +1,45 @@
-# 个人主页 README 维护
+# GitHub 个人主页：暮色与留白
 
-根 `README.md` 同时显示在 `github.com/danyow` 和源码仓库首页。它首先是个人介绍，不是网站部署手册。网站说明保存在 [SITE.md](SITE.md)。
+根 `README.md` 是 `github.com/danyow` 的个人介绍，不是网站首页、研究日报目录或任务面板。网站开发说明仍保存在 [SITE.md](SITE.md)。
 
-## 版式与边界
+## 已确认的设计
 
-采用 GitHub 原生 Markdown 与受支持的 HTML：居中姓名、原有座右铭、主站与备用站导航、两个阅读卡片、笔记与收藏入口、折叠维护说明。无第三方动态图卡、访客追踪、外部字体、技能排名、虚构履历或私有贡献统计。适应 GitHub 自身深浅主题，不依赖远端图片服务。
+2026-09-17 按用户最终选定的概念落地：深靛、低饱和紫粉的群山湖畔暮色；原有白色剪影头像；主要内容居中；充足留白；不展示新闻卡片、统计墙或示例项目。网站只作为少量个人链接之一。
 
-唯一自动写入区间是根 README 的 `<!-- PROFILE:RECENT:START -->` 与 `<!-- PROFILE:RECENT:END -->` 之间。区间外逐字保留。每个栏目最多两篇，显示真实日期及原摘要摘录，附主站和 Vercel 备用阅读链接。内容日期不是检查日期；无新内容不制造提交，不为绿格刷提交。
+封面来自用户在本次对话中明确选定的独立底图，头像部分取自用户选定的概念图。不继续生成另一套画风，也不替换 GitHub 账号头像。中文座右铭完整保留，不使用概念图中错误的英文译句或名人署名；未确认公开的 Email 按钮不发布，改用已有的 Vercel 备用入口。
 
-自动维护不改姓名、座右铭、身份、个人简介、固定链接、布局、权限、工作流、网站源码、日报原稿或发布请求。需要改变这些项目时由用户确认。公开主页不读取邮件、私有仓库、私人日历或聊天记录来生成动态。
+## GitHub 上的实际实现
 
-## 单一每日任务
+GitHub README 会清理内联 CSS 和脚本，不能把整个账号页面变成概念图里的独立网页。因此：
 
-每日维护由用户授权的 ChatGPT 任务“GitHub 主页每日维护”负责，安排在 UTC+8 中午前后，避开上午日报开始时间。GitHub 中只运行测试与结构检查，不再安排第二份定时写入任务。任务是否已启用以 ChatGPT 的实际任务状态为准，不以本文件为证明。
+- 风景和头像叠放合成为仓库内的 `profile/assets/dusk-cover.webp`，无需依赖 CSS 定位；保留的压缩图为 1120 × 418。
+- 姓名、关注方向、座右铭和一句个人文案使用居中的原生 HTML 文本，保持可选择、可复制和移动端可读，不把整页内容做成一张截图。
+- 三个小型 SVG 导航图片分别包在真实的 GitHub、个人网站和 Vercel 链接中。每个图片都有替代文本；SVG 不加载外部图片、字体或脚本。
+- 图像随容器缩放，窄屏时链接可自然换行。深色封面本身保留暗色；正文跟随 GitHub 用户选定的主题，不强制改变账号或浏览器主题。
+- GitHub 自带的左栏、关注信息、仓库标签和个人资料设置未修改。
 
-每次任务先读取最新 README 与 blob SHA、当前维护脚本，然后读取发布仓库 `danyow/danyow.github.io` 的 `gh-pages` 提交 SHA。使用这个完整 SHA 读取两个栏目的 `index/recent.json`，不从尚未发布的源码稿件生成链接。检查最新报告对应的发布回执和日期页面；直接网络受限时可用相同发布提交的成功部署记录与产物交叉确认，明确区分页面实时访问和发布记录。
+参考：[GitHub Markup 清理规则](https://github.com/github/markup#github-markup) · [官方 README 格式说明](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github)。
 
-生成器会拒绝空索引、日期异常、路径注入、旧索引回退、修订回退、未升修订的哈希变化、标记丢失或重复。出现异常保留原 README，报告原因，不填造成功或清空卡片。
+## 移除旧的日报维护逻辑
 
-### 在线运行
+旧的 `PROFILE:RECENT` 区块、日报链接和摘要均已从 README 移除。此前的 `profile/update.mjs` 与测试同时删除，避免只改页面但留下旧写入器。此前用于每日回填日报的 ChatGPT 维护任务已停用；本次不恢复它、不新建定时写入任务。原有两项研究日报任务不受本次改动影响。
 
-在仓库根目录、Node 22 环境中：
+当前维护是**只读校验**，不会写 README、拉取文章索引、生成自我介绍、刷更新时间或修改发布请求。需要新增个人经历、联系方式、技能、作品或统计数据时，由用户明确确认，不从私有资料推断并公开。
 
-```sh
-node --test .github/profile/update.test.mjs
-node .github/profile/update.mjs --check
-node .github/profile/update.mjs --write
-```
+## 检查
 
-在线模式只匿名读取公开发布仓库，不需要新增 Token 或外部服务。
-
-### 连接器读取后离线生成
-
-如果工作容器没有外网，先通过已授权 GitHub 连接器读取上述公开文件，再将原始 JSON 返回值保存为下列输入结构。不要把此临时快照提交入库。
-
-```json
-{
-  "schema": 1,
-  "repository": "danyow/danyow.github.io",
-  "ref": "实际读取到的完整gh-pages提交SHA",
-  "channels": {
-    "ai-engine-watch": {"schema": 1, "reports": []},
-    "voice-agent-watch": {"schema": 1, "reports": []}
-  }
-}
-```
-
-这里的空数组只是结构示例，实际必须替换成已读取的完整公开索引；示例本身会被拒绝。然后运行：
+在仓库根目录、Node.js 22 环境执行：
 
 ```sh
-node .github/profile/update.mjs --input /tmp/published-profile.json --readme README.md --write
-node .github/profile/update.mjs --check
+node --test .github/profile/check.test.mjs
+node .github/profile/check.mjs
+node .github/profile/check.mjs --public FULL_COMMIT_SHA
 ```
 
-确认仅标记区间发生变化；用最新 blob SHA 条件更新根 README。冲突时重新读取并重新生成，不强推、不覆盖手工修改、不绕过分支保护。没有变化则不写。没有可用的工具或执行权限时报告受阻，不能把建议或本地文件说成已经发布。
+本地检查覆盖静态布局契约、原文保留、禁止日报回填、图片来源与校验和、SVG 安全性和公开链接范围。`--public` 匿名读取指定提交的 README 和图片，验证真实 GitHub 个人页已呈现封面及文案；无法请求或版本未更新时失败，不把缓存或本地预览当作成功证据。
 
-README 单独更新已经从网站 push 构建触发范围排除；不会为刷新主页而更新 `deployment/source.json`、重发日报或重部署两个网站。PR 仍保留完整网站回归检查。
+`Check profile README` 在相关修改和 PR 上运行；main 更新后增加一次真实公开页检查。没有 cron、写入权限或额外密钥。README 和 `.github/profile/**` 单独变化仍不会触发网站 push 部署，PR 保留完整网站回归构建。已有站点原稿、域名、站点发布程序及依赖保持不变。
 
-## 参考方案与取舍
+## 资源维护
 
-本次调研日期：2026-09-16。只借鉴布局与维护方法，没有复制其他人的简介或成就。
-
-- [GitHub 官方 Profile README](https://docs.github.com/en/account-and-profile/how-tos/profile-customization/managing-your-profile-readme)：同名公开仓库根 README 的用途。
-- [Awesome GitHub Profile README](https://github.com/abhisheknaiidu/awesome-github-profile-readme)：参考 Minimalistic / Descriptive / GitHub Actions 类别，采用清晰介绍与少量重点入口。
-- [Blog Post Workflow](https://github.com/gautamkrishnar/blog-post-workflow)：参考标记区间更新的维护方式。本站已有更准确的发布索引，所以不再引入 RSS 解析 Action。
-- [lowlighter/metrics](https://github.com/lowlighter/metrics)：适合需要 GitHub 数据图卡的主页；本次不增加额外插件、凭据与数据墙。
-- [GitHub Readme Stats](https://github.com/anuraghazra/github-readme-stats)：调研时原仓库已提示不再维护并提示公共实例可靠性问题；不恢复旧 README 的公共动态图卡。将来若增加统计，优先生成保存在仓库内的静态结果，仅用公开数据。
-
-上述项目的维护状态以其官方仓库为准。不要为了追逐模板每天重做版式。
+资源出处与尺寸见 [assets/README.md](profile/assets/README.md)。`assets/manifest.json` 保存实际字节数及 SHA-256；只在主动更换资源后更新，不按日生成。替换图片前先检查桌面与手机预览，并在通过测试后合并。历史设计和旧维护器仍可通过 Git 历史查看，无需在当前主页保留它们。
