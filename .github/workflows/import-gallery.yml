@@ -1,0 +1,31 @@
+name: Import approved gallery binaries
+on:
+  push:
+    branches: [art/gallery-and-cover-rotation]
+    paths: ['.github/gallery/imports/**', '.github/gallery/import.json', '.github/gallery/import-art.mjs', '.github/workflows/import-gallery.yml']
+permissions:
+  contents: write
+concurrency:
+  group: gallery-binary-import
+  cancel-in-progress: false
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: art/gallery-and-cover-rotation
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+          package-manager-cache: false
+      - name: Validate every transport part and reconstruct binary assets
+        run: node .github/gallery/import-art.mjs
+      - name: Commit only reconstructed gallery images and transport cleanup
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- static/gallery/images/history .github/gallery/imports .github/gallery/import.json
+          git commit -m 'art: materialize verified historical gallery previews'
+          git push origin HEAD:art/gallery-and-cover-rotation
