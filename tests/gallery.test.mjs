@@ -1,0 +1,15 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import {check,validateCatalog,webpDimensions,validDate} from '../.github/gallery/check.mjs';
+const fixture=()=>JSON.parse(fs.readFileSync(new URL('../gallery/catalog.json',import.meta.url),'utf8'));
+test('all gallery metadata and actual binary assets agree',()=>assert(check().images>=9));
+test('historical artwork is not assigned a fabricated generation date',()=>{for(const e of fixture().entries.filter(e=>e.image.path.includes('/history/')))assert.equal(e.created_on,null)});
+test('no unknown or private metadata enters the public catalog',()=>{const c=fixture();c.entries[0].library_file_id='private';assert.throws(()=>validateCatalog(c))});
+test('duplicate artwork and IDs are rejected',()=>{const c=fixture();c.entries.push(structuredClone(c.entries[0]));assert.throws(()=>validateCatalog(c))});
+test('empty or invalid catalogs fail closed',()=>{for(const c of [{}, {schema:1,collection:'danyow-image-archive',entries:[]}])assert.throws(()=>validateCatalog(c))});
+test('unsafe image paths, dimensions and categories fail',()=>{for(const patch of [{path:'../private.webp'},{path:'https://example.com/image.webp'},{width:-1},{bytes:500001},{sha256:'fake'}]){const c=fixture();Object.assign(c.entries[0].image,patch);assert.throws(()=>validateCatalog(c))}});
+test('HTML and invalid chronology are rejected',()=>{for(const patch of [{title:'<script>'},{created_on:'2099-01-01'},{category:'photo'}]){const c=fixture();Object.assign(c.entries[0],patch);assert.throws(()=>validateCatalog(c))}});
+test('date validation catches impossible calendar values',()=>{for(const d of ['2026-02-30','2026-13-01','yesterday'])assert.throws(()=>validDate(d));validDate('2024-02-29')});
+test('all published images are honestly labelled optimized previews',()=>{for(const e of fixture().entries)assert.equal(e.image.representation,'optimized-preview')});
+test('truncated or non-WebP bytes fail',()=>{for(const b of [Buffer.alloc(0),Buffer.alloc(35)])assert.throws(()=>webpDimensions(b));const e=fixture().entries[0];const b=fs.readFileSync(new URL('../static/'+e.image.path,import.meta.url));assert.throws(()=>webpDimensions(b.subarray(0,b.length-1)))});

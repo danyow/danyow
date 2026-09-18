@@ -1,0 +1,44 @@
+name: Check gallery and public collection
+on:
+  push:
+    branches: [main]
+    paths: ['gallery/**', 'static/gallery/**', 'src/pages/gallery/**', '.github/gallery/**', '.github/workflows/gallery.yml']
+  pull_request:
+    branches: [main]
+    paths: ['gallery/**', 'static/gallery/**', 'src/pages/gallery/**', '.github/gallery/**', '.github/workflows/gallery.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: gallery-check-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+          package-manager-cache: false
+      - run: node --test tests/gallery.test.mjs
+      - name: Verify public gallery on both independent hosts after publication
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        run: |
+          node --input-type=module <<'NODE'
+          import {verify} from './.github/gallery/verify.mjs';
+          import {setTimeout as sleep} from 'node:timers/promises';
+          let error;
+          const deadline=Date.now()+10*60*1000;
+          while(Date.now()<deadline){
+            try{
+              await verify('https://danyow.cn');
+              await verify('https://danyow.vercel.app');
+              error=undefined;break;
+            }catch(e){error=e;console.log('Waiting for gallery publication: '+e.message.slice(0,160));await sleep(20000)}
+          }
+          if(error)throw error;
+          NODE

@@ -12,8 +12,15 @@ export const ASSETS = ['dusk-cover.webp', 'link-github.svg', 'link-website.svg',
 const PREFIX = '.github/profile/assets/';
 const digest = bytes => createHash('sha256').update(bytes).digest('hex');
 
+export function validateCoverVersion(readme, manifest) {
+  const version=readme.match(/src="\.github\/profile\/assets\/dusk-cover\.webp\?v=([a-f0-9]{16})"/)?.[1];
+  if(version) assert(version===manifest.files['dusk-cover.webp'].sha256.slice(0,16),'COVER_VERSION_MISMATCH');
+}
+
 export function validateReadme(readme) {
   assert(typeof readme === 'string' && Buffer.byteLength(readme) < 4000, 'PROFILE_MUST_STAY_COMPACT');
+  // Only the current cover may carry a content-derived cache version.
+  readme=readme.replace(/(src="\.github\/profile\/assets\/dusk-cover\.webp)\?v=[a-f0-9]{16}(")/g,'$1$2');
   const html = readme.replace(/<!--[\s\S]*?-->/g, '');
   assert((html.match(/<h1\b/g) || []).length === 1 && html.includes('<h1 align="center">danyow</h1>'), 'PROFILE_NAME');
   assert(html.includes(MOTTO) && html.includes('在值得的事上，慢慢变好。'), 'PERSONAL_COPY');
@@ -74,6 +81,7 @@ export function check(root = ROOT) {
   const readme = fs.readFileSync(path.join(root, 'README.md'), 'utf8');
   validateReadme(readme);
   const manifest = JSON.parse(fs.readFileSync(path.join(root, PREFIX, 'manifest.json'), 'utf8'));
+  validateCoverVersion(readme,manifest);
   const result = validateAssets(name => fs.readFileSync(path.join(root, PREFIX, name)), manifest);
   for (const old of ['update.mjs', 'update.test.mjs']) {
     assert(!fs.existsSync(path.join(root, '.github/profile', old)), 'LEGACY_FEED_WRITER_MUST_BE_REMOVED');
@@ -96,6 +104,7 @@ export async function checkPublic(sha, fetcher = fetch) {
   const readme = (await get(base + 'README.md')).toString('utf8');
   validateReadme(readme);
   const manifest = JSON.parse((await get(base + PREFIX + 'manifest.json')).toString('utf8'));
+  validateCoverVersion(readme,manifest);
   const files = new Map();
   for (const name of ASSETS) files.set(name, await get(base + PREFIX + name));
   validateAssets(name => files.get(name), manifest);

@@ -1,0 +1,10 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import {validateReadme,validateCoverVersion} from '../.github/profile/check.mjs';
+const readme=fs.readFileSync(new URL('../README.md',import.meta.url),'utf8');
+const base=readme.replace(/dusk-cover\.webp(?:\?v=[a-f0-9]{16})?/g,'dusk-cover.webp');
+const versioned=base.replace('dusk-cover.webp','dusk-cover.webp?v='+'a'.repeat(16));
+test('only the cover accepts a valid content-derived version',()=>{assert(validateReadme(versioned));assert.throws(()=>validateReadme(base.replace('link-github.svg','link-github.svg?v='+'a'.repeat(16))))});
+test('version must match actual image hash',()=>{validateCoverVersion(versioned,{files:{'dusk-cover.webp':{sha256:'a'.repeat(64)}}});assert.throws(()=>validateCoverVersion(versioned,{files:{'dusk-cover.webp':{sha256:'b'.repeat(64)}}}))});
+test('arbitrary URL suffixes are not allowed',()=>{for(const suffix of ['?url=https://other.example/','?v=20260918','?v=aaaaaaaaaaaaaaaa&tracking=1'])assert.throws(()=>validateReadme(base.replace('dusk-cover.webp','dusk-cover.webp'+suffix)))});
