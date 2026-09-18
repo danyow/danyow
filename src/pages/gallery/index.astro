@@ -1,0 +1,51 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import {base} from '@/config'
+import catalog from '../../../gallery/catalog.json'
+import {check} from '../../../.github/gallery/check.mjs'
+check(process.cwd())
+const sorted = [...catalog.entries].sort((a,b)=>(b.created_on || '').localeCompare(a.created_on || '') || a.order-b.order)
+const groups = [
+  {kind:'background',title:'山水与暮光',description:'留一点光，也留一点安静。'},
+  {kind:'avatar',title:'头像探索',description:'一些还未成为头像的想象。'},
+]
+const concepts = sorted.filter(e=>e.category==='concept')
+const when = (entry:typeof sorted[number]) => entry.created_on ? `生成于 ${entry.created_on}` : `历史作品 · ${entry.archived_on} 归档`
+---
+<Layout postTitle="图集" postDescription="Danyow 的 AI 生成图像收藏：暮色山水、头像探索与主页设计过程。">
+  <header class="gallery-intro">
+    <p class="eyebrow">DANYOW / IMAGE COLLECTION</p>
+    <h1>图集</h1>
+    <p>留住光景，也留住尝试。</p>
+    <p class="gallery-note">这里收集 AI 生成的风景、头像与设计探索。图片展示为网页优化浏览版，不是无损原图。</p>
+    <p class="gallery-count">{sorted.length} 幅已收录作品</p>
+  </header>
+  {groups.map(group=>{
+    const entries=sorted.filter(e=>e.category===group.kind)
+    return entries.length>0 && <section class="gallery-section" aria-label={group.title}>
+      <h2>{group.title}</h2><p class="section-description">{group.description}</p>
+      <div class:list={['gallery-grid',{'landscapes':group.kind==='background'}]}>
+        {entries.map(entry=><figure id={entry.id}>
+          <a href={base+'/'+entry.image.path} aria-label={'查看 '+entry.title+' 的浏览版'}>
+            <img src={base+'/'+entry.image.path} width={entry.image.width} height={entry.image.height} loading="lazy" decoding="async" alt={entry.caption} />
+          </a>
+          <figcaption><h3>{entry.title}</h3><p>{entry.caption}</p><small>{when(entry)} · AI 生成</small></figcaption>
+        </figure>)}
+      </div>
+    </section>
+  })}
+  {concepts.length>0 && <details class="design-archive">
+    <summary>设计过程 <span>· {concepts.length} 幅概念探索</span></summary>
+    <p class="gallery-note">以下为生成式设计示意，不是实际网页截图。图中项目、统计、身份、链接与引文可能是占位或错误内容，不代表本人的经历、作品或观点，也不作为引文来源。</p>
+    <div class="gallery-grid">
+      {concepts.map(entry=><figure id={entry.id}>
+        <a href={base+'/'+entry.image.path} aria-label={'查看 '+entry.title+' 的浏览版'}><img src={base+'/'+entry.image.path} width={entry.image.width} height={entry.image.height} loading="lazy" decoding="async" alt={entry.caption} /></a>
+        <figcaption><h3>{entry.title}</h3><p>{entry.caption}</p><small>{when(entry)} · 设计示意</small></figcaption>
+      </figure>)}
+    </div>
+  </details>}
+  <footer class="gallery-footer"><p>历史作品的具体生成日期未完整记录，因此只标归档日期。原始 PNG 另行保存；此处链接只打开对应浏览版。</p><a href={base+'/gallery/catalog.json'}>查看公开作品目录</a></footer>
+</Layout>
+<style>
+.gallery-intro{text-align:center;margin:1.25rem 0 3.5rem}.eyebrow{font-size:.68rem;letter-spacing:.23em;opacity:.65}.gallery-intro h1{font-size:2rem;margin:.6rem 0}.gallery-note{font-size:.83rem;line-height:1.9;opacity:.72;max-width:34rem;margin:1rem auto}.gallery-count{font-size:.75rem;opacity:.55;margin-top:1.25rem}.gallery-section{margin:0 0 3rem}.gallery-section h2{font-size:1.2rem;margin-bottom:.35rem}.section-description{font-size:.87rem;opacity:.65;margin-bottom:1.5rem}.gallery-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2rem 1.4rem}.gallery-grid.landscapes{grid-template-columns:minmax(0,1fr)}figure{margin:0;min-width:0}figure a{display:block;border-radius:.65rem;overflow:hidden}figure a:focus-visible{outline:2px solid currentColor;outline-offset:4px}figure img{display:block;width:100%;height:auto;background:#101725}figcaption{margin-top:.8rem}figcaption h3{font-size:.92rem;line-height:1.6;margin:0 0 .2rem}figcaption p{font-size:.79rem;line-height:1.8;opacity:.73;margin:0 0 .3rem}figcaption small{font-size:.68rem;opacity:.58}.design-archive{border-top:1px solid #8884;padding-top:1.3rem;margin-top:2.5rem}.design-archive summary{cursor:pointer;font-size:.94rem}.design-archive summary span{opacity:.6;font-size:.8rem}.design-archive .gallery-grid{margin-top:1.5rem}.gallery-footer{border-top:1px solid #8884;margin-top:3rem;padding-top:1.1rem;font-size:.73rem;line-height:1.9;opacity:.66}.gallery-footer a{text-decoration:underline}@media(max-width:480px){.gallery-grid{grid-template-columns:minmax(0,1fr)}.gallery-intro{margin-bottom:2.5rem}}
+</style>
