@@ -1,0 +1,107 @@
+name: Verify and receive gallery file uploads
+
+on:
+  push:
+    branches: [main, 'gallery-upload/**']
+    paths: ['.github/gallery/publish.py', '.github/gallery/package_upload.py', '.github/gallery/receive_upload.py', '.github/gallery/test_publish.py', '.github/gallery/test_transport.py', '.github/gallery/incoming.json', '.github/workflows/gallery-transport.yml']
+  pull_request:
+    branches: [main]
+    paths: ['.github/gallery/publish.py', '.github/gallery/package_upload.py', '.github/gallery/receive_upload.py', '.github/gallery/test_publish.py', '.github/gallery/test_transport.py', '.github/workflows/gallery-transport.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    if: "!startsWith(github.ref, 'refs/heads/gallery-upload/')"
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Test exact bytes, untrusted packets and atomic updates
+        run: python -m unittest discover -s .github/gallery -p 'test_*.py' -v
+      - name: Export committed public source for local preparation
+        run: git archive --format=zip HEAD -o "$RUNNER_TEMP/gallery-source.zip"
+      - uses: actions/upload-artifact@v7
+        with:
+          name: gallery-source-snapshot
+          path: ${{ runner.temp }}/gallery-source.zip
+          retention-days: 3
+
+  live-transport-probe:
+    needs: test
+    if: github.repository == 'danyow/danyow' && github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Upload and read back full-size binary fixtures, without changing a branch
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          python .github/gallery/publish.py --probe > "$RUNNER_TEMP/transport-probe.json"
+          cat "$RUNNER_TEMP/transport-probe.json"
+      - uses: actions/upload-artifact@v7
+        with:
+          name: gallery-transport-probe
+          path: ${{ runner.temp }}/transport-probe.json
+          retention-days: 7
+
+  receive:
+    if: github.repository == 'danyow/danyow' && github.event_name == 'push' && !github.event.deleted && startsWith(github.ref, 'refs/heads/gallery-upload/')
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    concurrency:
+      group: gallery-file-publication
+      cancel-in-progress: false
+    permissions:
+      contents: write
+    steps:
+      # Never execute scripts from the upload/request branch.
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+          persist-credentials: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+          package-manager-cache: false
+      - name: Receive, verify and atomically publish six allowed files
+        id: receive
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          REQUEST_SHA: ${{ github.sha }}
+          REQUEST_BRANCH: ${{ github.ref_name }}
+        run: python .github/gallery/receive_upload.py --request-sha "$REQUEST_SHA" --branch "$REQUEST_BRANCH" --receipt "$RUNNER_TEMP/gallery-upload-receipt.json"
+      - name: Verify public GitHub profile after publication
+        env:
+          SOURCE_COMMIT: ${{ steps.receive.outputs.source_commit }}
+        run: |
+          for attempt in 1 2 3 4 5; do
+            if node .github/profile/check.mjs --public "$SOURCE_COMMIT"; then exit 0; fi
+            if [ "$attempt" -lt 5 ]; then sleep 15; fi
+          done
+          exit 1
+      - name: Export the published public source snapshot
+        if: steps.receive.outputs.source_commit != ''
+        env:
+          SOURCE_COMMIT: ${{ steps.receive.outputs.source_commit }}
+        run: |
+          git fetch --depth=1 origin "$SOURCE_COMMIT"
+          git archive --format=zip "$SOURCE_COMMIT" -o "$RUNNER_TEMP/gallery-source.zip"
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: gallery-upload-result
+          path: |
+            ${{ runner.temp }}/gallery-upload-receipt.json
+            ${{ runner.temp }}/gallery-source.zip
+          if-no-files-found: error
+          retention-days: 7
